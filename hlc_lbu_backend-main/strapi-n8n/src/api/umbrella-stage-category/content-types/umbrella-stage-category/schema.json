@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "umbrella_stage_categories",
+  "info": {
+    "singularName": "umbrella-stage-category",
+    "pluralName": "umbrella-stage-categories",
+    "displayName": "Umbrella-Stage-Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "text"
+    },
+    "umbrella_stages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::umbrella-stage.umbrella-stage"
+    }
+  }
+}

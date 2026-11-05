@@ -1,0 +1,524 @@
+{
+  "name": "Project Definition (Product Description)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "1c1f36bc-8251-4a62-b432-7d543f2ea669",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1440,
+        -460
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $('Strapi1').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "0e4a59d1-92ce-462b-a7e1-8f9669fbb69d",
+              "name": "brand_name",
+              "value": "={{ $('Webhook').item.json.body.brand_name }}",
+              "type": "string"
+            },
+            {
+              "id": "9bec13a0-32c4-4bb9-9403-ac765c60e14b",
+              "name": "product_name",
+              "value": "={{ $('Webhook').item.json.body.product_name }}",
+              "type": "string"
+            },
+            {
+              "id": "818cbd54-4c7d-42c2-b15e-37f02593b666",
+              "name": "product_url",
+              "value": "={{ $('Webhook').item.json.body.product_url }}",
+              "type": "string"
+            },
+            {
+              "id": "984314a3-17a1-4f8f-98d5-3b598c43aaf5",
+              "name": "faq_product_url",
+              "value": "={{ $('Webhook').item.json.body.faq_product_url }}",
+              "type": "string"
+            },
+            {
+              "id": "a552b66a-429a-4d2f-b6b9-317c1c8e4846",
+              "name": "product_site_info",
+              "value": "={{ $json.data.markdown }}",
+              "type": "string"
+            },
+            {
+              "id": "d48dab4c-4bec-437f-9746-6a572532cfbc",
+              "name": "data",
+              "value": "={{ $json.data }}",
+              "type": "object"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a986e45f-cae0-4b68-af6c-e369e1c78064",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1440,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "0a59d77d-9e1d-4087-b6e4-582bbae38c83",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -1860,
+        -280
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "0ee54abb-e7e7-4d32-aeae-f0dcfc4b97d2",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -2100,
+        -260
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\n# for item in _input.all():\n# \titem.json.myNewField = 1\n\nopenai_result = _input.all()[0].json.message.content\n\nreturn { 'result' :  openai_result }"
+      },
+      "id": "93ee55ba-6ab2-4724-b3fa-4243a2192dbc",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -840,
+        -380
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Savinf Project\" } }",
+        "options": {}
+      },
+      "id": "f4677e8c-543f-4e9d-a717-eb10712947eb",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -180,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"IA01\", \"text\": \"ERROR - Processing in IA LLM Model\" } }",
+        "options": {}
+      },
+      "id": "00a938fe-fc13-4fa5-854b-fba581969d7d",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -840,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "44094d82-5617-47ae-9b3f-4149a53c1fc9",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1900,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "780ece3f-f874-4fad-b94c-90d95ffcd0b8",
+              "name": "product_attributes_generated",
+              "value": "={{ $json.result }}",
+              "type": "object"
+            },
+            {
+              "id": "770ee29a-e1c4-478e-a055-16a1b432c767",
+              "name": "project_id",
+              "value": "={{ $('Edit Fields').item.json.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "cc9973f8-f4f6-496d-9161-9dfca449e542",
+              "name": "brand_name",
+              "value": "={{ $('Edit Fields').item.json.brand_name }}",
+              "type": "string"
+            },
+            {
+              "id": "b462f1c5-198d-4f48-b513-a9f43f89bbd1",
+              "name": "product_name",
+              "value": "={{ $('Edit Fields').item.json.product_name }}",
+              "type": "string"
+            },
+            {
+              "id": "754c87e4-b132-497e-bab2-ae078cc3e148",
+              "name": "product_url",
+              "value": "={{ $('Edit Fields').item.json.product_url }}",
+              "type": "string"
+            },
+            {
+              "id": "338ec119-837c-4b5a-a8f3-1145dc69df52",
+              "name": "faq_product_url",
+              "value": "={{ $('Edit Fields').item.json.faq_product_url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6fa5a47d-ad08-4967-a584-e268a219b9f6",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -620,
+        -380
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=brand_name,product_name,product_url,faq_product_url,product_attributes_generated"
+      },
+      "id": "3a881720-e89c-424b-87b6-e18be5cec5ff",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        -380
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields1').item.json.project_id }},\n       \"product_attributes_generated\" : {{ $('Edit Fields1').item.json.product_attributes_generated.toJsonString() }}\n   } \n}",
+        "options": {}
+      },
+      "id": "8c89c645-dfdd-491d-aabd-2a4096911fcd",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -180,
+        -620
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n   \"url\": \"{{ $('Webhook').item.json.body.product_url }}\",\n   \"formats\": [ \"markdown\" ]\n}",
+        "options": {}
+      },
+      "id": "aed49fcc-cbef-431e-834a-cae86a250df8",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1640,
+        -180
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "RGVRLvUXhBFV5X66",
+          "name": "Header Auth account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project/product/description",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "f9079302-4e82-46b8-91ba-30a773cb93bd",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2340,
+        -260
+      ],
+      "webhookId": "20343802-492b-4610-82fd-48124356e954"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Research online the product page provided this data in Markdown Format using a scraping process.\n\nPRODUCT INFO IN MARKDOWN FORMAT\n\n\"\n{{ $json.product_site_info }}\n\"\n\n. If scraping fails, search online using keywords like \"ProductName FAQ\", \"ProductName Features\" and \"ProductName Benefits\". Return a JSON File with at least 5 items in each category: Value Proposition, Brand Name, Product Name, Pricing, Discounts and Promotions, Benefits, and Features. Do not create information that is not on the page. The value proposition and all results should be less than 10 words. If the info doesn't exists, generate a message: \"No Info on the page\""
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "id": "2531500f-b0dd-4644-95a1-19784d6d13bf",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -1220,
+        -120
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ab583ed9-8783-41a2-a40d-4bb024f2dde9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "9ObNWOYjpaYf89XG",
+  "tags": [
+    {
+      "createdAt": "2024-10-05T08:51:39.429Z",
+      "updatedAt": "2024-10-05T08:51:39.429Z",
+      "id": "atsmNU4M0NmQmDMu",
+      "name": "Fase 1"
+    }
+  ]
+}

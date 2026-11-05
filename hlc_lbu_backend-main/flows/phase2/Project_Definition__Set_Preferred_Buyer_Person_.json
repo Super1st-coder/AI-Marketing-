@@ -1,0 +1,509 @@
+{
+  "name": "Project Definition (Set Preferred Buyer Person)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "7c374775-a2cf-4761-99a1-a898080c4e35",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2980,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "57c00505-f474-4d23-9083-0e79e98e32c5",
+              "name": "buyer_person_id",
+              "value": "={{ $('Webhook').item.json.body.buyer_person_id  }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "341621f7-f7e7-427e-86bf-e0e06ed2a90e",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -2960,
+        -940
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "38567c50-99ca-4d85-91da-077185c4a35a",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -3160,
+        -1100
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "ea074be8-fed2-4ac6-9e59-af5da270d78e",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3400,
+        -1080
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "ed41d0e5-2123-45d9-9490-622e76030d77",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1640,
+        -1300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "a081c87b-50a5-4e09-9942-522b692df216",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3280,
+        -760
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "c7d657d5-31e2-443f-b694-36f750b39eab",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -2720,
+        -940
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=buyer_persons,preferred_buyer_person"
+      },
+      "id": "827081b3-6a7c-47fe-bf28-3d070d72d4ce",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -1860,
+        -1440
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"buyer_person_id\" : {{ $('Webhook').item.json.body.buyer_person_id }},\n       \"preferred_buyer_person\" : {{ $json.attributes.preferred_buyer_person.toJsonString() }}\n} \n}",
+        "options": {}
+      },
+      "id": "84023625-5fc6-46c8-9a7f-377e941a64cc",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1620,
+        -1660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac355ca2-7aaf-472a-aa9d-72635c0d3a8f",
+              "name": "buyer_persons",
+              "value": "={{ $json.buyer_persons }}",
+              "type": "array"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $('Edit Fields').item.json.project_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f67524c7-02a0-4aa5-911b-2ff6846dd22b",
+              "name": "preferred_buyer_person",
+              "value": "={{ $json.preferred_buyer_person }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ca53f2b6-3729-4c9d-ae9d-7a05b9604f6f",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2080,
+        -1440
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "65a991f9-ac45-4c58-917a-eb02033ab373",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2480,
+        -720
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "08f23d42-c8b4-4716-8a4a-546240da918b",
+              "leftValue": "={{ $('Edit Fields').item.json.buyer_person_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": "=",
+        "options": {}
+      },
+      "id": "3c59a756-3455-4a40-ac38-5773d050f3db",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2520,
+        -1220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nbuyer_persons = _input.all()[0].json.attributes.buyer_persons\n\ndesired_preferred = _('Edit Fields').all()[0].json.buyer_person_id\npreferred_buyer_person = {}\nfor b in buyer_persons:\n  if b['Buyer_Persona'].id == int(desired_preferred):\n    b['Buyer_Persona'].preferred = 1\n    preferred_buyer_person = b\n  b['Buyer_Persona'].preferred = 0\n\n\nreturn { 'buyer_persons' : buyer_persons, 'preferred_buyer_person': preferred_buyer_person }"
+      },
+      "id": "27b93923-26f1-4f15-8c61-eddb5159f031",
+      "name": "Code2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2300,
+        -1440
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "6f850fa2-1750-4924-9dae-7344de33892f",
+      "name": "Respond to Webhook5",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2300,
+        -1020
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project/buyer_person/set_preferred",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "7cfc1ee0-2044-4fae-a28d-73d8e99fd487",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3660,
+        -1080
+      ],
+      "webhookId": "e919e772-f0b9-4041-b88d-cc378cf4fe06"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "cc556cc1-b6d1-45ee-8a37-7cfab126fdab",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "JCilcz7HDWNfYJuf",
+  "tags": [
+    {
+      "createdAt": "2024-10-05T08:50:22.061Z",
+      "updatedAt": "2024-10-05T08:51:01.025Z",
+      "id": "Sl1nuKBtwkBLUiIr",
+      "name": "Fase 2"
+    }
+  ]
+}

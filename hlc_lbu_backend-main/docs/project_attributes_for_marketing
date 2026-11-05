@@ -1,0 +1,46 @@
+MARKETING HYPOTHESIS TO TEST 
+* Prediction -> {{ $json.attributes.marketing_hypothesis_analysis.prediction }}
+* Buyer Persona -> {{ $json.attributes.marketing_hypothesis_analysis.buyer_persona }}
+* Elements to Test -> {{ $json.attributes.marketing_hypothesis_analysis.element_to_test }}
+
+COMPLEMENTARY ELEMENTS TO TEST IN HYPOTHESIS 
+* Pricing Levels -> {{ $json.attributes.hypothesis_element_attributes_saved['Pricing Levels'] }}
+* Discount Offers -> {{ $json.attributes.hypothesis_element_attributes_saved['Discount Offers'] }}
+* User Segmentation -> {{ $json.attributes.hypothesis_element_attributes_saved['User Segmentation'] }}
+* Feature Allocation -> {{ $json.attributes.hypothesis_element_attributes_saved['Feature Allocation'] }}
+* Subscription Durations-> {{ $json.attributes.hypothesis_element_attributes_saved['Subscription Durations'] }}
+
+PRODUCT DESCRIPTION
+* Brand Name: {{ $json.attributes.brand_name }}
+* Product Name: {{ $json.attributes.product_name }}
+* Product Attributes:
+    - Pricing -> {{$json.attributes.product_attributes_saved['Pricing']}}
+    - Benefits -> {{$json.attributes.product_attributes_saved['Benefits']}}
+    - Custom Categories -> {{$json.attributes.product_attributes_saved['Custom Category']}}
+    - Features -> {{$json.attributes.product_attributes_saved['Features']}}
+    - Value Proposition -> {{$json.attributes.product_attributes_saved['Value Proposition']}}
+    - Discounts and Promotions -> {{ $json.attributes.product_attributes_generated['Discounts and Promotions'] }}
+
+TARGET CUSTOMER DESCRIPTION
+* Target Customer Attributes
+    - Goals -> {{$json.attributes.target_customer_attributes_saved['Goals']}}
+    - Pain Points -> {{$json.attributes.target_customer_attributes_saved['Pain Points']}}
+    - Preferences -> {{$json.attributes.target_customer_attributes_saved['Preferences']}}
+    - Buyer Profile -> {{$json.attributes.target_customer_attributes_saved['Buyer Profile']}}
+    - Problem to Solve -> {{$json.attributes.target_customer_attributes_saved['Problem to Solve']}}
+
+GOALS 
+* Content Quality -> {{ $json.attributes.goal_attributes_saved['Content Quality'] }}
+* Retention Rates -> {{ $json.attributes.goal_attributes_saved['Retention Rates'] }}
+* User Engagement -> {{ $json.attributes.goal_attributes_saved['User Engagement'] }}
+* Customer Support -> {{ $json.attributes.goal_attributes_saved['Customer Support'] }}
+* Customer Satisfaction -> {{ $json.attributes.goal_attributes_saved['Customer Satisfaction'] }}
+
+COMPETITIVE ADVANTAGES
+* Data Analytics -> {{ $json.attributes.advantages_attributes_saved['Data Analytics'] }}
+* User Experience -> {{ $json.attributes.advantages_attributes_saved['User Experience'] }}
+* Customer Support -> {{ $json.attributes.advantages_attributes_saved['Customer Support'] }}
+* Engagement Tools -> {{ $json.attributes.advantages_attributes_saved['Engagement Tools'] }}
+* Loyalty Programs -> {{ $json.attributes.advantages_attributes_saved['Loyalty Programs'] }}
+
+

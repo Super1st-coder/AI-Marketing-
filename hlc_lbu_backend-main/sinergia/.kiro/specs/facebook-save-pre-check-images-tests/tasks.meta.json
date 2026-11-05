@@ -1,0 +1,540 @@
+{
+  "pbtResults": {
+    "8.4 Escribir la property test opcional para `is_valid_images_amount`": {
+      "status": "passed",
+      "lastRunTimestamp": 1789005425155
+    }
+  },
+  "executionHistory": {
+    "1.1 Crear el módulo de pruebas y los builders de payload frescos": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999812558
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999833690
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999991164
+      }
+    ],
+    "1.2 Implementar la fixture `use_case_factory` y los helpers de aislamiento/aserción": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999812830
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999996633
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789000721879
+      }
+    ],
+    "2.1 Probar atributos propios, defaults y Datos_de_Campaña_Vacíos": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999813168
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789000738279
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789000901940
+      }
+    ],
+    "2.2 Probar el `AttributeError` explícito y el default mutable de la firma": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999813429
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789000907325
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001142016
+      }
+    ],
+    "3.1 Probar la llamada exacta, la identidad, el `DataNotFoundException` y el cortocircuito": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999813731
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001150091
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001322608
+      }
+    ],
+    "4.1 Probar la llamada exacta, la identidad, el mensaje interpolado y el cortocircuito": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999814019
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001331281
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001482583
+      }
+    ],
+    "5.1 Probar la extracción anidada, los defaults por nivel y el orden dentro de `execute()`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999814272
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001497526
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789002071059
+      }
+    ],
+    "6.1 Probar el orden completo y los cuatro escenarios de cortocircuito": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999814530
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789002083452
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789002461115
+      }
+    ],
+    "7. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999814774
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009900963
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009922597
+      }
+    ],
+    "8.1 Probar la invocación, la sobreescritura de `images` y la asignación de `images_valid_amount`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999815002
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789002567899
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789004489250
+      }
+    ],
+    "8.2 Probar la matriz real de límites 0/10/11 de `is_valid_images_amount`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999815279
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789004696567
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789004864531
+      }
+    ],
+    "8.3 Probar `url` ausente sin red, el fallo de red simulado y la continuación hacia persistencia/respuesta": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999815510
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789004875923
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005220547
+      }
+    ],
+    "8.4 Escribir la property test opcional para `is_valid_images_amount`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999815777
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005232321
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005471569
+      }
+    ],
+    "9.1 Probar la no invocación de validadores y la continuación sin error": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999816075
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005484260
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005850175
+      }
+    ],
+    "10.1 Probar la invocación, el no-op verificado y la continuación": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999816471
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005868429
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789006189373
+      }
+    ],
+    "11.1 Probar la ausencia de ambas ramas y la continuación sin mutación": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999816781
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789006213308
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789006546862
+      }
+    ],
+    "12. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999817002
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009941418
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009958740
+      }
+    ],
+    "13.1 Implementar la matriz de 4 niveles del bloque de validación": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999817324
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789006580325
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007129987
+      }
+    ],
+    "14.1 Probar la equivalencia de tipo y mensaje end-to-end": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999817592
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007146177
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007353435
+      }
+    ],
+    "15.1 Probar la llamada exacta, los defaults por nivel y la invocación aislada con `TypeError`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999817804
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007376997
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007775202
+      }
+    ],
+    "16.1 Probar las claves completas, los valores reflejados, los defaults y la unión de `link_urls`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999818066
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007791136
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789008626196
+      }
+    ],
+    "16.2 Probar las invocaciones aisladas que exponen `AttributeError`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999818303
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789008646079
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789008983170
+      }
+    ],
+    "17. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999818513
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009976210
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009993616
+      }
+    ],
+    "18.1 Ejecutar la validación pytest completa y corregir únicamente el código de pruebas": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999818732
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789008999142
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009852267
+      }
+    ],
+    "19. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1788999818972
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789010009938
+      },
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789010040894
+      }
+    ],
+    "1. Preparar builders y arnés local de la suite": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789000722116
+      }
+    ],
+    "2. Probar la construcción del Caso de Uso y el estado heredado": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001142381
+      }
+    ],
+    "3. Probar `_get_ad_channel`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001322967
+      }
+    ],
+    "4. Probar `_get_campaign_setup`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789001482814
+      }
+    ],
+    "5. Probar `_set_channel_id`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789002071417
+      }
+    ],
+    "6. Probar la orquestación de `execute()` y el cortocircuito ante fallos": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789002461469
+      }
+    ],
+    "8. Probar la rama DYNAMIC — validación de imágenes": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005471884
+      }
+    ],
+    "9. Probar la rama DYNAMIC con `asset_feed` ausente, `None` o `{}`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789005850470
+      }
+    ],
+    "10. Probar la rama STANDARD — no-op de validación de imágenes": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789006189655
+      }
+    ],
+    "11. Probar `meta_campaign_mode` desconocido": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789006547231
+      }
+    ],
+    "13. Probar las estructuras `creative`/`ads`/`adCreative` malformadas": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007130296
+      }
+    ],
+    "14. Probar el pass-through del bloque `try/except Exception as e: raise e`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007353712
+      }
+    ],
+    "15. Probar `_save_creative_to_publish`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789007775617
+      }
+    ],
+    "16. Probar `_build_response`": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789008983433
+      }
+    ],
+    "18. Validar colección, aislamiento y repetibilidad de la suite": [
+      {
+        "executionId": "4acdb6c9-3152-411b-9857-077a1883dbaa",
+        "chatSessionId": "sess_fe4ee20c-df21-4e9d-9d97-8ecd130afc02",
+        "timestamp": 1789009852685
+      }
+    ]
+  }
+}

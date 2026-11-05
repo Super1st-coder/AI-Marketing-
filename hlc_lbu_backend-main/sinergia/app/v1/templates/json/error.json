@@ -1,0 +1,7 @@
+{ 
+	"ok" : 0 , 
+	"message" : { 
+		"code" : {{data.code|tojson}},
+		"text" : {{data.text|tojson}}  
+	}
+}

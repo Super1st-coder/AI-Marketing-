@@ -1,0 +1,510 @@
+{
+  "pbtResults": {
+    "1. Capturar el baseline de la condición de bug sobre el código sin arreglar (V1)": {
+      "status": "passed",
+      "failingExample": "Baseline capturado en /tmp/baseline-target.txt: `44 failed, 283 passed, 12 warnings in 18.21s` (283 líneas PASSED + 44 líneas FAILED en el short test summary info).\n\nContraejemplo exhaustivo de isBugCondition (44 nodos, clasificados en /tmp/baseline-target-classification.txt):\n\n- Grupo A — 23 nodos, todos en test_facebook_generate_pre_check_creative.py:\n  `AssertionError: assert 1 == 0` en las líneas 1462, 1612, 1711, 1902, 1965, 2069, 2133, 2186, 2255, 2400 (18 nodos, cláusula 1.1) y 4684, 4842, 4992, 5018, 5917 (5 nodos, cláusula 1.2).\n- Grupo B — 8 nodos (TestStandardCtaValidation x3, TestStandardAnnotationContract x1, TestStandardCombinationSuccessScenarios x4: awareness-reach, leads-conversations, leads-lead-generation, sales-offsite-conversions):\n  `AttributeError: 'str' object has no attribute 'get'` lanzado desde app/v2/use_cases/meta_ads.py:1360.\n- Grupo C — 3 nodos:\n  TestStandardCreativesEntry::test_object_story_spec_completely_absent_uses_every_documented_default → `AssertionError: assert {'ad_id': Non...ies': [], ...} == {'ad_id': 'ad...}` (test línea 4280);\n  TestExecuteStandardAdChannelIdReading::test_build_standard_creative_entry_distinguishes_explicit_none_from_absent_key → `assert 0 == None` [explicit-none] y `assert 0 == 42` [positive-integer] (test línea 6104).\n- Grupo D — 10 nodos (5 en test_facebook_save_pre_check_images.py, 5 en test_facebook_save_pre_check_texts.py):\n  `ValueError: None is not a valid CreativeType` (6 nodos), `ValueError: '' is not a valid CreativeType` (2), `ValueError: 'SOME_OTHER_MODE' is not a valid CreativeType` (2), lanzado desde app/v2/use_cases/meta_ads.py:2493 en `_set_creative_type`, invocado desde `execute()` (meta_ads.py:2674). Composición: 8 nodos de TestUnknownMetaCampaignMode (cláusula 1.7) + 2 nodos test_execute_calls_operations_in_exact_order (cláusula 1.8).\n\ngit status/diff de app/ sin cambios (solo el no rastreado preexistente app/v2/resources/audience.py). Ninguna línea de prueba ni de código productivo fue editada.",
+      "lastRunTimestamp": 1789757982349
+    },
+    "2. Capturar el baseline de preservación de la suite completa y del estado de `app/` (V2)": {
+      "status": "passed",
+      "failingExample": "BASELINE DE OBSERVACIÓN CAPTURADO (no es una verificación de preservación; esa se hace en 8.3).\n\nSuite completa: el comando documentado NO es ejecutable tal cual — se interrumpe con\n`ERROR tests/test_storage_service.py - TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'`\n(tests/test_storage_service.py:63 usa `str | None`, PEP 604, requiere Python >= 3.10; el venv es 3.8).\nArchivo rastreado, introducido en 13d20f1 (HL-2215), ajeno a este bugfix. No se modificó.\n\nBaseline efectivo con --continue-on-collection-errors (/tmp/baseline-full.txt):\n  58 failed, 1638 passed, 12 warnings, 15 errors in 78.15s\n  Recuento por nodo del -rA: PASSED=1638, FAILED=58, ERROR=15, SKIPPED/XFAIL/XPASS=0.\n\nDISCREPANCIA con bugfix.md 3.1 / tasks.md (documentado: 44 failed, 1632 passed):\nlos 44 fallos del bugfix se reproducen EXACTAMENTE (44 FAILED / 283 PASSED en los tres archivos\nobjetivo dentro de la corrida completa, idéntico al baseline focalizado de la tarea 1), pero hay\n14 FAILED + 15 ERROR adicionales de ruido preexistente FUERA de los archivos objetivo, dependiente\ndel entorno local (29 entradas en /tmp/baseline-full-nontarget-noise.txt): SQLAlchemy\n\"Circular dependency detected\" / \"Can't sort tables for DROP\" entre application y coin y rutas v1\ncon E404 en tests/v1/test_todo_resource.py y tests/v1/test_auth_resource.py (9 FAILED + 9 ERROR);\n\"No module named 'app.v2.use_cases.buyer_person.BuyerParsonBaseUseCase'\" (2 ERROR);\nKeyError 'access_token'/'ok' en tests/test_save_complete_images.py (3 ERROR);\n\"execute() takes 2 positional arguments but 3 were given\" en test_campaign_by_meta_use_case.py\n(4 FAILED); tests/v2/integration/test_pin_format_ad_variant_integration.py (1 FAILED);\ny el error de recolección de test_storage_service.py (1 ERROR).\nConsecuencia: el objetivo 2.11 (\"1676 passed\") se relee en este entorno como 1638 + 44 = 1682 passed\nmanteniendo intactas las 29 entradas no objetivo. Insumo de 8.3: el conjunto (nodeid, outcome) de\n/tmp/baseline-full.txt, con los 1638 PASSED aislados en /tmp/baseline-full-passed-nodes.txt.\n\nNodos recolectados de los tres archivos (insumo de V7): 327 (\"327 tests collected in 2.29s\").\n\nEstado de app/ (insumo de V5 / requisito 2.12): `git diff --stat -- app/` VACÍO;\n`git status --porcelain -- app/` con una sola línea, `?? sinergia/app/v2/resources/audience.py`.\n\nDuración de los tres archivos objetivo (insumo de la condición de preservación 3.8):\n21,29 s medidos (`44 failed, 283 passed, 12 warnings in 21.29s`); rango observado 18-22 s en dos\ncorridas. Se usa 21,29 s como referencia de esta máquina, NO los ~74,99 s / ~90 s documentados.",
+      "lastRunTimestamp": 1789758767360
+    }
+  },
+  "executionHistory": {
+    "1. Capturar el baseline de la condición de bug sobre el código sin arreglar (V1)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757579794
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757612059
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789758061435
+      }
+    ],
+    "2. Capturar el baseline de preservación de la suite completa y del estado de `app/` (V2)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757580080
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789758069503
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789758814075
+      }
+    ],
+    "3.1 D1–D2: neutralizar la rama de validación con un modo válido en los dos casos de orden de operaciones": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757580421
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789759297483
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789759538463
+      }
+    ],
+    "3.2 R4: verificar que `TestUnknownMetaCampaignMode` no se referencia desde ningún otro punto": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757580685
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789759545857
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789759750683
+      }
+    ],
+    "3.3 D3–D10: reescribir las 8 pruebas de `TestUnknownMetaCampaignMode` para aseverar el `ValueError`": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757581081
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789759757406
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789760113773
+      }
+    ],
+    "3.4 V3: verificar los dos archivos de `save_pre_check`": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757581310
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789760121535
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789760490675
+      }
+    ],
+    "4.1 Cambiar las 15 aserciones `result[\"ok\"] == 0` a `result[\"ok\"] == 1`": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757581609
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789760499030
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789760749952
+      }
+    ],
+    "4.2 Aplicar los 10 renombrados de casos según la tabla del diseño": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757581937
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789760765627
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789761076009
+      }
+    ],
+    "4.3 Actualizar los tres focos de docstring del Grupo A": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757582214
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789761106100
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789761437752
+      }
+    ],
+    "4.4 V3: verificar el archivo de `generate_pre_check_creative` tras el Grupo A": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757582506
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789761465767
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789762143793
+      }
+    ],
+    "5.1 Definir el helper de módulo `make_standard_cta`": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757582781
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789762175571
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789762409118
+      }
+    ],
+    "5.2 B1–B4: migrar los cuatro sitios de `_validate_standard_cta` / `_validate_standard_creative`": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757583305
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789762432087
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789762717766
+      }
+    ],
+    "5.3 B5–B8: migrar los dos sitios del escenario de éxito completo y añadir la aserción nueva": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757583560
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789762749396
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763018445
+      }
+    ],
+    "5.4 Migrar el sitio acoplado 437 de la estrategia de Hypothesis (mitigación de R1)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757583770
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763046747
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763251084
+      }
+    ],
+    "5.5 V3: verificación intermedia obligatoria antes de pasar al Grupo C": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757584100
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763281266
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763611038
+      }
+    ],
+    "6.1 C1: corregir `test_object_story_spec_completely_absent_uses_every_documented_default` (4245)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757584321
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763645990
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763864418
+      }
+    ],
+    "6.2 C2–C3: corregir `test_build_standard_creative_entry_distinguishes_explicit_none_from_absent_key` (6077)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757584518
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763892887
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789764107242
+      }
+    ],
+    "6.3 Desvacuar el nodo de Property 8 corrigiendo su tercer argumento (decisión de R1)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757584878
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789764142288
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789764451247
+      }
+    ],
+    "6.4 V3: verificar las dos clases completas del Grupo C": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757585166
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789764488850
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789764815011
+      }
+    ],
+    "7. R5: verificar que no quedan referencias residuales a los nombres antiguos": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757585533
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789764856379
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789765351811
+      }
+    ],
+    "8.1 V4 + Property 1: verificar que los 44 nodos desalineados ahora pasan": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757585734
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789765462718
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789766074017
+      }
+    ],
+    "8.2 V5: confirmar que el código productivo quedó intacto": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757586052
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789766080066
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789766269658
+      }
+    ],
+    "8.3 V6 + Property 2: comparación diferencial nodo por nodo contra el baseline": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757586265
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789766277088
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789766932273
+      }
+    ],
+    "8.4 V7: descartar `skipped`/`xfail` encubiertos y pérdida de nodos": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757586577
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789766942495
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789767366286
+      }
+    ],
+    "8.5 V8: revisar el diff de builders y fixtures compartidos": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757587078
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789767380526
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789768515300
+      }
+    ],
+    "8.6 Revisión final de docstrings en el diff": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757587339
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789768528714
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789769265506
+      }
+    ],
+    "9. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789757587659
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789769282371
+      },
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789770255081
+      }
+    ],
+    "3. Grupo D — Conversión estricta de `meta_campaign_mode` (10 nodos, 2 archivos)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789760490945
+      }
+    ],
+    "4. Grupo A — `execute()` devuelve `ok=1` incondicionalmente (23 nodos, 1 archivo)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789762144194
+      }
+    ],
+    "5. Grupo B — Migración del `call_to_action` a la forma anidada (8 nodos + el sitio acoplado 437)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789763611282
+      }
+    ],
+    "6. Grupo C — Corrección del tercer argumento de `_build_standard_creative_entry` (3 nodos + el nodo vacuo 4220)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789764815292
+      }
+    ],
+    "8. Verificación final (V4–V8)": [
+      {
+        "executionId": "7fe75c7b-7215-434a-81e4-dc694d857db6",
+        "chatSessionId": "sess_481dc4fb-dca7-41de-b433-6b02459b1d66",
+        "timestamp": 1789769265797
+      }
+    ]
+  }
+}

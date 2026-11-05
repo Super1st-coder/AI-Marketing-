@@ -1,0 +1,162 @@
+{
+  "name": "Generate Scenarios BPerson",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "ef1f4fce-f414-44d3-9de3-cf1275db9021",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        980,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nreturn {'ok' : 0, 'message': {'code': 'N8N00', 'text': 'Error - Generating Scenarios' } }"
+      },
+      "id": "2fc130ce-abcf-44f8-90a2-ae504bfe9183",
+      "name": "Handle Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok' : 1, 'data' : _input.item.json.output }\n"
+      },
+      "id": "0ab07df3-5702-48bf-b8a6-ff8635021d58",
+      "name": "Format Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/scenario/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "efb98f50-2fee-4148-b7bf-d1a592452253",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "webhookId": "8c9f109e-f4c3-41dd-8302-5ab4136a5911"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=\"{{ $json.body.agent_name }}\" , necesito que generes un proceso de 10 pasos, para ilustrar el paso a paso de una persona como \"{{ $json.body.person_name }}\" durante su buyers journey.\n\n\"{{ $json.body.agent_name }}\" a continuación te voy a compartir preguntas y respuestas que te ayudarán a comprender la situación de una persona como \"{{ $json.body.person_name }}\" durante el proceso de compra de una solución como la que ofrece \"{{ $json.body.product_name }}\". \"{{ $json.body.agent_name }}\" toma en cuenta que te estaré compartiendo la pregunta en formato de texto y las respuestas en formato de variable.\n\n>>> INICIO DE LAS PREGUNTAS Y RESPUESTAS <<<\n\n1. ¿Qué cambio ocurre en la vida de {{ $json.body.person_name }} que típicamente inicia la búsqueda de tu producto?\n{{ $json.body.sales_process['que-cambio-ocurre-en-la-vida-de-la-buyer-persona-que-tip'] }} \n\n2. ¿Qué soluciones actuales ya no se ajustan a las nuevas necesidades o deseos de {{ $json.body.person_name }} tras su cambio de vida?\n{{ $json.body.sales_process['que-soluciones-actuales-ya-no-se-ajustan-a-las-nuevas-ne'] }}\n\n3. ¿Puedes mencionar qué es importante para {{ $json.body.person_name }} cuando investiga, considerando que aún no busca específicamente tu solución?\n{{ $json.body.sales_process['puedes-mencionar-que-es-importante-para-la-buyer-persona'] }}\n\n4. ¿Cuáles son las frustraciones comunes que {{ $json.body.person_name }} encuentra durante su proceso de investigación?\n{{ $json.body.sales_process['cuales-son-las-frustraciones-comunes-que-la-buyer-person'] }}\n\n5. Cuando {{ $json.body.person_name }} se da cuenta de que la mejor opción es contratar una solución como la tuya para lograr sus objetivos, ¿qué dudas comunes suele tener?\ncuando-la-buyer-persona-se-da-cuenta-de-que-la-mejor-opc\n{{ $json.body.sales_process['cuando-la-buyer-persona-se-da-cuenta-de-que-la-mejor-opc'] }}\n\n6. Cuando {{ $json.body.person_name }} se encuentra con {{ $json.body.product_name }}, ¿de qué necesita estar seguro antes de tomar una decisión?\n{{ $json.body.sales_process['cuando-el-buyer-persona-se-encuentra-con-el-producto-de-'] }}\n\n7. ¿Cuáles son los principales obstáculos que podrían impedir que {{ $json.body.person_name }} complete la compra?\n{{ $json.body.sales_process['cuales-son-los-principales-obstaculos-que-podrian-impedi'] }}\n\n8. ¿Qué dificultades típicas debe enfrentar {{ $json.body.person_name }} durante el proceso de finalizar la compra?\n{{ $json.body.sales_process['que-dificultades-tipicas-debe-enfrentar-la-buyer-persona'] }}\n\n9. ¿Qué aspectos de tu servicio resultan más satisfactorios para {{ $json.body.person_name }} luego de adquirir tu producto?\n{{ $json.body.sales_process['que-aspectos-de-tu-servicio-resultan-mas-satisfactorios-'] }}\n\n10. ¿Cómo describirías el impacto final de tu producto o servicio en la vida de {{ $json.body.person_name }} ?\n{{ $json.body.sales_process['como-describirias-el-impacto-final-de-tu-producto-o-serv'] }}\n\n>>> FIN DE LAS PREGUNTAS Y RESPUESTAS <<<\n\n{{ $json.body.agent_name }} Necesito que tomes la pregunta y la respuesta y generes un título corto de menos de 5 palabras y una descripción de menos de 150 caracteres para explicar brevemente el paso del buyers journey. A continuación voy a compartir un ejemplo de la estructura de título corto de menos de 5 palabras y una descripción de menos de 150 caracteres para que puedas tenerlas como referencia.\n\n>>> INICIO DEL EJEMPLO DE NOMBRES Y DESCRIPCIONES <<<\n\nNombre: Reconocimiento de la Necesidad\nDescripcion: {{ $json.body.person_name }} se da cuenta de que necesita mejorar la visibilidad en línea y la conversión tras un cambio significativo en su empresa, como la expansión de mercado.\n\nNombre: Evaluación de Herramientas Actuales\nDescripcion: {{ $json.body.person_name }} identifica que las herramientas de marketing actuales no cumplen con las exigencias de las nuevas metas de expansión y personalización de su empresa.\n\nNombre: Prioridades en la Investigación\nDescripcion: Durante su investigación, {{ $json.body.person_name }} se enfoca en encontrar soluciones que ofrezcan un retorno sobre la inversión claro y medible, y que se integren fácilmente con sus sistemas existentes.\n\nNombre: Encuentro con Barreras\nDescripcion: {{ $json.body.person_name }} enfrenta frustraciones comunes como la falta de información detallada sobre el ROI esperado y casos de éxito específicos en su sector.\n\nNombre: Evaluación de Opciones\nDescripcion: Al considerar contratar una solución, {{ $json.body.person_name }} tiene dudas sobre la escalabilidad, la compatibilidad tecnológica y el soporte postventa.\n\nNombre: Decisión Informada\nDescripcion: Antes de decidirse por {{ $json.body.product_name }}, {{ $json.body.person_name }} necesita confirmar la personalización de las campañas y la transparencia en la gestión de datos y métricas.\n\nNombre: Superación de Obstáculos\nDescripcion: {{ $json.body.person_name }} debe superar obstáculos como presupuestos restringidos, convencer a stakeholders y la integración tecnológica para completar la compra.\n\nNombre: Resolución de Complicaciones\nDescripcion: Durante el proceso de compra, {{ $json.body.person_name }} navega por dificultades como la configuración de la plataforma y el ajuste de estrategias a las necesidades específicas de su negocio.\n\nNombre: Satisfacción con el Servicio\nDescripcion: Los aspectos más satisfactorios para {{ $json.body.person_name }} incluyen la mejora en la captación de leads, el aumento en el engagement del cliente y el soporte técnico proactivo.\n\nNombre: Impacto del Producto\nDescripcion: {{ $json.body.person_name }} experimenta una transformación significativa en su negocio, con mejoras en la eficiencia de las campañas y un aumento en el retorno de inversión, lo que contribuye al crecimiento sostenible de la empresa.\n\n>>> FINAL DEL EJEMPLO DE TITULOS CORTOS Y DESCRIPCIONES <<<\"\n\nDame los resultados directamente como un arreglo json, donde cada paso del proceso represente una posicion de este arreglo, use el siguiente ejemplo para construir la respuesta:\n\n[ pasoProceso1 , pasoProceso2, ... , pasoProcesoX]\n\nCada del Proceso debe tener los siguientes campos, \"Name\",  \"Description\", \"Question Number\", \"Question Text\", \"Answer Text\". \n\nNo incluyas comentarios de entrada a la respuesta,ir directamente a la respuesta en formato JSON\n",
+        "options": {}
+      },
+      "id": "868c7f13-7732-4e5e-8aaa-38c9409976b5",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Handle Error": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Results": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Format Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2667a318-6c48-417d-bda2-5cfc13867d3a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "bTky3yqdMi2EBD25",
+  "tags": []
+}

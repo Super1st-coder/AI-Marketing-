@@ -1,0 +1,184 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brand_v2s",
+  "info": {
+    "singularName": "brand-v2",
+    "pluralName": "brand-v2s",
+    "displayName": "Brand-V2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "vision": {
+      "type": "text"
+    },
+    "uniqueness": {
+      "type": "text"
+    },
+    "industry": {
+      "type": "text"
+    },
+    "markets": {
+      "type": "text"
+    },
+    "geography": {
+      "type": "text"
+    },
+    "website": {
+      "type": "text"
+    },
+    "step": {
+      "type": "integer",
+      "default": 0
+    },
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "setted_voice": {
+      "type": "boolean",
+      "default": false
+    },
+    "attributes_generated": {
+      "type": "json"
+    },
+    "attributes_saved": {
+      "type": "json"
+    },
+    "status": {
+      "type": "string",
+      "default": "A"
+    },
+    "language": {
+      "type": "string"
+    },
+    "audience_templates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-audience-template.audience-audience-template",
+      "mappedBy": "brand_ref"
+    },
+    "experiment_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::experiment-category.experiment-category",
+      "mappedBy": "brand_ref"
+    },
+    "experiment_subcategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::experiment-subcategory.experiment-subcategory",
+      "mappedBy": "brand_ref"
+    },
+    "saved_audiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-saved-audience.audience-saved-audience",
+      "mappedBy": "brand_ref"
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "brands_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "brands_updated"
+    },
+    "creation_method": {
+      "type": "string"
+    },
+    "identity": {
+      "type": "json"
+    },
+    "logos": {
+      "type": "json"
+    },
+    "colors": {
+      "type": "json"
+    },
+    "typography": {
+      "type": "json"
+    },
+    "dos_donts": {
+      "type": "json"
+    },
+    "ad_structure_templates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ad-structure-template.ad-structure-template",
+      "mappedBy": "brand_id"
+    },
+    "b_persons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::b-person-v2.b-person-v2",
+      "mappedBy": "brand_id"
+    },
+    "campaigns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campaign.campaign",
+      "mappedBy": "brand_id"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-v2.product-v2",
+      "mappedBy": "brand_id"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-v3.project-v3",
+      "mappedBy": "brand_id"
+    },
+    "umbrella_campaigns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::umbrella-campaign.umbrella-campaign",
+      "mappedBy": "brand_id"
+    },
+    "account_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "brands"
+    },
+    "creation_doc_id": {
+      "type": "string"
+    },
+    "media_platform_projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::media-platform-project.media-platform-project",
+      "mappedBy": "brand_id"
+    },
+    "urls": {
+      "type": "text"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand-document.brand-document",
+      "mappedBy": "brand_ref"
+    }
+  }
+}

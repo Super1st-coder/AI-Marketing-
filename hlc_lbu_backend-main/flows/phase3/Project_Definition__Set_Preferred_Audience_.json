@@ -1,0 +1,509 @@
+{
+  "name": "Project Definition (Set Preferred Audience)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "3ee6e4e3-9cd2-4400-933a-e4f552c2d86f",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2980,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "57c00505-f474-4d23-9083-0e79e98e32c5",
+              "name": "audience_id",
+              "value": "={{ $('Webhook').item.json.body.audience_id  }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c4ddebca-0486-4c89-b144-60e197ff5881",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -2960,
+        -940
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8d9e6fe9-e657-4399-b779-7e7da49526d6",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -3160,
+        -1100
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "e44d5036-3f25-41a6-8845-9f67b8ccb2dc",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3400,
+        -1080
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "a278ca2e-4d55-479a-a1f2-2a7ee961d1ee",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1640,
+        -1300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "af3ca9f6-26ea-4ae3-aa79-f39180a86964",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3280,
+        -760
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "5dcf99f7-2f37-4bea-9e76-46042cfac07d",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -2720,
+        -940
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=audience,preferred_audience"
+      },
+      "id": "4875c6ef-7357-4b45-bbca-5a496189dad1",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -1860,
+        -1440
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"audience_id\" : {{ $('Webhook').item.json.body.audience_id }},\n       \"preferred_audience\" : {{ $json.attributes.preferred_audience.toJsonString() }}\n} \n}",
+        "options": {}
+      },
+      "id": "dc115e5a-2151-45d4-80cb-704437976f10",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1620,
+        -1660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac355ca2-7aaf-472a-aa9d-72635c0d3a8f",
+              "name": "audience",
+              "value": "={{ $json.audience }}",
+              "type": "array"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $('Edit Fields').item.json.project_id }}",
+              "type": "string"
+            },
+            {
+              "id": "f67524c7-02a0-4aa5-911b-2ff6846dd22b",
+              "name": "preferred_audience",
+              "value": "={{ $json.preferred_audience }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c796c927-134e-4619-a566-5ab18b20d06c",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2080,
+        -1440
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "8aeef969-6a2a-4c4d-bde6-4a5bc0fcbcf8",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2480,
+        -720
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "08f23d42-c8b4-4716-8a4a-546240da918b",
+              "leftValue": "={{ $('Edit Fields').item.json.audience_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": "=",
+        "options": {}
+      },
+      "id": "a39643aa-e34f-418f-8b2f-4d7e38f76fa0",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2520,
+        -1220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\naudience = _input.all()[0].json.attributes.audience\n\ndesired_preferred = _('Edit Fields').all()[0].json.audience_id\npreferred_audience = {}\nfor b in audience:\n  if b.id == int(desired_preferred):\n    b.preferred = 1\n    preferred_audience = b\n  else:\n    b.preferred = 0\n\n\nreturn { 'audience' : audience, 'preferred_audience': preferred_audience }"
+      },
+      "id": "16223705-2849-402b-b0f9-e360531f8bc0",
+      "name": "Code2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2300,
+        -1440
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "059f61e9-5aa2-4855-8d09-56ca944ed6ab",
+      "name": "Respond to Webhook5",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2300,
+        -1020
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/project/audience/set_preferred",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "5ac70fd6-9711-46ef-b832-88fcced3ebbf",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3660,
+        -1080
+      ],
+      "webhookId": "ab176e0c-4bcf-4c96-addb-cb0b3b622b42"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7bc39a69-4ceb-4c71-8fd6-8967e8992627",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "C9qgABQLfOwJBQbK",
+  "tags": [
+    {
+      "createdAt": "2024-10-08T21:10:49.482Z",
+      "updatedAt": "2024-10-08T21:10:49.482Z",
+      "id": "XrMyYBwR5G6AEmbi",
+      "name": "Fase 3"
+    }
+  ]
+}

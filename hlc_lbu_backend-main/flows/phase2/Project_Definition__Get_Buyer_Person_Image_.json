@@ -1,0 +1,487 @@
+{
+  "name": "Project Definition (Get Buyer Person Image)",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.query.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b44feac9-b2b8-4fb2-a9b4-74e87a1eeafe",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -4360,
+        -1460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "99664874-9bc5-4533-a61e-5bae7c85d94c",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -4540,
+        -1580
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $('Webhook').item.json.headers.email }}\" }"
+        }
+      },
+      "id": "58f9051b-dbb0-4168-ab28-0cadc2b05302",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -4760,
+        -1560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "b9ea5ec8-c693-4e26-93c7-09c1db9a20e0",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -4180,
+        -1460
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": "=",
+        "options": {}
+      },
+      "id": "dcb53805-0b73-4b0b-b83c-afbf09be1b5a",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -4000,
+        -1580
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "606d06a7-b0df-4a53-bf74-40711c3e14e9",
+      "name": "Respond to Webhook5",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3800,
+        -1440
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "05fb7a33-7100-4b96-971d-83eb39477412",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -4000,
+        -1240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "86e92cf0-e63b-4741-b086-46d5f7479c84",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -4360,
+        -1760
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "7e1e3573-edf2-463d-b078-5fb3b56e60a9",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -4580,
+        -1240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9be278fa-4a57-4599-9fc2-496b5a52764c",
+              "name": "project_id",
+              "value": "={{ $('Strapi2').item.json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "555252a8-438e-4719-a1de-3b762be35e59",
+              "name": "buyer_person_image_id",
+              "value": "={{ $json.attributes.buyer_person_image_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f96c1088-b8f6-40c6-917a-9b755de197d3",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3800,
+        -1780
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "content",
+        "options": {}
+      },
+      "id": "6a5e1821-8418-4285-b40e-b7e445095bdc",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -3380,
+        -1940
+      ]
+    },
+    {
+      "parameters": {
+        "collection": "buyer_person",
+        "options": {},
+        "query": "={ \"_id\" : {{ $json.buyer_person_image_id }} }"
+      },
+      "id": "d8ec5cb4-0ce8-45cc-b4d3-c8b966fe45f7",
+      "name": "MongoDB",
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1.1,
+      "position": [
+        -3600,
+        -1780
+      ],
+      "credentials": {
+        "mongoDb": {
+          "id": "FGgJ3QBqEBA60IsK",
+          "name": "MongoDB account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Getting Image\" } }",
+        "options": {}
+      },
+      "id": "acfb50ab-b726-4e60-a724-e152d7386f59",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3400,
+        -1500
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "b276d231-243d-4063-857b-f598f732ed63",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3180,
+        -1940
+      ]
+    },
+    {
+      "parameters": {
+        "path": "/project/buyer_person/image",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "0ef9b0cc-4793-4145-b5a5-fe934455b4b1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -4980,
+        -1560
+      ],
+      "webhookId": "795f2954-2136-467e-a17a-9ee5a1000e75"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "MongoDB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MongoDB": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "17c70834-2c6a-4eba-9be9-48c1c774e561",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "sg4sFSnY6VO2vPuI",
+  "tags": [
+    {
+      "createdAt": "2024-10-05T08:50:22.061Z",
+      "updatedAt": "2024-10-05T08:51:01.025Z",
+      "id": "Sl1nuKBtwkBLUiIr",
+      "name": "Fase 2"
+    }
+  ]
+}

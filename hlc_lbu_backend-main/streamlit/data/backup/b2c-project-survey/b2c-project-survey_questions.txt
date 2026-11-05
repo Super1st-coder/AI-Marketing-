@@ -1,0 +1,141 @@
+Cuál es el desafío más significativo de tu hero al no contar hoy en día con la solución que ofrece tu producto
+Qué no puede lograr al no tener un producto como el tuyo
+Cuál es la principal dificultad que enfrenta al no tener una solución como la que ofreces
+Qué le frustra al no tener nuestro producto
+Qué necesita y no puede lograr sin una solución como la que ofreces
+Qué le impide alcanzar sus metas sin una solución como la que ofreces
+Qué le tomaría más tiempo o esfuerzo lograr si no compra nuestra solución
+En qué perdería más dinero si no contrata una solución como la que ofreces
+Qué oportunidades pierde al no tener contratado nuestro producto
+Qué mejoras significativas no puede lograr sin esto
+-
+Cómo está resolviendo esta persona su problema actualmente
+Cuál es el primer problema con su solución actual
+Cuál es el segundo problema que enfrenta tu hero con su solución actual
+Cuál es el tercer problema que enfrenta tu hero con su solución actual
+-
+Qué logro principal busca tu cliente con nuestro producto
+Qué metas secundarias tiene tu cliente
+Hay otros objetivos que tu cliente espera alcanzar
+-
+Cuál es el mayor temor de tu cliente respecto a usar tu producto
+Qué preocupaciones tiene tu cliente al pensar en adquirir nuestro producto
+Existen inquietudes específicas sobre su funcionamiento
+Qué dudas tiene sobre el costo o la inversión
+Hay preocupaciones sobre la compatibilidad o integración con sus sistemas actuales
+Qué temores tiene tu cliente sobre la asistencia y el soporte post-venta
+Existen preocupaciones sobre la durabilidad o las garantías de tu producto
+Qué dudas tiene tu cliente sobre la eficacia o los resultados esperados
+Hay inquietudes sobre la facilidad de uso
+Cuáles son las preocupaciones de tu cliente sobre las actualizaciones o el mantenimiento
+Hay otros temores o preocupaciones que tu cliente haya expresado
+-
+Qué relación tiene este influenciador con tu hero
+Dale un nombre al principal influenciador positivo de tu hero.
+Qué edad tiene este influenciador
+Con qué género se identifica este influenciador
+Cómo describirías el estilo de esta persona (Influenciador): más casual o formal
+Existe alguna relación financiera con tu hero
+Qué tanto impacto crees que tiene este influenciador en las decisiones de tu buyer persona
+Cuáles son los aspectos positivos de su relación con tu hero
+Cuáles consideras que son los aspectos negativos de su relación
+Qué piensa este influenciador, sobre tu hero comprando una solución como la tuya
+Puedes compartir algún recuerdo significativo entre el influenciador y el hero relacionado a esta situación
+Dale un nombre al principal detractor de esta decisión dentro de la empresa
+Cuál es la relación del influenciador con tu hero
+Qué edad tiene este detractor
+Cómo describirías el estilo de esta persona (Detractor): más casual o formal
+A qué se dedica el detractor
+Qué tanto impacto crees que tiene este influenciador en las decisiones de tu hero
+Existe alguna relación financiera con tu buyer persona
+Cuáles son los aspectos positivos de su relación con tu buyer persona
+Qué opina el influenciador sobre tu buyer persona adquiriendo tu producto
+Puedes compartir algún recuerdo significativo entre el influenciador y el buyer persona
+-
+Cuál es el nombre de tu producto
+Describe brevemente tu producto
+En qué industria opera tu producto
+Cuál es el mercado principal para tu producto
+Existe un submercado o nicho específico donde se enfoca tu producto
+-
+Cuál consideras que es la principal ventaja competitiva de tu producto
+Cuál es la oferta comercial más agresiva de tu producto
+Menciona la principal característica clave de tu producto
+Cómo esta ventaja beneficia al cliente 1
+Menciona la segunda característica clave de tu producto
+Cómo esta ventaja beneficia al cliente 2
+Menciona la tercera característica clave de tu producto
+Cómo esta ventaja beneficia al cliente 3
+Menciona la cuarta característica clave de tu producto
+Cómo esta ventaja beneficia al cliente 4
+Menciona la quinta característica clave de tu producto
+Cómo esta ventaja beneficia al cliente 5
+Tu producto cuenta con garantía
+Cuáles son las políticas de garantía de tu producto
+Tienes políticas de retorno o reembolso
+Ofreces alguna prueba gratuita o demostración de tu producto
+-
+Tienes alguna promoción activa actualmente
+Cuánto tiempo estará disponible esta promoción
+Detalla los términos o condiciones específicos de la promoción
+Tienes una segunda promoción activa actualmente
+Cuánto tiempo estará disponible esta segunda promoción
+Detalla los términos o condiciones específicos de la segunda promoción
+Podrías describir tu tercera promoción más destacada que tengas en marcha actualmente
+Cuánto tiempo estará disponible esta tercera promoción
+Detalla los términos o condiciones específicos de la tercera promoción
+- 
+Identifica la principal debilidad de tu producto frente a la competencia
+Identifica la segunda principal debilidad de tu producto frente a la competencia
+Menciona otras debilidades que creas importantes
+Describe una oportunidad principal que tu producto tiene para destacarse de la competencia
+Cuál es una oportunidad secundaria que tu producto puede aprovechar
+Lista otras oportunidades que veas para tu producto en el mercado
+-
+En qué fase del ciclo de vida del mercado se encuentra tu producto actualmente (innovación, crecimiento, madurez, declive)
+Tu producto crea un nuevo mercado o se inserta en uno ya establecido y competitivo
+Cuál es el reconocimiento de marca de tu producto en los motores de búsqueda en internet? ¿Es algo que la gente busca activamente
+Los clientes entienden el concepto detrás de cómo vendes tus productos
+Cuál es el mercado geográfico principal de tu producto
+Existen mercados geográficos secundarios donde tu producto también esté presente
+Existen otros mercados geográficos que consideras potenciales para la expansión de tu producto
+Cómo describirías la situación actual de tu producto en el mercado
+-
+En qué posición se encuentra tu producto en términos de precio
+Cuál es el precio mínimo de tu producto
+Cuál es el precio máximo de tu producto
+Cuál es el ticket promedio de venta de tu producto
+Describe los planes de pagos disponibles para tu producto
+-
+Menciona el primer paso en el proceso de ventas
+Menciona el segundo paso en el proceso de ventas
+Menciona el tercer paso en el proceso de ventas
+Menciona el cuarto paso en el proceso de ventas
+Menciona el quinto paso en el proceso de ventas
+Menciona el sexto paso en el proceso de ventas
+Menciona el séptimo paso en el proceso de ventas
+Menciona el octavo paso en el proceso de ventas
+Menciona el noveno paso en el proceso de ventas
+Menciona el décimo paso en el proceso de ventas
+Cuánto tiempo suele durar el ciclo completo de ventas para tu producto
+-
+Detalla el principal caso de uso del producto
+Detalla el segundo caso de uso del producto
+Detalla el tercer caso de uso del producto
+-
+FAQ 1: Pregunta y respuesta corta
+FAQ 2: Pregunta y respuesta corta
+FAQ 3: Pregunta y respuesta corta
+FAQ 4: Pregunta y respuesta corta
+FAQ 5: Pregunta y respuesta corta
+FAQ 6: Pregunta y respuesta corta
+FAQ 7: Pregunta y respuesta corta
+FAQ 8: Pregunta y respuesta corta
+FAQ 9: Pregunta y respuesta corta
+FAQ 10: Pregunta y respuesta corta
+-
+Menciona la palabra clave más relevante para tu producto
+Menciona la segunda palabra clave más relevante para tu producto
+Menciona la tercera palabra clave más relevante para tu producto
+Menciona la cuarta palabra clave más relevante para tu producto
+Menciona la quinta palabra clave más relevante para tu producto

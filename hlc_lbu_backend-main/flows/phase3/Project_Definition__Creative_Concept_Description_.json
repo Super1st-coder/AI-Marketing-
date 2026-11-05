@@ -1,0 +1,639 @@
+{
+  "name": "Project Definition (Creative Concept Description)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "fa58f601-10a7-4be3-ac5a-559848ce8ace",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3120,
+        -1340
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "b7ecebe4-636c-4784-ac2d-b1efe60a984d",
+              "name": "creative_concept_description",
+              "value": "={{ $('Webhook').item.json.body.creative_concept_description }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d24bcca1-5b79-4d96-b134-0f546dd81f86",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -3100,
+        -920
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "6724d505-4986-48c8-92a2-60b06901d028",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -3320,
+        -1100
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "c0006547-ad41-4283-ab9e-11021cfe5403",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3560,
+        -1100
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "cc7f57ec-aa23-4918-ab5a-7f47ba4a296b",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1360,
+        -1280
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "511fb262-c57a-4c63-bec3-826c03263a58",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3420,
+        -820
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "171c2ea7-f218-436c-84c5-6d5237e50e70",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -2860,
+        -920
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $('Edit Fields2').item.json.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "=3",
+              "type": "string"
+            },
+            {
+              "id": "4dca6cfd-0710-448d-8bb2-e3dd9b70e32b",
+              "name": "creative_concept_attributes_generated",
+              "value": "={{ $json.json_output }}",
+              "type": "object"
+            },
+            {
+              "id": "cd77155c-ea14-4e01-8e29-3538e25ac9f2",
+              "name": "creative_concept_description",
+              "value": "={{ $('Edit Fields').item.json.creative_concept_description }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "87f016b8-9559-47eb-a8ec-7db7a3239c55",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1700,
+        -1420
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=creative_concept_attributes_generated,creative_concept_description,current_phase"
+      },
+      "id": "59205ae4-cc7b-4719-b30a-9a3fcf018a7a",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -1520,
+        -1420
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"creative_concept_attributes_generated\" : {{ $json.attributes.creative_concept_attributes_generated.toJsonString() }},\n       \"creative_concept_description\" :  {{ $json.attributes.creative_concept_description.toJsonString() }}\n   } \n}",
+        "options": {}
+      },
+      "id": "882caf18-5c97-4a57-baef-d475b9cf897e",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1360,
+        -1560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac355ca2-7aaf-472a-aa9d-72635c0d3a8f",
+              "name": "product_name",
+              "value": "={{ $json.attributes.preferred_product.Product.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "eb4b63f9-34cf-4330-a5e9-91fa54860347",
+              "name": "assistant_id",
+              "value": "={{ $json.attributes.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ab1d4aef-6842-4aa9-b7c7-abe49d595198",
+              "name": "product_details",
+              "value": "=PRODUCT DETAILS\n\nProduct Name: {{ $json.attributes.preferred_product.Product.Name }}\nProduct Description: {{ $json.attributes.preferred_product.Product.Details.Description }}\n\nCore_Characteristic: {{ $json.attributes.preferred_product.Product.Details.Core_Characteristic }}\nFeatures: {{ $json.attributes.preferred_product.Product.Details.Product_Details.Features }}\nCompetitive Advantages: {{ $json.attributes.preferred_product.Product.Details.Competitive_Advantage }}\nBenefits:\n{{  $json.attributes.preferred_product.Product.Details.Benefit_Related_to_Hypothesis }}\n",
+              "type": "string"
+            },
+            {
+              "id": "706bf5c7-ef2c-418b-918a-ec7dd204b963",
+              "name": "buyer_person_details",
+              "value": "=BUYER PERSON DETAILS\n\nName: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}\nAge: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Age }}\nTitle: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Title }}\nDescription: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Description }}\n\nGoals: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Goals }}\n\nNeeds: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Needs }}\n\nValues: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Values }}\n\nPain Points: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}\n",
+              "type": "string"
+            },
+            {
+              "id": "59a80430-4467-40b6-b491-3fae12f0d96a",
+              "name": "=buyer_person_name",
+              "value": "={{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "4173a0fc-a6c6-4c2e-a9fd-e2b1e211341a",
+              "name": "audience_details",
+              "value": "=AUDIENCE DETAILS\n\nName: {{ $json.attributes.preferred_audience.Audience }}\nInterests: {{ $json.attributes.preferred_audience.Interests }}\n\nDemographics \n- Age: {{ $json.attributes.preferred_audience.Demographics.Age }}\n- Gender: {{ $json.attributes.preferred_audience.Demographics.Gender }}\n- Incoming Level: {{ $json.attributes.preferred_audience.Demographics.IncomeLevel }}\n- Location: {{ $json.attributes.preferred_audience.Demographics.Location }}\n\n\n",
+              "type": "string"
+            },
+            {
+              "id": "2566d529-6844-48c5-b1d2-4d5a45e7b068",
+              "name": "creative_concept_description",
+              "value": "=CREATIVE CONCEPT DETAILS \n\nConsumer Insight: {{ $('Edit Fields').item.json.creative_concept_description.consumer_insight }}\nValue Proposition: {{ $('Edit Fields').item.json.creative_concept_description.value_proposition }}\nCommunication Objective: {{ $('Edit Fields').item.json.creative_concept_description['communication objetive'] }}\nTone and Brand Personality: {{ $('Edit Fields').item.json.creative_concept_description.tone_brand_personality }}\nBig Idea: {{ $('Edit Fields').item.json.creative_concept_description.big_idea }}\nTime Frame: {{ $('Edit Fields').item.json.creative_concept_description.time_frame }}\nTarget Regions: {{ $('Edit Fields').item.json.creative_concept_description.target_regions }}\n\n\n",
+              "type": "string"
+            },
+            {
+              "id": "1b12c6cb-57e5-4548-897f-ac52fc9bdacc",
+              "name": "hypotesis_description",
+              "value": "=HYPOTHESIS DESCRIPTION \n\nIf {{ $json.attributes.hypothesis_builder_preferred_option.Hypothesis_option.Testing_Variable }} to {{ $json.attributes.hypothesis_builder_preferred_option.Hypothesis_option.Audience }} then {{ $json.attributes.hypothesis_builder_preferred_option.Hypothesis_option.Goal }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6048a86c-a234-4d32-ade7-11dd5c8c827c",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2460,
+        -1420
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "afae478f-ce9d-4b6b-8078-c3f74eaa28fe",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2620,
+        -700
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "98c8cb83-cb8e-423f-9647-0521f1acbdaa",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2620,
+        -1120
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.project_id }}"
+      },
+      "id": "d354a68e-f21b-48d3-a45e-762d0ba22e06",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        -2220,
+        -1200
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\n\noutput = _input.all()[0].json.output\njson_output = json.loads(output)\n\nreturn {'json_output': json_output }"
+      },
+      "id": "362a26b8-223a-4d56-8517-8e47a263052d",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1880,
+        -1420
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=I need you to generate a list of categories and items for those categories in a json file. Follow these instructions:\n\n1. Use the following inputs as context\n\n{{ $json.hypotesis_description }}\n\n{{ $json.buyer_person_details }}\n\n{{ $json.product_details }}\n\n{{ $json.creative_concept_description }}\n\n{{ $json.audience_details }}\n\n2. Generate 7 categories that include buyer persona interests, content types, seasonal relevance, elements of local cultural relevance, influence principles, non-obvious correlations, and competitive advantage insights. For each category, provide 5 actionable items.\n\nThe output must be a JSON File, we need show for each identified category as an array of elements, each element should be of type string, for output should be similar and mandatory to the next example:\n\n{ \n  \"<category 1>\" : [ <Item of category 1>,<Item of category 1>,...,<Item of category 1> ],\n  \"<category 2>\" : [ <Item of category 2>,<Item of category 2>,...,<Item of category 2> ],\n  \"<category 3>\" : [ <Item of category 3>,<Item of category 3>,...,<Item of category 3> ],\n  \"<category 4>\" : [ <Item of category 4>,<Item of category 4>,...,<Item of category 4>],\n  \"<category 5>\" : [ <Item of category 5>,<Item of category 5>,...,<Item of category 5> ],\n  \"<category 6>\" : [ <Item of category 6>,<Item of category 6>,...,<Item of category 6> ],\n  \"<category 7>\" : [ <Item of category 7>,<Item of category 7>,...,<Item of category 7> ]\n}\n\nThe output should look  in this form:\n\n{\n    \"Buyer_Persona_Interests\": [\n      \"Adventure travel experiences\",\n      \"Smart home gadgets\",\n      \"Vegan and organic products\",\n      \"Luxury wellness retreats\",\n      \"Fitness challenges\"\n    ],\n    \"Content_Types\": [\n      \"Behind-the-scenes videos\",\n      \"Interactive infographics\",\n      \"Polls and surveys\",\n      \"Influencer testimonials\",\n      \"AR/VR experiences\"\n    ],\n    \"Seasonal_Relevance\": [\n      \"Valentine’s Day gift guides\",\n      \"Summer festival promotions\",\n      \"New Year resolution campaigns\",\n      \"Mother’s Day discounts\",\n      \"Winter holiday giveaways\"\n    ],\n    \"Influence_Principles\": [\n      \"Scarcity: Limited time offers\",\n      \"Authority: Expert endorsements\",\n      \"Reciprocity: Free trials or samples\",\n      \"Social Proof: Customer reviews\",\n      \"Consistency: Loyalty programs\"\n    ],\n    \"Local_Relevance\": [\n      \"Mexican slang in ads (e.g., '¡Qué chido!')\",\n      \"Highlight Día de Muertos cultural relevance\",\n      \"Use regional music genres (e.g., Norteño)\",\n      \"Refer to local sports (e.g., Liga MX)\",\n      \"Incorporate national holidays (e.g., Independence Day)\"\n    ],\n    \"Non_Obvious_Correlations\": [\n      \"Tech-savvy users interested in eco-friendly packaging\",\n      \"Luxury buyers valuing customer service over price\",\n      \"Budget-conscious personas spending on premium experiences\",\n      \"Health-conscious personas buying wearable tech\",\n      \"Frequent travelers preferring subscription services\"\n    ],\n    \"Competitive_Advantage_Insights\": [\n      \"Unique feature: 24/7 live support\",\n      \"Faster delivery times than competitors\",\n      \"Exclusive partnerships with influencers\",\n      \"Localized product offerings\",\n      \"Customizable product options\"\n    ]\n}\n\nPlease, omit any introductory comment previously to the answer, go directly to the output, and remove from response json tag.\n\nUSE TEMPERATURE 0.9",
+        "options": {}
+      },
+      "id": "2fa7d1ed-93cd-4445-bf81-aea240f74c2b",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -2220,
+        -1420
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/project/creative_concept/description",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "ff866544-c4a0-437e-a15e-3b3c7bf6a09d",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3820,
+        -1100
+      ],
+      "webhookId": "07363bff-65bc-49f4-a7bd-01c459f410dc"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8629ab93-a9c9-409d-b460-7e5cf9bc6e4f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "WJBy4a98juYWuBja",
+  "tags": [
+    {
+      "createdAt": "2024-10-08T21:10:49.482Z",
+      "updatedAt": "2024-10-08T21:10:49.482Z",
+      "id": "XrMyYBwR5G6AEmbi",
+      "name": "Fase 3"
+    },
+    {
+      "createdAt": "2024-10-06T13:17:50.176Z",
+      "updatedAt": "2024-10-06T13:17:50.176Z",
+      "id": "rqc1VZ2MNe04eto2",
+      "name": "IA"
+    }
+  ]
+}

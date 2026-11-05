@@ -1,0 +1,5 @@
+[server]
+port = 60001
+
+[client]
+showSidebarNavigation = false

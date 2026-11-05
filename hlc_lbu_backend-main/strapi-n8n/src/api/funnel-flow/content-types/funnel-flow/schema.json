@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "funnel_flows",
+  "info": {
+    "singularName": "funnel-flow",
+    "pluralName": "funnel-flows",
+    "displayName": "Funnel-Flow"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campaign_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campaign.campaign"
+    },
+    "campaign_platform_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campaign-platform.campaign-platform"
+    },
+    "ad_set_number": {
+      "type": "integer",
+      "default": 0
+    },
+    "ad_number": {
+      "type": "integer",
+      "default": 0
+    },
+    "ad_structure_template_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ad-structure-template.ad-structure-template"
+    },
+    "campaign_channel_publishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campaign-channel-publish.campaign-channel-publish",
+      "mappedBy": "funnel_flow_id"
+    }
+  }
+}

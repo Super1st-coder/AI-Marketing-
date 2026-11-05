@@ -1,0 +1,827 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Crear `sinergia/tests/v2/unit/use_cases/test_facebook_export_assets_post_launch_campaign.py` con el docstring de módulo, los imports (`pytest`, `zipfile`, `requests`, `BytesIO`, `unittest.mock.patch`/`MagicMock`, las cuatro excepciones de `app.exceptions.base`, `CreativeType` y `FacebookExportAssetsPostLaunchCampaignUseCase`), el sentinel privado `ABSENT` (clase `_AbsentSentinel` con `__repr__`) y las ocho funciones constructoras `make_export_payload`, `make_account`, `make_campaign`, `make_media_format`, `make_channel_attribute`, `make_text_payload`, `make_ad_channel` y `make_campaign_setup`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578514984
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578574559
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578960370
+      }
+    ],
+    "1.2 Añadir al mismo archivo las fixtures y helpers compartidos: la fixture `deny_network(monkeypatch)` con `autouse=True` a nivel de función (sustituye `requests.sessions.Session.request` por una función que lanza `AssertionError`), los context managers `patch_redis_client()` sobre `app.v2.use_cases.meta_ads.redis_client` y `patch_image_download(responses)` sobre `app.v2.use_cases.meta_ads.requests.get`, el helper `read_zip(content)` que abre `BytesIO(content)` con `zipfile.ZipFile` y retorna `(namelist, {name: bytes})`, y el helper `assert_exception_type(exc_info, expected_type)` que verifica **solo** el tipo y nunca el texto del mensaje": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578515425
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578970603
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789579399162
+      }
+    ],
+    "2.1 En `sinergia/app/v2/use_cases/meta_ads.py`, eliminar la línea `self.brand_repository = BrandRepository()` de `FacebookExportAssetsPostLaunchCampaignUseCase.__init__`, dejando exactamente las cinco asignaciones (`self.user_id`, `self.account_repository`, `self.campaign_channel_publish_repository`, `self.ad_channel_repository`, `self.campaign_repository`) y conservando la firma de un único parámetro posicional `user_id: str`; y aplicar los **dos** cambios autorizados al bloque de imports existente al inicio del archivo, antes de la primera definición de clase: añadir `import zipfile` y modificar la sentencia `from typing import ...` para incorporar `Set` y `Tuple`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578515662
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789579414140
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789579677507
+      }
+    ],
+    "2.2 Añadir a `sinergia/tests/v2/unit/use_cases/test_facebook_export_assets_post_launch_campaign.py` la fixture `use_case_factory` (parchea `app.v2.use_cases.meta_ads.AccountRepository`, `CampaignRepository`, `AdChannelRepository` y `CampaignChannelPublishRepository` **antes** de construir el Caso_de_Uso y retorna la instancia junto a los cuatro dobles) y la clase `TestConstructorSanitation`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578516169
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789579689426
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580212216
+      }
+    ],
+    "3.1 Implementar `_validate_payload(self, payload: ExportAssetsDataDict) -> None` en `FacebookExportAssetsPostLaunchCampaignUseCase` (`sinergia/app/v2/use_cases/meta_ads.py`): registrar con `logger.error` el nombre de cada clave ausente o inválida y lanzar `ParametersNotFoundException` cuando `payload` no sea instancia de `dict`, o cuando alguna de las cinco claves de `_REQUIRED_PAYLOAD_KEYS` esté ausente, sea `None` o sea una cadena vacía": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578516380
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580230604
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580420196
+      }
+    ],
+    "3.2 Añadir la clase `TestPayloadValidation` a `sinergia/tests/v2/unit/use_cases/test_facebook_export_assets_post_launch_campaign.py`, invocando `_validate_payload` directamente: matriz parametrizada de clave × tipo de invalidez (ausente vía `ABSENT`, `None`, `''`) para las cinco claves, más `payload` no-`dict`; y el caso de payload válido con claves adicionales, que no lanza": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578516816
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580438203
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580733933
+      }
+    ],
+    "4.1 Implementar `_get_campaign(self, campaign_id, brand_id, parent_account) -> Dict[str, Any]` en `sinergia/app/v2/use_cases/meta_ads.py`: una única invocación de `self.campaign_repository.get_by_id_brand_and_account(campaign_id, brand_id, parent_account)`; considerar resuelta la campaña solo si el valor es una instancia de `dict` con al menos una clave; en caso contrario `logger.error` con los tres valores empleados y `DataNotFoundException` con un mensaje **indistinguible** para los tres motivos posibles; si el repositorio lanza, `logger.error` y `raise` desnudo (sin `raise e`) para preservar tipo, mensaje y traceback originales": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578517200
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580755513
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580964492
+      }
+    ],
+    "4.2 Añadir la clase `TestCampaignResolution`: `assert_called_once_with` de los tres argumentos posicionales tal como llegan del payload, sin conversión de tipo; los tres escenarios de fallo (`None`, no-`dict`, `dict` sin claves) verificando tipo **y** mensaje idénticos entre sí; propagación sin sustitución de una excepción inyectada con `side_effect`; y una campaña degenerada `{'id': 1}` que resuelve sin leer ningún atributo": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578517474
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580983405
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789581407062
+      }
+    ],
+    "4.3 Implementar `_get_ad_channel(self, campaign_id, adset_id, ad_id, adchannel_id) -> Dict[str, Any]` y `_resolve_channel_id(self, ad_channel: Dict[str, Any]) -> int` en `sinergia/app/v2/use_cases/meta_ads.py`: el primero, una única invocación de `self.ad_channel_repository.get_by_campaign_and_ad_channel_id` con los cuatro identificadores en ese orden posicional, sin transformarlos, y `logger.error` + `DataNotFoundException` ante cualquier valor falsy; el segundo, la lectura anidada `attributes.channel_ref.data.id` con default `0` en cualquier nivel ausente o no-`dict`, sin lanzar, replicando el patrón de `FacebookSavePreCheckBaseUseCase._set_channel_id`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578517818
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789581419716
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789581612509
+      }
+    ],
+    "4.4 Añadir las clases `TestAdChannelResolution` y `TestChannelIdResolution`: `assert_called_once_with` de los cuatro argumentos; fallo parametrizado con `None` y `{}`; valor leído correctamente cuando el camino anidado está completo; y matriz de los cuatro niveles de ausencia (`attributes`, `channel_ref`, `data`, `id`) más los valores no-`dict` intermedios, todos resolviendo a `0` sin excepción": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578518201
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789581624568
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789582517120
+      }
+    ],
+    "4.5 Implementar `_get_validated_campaign_setup(self, campaign_id, channel_id: int) -> Dict[str, Any]` en `sinergia/app/v2/use_cases/meta_ads.py`: una única invocación de `self.campaign_channel_publish_repository.get_by_campaign_id_and_channel_id(campaign_id, channel_id)`, emitida **también** cuando `channel_id` sea el default `0`; `logger.error` + `DataNotFoundException` ante falsy o no-`dict`; luego lectura de `meta_published` y `meta_campaign_mode` vía `.get('attributes', {})`; luego `IncorrectValidationException` si `meta_published is not True`, y **solo después** `IncorrectValidationException` si `meta_campaign_mode != CreativeType.STANDARD.value`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578518417
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789582571481
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789582731711
+      }
+    ],
+    "4.6 Añadir la clase `TestCampaignSetupValidation`: `assert_called_once_with` incluida la variante con `channel_id == 0`; matriz de valores falsy y no-`dict` del registro; `attributes` ausente produciendo `None` en ambas lecturas sin excepción; matriz de valores rechazados de `meta_published` (ausente, `None`, `False`, `1`, `'True'`, `'true'`); matriz de valores rechazados de `meta_campaign_mode` (`None`, `''`, `'standard'`, `' STANDARD '`, `CreativeType.DYNAMIC.value`); el caso de precedencia con ambos inválidos; y el camino feliz sin ningún `logger.error`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578518814
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789582745367
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789583339324
+      }
+    ],
+    "4.7 Añadir la clase `TestParentAccountResolution`, verificando que los tres métodos ya existentes `_get_decoded_access_token`, `_get_account` y `_get_parent_account` siguen retornando los mismos valores y lanzando los mismos tipos de excepción que antes de incorporar la exportación: token ausente/vacío en Redis → `NotAccessException`; cuenta no encontrada → `DataNotFoundException`; cuenta con `parent_account.data.id` → ese identificador; cuenta sin ese nodo → el `id` propio": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578519046
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789583360177
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789583782822
+      }
+    ],
+    "5. Checkpoint - cadena de pre-validaciones completa y probada": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578519287
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789583833580
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789584294830
+      }
+    ],
+    "6.1 Implementar los `staticmethod` `_derive_image_extension(visual_url: str) -> str` y `_disambiguate_entry_name(entry_name: str, used_names: Set[str]) -> str` en `sinergia/app/v2/use_cases/meta_ads.py`: el primero con `urllib.parse.urlsplit(...).path`, `rsplit('/', 1)[-1]` y `os.path.splitext`, devolviendo `_DEFAULT_IMAGE_EXTENSION` cuando el último segmento no contenga extensión; el segundo insertando el sufijo `_{n}` **inmediatamente antes de la extensión**, comenzando en `n=1` e incrementando mientras el candidato siga presente en `used_names`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578519517
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789584327085
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789584587090
+      }
+    ],
+    "6.2 Añadir las clases `TestExtensionDerivation` y `TestNameDisambiguation`, invocando ambos `staticmethod` directamente: las cuatro URLs de la tabla de `design.md` (`.jpg`, `.png`, `.png` con cadena de consulta, y sin extensión → `.jpg`) más la URL real de producción terminada en `.jpeg`, y las variantes con fragmento y con capitalización preservada; y la desambiguación de 1, 2 y 3 colisiones sucesivas verificando `img.jpg` → `img_1.jpg` → `img_2.jpg`, nunca `img.jpg_1`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578519775
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789584608891
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789584881410
+      }
+    ],
+    "7.1 Implementar `_download_image(self, visual_url: str) -> Optional[bytes]` en `sinergia/app/v2/use_cases/meta_ads.py`: una única `requests.get(visual_url, timeout=self._IMAGE_DOWNLOAD_TIMEOUT)` con un máximo de 1 intento (sin bucle de reintentos ni `Session` con retry adapter); `except Exception` → `logger.error` con la `visual_url` y la excepción, retornando `None`; código de estado distinto de 200 → `logger.error` con la `visual_url` y el código, retornando `None`; código 200 → `response.content` sin inspeccionar tamaño ni formato y sin abrirlo con `PIL`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578520035
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789584909615
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789585104054
+      }
+    ],
+    "7.2 Implementar `_collect_surplus_images(self, ad_channel: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[str]]` en `sinergia/app/v2/use_cases/meta_ads.py`, retornando una **tupla de dos elementos**: en la primera posición, la lista de descriptores `{'entry_name': str, 'content': bytes}` de las Imágenes_Excedentes descargadas con éxito; en la segunda, la lista de identificadores de los Assets_No_Incluidos, ambas en el orden de aparición de `media_formats`; `logger.warning` y `return [], []` cuando `media_formats` no sea instancia de `list`; `enumerate` sobre la lista **completa** omitiendo sin registrar error los elementos no-`dict` y los que tengan `pinned is True`; una llamada a `_download_image` por Imagen_Excedente, omitiendo del paquete las que retornen `None` y continuando; nombre de entrada `images/{id}{extension}` ya desambiguado contra `used_names`, anotado `Set[str]`, inicializado con `set()` y acumulado con `add`; `logger.info` final con el número de descargadas y de omitidas, siendo este último igual a `len(not_included_ids)`; y `return collected, not_included_ids` como retorno final": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578520368
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789585139757
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789585420964
+      }
+    ],
+    "7.3 Añadir la clase `TestSurplusImageCollection`, invocando `_collect_surplus_images` directamente con `patch_image_download` y verificando **ambos elementos de la tupla retornada**, desempaquetados de forma **posicional** en las aserciones (`images, not_included_ids = use_case._collect_surplus_images(ad_channel)`): flujo con dos excedentes descargables (`not_included_ids == []`); `pinned=True` que no produce entrada **ni** identificador reportado; `pinned` en `{'True', 1, None, ausente}` que **sí** son candidatos; `visual_url` vacía/de solo espacios/no-`str`/ausente que no producen entrada pero **sí** un identificador en `not_included_ids`; una de tres descargas con código distinto de 200 y una de tres lanzando `requests.exceptions.Timeout`, verificando en ambos casos tres invocaciones del doble, dos descriptores, `not_included_ids` con el identificador del formato fallido y ninguna excepción; `media_formats` ausente/`None`/no-`list` con **ambos** elementos de la tupla iguales a la lista vacía; elemento no-`dict` que no aparece en `not_included_ids`; `id` ausente/`None` reportado por su **índice global** dentro de `media_formats` completa, con un fixture en el que ese índice difiera de la posición entre excedentes; el orden de `not_included_ids` con dos causas distintas mezcladas; y dos imágenes con el mismo `id` y extensión produciendo `images/{id}.jpeg` e `images/{id}_1.jpeg`, cada una con su propio binario": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578520589
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789585453668
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586115724
+      }
+    ],
+    "8.1 Implementar `_collect_surplus_texts(self, ad_channel: Dict[str, Any]) -> Dict[str, List[str]]` en `sinergia/app/v2/use_cases/meta_ads.py`: inicializar las cuatro Categorías_de_Texto como listas vacías (no `defaultdict`); `logger.warning` y retorno inmediato cuando `channel_attributes` no sea instancia de `list`; omitir sin registrar error los atributos no-`dict`, los de `name` no-`str` y los de `name` no perteneciente a `_TEXT_CATEGORY_FILENAMES` (comparación exacta, sensible a mayúsculas, sin normalizar espacios); tratar como categoría vacía y continuar cuando `payloads` no sea `list`; omitir los elementos no-`dict`; `logger.warning` y omisión cuando `id` esté ausente o sea `None`; omisión silenciosa cuando `id == 0` o `id == '0'`; omisión cuando `payload` esté ausente, sea `None`, no sea `str` o quede vacío tras `strip()`; y acumular el valor de `payload` **sin recortar**, en orden de aparición, con duplicados y concatenando los atributos repetidos de la misma categoría": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578520928
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586139761
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586310089
+      }
+    ],
+    "8.2 Añadir la clase `TestSurplusTextCollection`, invocando `_collect_surplus_texts` directamente: un excedente por cada una de las cuatro categorías; el elemento con `id == 0` y con `id == '0'` excluidos y los de `id != 0` conservados; nombres no reconocidos y variantes de capitalización (`'Primary_Text'`, `'PRIMARY_TEXT'`, `' primary_text '`) omitidos; duplicados conservados como entradas independientes; dos atributos de la misma categoría concatenados en orden; valores con espacios iniciales/finales conservados sin recortar; `channel_attributes` ausente/`None`/no-`list`; `payloads` ausente/`None`/no-`list`; elementos de `payloads` no-`dict`; `id` ausente/`None`; y `payload` ausente/`None`/no-`str`/en blanco": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578521329
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586331521
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586838570
+      }
+    ],
+    "9.1 Implementar `_build_zip_package(self, images: List[Dict[str, Any]], texts: Dict[str, List[str]], not_included_ids: List[str]) -> bytes` en `sinergia/app/v2/use_cases/meta_ads.py`: `BytesIO` + `zipfile.ZipFile(..., mode='w', compression=zipfile.ZIP_DEFLATED)` sin archivos temporales; escribir las imágenes en el orden recibido con `writestr(entry_name, content)`; escribir un `.txt` en la raíz por cada categoría **no vacía** según `_TEXT_CATEGORY_FILENAMES`, con `'\\n'.join(...).encode('utf-8')` (separador entre elementos, sin salto final); escribir `self._MANIFEST_FILENAME` en la raíz **si y solo si** `not_included_ids` no está vacío, con la **misma convención de escritura** (`'\\n'.join(not_included_ids).encode('utf-8')`, sin salto final, UTF-8); y retornar `buffer.getvalue()` **fuera del bloque `with`**, después de cerrar el ZIP": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578521552
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586864357
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587095733
+      }
+    ],
+    "9.2 Añadir la clase `TestZipStructure`, invocando `_build_zip_package` directamente y leyendo el resultado con `read_zip`: estructura con dos entradas `images/...` y los cuatro `.txt` en la raíz; `compress_type == zipfile.ZIP_DEFLATED` en todos los `infolist()`; contenido de cada `.txt` decodificado en UTF-8 igual por comparación exacta de cadena a los textos unidos por `'\\n'`, sin `'\\n'` inicial ni final; categorías vacías sin su archivo; ningún nombre de `.txt` con el carácter `/` y ninguna entrada de imagen fuera de `images/` (0 entradas de texto bajo `images/`); el caso de los **tres** conjuntos vacíos produciendo `bytes` no vacíos que se abren como ZIP válido con `namelist() == []`; y determinismo entre dos invocaciones equivalentes (mismo `namelist` en el mismo orden)": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578522353
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587130386
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587527131
+      }
+    ],
+    "10. Checkpoint - todos los métodos privados implementados y probados": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578522732
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587601436
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587633898
+      }
+    ],
+    "11.1 Implementar `execute(self, payload: ExportAssetsDataDict) -> Dict[str, Any]` en `FacebookExportAssetsPostLaunchCampaignUseCase` (`sinergia/app/v2/use_cases/meta_ads.py`) exactamente con el cuerpo de orquestación de `design.md`: `_validate_payload` como primera operación; lectura de las cinco claves sin conversión ni normalización; `_get_decoded_access_token()` (invocado por su efecto de puerta de autenticación, descartando el valor retornado); `_get_parent_account()`; `_get_campaign(...)` cuyo retorno se descarta; `_get_ad_channel(...)` y `_resolve_channel_id(...)`; `_get_validated_campaign_setup(...)`; `images, not_included_ids = self._collect_surplus_images(ad_channel)`, `texts = self._collect_surplus_texts(ad_channel)` y `content = self._build_zip_package(images, texts, not_included_ids)`; y el retorno del Resultado_de_Exportación con exactamente las tres claves `content`, `content_type` (`'application/zip'`) y `filename` (`f\"assets_{campaign_id}_{adchannel_id}.zip\"`)": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578523100
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587693593
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789588618866
+      }
+    ],
+    "11.2 Añadir la clase `TestMainFlow` a `sinergia/tests/v2/unit/use_cases/test_facebook_export_assets_post_launch_campaign.py`, ejercitando `execute()` de extremo a extremo con un Ad_Channel_de_Exportación de exactamente dos Imágenes_Excedentes descargables **con éxito** y exactamente un Texto_Excedente en cada una de las cuatro categorías: `namelist()` ordenado alfabéticamente igual por comparación exacta a la lista de los **seis** nombres esperados (las dos entradas `images/{id}.jpeg` de los identificadores del fixture más `primary_texts.txt`, `headlines.txt`, `descriptions.txt` y `ctas.txt`); contenido de los cuatro `.txt` decodificado en UTF-8 igual por comparación exacta de cadena y en el orden del fixture; y binario de cada entrada `images/...` igual **byte a byte** al retornado por el doble de descarga para su `visual_url`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578523317
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789588675346
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789589076790
+      }
+    ],
+    "11.3 Añadir las clases `TestExportResultContract`, `TestRepositoryInvocations`, `TestEmptyPackage` y `TestTokenNotLeaked`: conjunto de claves del resultado igual por comparación exacta a `{'content', 'content_type', 'filename'}`, `content_type == 'application/zip'` y `filename == f'assets_{campaign_id}_{adchannel_id}.zip'` con los valores del fixture; exactamente una invocación de cada uno de los cuatro repositorios con los argumentos derivados del fixture y exactamente una invocación de descarga por Imagen_Excedente; el caso de ZIP sin entradas retornando `content` de tipo `bytes` no vacío, ZIP válido y `namelist() == []` sin excepción; y el valor del token simulado ausente del Resultado_de_Exportación y del contenido de toda entrada del ZIP": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578523628
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789589105500
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789589525152
+      }
+    ],
+    "11.4 Añadir las clases `TestPreValidationFailures` y `TestPreValidationShortCircuits`, ejercitando `execute()`: los ocho escenarios de fallo parametrizados (payload incompleto → `ParametersNotFoundException`; token ausente → `NotAccessException`; cuenta no encontrada → `DataNotFoundException`; campaña no encontrada → `DataNotFoundException`; ad-channel no encontrado → `DataNotFoundException`; campaign-setup no encontrado → `DataNotFoundException`; `meta_published` distinto de `True` → `IncorrectValidationException`; `meta_campaign_mode` igual a `CreativeType.DYNAMIC.value` → `IncorrectValidationException`), verificando en cada uno **solo el tipo** de excepción vía `assert_exception_type` (sin comparar el texto del mensaje) y cero invocaciones del doble de descarga; más los tres cortes: campaña falla → `get_by_campaign_and_ad_channel_id` con cero invocaciones; ad-channel falla → `get_by_campaign_id_and_channel_id` con cero invocaciones; token ausente → `AccountRepository` y `CampaignRepository` con cero invocaciones": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578523940
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789589552942
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789590039482
+      }
+    ],
+    "11.5 Añadir la clase `TestDegradedStructures`, ejercitando `execute()` con los cinco fixtures degradados de los Requirements 7.7, 7.8, 8.5, 8.6 y 8.7 (`media_formats` ausente o no-`list`; elemento de `media_formats` no-`dict`; elemento de `payloads` no-`dict`; `channel_attributes` ausente o no-`list`; `payloads` ausente o no-`list`), verificando en cada uno que retorna un Resultado_de_Exportación sin lanzar ninguna excepción y que `namelist()` es igual a la lista esperada para ese fixture": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578524294
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789590077904
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789590504079
+      }
+    ],
+    "11.6 Añadir las clases `TestSurplusFiltering` y `TestPartialDownloadFailures`, ejercitando `execute()`: (a) un elemento de `media_formats` con `pinned=True` que no produce ninguna entrada `images/...` y un número total de entradas `images/...` igual al número de excedentes no fijados del fixture, y el texto del elemento de `payloads` con `id == 0` ausente del `.txt` de su categoría, que contiene exactamente los de `id != 0`; (b) tres Imágenes_Excedentes con el doble de descarga retornando un código distinto de 200 para una de ellas, y el mismo escenario con `requests.exceptions.Timeout` para una de ellas, verificando en ambos tres invocaciones del doble, exactamente dos entradas `images/...`, `manifest.txt` presente en la raíz con contenido UTF-8 igual **por comparación exacta de cadena** al identificador del único formato fallido, y `execute()` sin lanzar": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578524646
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789590541813
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789591033032
+      }
+    ],
+    "11.7 Añadir la clase `TestManifest`, ejercitando `execute()` con los cinco escenarios dedicados al manifest: `test_single_failed_download_is_reported` (tres candidatos a excedente, código distinto de 200 en exactamente uno → `manifest.txt` presente en la raíz, contenido UTF-8 igual por comparación exacta al identificador de ese único formato, sin `\\n` inicial ni final); `test_two_causes_are_reported_in_media_formats_order` (un elemento cuya descarga lanza y un elemento no fijado con `visual_url` no utilizable → contenido igual por comparación exacta a los **dos** identificadores unidos por `'\\n'` en el orden de aparición dentro de `media_formats`); `test_manifest_absent_when_all_downloads_succeed` (código 200 para todas → el nombre `manifest.txt` **no** está en `namelist()`); `test_manifest_only_package` (≥2 elementos no fijados con descarga fallida, 1 elemento `pinned=True`, cero Textos_Excedentes → `namelist()` igual por comparación exacta a `['manifest.txt']`, el identificador del elemento fijado **no** contenido en `manifest.txt`, y `execute()` sin lanzar); y `test_missing_id_is_reported_by_global_index` (Asset_No_Incluido cuyo elemento carece de `id` o tiene `id=None` → identificador reportado igual a la representación en cadena de su **índice de base cero dentro de `media_formats` completa**, con un fixture en el que ese índice difiera de la posición entre excedentes, por ejemplo precedido por un elemento `pinned` y uno no-`dict`)": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578524928
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789591074586
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789591698445
+      }
+    ],
+    "11.8 Añadir las clases `TestExclusiveKeyReading` y `TestManifestComplementarity`, ejercitando `execute()`: la primera verifica el Requirement 7.10 sobre un fixture con las siete claves auxiliares presentes —ninguna invocación del doble de descarga con una URL de `preview_url`, y ninguna de las siete claves (`uid`, `unit`, `width`, `height`, `errors`, `visual_id`, `preview_url`) ni sus valores contenidos en el contenido de ninguna entrada del Paquete_ZIP—; la segunda verifica la Property 12 de `design.md` por ejemplo, sobre un fixture con éxitos y fallos mezclados: el conjunto de identificadores de `manifest.txt` y el de los derivados de los nombres de las entradas `images/...` son **disjuntos** y su unión iguala exactamente el conjunto de candidatos a excedente del fixture": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578525219
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789591738253
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789592457696
+      }
+    ],
+    "11.9 Añadir las clases `TestZipEntryNamingEndToEnd` y `TestZipEntryDisambiguationEndToEnd`, ejercitando `execute()` para llevar al nivel del Paquete_ZIP lo que la tarea 6.2 verifica por invocación directa de los `staticmethod`: cuatro Imágenes_Excedentes de identificadores distintos y descarga exitosa cuyas `visual_url` terminen respectivamente en `.jpg`, en `.png`, en `.png` seguida de una cadena de consulta, y en un último segmento de ruta sin ningún punto, verificando que los nombres de entrada del Paquete_ZIP son `images/{id}.jpg`, `images/{id}.png`, `images/{id}.png` e `images/{id}.jpg` para los identificadores correspondientes; y dos Imágenes_Excedentes de descarga exitosa que compartan el mismo `id` y la misma extensión derivada, verificando que el `namelist()` ordenado alfabéticamente es igual a `['images/{id}.jpg', 'images/{id}_1.jpg']` y que cada una de las dos entradas contiene el binario retornado por el doble para su **propia** `visual_url`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578525595
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789592502656
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789592853024
+      }
+    ],
+    "12. Checkpoint - Caso_de_Uso completo y suite unitaria verde": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578526016
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789592904868
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789592946388
+      }
+    ],
+    "13.1 En `sinergia/app/v2/resources/external.py`, reemplazar únicamente la sentencia `return {'ok' : 1, 'data': data }, 200` del método `post()` de `FacebookResourceCampaignLaunchExportAssets` por la construcción de un `BytesIO(data['content'])` con `seek(0)` y `return send_file(buffer_zip, mimetype=data['content_type'], as_attachment=True, attachment_filename=data['filename'])`": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578526421
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587732412
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789588644747
+      }
+    ],
+    "14.1 Ejecutar la recolección y la suite nueva, corrigiendo cualquier `failed`, `skipped` o error de recopilación hasta obtener cero en las tres categorías y un número de `passed` igual al total recolectado": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578526812
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789592984273
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789593195607
+      }
+    ],
+    "14.2 Verificar la no regresión y el alcance: ejecutar la suite completa de la capa de servicio y confirmar que ninguna prueba preexistente cambia de resultado; auditar con `git status`/`git diff` lo que exige el Requirement 1.11; y auditar que existe al menos un caso de prueba por cada uno de los **24** criterios del Requirement 12": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578527301
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789593313139
+      },
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789595536759
+      }
+    ],
+    "15.1 Verificar manualmente, con una petición real a `POST /facebook/launch/publish/export_assets` sobre una campaña STANDARD ya publicada con excedentes conocidos, los criterios del Requirement 10 que el Requirement 12 deja **sin cobertura automatizada** (tarea de verificación, **no de código**)": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789578527801
+      }
+    ],
+    "1. Crear el andamiaje del archivo de pruebas": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789579399654
+      }
+    ],
+    "2. Sanear el constructor del Caso_de_Uso y añadir los imports": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580212530
+      }
+    ],
+    "3. Implementar y probar la validación del Payload_de_Exportación": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789580734237
+      }
+    ],
+    "4. Implementar y probar la cadena de pre-validaciones": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789583783092
+      }
+    ],
+    "6. Implementar y probar los auxiliares de nombrado": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789584881895
+      }
+    ],
+    "7. Implementar y probar la recopilación de Imágenes_Excedentes": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586116165
+      }
+    ],
+    "8. Implementar y probar la recopilación de Textos_Excedentes": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789586838977
+      }
+    ],
+    "9. Implementar y probar el empaquetado del Paquete_ZIP": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789587527607
+      }
+    ],
+    "13. Convertir la respuesta del Recurso_de_Exportación en una descarga binaria": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789588645121
+      }
+    ],
+    "11. Implementar `execute()` y probar la orquestación completa": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789592853371
+      }
+    ],
+    "14. Validación final automatizada y auditoría de alcance": [
+      {
+        "executionId": "12da7c7f-e99e-4fbe-8fba-9b3fea9b23dd",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789595537138
+      }
+    ],
+    "17.1 Extender `AdChannelRepository.get_by_campaign_and_ad_channel_id` en `sinergia/app/v2/repository/ad_channel.py` con el parámetro opcional `populate_names: bool = False` y la constante de clase `_NAME_POPULATE_PARAMS`, aplicada con `params.update(...)` únicamente cuando el parámetro está activado": [
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614602180
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614680716
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614943613
+      }
+    ],
+    "17.2 Añadir a `sinergia/tests/v2/unit/use_cases/test_facebook_export_assets_post_launch_campaign.py` la clase `TestAdChannelRepositoryPopulateParams`, que prueba el método **real** del repositorio con `StrapiClient.get` sustituido por un doble y 0 peticiones de red": [
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614602645
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614988758
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789615471240
+      }
+    ],
+    "17.3 Implementar en `FacebookExportAssetsPostLaunchCampaignUseCase` (`sinergia/app/v2/use_cases/meta_ads.py`) la derivación del nombre del archivo conforme al algoritmo 6 de `design.md`": [
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614603173
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789615512444
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789616436851
+      }
+    ],
+    "17.4 Actualizar y ampliar la Suite_de_Pruebas para el nombre corregido, en el mismo archivo nuevo": [
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614603539
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789616467382
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789617803663
+      }
+    ],
+    "17.5 Re-ejecutar la suite nueva y la suite completa de la capa de servicio, confirmando cero `failed`, cero `skipped`, cero `xfail` y cero errores de recopilación en la suite nueva, y que ninguna prueba preexistente cambia de resultado": [
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614603873
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789617835978
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789640105157
+      }
+    ],
+    "17.6 Re-auditar el alcance con `git status`/`git diff` conforme al Requirement 1.11, ahora sobre **3 archivos modificados y 1 nuevo**": [
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789614604327
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789640133252
+      },
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789640625665
+      }
+    ],
+    "17. Corrección del nombre del Paquete_ZIP: nombres legibles en lugar de identificadores (OQ-9)": [
+      {
+        "executionId": "e0d77109-42ff-4873-b3d3-a18b0fce9380",
+        "chatSessionId": "sess_516eb6da-6c18-4e48-834e-17b8e7c73ccd",
+        "timestamp": 1789640626184
+      }
+    ]
+  }
+}

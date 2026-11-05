@@ -1,0 +1,323 @@
+{
+  "pbtResults": {
+    "2.3 Escribir la prueba de propiedad `test_property_valid_payload_maps_to_fury_payload`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791561458771
+    },
+    "2.4 Escribir la prueba de propiedad `test_property_missing_required_fields_rejected_in_order`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791561575585
+    },
+    "2.5 Escribir la prueba de propiedad `test_property_invalid_values_rejected_in_order`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791561756456
+    },
+    "2.7 Escribir la prueba de propiedad `test_property_parent_account_resolution`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791562117462
+    },
+    "2.8 Escribir la prueba de propiedad `test_property_banner_image_lookup_matches_oracle`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791562222146
+    },
+    "2.10 Escribir la prueba de propiedad `test_property_extract_job_id_matches_oracle`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791562541637
+    }
+  },
+  "executionHistory": {
+    "1.1 Añadir imports, constantes de módulo y helpers privados `_edit_image_*`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560635783
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560650794
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560848068
+      }
+    ],
+    "1.2 Implementar la clase `EditAdVariantImageUseCase`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560636297
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560854471
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560991322
+      }
+    ],
+    "2.1 Crear el archivo con la fixture, los helpers y las pruebas de constructor y camino feliz": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560636651
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560996797
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561106597
+      }
+    ],
+    "2.2 Escribir las pruebas de ejemplo de presencia, valores y límites válidos": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560636944
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561114050
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561344983
+      }
+    ],
+    "2.3 Escribir la prueba de propiedad `test_property_valid_payload_maps_to_fury_payload`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560637162
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561354603
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561477694
+      }
+    ],
+    "2.4 Escribir la prueba de propiedad `test_property_missing_required_fields_rejected_in_order`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560637384
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561484836
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561595507
+      }
+    ],
+    "2.5 Escribir la prueba de propiedad `test_property_invalid_values_rejected_in_order`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560637656
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561599890
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561774500
+      }
+    ],
+    "2.6 Escribir las pruebas de ejemplo de cuenta, campaña, variante e imagen": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560637883
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561779718
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561969593
+      }
+    ],
+    "2.7 Escribir la prueba de propiedad `test_property_parent_account_resolution`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560638120
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561974651
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562130590
+      }
+    ],
+    "2.8 Escribir la prueba de propiedad `test_property_banner_image_lookup_matches_oracle`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560638416
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562150463
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562233395
+      }
+    ],
+    "2.9 Escribir las pruebas de ejemplo de Fury y de logging": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560638678
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562246530
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562415085
+      }
+    ],
+    "2.10 Escribir la prueba de propiedad `test_property_extract_job_id_matches_oracle`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560639076
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562421089
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562568197
+      }
+    ],
+    "3. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560639496
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562573546
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562634759
+      }
+    ],
+    "4.1 Añadir el modelo `EditAdVariantImageStruct` y el recurso `HilucaResourceAdChannelMediaImageEdit`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560639815
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560999628
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561108059
+      }
+    ],
+    "4.2 Escribir la prueba de integración opcional del endpoint en `sinergia/tests/v2/integration/`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560640078
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561115187
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561345748
+      }
+    ],
+    "5. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560640337
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562639284
+      },
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562689509
+      }
+    ],
+    "1. Implementar el caso de uso en `sinergia/app/v2/use_cases/ad.py`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791560991781
+      }
+    ],
+    "4. Conectar el endpoint en `sinergia/app/v2/resources/ad.py`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791561346015
+      }
+    ],
+    "2. Escribir el Unit_Test_Suite en `sinergia/tests/v2/unit/use_cases/test_edit_ad_variant_image_use_case.py`": [
+      {
+        "executionId": "54b8972e-c009-4509-80fe-e9205a513e63",
+        "chatSessionId": "sess_102265f2-bb40-4e2d-9452-39a169ccd5fc",
+        "timestamp": 1791562568505
+      }
+    ]
+  }
+}

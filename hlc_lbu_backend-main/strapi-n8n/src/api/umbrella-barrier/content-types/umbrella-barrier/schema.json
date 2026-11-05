@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "umbrella_barriers",
+  "info": {
+    "singularName": "umbrella-barrier",
+    "pluralName": "umbrella-barriers",
+    "displayName": "Umbrella-Barrier"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

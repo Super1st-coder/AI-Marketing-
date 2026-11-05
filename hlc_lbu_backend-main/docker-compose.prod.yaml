@@ -1,0 +1,163 @@
+# docker-compose.prod.yaml
+# ══════════════════════════════════════════════════════════════════════════════
+# Stack de producción para HiLuca LBU
+# - strapiDB eliminado → reemplazado por Cloud SQL (Auth Proxy)
+# - Las imágenes custom se leen de Artifact Registry (GH Actions las sube)
+# - El .env se descarga desde Secret Manager al arrancar la VM
+# ══════════════════════════════════════════════════════════════════════════════
+# Variables de entorno requeridas en el .env:
+#   CLOUD_SQL_CONNECTION_NAME  = project:region:instance
+#   AR_PREFIX                  = us-central1-docker.pkg.dev/PROJECT_ID/REPO
+#   DATABASE_USERNAME, DATABASE_PASSWORD
+#   DATABASE_NAME_STRAPI, DATABASE_NAME_SINERGIA
+#   JWT_SECRET, ADMIN_JWT_SECRET, APP_KEYS
+#   REDIS_HOST=redis, REDIS_PORT=6379
+#   MONGODB_HOST=mongodb, MONGODB_PORT=27017
+#   N8N_HOST=n8n, N8N_PORT=5678
+#   (resto de variables del .env original)
+# ══════════════════════════════════════════════════════════════════════════════
+
+version: "3.8"
+
+services:
+
+  # ── Cloud SQL Auth Proxy ──────────────────────────────────────────────────
+  # Actúa como puente seguro hacia la instancia de Cloud SQL.
+  # Se autentica automáticamente vía el Service Account de la VM.
+  cloud-sql-proxy:
+    container_name: hiluca-cloud-sql-proxy
+    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2
+    command:
+      - "--address=0.0.0.0"
+      - "--port=5432"
+      - "${CLOUD_SQL_CONNECTION_NAME}"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "nc", "-z", "127.0.0.1", "5432"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hiluca-network
+
+  # ── Nginx – Reverse Proxy / Entry Point ──────────────────────────────────
+  # Recibe el tráfico del Load Balancer en :80 y lo enruta internamente.
+  nginx:
+    container_name: hiluca-nginx
+    image: nginx:1.25-alpine
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - strapi
+      - n8n
+      - sinergia
+    networks:
+      - hiluca-network
+
+  # ── Strapi – CMS / API ───────────────────────────────────────────────────
+  strapi:
+    container_name: hiluca-strapi
+    image: ${AR_PREFIX}/strapi:${STRAPI_TAG:-latest}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: cloud-sql-proxy  
+      DATABASE_PORT: "5432"
+      DATABASE_NAME: ${DATABASE_NAME_STRAPI}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      APP_KEYS: ${APP_KEYS}
+      NODE_ENV: production
+    volumes:
+      - strapi-uploads:/opt/app/public/uploads
+    depends_on:
+      cloud-sql-proxy:
+        condition: service_healthy
+    networks:
+      - hiluca-network
+
+  # ── N8N – Automatización ─────────────────────────────────────────────────
+  n8n:
+    container_name: hiluca-n8n
+    image: docker.n8n.io/n8nio/n8n
+    restart: unless-stopped
+    environment:
+      - N8N_SECURE_COOKIE=false
+      - N8N_HOST=sec.hiluca.com
+      - WEBHOOK_URL=https://sec.hiluca.com/n8n/
+    volumes:
+      - hiluca-n8n-data:/home/node/.n8n
+    networks:
+      - hiluca-network
+
+  # ── Redis – Cache ─────────────────────────────────────────────────────────
+  redis:
+    container_name: hiluca-cache
+    image: redis:6.2-alpine
+    restart: always
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - hiluca-cache:/data
+    networks:
+      - hiluca-network
+
+  # ── MongoDB ───────────────────────────────────────────────────────────────
+  mongodb:
+    container_name: hiluca-mongodb
+    image: mongodb/mongodb-community-server:latest
+    restart: always
+    volumes:
+      - hiluca-mongodb-data:/data/db
+    networks:
+      - hiluca-network
+
+  # ── Sinergia – Backend FastAPI ────────────────────────────────────────────
+  sinergia:
+    container_name: hiluca-sinergia
+    image: ${AR_PREFIX}/sinergia-image:${SINERGIA_TAG:-latest}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      CONFIG_TYPE: ${CONFIG_TYPE}
+      DATABASE_HOST: cloud-sql-proxy   # Cloud SQL Auth Proxy
+      DATABASE_PORT: "5432"
+      DATABASE_NAME: ${DATABASE_NAME_SINERGIA}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      MONGODB_HOST: mongodb
+      MONGODB_PORT: "27017"
+      N8N_HOST: n8n
+      N8N_PORT: "5678"
+      FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID}
+      FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET}
+      FACEBOOK_REDIRECT_URI: ${FACEBOOK_REDIRECT_URI}
+      FACEBOOK_GRAPH_API_BASE: ${FACEBOOK_GRAPH_API_BASE}
+    volumes:
+      - .env:/app/sinergia/.env:ro
+    depends_on:
+      cloud-sql-proxy:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      mongodb:
+        condition: service_started
+    networks:
+      - hiluca-network
+
+volumes:
+  strapi-uploads:
+  hiluca-n8n-data:
+  hiluca-cache:
+  hiluca-mongodb-data:
+
+networks:
+  hiluca-network:
+    driver: bridge

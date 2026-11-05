@@ -1,0 +1,95 @@
+** Información General de la Buyer Persona
+¿Cómo se llama tu buyer persona?:
+¿Qué tipo de buyer persona es? (B2C/B2B):
+¿Qué rango de edad tiene?:
+¿Cuál es su género?:
+¿Cuál es su nivel de ingresos?:
+¿Dónde vive o trabaja?:
+¿Cuál es su título o profesión?:
+¿Qué posición ocupa en su trabajo?:
+¿Cuáles son sus prioridades de equilibrio entre trabajo y vida personal?:
+** Company profile and relationship with the product
+¿Cuántas personas trabajan en tu empresa?:
+¿Cómo se llama tu empresa?:
+¿En qué industrias opera tu buyer persona?:
+¿Cuál es el desafío principal busca resolver la buyer persona?
+¿Cuáles son las responsabilidades principales de tu buyer persona?:
+¿Qué metas busca alcanzar tu buyer persona en su rol?:
+¿Tu buyer persona toma decisiones de compra?:
+¿Cuáles son las habilidades clave de tu buyer persona?:
+¿Qué motiva principalmente a tu buyer persona?:
+¿Quién tiene la última palabra en decisiones de compra en su empresa?
+** Problemas Actuales del Buyer Persona
+¿Cuál es el desafío más significativo de tu buyer persona sin la solución que ofrece tu producto?
+¿Qué no puede hacer sin nuestro producto?:
+¿Qué dificultad enfrenta sin esta solución?:
+¿Qué le frustra al no tener nuestro producto?:
+¿Qué necesita y no tiene sin nuestro producto?:
+¿Qué problema cotidiano le complica la vida sin esto?:
+¿Qué le impide alcanzar sus metas sin nuestro producto?:
+¿Qué le tomaría más tiempo o esfuerzo sin nuestra solución?:
+¿Qué le costaría más dinero sin usar nuestro producto?:
+¿Qué oportunidades pierde sin nuestro producto?:
+¿Qué mejoras significativas no puede lograr sin esto?:
+** Problemas con la Solución Actual
+¿Cómo está resolviendo esta persona su problema actualmente?:
+¿Cuál es el primer problema con su solución actual?:
+¿Cuál es el segundo problema con su solución actual?:
+¿Cuál es el tercer problema con su solución actual?:
+** Objetivo con el Producto
+¿Qué logro principal busca tu cliente con nuestro producto?:
+¿Qué metas secundarias tiene tu cliente?:
+¿Hay otros objetivos que tu cliente espera alcanzar?:
+** Miedos y Preocupaciones
+¿Cuál es el mayor temor de tu cliente respecto a usar nuestro producto?:
+¿Qué preocupaciones tiene tu cliente al pensar en adquirir nuestro producto?:
+¿Existen inquietudes específicas sobre su funcionamiento?:
+¿Qué dudas tiene sobre el costo o la inversión?:
+¿Hay preocupaciones sobre la compatibilidad o integración con sus sistemas actuales?:
+¿Qué temores tiene tu cliente sobre la asistencia y el soporte post-venta?:
+¿Existen preocupaciones sobre la durabilidad o las garantías de nuestro producto?:
+¿Qué dudas tiene tu cliente sobre la eficacia o los resultados esperados?:
+¿Hay inquietudes sobre la facilidad de uso?:
+¿Cuáles son las preocupaciones de tu cliente sobre las actualizaciones o el mantenimiento?:
+¿Hay otros temores o preocupaciones que tu cliente haya expresado?:
+** Principales influenciadores de la compra
+¿Cómo se llama el principal influenciador de tu buyer persona dentro de la empresa?
+¿Qué edad tiene este influenciador?
+¿Cómo describirías el estilo de esta persona: más casual o formal?
+¿A qué se dedica el influenciador? (Profesión principal)
+¿Cuál es la relación del influenciador con tu buyer persona?
+¿Qué tanto impacto crees que tiene este influenciador en las decisiones de tu buyer persona?
+¿Existen desafíos que enfrentan en su relación? Si es así, ¿cuáles?
+¿Cuáles consideras que son los aspectos negativos de su relación?
+¿Qué opina el influenciador sobre tu buyer persona adquiriendo tu producto?
+¿Puedes compartir algún recuerdo significativo entre el influenciador y el buyer persona?
+¿Cómo se llama el segundo influenciador más importante para tu buyer persona dentro de la empresa?
+¿Qué edad tiene este influenciador?
+¿Cómo describirías el estilo de esta persona: más casual o formal?
+¿A qué se dedica el influenciador? (Profesión principal)
+¿Cuál es la relación del influenciador con tu buyer persona?
+¿Qué tanto impacto crees que tiene este influenciador en las decisiones de tu buyer persona?
+¿Existen desafíos que enfrentan en su relación? Si es así, ¿cuáles?
+¿Cuáles consideras que son los aspectos negativos de su relación?
+¿Qué opina el influenciador sobre tu buyer persona adquiriendo tu producto?
+¿Puedes compartir algún recuerdo significativo entre el influenciador y el buyer persona?
+¿Cómo se llama el tercer influenciador más importante para tu buyer persona dentro de la empresa?
+¿Qué edad tiene este influenciador?
+¿Cómo describirías el estilo de esta persona: más casual o formal?
+¿A qué se dedica el influenciador? (Profesión principal)
+¿Cuál es la relación del influenciador con tu buyer persona?
+¿Qué tanto impacto crees que tiene este influenciador en las decisiones de tu buyer persona?
+¿Existen desafíos que enfrentan en su relación? Si es así, ¿cuáles?
+¿Cuáles consideras que son los aspectos negativos de su relación?
+¿Qué opina el influenciador sobre tu buyer persona adquiriendo tu producto?
+¿Puedes compartir algún recuerdo significativo entre el influenciador y el buyer persona?
+¿Cómo se llama el cuarto influenciador más importante para tu buyer persona dentro de la empresa?
+¿Qué edad tiene este influenciador?
+¿Cómo describirías el estilo de esta persona: más casual o formal?
+¿A qué se dedica el influenciador? (Profesión principal)
+¿Cuál es la relación del influenciador con tu buyer persona?
+¿Qué tanto impacto crees que tiene este influenciador en las decisiones de tu buyer persona?
+¿Existen desafíos que enfrentan en su relación? Si es así, ¿cuáles?
+¿Cuáles consideras que son los aspectos negativos de su relación?
+¿Qué opina el influenciador sobre tu buyer persona adquiriendo tu producto?
+¿Puedes compartir algún recuerdo significativo entre el influenciador y el buyer persona?

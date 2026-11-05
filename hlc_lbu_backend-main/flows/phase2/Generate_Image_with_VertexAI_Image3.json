@@ -1,0 +1,165 @@
+{
+  "name": "Generate Image with VertexAI Image3",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "predictions[0].bytesBase64Encoded",
+        "options": {}
+      },
+      "id": "fac7e338-1ebe-493d-9091-473cc7b757af",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1040,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "image",
+        "responseMode": "responseNode",
+        "options": {
+          "binaryPropertyName": "data",
+          "rawBody": true
+        }
+      },
+      "id": "61b0d127-327a-48ba-92da-363d7a034527",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        420,
+        140
+      ],
+      "webhookId": "91ee6a80-b367-4d89-bb68-e1020129ccad"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://us-central1-aiplatform.googleapis.com/v1/projects/401654669410/locations/us-central1/publishers/google/models/imagen-3.0-fast-generate-001:predict",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"instances\": [\n    {\n      \"prompt\": \"{{ $json.body.prompt }}\"\n    }\n  ],\n  \"parameters\": {\n    \"sampleCount\": 1\n  }\n} ",
+        "options": {}
+      },
+      "id": "d727d572-f965-4525-a5d9-c5c22dbddf3b",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        140
+      ],
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "OtOau6Q8ATZnTpfr",
+          "name": "Google account"
+        },
+        "httpHeaderAuth": {
+          "id": "zZAEKrj5tTXcj5SU",
+          "name": "Header Auth account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "c89bfac7-fd8c-485b-9e38-0d99cefd7f1b",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1300,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"VERTEXAI00\", \"text\": \"ERROR - Generating Image from Prompt\" } }",
+        "options": {
+          "responseCode": 500
+        }
+      },
+      "id": "e54a571a-669f-4001-a2f7-b26c911b0059",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        940,
+        320
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "498214dc-8b39-45a6-9de7-a6fa8bc80d5d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "GcKCtTo8LU0K0y5z",
+  "tags": [
+    {
+      "createdAt": "2024-10-05T08:50:22.061Z",
+      "updatedAt": "2024-10-05T08:51:01.025Z",
+      "id": "Sl1nuKBtwkBLUiIr",
+      "name": "Fase 2"
+    }
+  ]
+}

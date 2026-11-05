@@ -1,0 +1,41 @@
+
+
+sudo snap install kubectl --classic
+
+sudo snap install kompose --classic
+
+sudo snap install google-cloud-cli --classic
+
+-------------------------------------------------
+
+grep -rhE ^deb /etc/apt/sources.list* | grep "cloud-sdk"
+
+sudo apt-get update
+
+sudo apt-get install apt-transport-https ca-certificates gnupg curl
+
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+sudo apt-get update
+
+sudo apt-get install google-cloud-cli
+
+sudo apt-get install -y kubectl
+
+apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+
+gcloud container clusters create-auto hiluca-k8s
+
+gcloud container clusters get-credentials hiluca-k8s --region us-central1 --project careful-acumen-422922-k4
+
+
+
+kubectl apply -f redis-deployment.yaml,redis-service.yaml   
+
+kubectl apply -f env-configmap.yaml,redis-deployment.yaml,redis-service.yaml,mongodb-deployment.yaml,mongodb-service.yaml,hiluca-cache-persistentvolumeclaim.yaml,hiluca-mongodb-data-persistentvolumeclaim.yaml,hiluca-n8n-data-persistentvolumeclaim.yaml,hiluca-network-networkpolicy.yaml,n8n-deployment.yaml,n8n-service.yaml,sinergia-claim0-persistentvolumeclaim.yaml,
+
+
+kubectl apply -f  redis-deployment.yaml,strapi-claim5-persistentvolumeclaim.yaml,env-configmap.yaml,redis-service.yaml,strapidb-claim0-persistentvolumeclaim.yaml,hiluca-cache-persistentvolumeclaim.yaml,sinergia-claim0-persistentvolumeclaim.yaml,strapidb-deployment.yaml,hiluca-mongodb-data-persistentvolumeclaim.yaml,sinergia-deployment.yaml,strapidb-service.yaml,hiluca-n8n-data-persistentvolumeclaim.yaml,sinergia-service.yaml,strapi-deployment.yaml,hiluca-network-networkpolicy.yaml,strapi-claim0-persistentvolumeclaim.yaml,strapi-service.yaml,mongodb-deployment.yaml,strapi-claim1-persistentvolumeclaim.yaml,streamlit-claim0-persistentvolumeclaim.yaml,mongodb-service.yaml,strapi-claim2-persistentvolumeclaim.yaml,streamlit-deployment.yaml,n8n-deployment.yaml,strapi-claim3-persistentvolumeclaim.yaml,streamlit-service.yaml,n8n-service.yaml,strapi-claim4-persistentvolumeclaim.yaml
+

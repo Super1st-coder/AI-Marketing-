@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "catalog_income_levels",
+  "info": {
+    "singularName": "catalog-income-level",
+    "pluralName": "catalog-income-levels",
+    "displayName": "Catalog-Income_level",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

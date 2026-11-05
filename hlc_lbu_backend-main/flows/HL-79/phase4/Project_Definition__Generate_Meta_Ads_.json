@@ -1,0 +1,987 @@
+{
+  "name": "Project Definition (Generate Meta Ads)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "4225f429-568e-47db-aee0-cf0ec2b98a45",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3080,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d1ef2a42-cc22-486b-b007-11e8976e45a3",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -3080,
+        -1020
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "4281b837-b84f-47dc-9cff-b43e49a00442",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -3300,
+        -1200
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "37a025f8-dfb4-4ca0-901e-496af4d15598",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3500,
+        -1200
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "6d18fdef-c0e8-4bc1-b029-aaf534701611",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        -1340
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "453ce6de-330e-4d00-ab1f-4b1c9769980c",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3360,
+        -920
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "43ae9362-489b-4e12-9e30-f36cc484e9f6",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -2900,
+        -1020
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $('Edit Fields2').item.json.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "=4",
+              "type": "string"
+            },
+            {
+              "id": "4dca6cfd-0710-448d-8bb2-e3dd9b70e32b",
+              "name": "meta_ads",
+              "value": "={{ $json.json_output }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "04e8a57a-7b1e-4a2e-b81d-98475e9021da",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1060,
+        -1440
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=meta_ads,current_phase"
+      },
+      "id": "5c4587ad-67ac-4257-a24e-317770b6f67c",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        -1440
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"meta_ads\" : {{ $json.attributes.meta_ads.toJsonString() }},\n       \"type\": \"{{ $('Edit Fields2').item.json.type }}\"\n   } \n}",
+        "options": {}
+      },
+      "id": "ba7bc3e4-1537-403f-b030-504707f0cc4f",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        -1520
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac355ca2-7aaf-472a-aa9d-72635c0d3a8f",
+              "name": "product_name",
+              "value": "={{ $json.attributes.preferred_product.Product.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "eb4b63f9-34cf-4330-a5e9-91fa54860347",
+              "name": "assistant_id",
+              "value": "={{ $json.attributes.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ab1d4aef-6842-4aa9-b7c7-abe49d595198",
+              "name": "product_details",
+              "value": "=Product Details:\n\nProduct Name: {{ $json.attributes.preferred_product.Product.Name }}\nProduct Description: {{ $json.attributes.preferred_product.Product.Details.Description }}\n\nCore_Characteristic: {{ $json.attributes.preferred_product.Product.Details.Core_Characteristic }}\nFeatures: {{ $json.attributes.preferred_product.Product.Details.Product_Details.Features }}\nCompetitive Advantages: {{ $json.attributes.preferred_product.Product.Details.Competitive_Advantage }}\nBenefits:\n{{  $json.attributes.preferred_product.Product.Details.Benefit_Related_to_Hypothesis }}\n",
+              "type": "string"
+            },
+            {
+              "id": "706bf5c7-ef2c-418b-918a-ec7dd204b963",
+              "name": "buyer_person_details",
+              "value": "=BUYER PERSON DETAILS\n\nName: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}\nAge: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Age }}\nTitle: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Title }}\nDescription: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Description }}\n\nGoals: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Goals }}\n\nNeeds: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Needs }}\n\nValues: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Values }}\n\nPain Points: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}\n",
+              "type": "string"
+            },
+            {
+              "id": "59a80430-4467-40b6-b491-3fae12f0d96a",
+              "name": "buyer_person_name",
+              "value": "={{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "f01e9687-4a1a-49a1-9e30-ba2bf959a841",
+              "name": "creative_concept_details",
+              "value": "=CREATIVE CONCEPT DETAILS\n\nConten Types: {{ $json.attributes.creative_concept_attributes_saved.Content_Types }}\nLocal Relevance: {{ $json.attributes.creative_concept_attributes_saved.Local_Relevance }}\nSeasonal Relevance: {{ $json.attributes.creative_concept_attributes_saved.Seasonal_Relevance }} \nInfluence Principles: \n{{ $json.attributes.creative_concept_attributes_saved.Influence_Principles }}Buyer Person Interests: {{ $json.attributes.creative_concept_attributes_saved.Buyer_Persona_Interests }}\nNon Obvious Correlations: {{ $json.attributes.creative_concept_attributes_saved.Non_Obvious_Correlations }}\nCompetitive_Advantage Insights: {{  $json.attributes.creative_concept_attributes_saved.Competitive_Advantage_Insights }}\n\n",
+              "type": "string"
+            },
+            {
+              "id": "4d5d0e41-7473-4fb6-922d-c23e044d138d",
+              "name": "campaign_details",
+              "value": "=CAMPAIGN DETAILS\n\nBig Idea: {{ $json.attributes.creative_concept_description.big_idea }}\nTime Frame: {{ $json.attributes.creative_concept_description.time_frame }}\nTarget Regions: {{ $json.attributes.creative_concept_description.target_regions }}\nConsumer Insight: {{ $json.attributes.creative_concept_description.consumer_insight }}\nValue Proposition: {{ $json.attributes.creative_concept_description.value_proposition }}\nCommunication Objetive: {{ $json.attributes.creative_concept_description['communication objetive'] }}\nTone Brand Personality: {{ $json.attributes.creative_concept_description.tone_brand_personality }}",
+              "type": "string"
+            },
+            {
+              "id": "1b3320a2-5341-4bf2-980d-43e752e0ba9e",
+              "name": "product_core_characteristic",
+              "value": "={{ $json.attributes.preferred_product.Product.Details.Core_Characteristic }}",
+              "type": "string"
+            },
+            {
+              "id": "f0d8e484-6b1e-4e5b-804d-607d8e630b91",
+              "name": "person_goals",
+              "value": "={{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Goals }}",
+              "type": "string"
+            },
+            {
+              "id": "b6e61c63-d9f1-4593-91d9-b0c28d6ae8bd",
+              "name": "main_problems",
+              "value": "={{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}",
+              "type": "string"
+            },
+            {
+              "id": "40dd0b05-4405-4c1e-85ef-4ab38aba9a86",
+              "name": "type",
+              "value": "={{ $('Webhook').item.json.body.type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e5250e55-aa46-46cf-9502-238172c0607f",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2360,
+        -1240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "86e75011-7194-4d83-a23d-114ba6eeb253",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2660,
+        -800
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d1031aff-0969-485f-a1e6-b7de9e6a6925",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2660,
+        -1220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\n\noutput = _input.all()[0].json.output\njson_output = json.loads(output)\n\nid = 0\nfor j in json_output:\n  j['id'] = id   \n  j['preferred'] = 0\n  j['image_prompts'] = {}\n  \n  id += 1\n\n\nreturn {'json_output': json_output}"
+      },
+      "id": "6339b437-3aa8-4275-84f1-f1c08f453d79",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1480,
+        -1240
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/project/meta_ads/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "b84b6b61-9fac-445f-ac14-06af20baa682",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3700,
+        -1200
+      ],
+      "webhookId": "67002800-877d-4a2c-8a00-2790c0fe8081"
+    },
+    {
+      "parameters": {},
+      "id": "3f4b4c55-0b58-4859-af31-08fb69cd978c",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        -1700,
+        -1300
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type.toUpperCase() }}",
+                    "rightValue": "N",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "830fa5d3-6673-49a8-8650-cdfac1696279",
+                    "leftValue": "={{ $json.type.toUpperCase() }}",
+                    "rightValue": "R",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b1eeb864-180b-4dd4-b8d3-35b678989c3a",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2140,
+        -1240
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Edit Fields2').item.json.type.toUpperCase() }}",
+                    "rightValue": "N",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f7d51eb5-c4fc-4e4b-9ace-4e2b99ba438f",
+                    "leftValue": "={{ $('Edit Fields2').item.json.type.toUpperCase() }}",
+                    "rightValue": "R",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9416adba-8a25-42cd-a5db-f9ef85404559",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1260,
+        -1240
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "fbbda719-dabf-47b8-861d-e669f9899cf7",
+      "name": "Window Buffer Memory1",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        -1660,
+        -780
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $('Edit Fields2').item.json.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "=4",
+              "type": "string"
+            },
+            {
+              "id": "4dca6cfd-0710-448d-8bb2-e3dd9b70e32b",
+              "name": "meta_ads_remarketing",
+              "value": "={{ $json.json_output }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5379928b-1d76-49ab-b9ca-72dcb9174c29",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1060,
+        -1040
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=meta_ads_remarketing,current_phase"
+      },
+      "id": "d2ded637-bde3-473d-86e6-3a191c18f6e3",
+      "name": "Strapi3",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        -1040
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "49a37e67-7dd1-4ab7-9b67-63db16a7e2f6",
+      "name": "Respond to Webhook5",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        -940
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"meta_ads\" : {{ $json.attributes.meta_ads_remarketing.toJsonString() }},\n       \"type\": \"{{ $('Edit Fields2').item.json.type }}\"\n   } \n}",
+        "options": {}
+      },
+      "id": "6a7c4ade-5666-42c2-ab3d-d28496c4dd46",
+      "name": "Respond to Webhook6",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        -1120
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=MRMETA, act as a creative copywriter to generate ad copy for \"{{ $json.product_name }}\".\n\nFollow these numbered instructions:\n\nUse the AIDA principles to write ads that sell \"{{ $json.product_name }}\" with a professional style and clickbait language. Focus on highlighting the positive outcomes and benefits that users will experience by using \"{{ $json.product_name }}\".\n\n1. Audience: The audience for this ad will be similar to \"{{ $json.buyer_person_name }}\". Focus on {{ $json.buyer_person_name }}’s concern about {{ $json.main_problems }} while emphasizing how \"{{ $json.product_name }}\" will provide the best solution and improve their situation. The goal is to make people like \"{{ $json.buyer_person_name }}\" confident that \"{{ $json.product_name }}\" is the ideal solution for {{ $json.main_problems }}. Additionally, encourage them to click on the ad to submit their contact information.\n\n2. MRMETA, this is the creative idea for the campaign to consider:\n{{ $json.creative_concept_details }}\n\n{{ $json.campaign_details }}\n\n3. MRMETA take into account the problem solution framework to create the ad copy taking into account that \"{{ $json.buyer_person_name }}\" has this goal: {{ $json.person_goals }} and that \"{{ $json.product_name }}\" has this core characteristic: {{ $json.product_core_characteristic }}\n\n4. MRMETA, each ad must include 6 elements according to these guidelines:\n1- Image Hook: Grab attention. 2-5 words.\n2- Image Punchline: Direct response to the Hook. 3-6 words.\n3- Headline: Main sales message. 40 characters or less.\n4- Primary Text: Briefly explain how the customer will get the promised benefit, focusing on positive outcomes. 110-125 characters.\n5- Description: Create a call to action related to the headline. 20 characters or less.\n6- CTA: Choose the CTA that fits best with the Primary Text and Headline (Book Now, Contact Us, Download, etc.).\n\n5. MRMETA, generate 3 ad proposals that highlight the positive outcomes of using the product, including all 6 elements.\n\nThe output is a correct formed JSON array that contains the ad proposals , in this form:\n\n[ \n  <Ad  Proposal 1>,<Ad  Proposal 2>, .. ,<Ad  Proposal N>\n]\n\n\nEach one of these proposal must replicate this structure:\n\n[\n    {\n      \"context\": \"Credit card company offering 60 days to pay after holiday expenses\",\n      \"ad\": {\n        \"image_hook\": \"Holiday Expenses?\",\n        \"image_punchline\": \"PLATA gives you time!\",\n        \"headline\": \"Stress-Free February\",\n        \"primary_text\": \"PLATA gives you 60 days without interest, so you can relax and enjoy your finances. Learn more 👇👇👇\",\n        \"description\": \"60 Days to Pay\",\n        \"cta\": \"Learn More\"\n      }\n    },\n    {\n      \"context\": \"Credit card delivered in 24 hours after approval\",\n      \"ad\": {\n        \"image_hook\": \"Your PLATA in a day\",\n        \"image_punchline\": \"In your hands fast!\",\n        \"headline\": \"Card in 24 Hours\",\n        \"primary_text\": \"Get your card in 24 hours, and start enjoying the freedom of quick access to credit. Discover how 👇👇👇\",\n        \"description\": \"Apply with no annual fee\",\n        \"cta\": \"Contact Us\"\n      }\n    },\n    {\n      \"context\": \"Credit card with 100% online process, no need to visit the bank\",\n      \"ad\": {\n        \"image_hook\": \"Another morning at the bank?\",\n        \"image_punchline\": \"PLATA: stress-free banking\",\n        \"headline\": \"100% Online, 24 Hours\",\n        \"primary_text\": \"Skip the bank hassle and spend your morning doing what you love. Get your card fast! More info 👇👇👇\",\n        \"description\": \"100% online process\",\n        \"cta\": \"Contact Us\"\n      }\n    }\n]\n\nPlease, omit any introductory comment previously to the answer, go directly to the output, and remove from response json tag.\n\nMRMETA use these general Instructions:\nUSE TEMPERATURE 0.9.\n",
+        "options": {}
+      },
+      "id": "e448e9ef-f143-4d04-8f08-aab42ddd6e88",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -1880,
+        -1500
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=MRMETA, act as a creative copywriter to generate ad copy for \"{{ $json.product_name }}\".\n\nFollow these numbered instructions:\n\nUse the AIDA principles to write ads that sell \"{{ $json.product_name }}\" with a professional style and clickbait language. Focus on highlighting the positive outcomes and benefits that users will experience by using \"{{ $json.product_name }}\".\n\n1. Audience: The audience for this ad will be similar to \"{{ $json.buyer_person_name }}\". Focus on {{ $json.buyer_person_name }}’s concern about {{ $json.main_problems }} while emphasizing how \"{{ $json.product_name }}\" will provide the best solution and improve their situation. The goal is to make people like \"{{ $json.buyer_person_name }}\" confident that \"{{ $json.product_name }}\" is the ideal solution for {{ $json.main_problems }}. Additionally, encourage them to click on the ad to submit their contact information.\n\n2. MRMETA, this is the creative idea for the campaign to consider:\n{{ $json.creative_concept_details }}\n\n{{ $json.campaign_details }}\n\n3. MRMETA take into account the problem solution framework to create the ad copy taking into account that \"{{ $json.buyer_person_name }}\" has this goal: {{ $json.person_goals }} and that \"{{ $json.product_name }}\" has this core characteristic: {{ $json.product_core_characteristic }}\n\n4. MRMETA, each ad must include 6 elements according to these guidelines:\n1- Image Hook: Grab attention. 2-5 words.\n2- Image Punchline: Direct response to the Hook. 3-6 words.\n3- Headline: Main sales message. 40 characters or less.\n4- Primary Text: Briefly explain how the customer will get the promised benefit, focusing on positive outcomes. 110-125 characters.\n5- Description: Create a call to action related to the headline. 20 characters or less.\n6- CTA: Choose the CTA that fits best with the Primary Text and Headline (Book Now, Contact Us, Download, etc.).\n\n5. MRMETA, generate 3 ad proposals that highlight the positive outcomes of using the product, including all 6 elements.\n\nThe output is a correct formed JSON array that contains the ad proposals , in this form:\n\n[ \n  <Ad  Proposal 1>,<Ad  Proposal 2>, .. ,<Ad  Proposal N>\n]\n\n\nEach one of these proposal must replicate this structure:\n\n[\n    {\n      \"context\": \"Credit card company offering 60 days to pay after holiday expenses\",\n      \"ad\": {\n        \"image_hook\": \"Holiday Expenses?\",\n        \"image_punchline\": \"PLATA gives you time!\",\n        \"headline\": \"Stress-Free February\",\n        \"primary_text\": \"PLATA gives you 60 days without interest, so you can relax and enjoy your finances. Learn more 👇👇👇\",\n        \"description\": \"60 Days to Pay\",\n        \"cta\": \"Learn More\"\n      }\n    },\n    {\n      \"context\": \"Credit card delivered in 24 hours after approval\",\n      \"ad\": {\n        \"image_hook\": \"Your PLATA in a day\",\n        \"image_punchline\": \"In your hands fast!\",\n        \"headline\": \"Card in 24 Hours\",\n        \"primary_text\": \"Get your card in 24 hours, and start enjoying the freedom of quick access to credit. Discover how 👇👇👇\",\n        \"description\": \"Apply with no annual fee\",\n        \"cta\": \"Contact Us\"\n      }\n    },\n    {\n      \"context\": \"Credit card with 100% online process, no need to visit the bank\",\n      \"ad\": {\n        \"image_hook\": \"Another morning at the bank?\",\n        \"image_punchline\": \"PLATA: stress-free banking\",\n        \"headline\": \"100% Online, 24 Hours\",\n        \"primary_text\": \"Skip the bank hassle and spend your morning doing what you love. Get your card fast! More info 👇👇👇\",\n        \"description\": \"100% online process\",\n        \"cta\": \"Contact Us\"\n      }\n    }\n]\n\nPlease, omit any introductory comment previously to the answer, go directly to the output, and remove from response json tag.\n\nMRMETA use these general Instructions:\nUSE TEMPERATURE 0.9.\n",
+        "options": {}
+      },
+      "id": "675761a3-ff43-4e5f-b18b-4aa46cf3cd10",
+      "name": "OpenAIRemarketing",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -1880,
+        -1020
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAIRemarketing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "OpenAIRemarketing",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Strapi3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi3": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAIRemarketing": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "bbc65fdf-c7c0-4b30-8766-406f478190e2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "aTDjLeI3jxBPq6Iy",
+  "tags": [
+    {
+      "createdAt": "2024-10-14T12:22:17.380Z",
+      "updatedAt": "2024-10-14T12:22:17.380Z",
+      "id": "lVOywqOvk0U2FLOg",
+      "name": "Fase 4"
+    },
+    {
+      "createdAt": "2024-10-06T13:17:50.176Z",
+      "updatedAt": "2024-10-06T13:17:50.176Z",
+      "id": "rqc1VZ2MNe04eto2",
+      "name": "IA"
+    }
+  ]
+}

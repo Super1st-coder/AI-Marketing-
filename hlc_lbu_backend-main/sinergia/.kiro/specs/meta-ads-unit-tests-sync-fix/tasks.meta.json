@@ -1,0 +1,175 @@
+{
+  "pbtResults": {
+    "1. Ejecutar la exploración de la condición del bug sobre las suites sin corregir": {
+      "status": "passed",
+      "failingExample": "16 failed, 969 passed (bug confirmed). Counterexamples: (1.1) campaign block dict diff 'Left contains 1 more item: {'conversion_event': None}' in TestResultComposition/TestCampaignBlock (11 tests); (1.2) test_absent_setup_attributes_yield_none_in_the_three_keys: tuple(keys) has extra 'conversion_event' vs 6-key CAMPAIGN_BLOCK_KEYS; (1.3/1.4) test_meta_resources_is_never_read and test_meta_resources_is_never_read_end_to_end: 'Extra items in the left set: meta_conversion_event'; (1.5) Hypothesis Falsifying example pixel='0': got {'action.type': ['offsite_conversion'], 'fb_pixel': ['0']} != expected {..., 'dataset': ['0']}; (1.6) test_happy_path_publishes_website_adset_and_tracked_ads[DYNAMIC|STANDARD]: got 'fb_pixel': ['pixel-123'] != expected 'dataset': ['pixel-123'].",
+      "lastRunTimestamp": 1791235230569
+    },
+    "3.5 Verificar que la exploración de la condición del bug ahora pasa": {
+      "status": "passed",
+      "lastRunTimestamp": 1791236548437
+    }
+  },
+  "executionHistory": {
+    "1. Ejecutar la exploración de la condición del bug sobre las suites sin corregir": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234941686
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234955758
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791235968444
+      }
+    ],
+    "2. Registrar la línea base de preservación (ANTES de aplicar el fix)": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234941989
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234957070
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791235970534
+      }
+    ],
+    "3.1 Actualizar constantes y helpers de expectativa en `test_facebook_get_launch_campaign_creatives.py`": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234942341
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791235978481
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236118315
+      }
+    ],
+    "3.2 Corregir `TestResultComposition` en `test_facebook_get_launch_campaign_creatives.py`": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234942711
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236132706
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236233714
+      }
+    ],
+    "3.3 Corregir `TestCampaignBlock` y `TestMetaUrl` en `test_facebook_get_launch_campaign_creatives.py`": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234943029
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236236358
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236407526
+      }
+    ],
+    "3.4 Corregir `tracking_specs` en `test_facebook_launch_campaign.py`": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234943390
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791235978875
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236120330
+      }
+    ],
+    "3.5 Verificar que la exploración de la condición del bug ahora pasa": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234943706
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236434657
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236571482
+      }
+    ],
+    "3.6 Verificar que la preservación se mantiene": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234944016
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236584795
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236698416
+      }
+    ],
+    "4. Checkpoint - Asegurar que todos los tests pasan": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791234944318
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236710918
+      },
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791237055802
+      }
+    ],
+    "3. Fix para sincronizar las suites unitarias de Meta Ads con el contrato de HL-2671": [
+      {
+        "executionId": "2c24f427-3d73-4c68-b25c-f40c27e62415",
+        "chatSessionId": "sess_f4981150-ec9b-4e68-a828-e76b26644ff9",
+        "timestamp": 1791236702165
+      }
+    ]
+  }
+}

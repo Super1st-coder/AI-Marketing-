@@ -1,0 +1,107 @@
+{
+  "kind": "collectionType",
+  "collectionName": "marketing_assets",
+  "info": {
+    "singularName": "marketing-asset",
+    "pluralName": "marketing-assets",
+    "displayName": "Marketing-Asset",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campaign_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campaign.campaign"
+    },
+    "asset_type_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::asset-type.asset-type"
+    },
+    "channel_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::channel-v2.channel-v2"
+    },
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "attributes_generated": {
+      "type": "json"
+    },
+    "attributes_saved": {
+      "type": "json"
+    },
+    "image_attributes_generated": {
+      "type": "json"
+    },
+    "image_attributes_saved": {
+      "type": "json"
+    },
+    "image_prompts": {
+      "type": "json"
+    },
+    "preferred_image_prompt": {
+      "type": "json"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "text"
+    },
+    "tone": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "extra_context": {
+      "type": "text"
+    },
+    "elements": {
+      "type": "json"
+    },
+    "images": {
+      "type": "json"
+    },
+    "formats": {
+      "type": "json"
+    },
+    "generated": {
+      "type": "boolean",
+      "default": false
+    },
+    "template_name": {
+      "type": "text"
+    },
+    "asset_generation_request_id": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "asset_generation_request_pending": {
+      "type": "boolean",
+      "default": false
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "marketing_assets_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "marketing_assets_updated"
+    }
+  }
+}

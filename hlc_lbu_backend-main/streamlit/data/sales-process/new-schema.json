@@ -1,0 +1,50 @@
+{
+    "kind": "collectionType",
+    "collectionName": "sales_processes",
+    "info": {
+        "singularName": "sales-process",
+        "pluralName": "sales-processes",
+        "displayName": "sales-process"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "bperson_ref": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::bperson.bperson"
+        },
+        "que-cambio-ocurre-en-la-vida-de-la-buyer-persona-que-tip": {
+            "type": "string"
+        },
+        "que-soluciones-actuales-ya-no-se-ajustan-a-las-nuevas-ne": {
+            "type": "string"
+        },
+        "puedes-mencionar-que-es-importante-para-la-buyer-persona": {
+            "type": "string"
+        },
+        "cuales-son-las-frustraciones-comunes-que-la-buyer-person": {
+            "type": "string"
+        },
+        "cuando-la-buyer-persona-se-da-cuenta-de-que-la-mejor-opc": {
+            "type": "string"
+        },
+        "cuando-el-buyer-persona-se-encuentra-con-el-producto-de-": {
+            "type": "string"
+        },
+        "cuales-son-los-principales-obstaculos-que-podrian-impedi": {
+            "type": "string"
+        },
+        "que-dificultades-tipicas-debe-enfrentar-la-buyer-persona": {
+            "type": "string"
+        },
+        "que-aspectos-de-tu-servicio-resultan-mas-satisfactorios-": {
+            "type": "string"
+        },
+        "como-describirias-el-impacto-final-de-tu-producto-o-serv": {
+            "type": "string"
+        }
+    }
+}

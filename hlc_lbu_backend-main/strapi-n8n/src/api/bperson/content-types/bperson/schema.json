@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bpeople",
+  "info": {
+    "singularName": "bperson",
+    "pluralName": "bpeople",
+    "displayName": "bperson",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "is_favorite": {
+      "type": "boolean"
+    },
+    "was_improved": {
+      "type": "boolean"
+    },
+    "parent_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    },
+    "from_another": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "json"
+    }
+  }
+}

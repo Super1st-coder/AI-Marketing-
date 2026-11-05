@@ -1,0 +1,591 @@
+{
+  "name": "Project Definition (Generate Image Prompts for Campaign)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "72ac6f06-5f31-45fe-a1f7-98e8b697ace7",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2740,
+        -1400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf51b17b-987a-4ed5-9799-eb55b0e61601",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -2720,
+        -980
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "19ecb5b9-ac80-4e25-bdf8-53e1263a8796",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -2940,
+        -1160
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "abf116e5-95c1-489c-b537-762a998c9e5b",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3160,
+        -1120
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "7194fbbe-6c8c-4676-8b2d-b9e3d615be0a",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -980,
+        -1340
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "b15900a7-1fb2-47de-ac5f-308353fac2f5",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3040,
+        -800
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "ab33dc35-e30a-4e6a-a291-3fd22aa2259c",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -2480,
+        -980
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $('Edit Fields2').item.json.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "=3",
+              "type": "string"
+            },
+            {
+              "id": "4dca6cfd-0710-448d-8bb2-e3dd9b70e32b",
+              "name": "campaign_image_prompts",
+              "value": "={{ $json.json_output }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ef7c19b3-9900-4e03-94a9-e153f86f3679",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1320,
+        -1480
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=current_phase,campaign_image_prompts"
+      },
+      "id": "dd424911-2f58-4263-a354-4903362b3936",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -1140,
+        -1480
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"campaign_image_prompts\" : {{ $json.attributes.campaign_image_prompts.toJsonString() }}\n   } \n}",
+        "options": {}
+      },
+      "id": "403284a6-6d77-4479-a9c6-babf4e448bef",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -980,
+        -1620
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eb4b63f9-34cf-4330-a5e9-91fa54860347",
+              "name": "assistant_id",
+              "value": "={{ $json.attributes.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ab1d4aef-6842-4aa9-b7c7-abe49d595198",
+              "name": "preferred_campaign_details",
+              "value": "=Campaign Details:\n\n- Title: {{ $json.attributes.preferred_campaign.campaign.title }}\n- Slogan: {{ $json.attributes.preferred_campaign.sections.slogan.text }}\n- Concept: {{ $json.attributes.preferred_campaign.sections.concept.description }}\n- Message: {{ $json.attributes.preferred_campaign.sections.message.description }}\n\n ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9b3759de-3a04-4827-ba41-6629497606c7",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2080,
+        -1480
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "42ab5394-1f9d-4af2-92a5-e6b70350bf5d",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2240,
+        -760
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "dc9125ae-f23a-4f34-8b44-e89bb33958dd",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2240,
+        -1180
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.project_id }}"
+      },
+      "id": "bc633a7f-e8a1-4282-8447-ec78008fad92",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        -1840,
+        -1260
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\n\noutput = _input.all()[0].json.output\njson_output = json.loads(output)\n\nid = 0\nfor j in json_output:\n  j['id'] = id   \n  j['preferred'] = 0\n  id += 1\n\n\nreturn {'json_output': json_output}"
+      },
+      "id": "e8c9da63-75bf-4cf4-bb6c-ee8c50146dae",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1500,
+        -1480
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project/preferred_campaign/image/prompts/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "c62b55b2-db2f-4a0f-8e2b-99e065c129d3",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3460,
+        -1120
+      ],
+      "webhookId": "a8d51268-1ea3-469f-9eea-18f63eb53f75"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=Generate six versions of storyboard-style draft image prompts for the following advertisement campaign concept:\n\n{{ $json['preferred_campaign_details'] }}\n\n** Guidelines for the prompts:\n\n- Begin each prompt with “Photo of a.”\n\n- Write the prompts in English.\n\n- Take this list as an example format for reference:\n\nExample 1. Photo of a joyful family, with two young children, playing on a tropical beach, with palm trees swaying in the background. The sky is clear, and the family is building sandcastles together.\n\nExample 2. Storyboard draft of a family enjoying a meal by the poolside, with the colorful resort backdrop. The sun is setting, and the atmosphere is warm and vibrant.\n\n- Use Temperature 0.9 for creative variations.\n\n- The output is a correct formed JSON array that contains the generated elements, in this form:\n\n[ \n  <Element Generated 1>,<Element Generated 2>, .. , <Element Generated N>\n]\n\nEach one of these elements must replicate this structure\n\n{\n      \"description\": \"Storyboard draft of a family enjoying a meal by the poolside, with the colorful resort backdrop. The sun is setting, and the atmosphere is warm and vibrant.\"\n}\n\nPlease, omit any introductory comment previously to the answer, go directly to the output, and remove from response json tag.\n\n",
+        "options": {}
+      },
+      "id": "fae51f11-9907-49d7-ba12-cff7faf752a2",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -1840,
+        -1480
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "68c4c760-ae1b-4b44-8a3e-578d1116c09e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "HYJ2zbfAkUW4Gsre",
+  "tags": [
+    {
+      "createdAt": "2024-10-08T21:10:49.482Z",
+      "updatedAt": "2024-10-08T21:10:49.482Z",
+      "id": "XrMyYBwR5G6AEmbi",
+      "name": "Fase 3"
+    },
+    {
+      "createdAt": "2024-10-06T13:17:50.176Z",
+      "updatedAt": "2024-10-06T13:17:50.176Z",
+      "id": "rqc1VZ2MNe04eto2",
+      "name": "IA"
+    }
+  ]
+}

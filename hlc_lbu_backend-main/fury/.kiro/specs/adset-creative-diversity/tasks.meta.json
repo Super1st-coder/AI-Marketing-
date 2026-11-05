@@ -1,0 +1,3304 @@
+{
+  "pbtResults": {
+    "4.2 Escribir test de propiedad del validador de respuesta": {
+      "status": "passed",
+      "lastRunTimestamp": 1791942637553
+    },
+    "7.2 Escribir test de propiedad de reglas de territorio": {
+      "status": "passed",
+      "lastRunTimestamp": 1791942675569
+    },
+    "6.2 Escribir test de propiedad de Ad_Slots": {
+      "status": "passed",
+      "lastRunTimestamp": 1791943009257
+    },
+    "9.4 Escribir test de propiedad del payload de subida": {
+      "status": "passed",
+      "lastRunTimestamp": 1791943631615
+    },
+    "6.3 Escribir test de propiedad de estabilidad del territorio": {
+      "status": "passed",
+      "lastRunTimestamp": 1791943876261
+    },
+    "3.3 Escribir test de propiedad de la validación de VariantCreate": {
+      "status": "passed",
+      "lastRunTimestamp": 1791943985085
+    },
+    "6.4 Escribir test de propiedad de disyunción de anclas y ejes": {
+      "status": "passed",
+      "lastRunTimestamp": 1791944109453
+    },
+    "3.4 Escribir test de propiedad de propagación y error saneado": {
+      "status": "passed",
+      "lastRunTimestamp": 1791944253747
+    },
+    "9.5 Escribir test de propiedad de logs sin secretos": {
+      "status": "passed",
+      "lastRunTimestamp": 1791944352028
+    },
+    "7.4 Escribir test de propiedad de reglas de variantes": {
+      "status": "passed",
+      "lastRunTimestamp": 1791944384521
+    },
+    "6.5 Escribir test de propiedad de Forbidden_Territories": {
+      "status": "passed",
+      "lastRunTimestamp": 1791975755577
+    },
+    "9.6 Escribir test de propiedad de descargas fallidas": {
+      "status": "passed",
+      "lastRunTimestamp": 1791975783165
+    },
+    "6.7 Escribir test de propiedad de rotación de plantillas": {
+      "status": "passed",
+      "lastRunTimestamp": 1791975922635
+    },
+    "9.7 Escribir test de propiedad del marcado de fallos": {
+      "status": "passed",
+      "lastRunTimestamp": 1791975924373
+    },
+    "6.8 Escribir test de propiedad del Creative_Plan": {
+      "status": "passed",
+      "lastRunTimestamp": 1791976168027
+    },
+    "6.10 Escribir test de propiedad de forma por Variant_Slot": {
+      "status": "passed",
+      "lastRunTimestamp": 1791976506099
+    },
+    "6.11 Escribir test de propiedad del merge por variante": {
+      "status": "passed",
+      "lastRunTimestamp": 1791976792457
+    },
+    "6.13 Escribir test de propiedad del mensaje al Validador": {
+      "status": "passed",
+      "lastRunTimestamp": 1791977089566
+    },
+    "11.6 Escribir test de propiedad del bucle de validación": {
+      "status": "passed",
+      "lastRunTimestamp": 1791977230979
+    },
+    "11.7 Escribir test de propiedad del filtrado de CTAs": {
+      "status": "passed",
+      "lastRunTimestamp": 1791977514745
+    },
+    "11.8 Escribir test de propiedad de cardinalidades": {
+      "status": "passed",
+      "lastRunTimestamp": 1791977755717
+    },
+    "11.9 Escribir test de propiedad de `delete_variants`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791977922523
+    },
+    "11.10 Escribir test de propiedad de reanudación": {
+      "status": "passed",
+      "lastRunTimestamp": 1791978129115
+    },
+    "13.4 Adaptar el test de propiedad existente de plantillas por Ad": {
+      "status": "passed",
+      "lastRunTimestamp": 1792061319501
+    },
+    "14.4 Adaptar el test de propiedad existente de reglas de territorio": {
+      "status": "passed",
+      "lastRunTimestamp": 1792061368043
+    },
+    "13.5 Ampliar el test de propiedad de plantillas por Ad": {
+      "status": "passed",
+      "lastRunTimestamp": 1792062288488
+    },
+    "14.6 Adaptar el test de propiedad existente de reglas por Ad": {
+      "status": "passed",
+      "lastRunTimestamp": 1792062297628
+    },
+    "14.5 Ampliar el test de propiedad de reglas de territorio": {
+      "status": "passed",
+      "lastRunTimestamp": 1792062397011
+    },
+    "14.7 Ampliar el test de propiedad de reglas por Ad": {
+      "status": "passed",
+      "lastRunTimestamp": 1792062575427
+    },
+    "16.4 Actualizar los tests de propiedad del pipeline": {
+      "status": "passed",
+      "lastRunTimestamp": 1792062669022
+    },
+    "14.8 Escribir test de propiedad del reparto de Ad_Templates": {
+      "status": "passed",
+      "lastRunTimestamp": 1792062757139
+    },
+    "18.2 Escribir test de propiedad de Template_Order": {
+      "status": "passed",
+      "lastRunTimestamp": 1792079320157
+    },
+    "18.5 Endurecer el test de propiedad del reparto de Ad_Templates (parte pura)": {
+      "status": "passed",
+      "lastRunTimestamp": 1792079346122
+    },
+    "18.4 Endurecer el test de propiedad de plantillas por Ad": {
+      "status": "passed",
+      "lastRunTimestamp": 1792079630678
+    },
+    "20.5 Adaptar el test de propiedad de cardinalidades": {
+      "status": "passed",
+      "lastRunTimestamp": 1792079658886
+    },
+    "20.6 Adaptar el test de propiedad de reanudación": {
+      "status": "passed",
+      "lastRunTimestamp": 1792079785641
+    },
+    "22.4 Endurecer el test de propiedad de cardinalidades": {
+      "status": "passed",
+      "lastRunTimestamp": 1792079911571
+    },
+    "22.5 Endurecer el test de propiedad de reanudación": {
+      "status": "passed",
+      "lastRunTimestamp": 1792080291767
+    },
+    "22.6 Escribir test de propiedad del reparto de Ad_Templates en el pipeline": {
+      "status": "passed",
+      "lastRunTimestamp": 1792080399750
+    },
+    "25.3 Ampliar el test de propiedad de reglas por Ad con ángulos en copies": {
+      "status": "passed",
+      "lastRunTimestamp": 1792166173638
+    },
+    "24.5 Escribir test de propiedad de la asignación de Variant_Angles": {
+      "status": "passed",
+      "lastRunTimestamp": 1792167344124
+    },
+    "25.2 Escribir test de propiedad de la regla 6.13": {
+      "status": "passed",
+      "lastRunTimestamp": 1792168156311
+    },
+    "26.3 Escribir test de propiedad del mensaje al Validador_Adset": {
+      "status": "passed",
+      "lastRunTimestamp": 1792168293429
+    },
+    "24.6 Escribir test de propiedad de los ángulos en el mensaje al Copywriter": {
+      "status": "passed",
+      "lastRunTimestamp": 1792168941345
+    },
+    "24.7 Ampliar el test de propiedad de plantillas por Ad con ángulos": {
+      "status": "passed",
+      "lastRunTimestamp": 1792169069388
+    },
+    "24.8 Ampliar el test de propiedad del Creative_Plan con ángulos": {
+      "status": "passed",
+      "lastRunTimestamp": 1792170985963
+    },
+    "24.9 Ampliar el test de propiedad de forma por Variant_Slot con ángulos": {
+      "status": "passed",
+      "lastRunTimestamp": 1792171123905
+    },
+    "30.5 Adaptar el test de propiedad existente del bucle de validación": {
+      "status": "passed",
+      "lastRunTimestamp": 1792172600529
+    },
+    "32.3 Endurecer el test de propiedad del bucle de validación": {
+      "status": "passed",
+      "lastRunTimestamp": 1792172830938
+    },
+    "32.4 Endurecer el test de propiedad de cardinalidades": {
+      "status": "passed",
+      "lastRunTimestamp": 1792173043147
+    },
+    "32.5 Endurecer el test de propiedad de reanudación": {
+      "status": "passed",
+      "lastRunTimestamp": 1792173505188
+    },
+    "35.4 Escribir test de propiedad de la extracción de Image_Elements": {
+      "status": "passed",
+      "lastRunTimestamp": 1792332066832
+    },
+    "36.3 Escribir test de propiedad de las capas de texto en Abyssale": {
+      "status": "passed",
+      "lastRunTimestamp": 1792332091010
+    },
+    "35.6 Escribir test de propiedad del Image_Elements_Checker": {
+      "status": "passed",
+      "lastRunTimestamp": 1792332395218
+    },
+    "35.8 Escribir test de propiedad del validador compuesto con Image_Elements": {
+      "status": "passed",
+      "lastRunTimestamp": 1792333004752
+    },
+    "35.10 Escribir test de propiedad del mensaje al Image_Prompter": {
+      "status": "passed",
+      "lastRunTimestamp": 1792333335268
+    },
+    "41.4 Escribir test de propiedad del filtrado previo al Image_Generator": {
+      "status": "passed",
+      "lastRunTimestamp": 1792336348269
+    },
+    "41.5 Escribir test de propiedad de la caché por `template_id` y el fallo por Ad": {
+      "status": "passed",
+      "lastRunTimestamp": 1792336561623
+    },
+    "41.6 Escribir test de propiedad del Checkpoint `image_prompts` y la regeneración": {
+      "status": "passed",
+      "lastRunTimestamp": 1792336796192
+    }
+  },
+  "executionHistory": {
+    "1.1 Crear los fakes compartidos del Diversity_Path": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941422576
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941461825
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942246298
+      }
+    ],
+    "1.2 Escribir la prueba golden del Legacy_Path antes de modificar el pipeline": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941423225
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942422616
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942898066
+      }
+    ],
+    "2.1 Declarar el Diversity_Flag y la excepción de job": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941423667
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941463097
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942583876
+      }
+    ],
+    "3.1 Implementar `VariantCreate._validate_request`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941424105
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942606566
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943024727
+      }
+    ],
+    "3.2 Propagar todos los parámetros en run-local": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941424511
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943321105
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943749958
+      }
+    ],
+    "3.3 Escribir test de propiedad de la validación de VariantCreate": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941424794
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943766671
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944005707
+      }
+    ],
+    "3.4 Escribir test de propiedad de propagación y error saneado": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941425162
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944013701
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944468024
+      }
+    ],
+    "3.5 Escribir tests unitarios de validación de entrada": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941425516
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944483332
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944635728
+      }
+    ],
+    "3.6 Escribir tests unitarios de run-local": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941425858
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944642091
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975797851
+      }
+    ],
+    "4.1 Reescribir la comprobación de `overall_pass` y `subset_to_regenerate`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941426313
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941464625
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942246548
+      }
+    ],
+    "4.2 Escribir test de propiedad del validador de respuesta": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941426648
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942423887
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942899470
+      }
+    ],
+    "4.3 Escribir tests unitarios del validador de respuesta": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941426986
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943322612
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943751480
+      }
+    ],
+    "5. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941427301
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978198602
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978360989
+      }
+    ],
+    "6.1 Implementar tipos y resolución de Ad_Slots": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941427632
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941465722
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942584787
+      }
+    ],
+    "6.2 Escribir test de propiedad de Ad_Slots": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941427964
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942607730
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943025737
+      }
+    ],
+    "6.3 Escribir test de propiedad de estabilidad del territorio": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941428286
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943768207
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944006692
+      }
+    ],
+    "6.4 Escribir test de propiedad de disyunción de anclas y ejes": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941428661
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944014512
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944469051
+      }
+    ],
+    "6.5 Escribir test de propiedad de Forbidden_Territories": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941429068
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944644086
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975798895
+      }
+    ],
+    "6.6 Implementar plantillas, Variant_Slots y Creative_Plan": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941429320
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942914096
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943319629
+      }
+    ],
+    "6.7 Escribir test de propiedad de rotación de plantillas": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941429712
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975804314
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976094008
+      }
+    ],
+    "6.8 Escribir test de propiedad del Creative_Plan": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941430232
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976099387
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976392520
+      }
+    ],
+    "6.9 Implementar validación de forma y merge por `variant_key`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941430632
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943324176
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943754579
+      }
+    ],
+    "6.10 Escribir test de propiedad de forma por Variant_Slot": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941430922
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976401516
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976702846
+      }
+    ],
+    "6.11 Escribir test de propiedad del merge por variante": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941431197
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976709015
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977006578
+      }
+    ],
+    "6.12 Implementar los constructores de mensajes": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941431514
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944016033
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944470735
+      }
+    ],
+    "6.13 Escribir test de propiedad del mensaje al Validador": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941431800
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977014331
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977247459
+      }
+    ],
+    "6.14 Escribir tests unitarios de `adset_diversity`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941432321
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975464846
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975701048
+      }
+    ],
+    "7.1 Implementar tipos y `check_territories`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941432778
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941466810
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942247497
+      }
+    ],
+    "7.2 Escribir test de propiedad de reglas de territorio": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941433129
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942425122
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942900509
+      }
+    ],
+    "7.3 Implementar `check_variant_slots` y `check_variants`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941433374
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943325746
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943756286
+      }
+    ],
+    "7.4 Escribir test de propiedad de reglas de variantes": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941433708
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944017143
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944472245
+      }
+    ],
+    "7.5 Escribir tests unitarios del Diversity_Checker": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941434005
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944645624
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975800060
+      }
+    ],
+    "8. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941434254
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978372011
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978412169
+      }
+    ],
+    "9.1 Añadir `image_prompt` al payload de subida": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941434490
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942253338
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942398568
+      }
+    ],
+    "9.2 Actualizar docstrings del Upload_Tool": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941434751
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942254586
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942399654
+      }
+    ],
+    "9.3 Marcar fallos de generación y sanear logs": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941435055
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942915004
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943319984
+      }
+    ],
+    "9.4 Escribir test de propiedad del payload de subida": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941435326
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943327399
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943753088
+      }
+    ],
+    "9.5 Escribir test de propiedad de logs sin secretos": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941435592
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944018520
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944473790
+      }
+    ],
+    "9.6 Escribir test de propiedad de descargas fallidas": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941435848
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944647241
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975801468
+      }
+    ],
+    "9.7 Escribir test de propiedad del marcado de fallos": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941436138
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975804607
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976094908
+      }
+    ],
+    "9.8 Escribir tests unitarios del Image_Generator": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941436412
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976100595
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976395000
+      }
+    ],
+    "10. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941436706
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978417012
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978474167
+      }
+    ],
+    "11.1 Bifurcar `_run_phase1` y crear el esqueleto del Diversity_Path": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941436972
+      },
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791944648385
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975448472
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975464327
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975702169
+      }
+    ],
+    "11.2 Implementar `_build_or_load_creative_plan`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941437276
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975730629
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976093372
+      }
+    ],
+    "11.3 Implementar copywriting e image prompts iniciales": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941437568
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976101899
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976393795
+      }
+    ],
+    "11.4 Implementar `_diversity_validation_loop` y `_regenerate_variants`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941437844
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976402929
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976704785
+      }
+    ],
+    "11.5 Implementar imágenes, guardado, Abyssale y `delete_variants`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941438084
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976711550
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977008126
+      }
+    ],
+    "11.6 Escribir test de propiedad del bucle de validación": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941438344
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977015477
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977248581
+      }
+    ],
+    "11.7 Escribir test de propiedad del filtrado de CTAs": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941438600
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977254412
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977528392
+      }
+    ],
+    "11.8 Escribir test de propiedad de cardinalidades": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941438907
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977533011
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977773335
+      }
+    ],
+    "11.9 Escribir test de propiedad de `delete_variants`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941439176
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977777808
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977939095
+      }
+    ],
+    "11.10 Escribir test de propiedad de reanudación": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941439524
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977943814
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978190212
+      }
+    ],
+    "11.11 Escribir tests unitarios del pipeline del Diversity_Path": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941439781
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977945343
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978191472
+      }
+    ],
+    "12. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791941440081
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978479037
+      },
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978656314
+      }
+    ],
+    "2. Flag, configuración y excepción del Diversity_Path": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942584297
+      }
+    ],
+    "1. Infraestructura de pruebas y regresión del Legacy_Path": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791942898329
+      }
+    ],
+    "4. Corrección de `validate_validador_response`": [
+      {
+        "executionId": "a7c5d1c6-90f0-4082-9472-bc2295f47a0f",
+        "chatSessionId": "sess_0b791d5b-8cc4-435e-ab97-3776cdec53eb",
+        "timestamp": 1791943751796
+      }
+    ],
+    "3. Validación de entrada y Run_Local_Endpoint": [
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975798186
+      }
+    ],
+    "7. Diversity_Checker (`services/diversity_checker.py`)": [
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791975800415
+      }
+    ],
+    "9. Image_Generator: `image_prompt` en la subida y resiliencia": [
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791976395351
+      }
+    ],
+    "6. Helpers puros del Diversity_Path (`services/adset_diversity.py`)": [
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791977247672
+      }
+    ],
+    "11. Orquestación del Diversity_Path en `services/job_runner_service.py`": [
+      {
+        "executionId": "ddc83576-b6f4-4d59-b32b-e996dca6bec6",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1791978191997
+      }
+    ],
+    "13.1 Añadir `ad_template_for_slot` y `slot_ad_templates`": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059619901
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059651463
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792060815966
+      }
+    ],
+    "13.2 Cambiar `build_variant_slots` a una plantilla por Ad": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059620341
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792060824175
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061023006
+      }
+    ],
+    "13.3 Deduplicar en `resolve_project_templates`": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059620784
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061029958
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061213111
+      }
+    ],
+    "13.4 Adaptar el test de propiedad existente de plantillas por Ad": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059621110
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061220069
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061554539
+      }
+    ],
+    "13.6 Adaptar los tests unitarios existentes de `adset_diversity` y del Creative_Plan": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059621500
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061221134
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061555264
+      }
+    ],
+    "13.8 Adaptar los tests unitarios existentes del pipeline a una plantilla por Ad": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059622075
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061222614
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061556741
+      }
+    ],
+    "14.1 Sustituir la regla 6.7 por `TEMPLATE_MIXED_IN_AD`": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059622364
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059652549
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792060817039
+      }
+    ],
+    "14.2 Añadir `check_ad_templates` (regla 6.12)": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059622759
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792060824923
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061023834
+      }
+    ],
+    "14.3 Ajustar las reglas 6.1, 6.2, 6.4, 6.5, 6.8 y 6.9": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059623077
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061031038
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061211967
+      }
+    ],
+    "14.4 Adaptar el test de propiedad existente de reglas de territorio": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059623426
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061224008
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061558503
+      }
+    ],
+    "14.6 Adaptar el test de propiedad existente de reglas por Ad": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059623782
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062166308
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062315908
+      }
+    ],
+    "14.9 Adaptar los tests unitarios existentes del Diversity_Checker": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059624117
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061224831
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061560099
+      }
+    ],
+    "15. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059624429
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062778005
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792063040183
+      }
+    ],
+    "16.1 Llamar a `check_ad_templates` en `_build_or_load_creative_plan`": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059624790
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792061576228
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062155874
+      }
+    ],
+    "17. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059625147
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792063046335
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792063166849
+      }
+    ],
+    "13.5 Ampliar el test de propiedad de plantillas por Ad": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059632900
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062167281
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062313319
+      }
+    ],
+    "13.7 Añadir tests unitarios nuevos de `adset_diversity`": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059634134
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062170131
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062314234
+      }
+    ],
+    "14.5 Ampliar el test de propiedad de reglas de territorio": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059634977
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062325292
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062474993
+      }
+    ],
+    "14.7 Ampliar el test de propiedad de reglas por Ad": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059636466
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062482154
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062685824
+      }
+    ],
+    "14.8 Escribir test de propiedad del reparto de Ad_Templates": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059637410
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062692236
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062770361
+      }
+    ],
+    "14.10 Añadir tests unitarios nuevos del Diversity_Checker": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059638875
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062170725
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062316696
+      }
+    ],
+    "16.2 Añadir tests unitarios de la regla 6.12 en el Creative_Plan": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059639914
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062171089
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062318173
+      }
+    ],
+    "16.3 Añadir tests unitarios del pipeline para Req 12.20": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059640994
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062325809
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062471346
+      }
+    ],
+    "16.4 Actualizar los tests de propiedad del pipeline": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792059643860
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062482977
+      },
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062684135
+      }
+    ],
+    "13. Ad_Template por Ad en `services/adset_diversity.py`": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062315499
+      }
+    ],
+    "16. Regla 6.12 en el Diversity_Path (`services/job_runner_service.py`)": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062685072
+      }
+    ],
+    "14. Reglas del Diversity_Checker en `services/diversity_checker.py`": [
+      {
+        "executionId": "6e5cc034-3c03-498e-8c54-8acd9769e9e1",
+        "chatSessionId": "sess_8a3c0d89-551f-433a-8e12-6da8264b16bb",
+        "timestamp": 1792062770923
+      }
+    ],
+    "18.1 Añadir `template_seed` y `template_order`": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078972876
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078991423
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079254024
+      }
+    ],
+    "18.2 Escribir test de propiedad de Template_Order": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078973161
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079259231
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079429468
+      }
+    ],
+    "18.3 Añadir tests unitarios de `template_seed` y `template_order`": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078973508
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079260440
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079431491
+      }
+    ],
+    "18.4 Endurecer el test de propiedad de plantillas por Ad": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078973787
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079575689
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079688958
+      }
+    ],
+    "18.5 Endurecer el test de propiedad del reparto de Ad_Templates (parte pura)": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078974046
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079261598
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079431707
+      }
+    ],
+    "19.1 Añadir `_JobTemplates`, el campo `templates` y `_load_or_resolve_templates`": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078974294
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078991825
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079254201
+      }
+    ],
+    "19.2 Conectar las plantillas del job al Creative_Plan": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078974576
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079262764
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079432808
+      }
+    ],
+    "19.3 Exigir coherencia del checkpoint `strategy` con el Template_Order": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078974818
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079440731
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079570699
+      }
+    ],
+    "20.1 Añadir el helper de orden esperado a los fakes": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078975065
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079263378
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079433787
+      }
+    ],
+    "20.2 Adaptar los tests unitarios del Creative_Plan": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078975414
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079576703
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079687610
+      }
+    ],
+    "20.3 Añadir `templates` a las construcciones de `_DiversityAdInput` en las demás pruebas": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078975795
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079441833
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079571709
+      }
+    ],
+    "20.4 Adaptar los tests del pipeline a Template_Order": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078976250
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079578356
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079691273
+      }
+    ],
+    "20.5 Adaptar el test de propiedad de cardinalidades": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078976691
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079580838
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079691438
+      }
+    ],
+    "20.6 Adaptar el test de propiedad de reanudación": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078977070
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079698181
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079794898
+      }
+    ],
+    "21. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078977464
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080430833
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080882872
+      }
+    ],
+    "22.1 Añadir tests unitarios de `_load_or_resolve_templates`": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078977802
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079698030
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079795773
+      }
+    ],
+    "22.2 Añadir tests unitarios del Creative_Plan con plantillas del job": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078978046
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079800903
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080174068
+      }
+    ],
+    "22.3 Añadir tests del pipeline para Req 12.20 (e)–(h)": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078978338
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079801765
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080174296
+      }
+    ],
+    "22.4 Endurecer el test de propiedad de cardinalidades": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078978604
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079802747
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080174878
+      }
+    ],
+    "22.5 Endurecer el test de propiedad de reanudación": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078978807
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080178912
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080305032
+      }
+    ],
+    "22.6 Escribir test de propiedad del reparto de Ad_Templates en el pipeline": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078979165
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080308949
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080422598
+      }
+    ],
+    "23. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792078979413
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080887528
+      },
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792081171032
+      }
+    ],
+    "19. Plantillas del job en `services/job_runner_service.py`": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079570876
+      }
+    ],
+    "18. Template_Order sembrado en `services/adset_diversity.py`": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079689274
+      }
+    ],
+    "20. Adaptar las pruebas existentes a P12": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792079795170
+      }
+    ],
+    "22. Pruebas nuevas de P12 en el Diversity_Path": [
+      {
+        "executionId": "852a07ff-3223-4035-91cb-2ac845ef8c38",
+        "chatSessionId": "sess_c22e1322-aa5a-404d-a74e-c12d571f2dfe",
+        "timestamp": 1792080422896
+      }
+    ],
+    "24.1 Añadir el vocabulario y las funciones puras de ángulos": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165296692
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165329519
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165767975
+      }
+    ],
+    "24.2 Añadir `angle` a `VariantSlot` y a `build_variant_slots`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165297277
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165775525
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166109007
+      }
+    ],
+    "24.3 Incluir los Variant_Angles solo en el mensaje al Copywriter": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165297811
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166120404
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792167256154
+      }
+    ],
+    "24.4 Adaptar las pruebas existentes de helpers puros a slots con `angle`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165298323
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168063971
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168832518
+      }
+    ],
+    "24.5 Escribir test de propiedad de la asignación de Variant_Angles": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165298858
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792167264785
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168052334
+      }
+    ],
+    "24.6 Escribir test de propiedad de los ángulos en el mensaje al Copywriter": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165299236
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168842607
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792169002291
+      }
+    ],
+    "24.7 Ampliar el test de propiedad de plantillas por Ad con ángulos": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165299659
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792169008543
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792170924297
+      }
+    ],
+    "24.8 Ampliar el test de propiedad del Creative_Plan con ángulos": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165300083
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792170930213
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792170994231
+      }
+    ],
+    "24.9 Ampliar el test de propiedad de forma por Variant_Slot con ángulos": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165300669
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792171001180
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792171137948
+      }
+    ],
+    "25.1 Implementar `check_variant_angles`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165301217
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165775737
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166110239
+      }
+    ],
+    "25.2 Escribir test de propiedad de la regla 6.13": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165301842
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168064433
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168833562
+      }
+    ],
+    "25.3 Ampliar el test de propiedad de reglas por Ad con ángulos en copies": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165302306
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166120870
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792167256762
+      }
+    ],
+    "25.4 Escribir tests unitarios de Variant_Angle": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165302661
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792169011695
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792170925176
+      }
+    ],
+    "26.1 Implementar `build_validador_view`, `build_validador_views` y el nuevo `build_validador_message`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165302959
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792167265385
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168053849
+      }
+    ],
+    "26.2 Adaptar las pruebas existentes del mensaje al Validador": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165303276
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168843477
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792169002719
+      }
+    ],
+    "26.3 Escribir test de propiedad del mensaje al Validador_Adset": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165303675
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168064743
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168834673
+      }
+    ],
+    "26.4 Escribir tests unitarios del mensaje al Validador_Adset": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165304053
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168844043
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792169003269
+      }
+    ],
+    "27.1 Crear el módulo y la factory": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165304432
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165330418
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165768220
+      }
+    ],
+    "27.2 Escribir tests unitarios del Validador_Adset": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165304776
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165776292
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166111102
+      }
+    ],
+    "28. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165305088
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792173533904
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792174053607
+      }
+    ],
+    "29.1 Crear el Validador legacy solo en el Legacy_Path e inyectar el Validador_Adset": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165305510
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166121232
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792167257199
+      }
+    ],
+    "29.2 Aplicar Variant_Angles en `_build_or_load_creative_plan`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165305848
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792167266165
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168054715
+      }
+    ],
+    "29.3 Reescribir `_diversity_validation_loop` con checker primero y Validador_Adset": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165306325
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168065165
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168836182
+      }
+    ],
+    "30.1 Actualizar los fakes compartidos": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165306767
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166122010
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792167257541
+      }
+    ],
+    "30.2 Pasar las siete construcciones de `_DiversityDeps` a `make_validador_adset_agent=`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165307142
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792171144721
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792171620063
+      }
+    ],
+    "30.3 Guionizar el Validador_Adset y el flujo con checker primero": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165307449
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792171626834
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172190053
+      }
+    ],
+    "30.4 Incluir `angle` en las aserciones de Variant_Slots del pipeline": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165307720
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172195401
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172450387
+      }
+    ],
+    "30.5 Adaptar el test de propiedad existente del bucle de validación": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165308084
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172455136
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172623174
+      }
+    ],
+    "31. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165308481
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792174063904
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792174211478
+      }
+    ],
+    "32.1 Añadir tests unitarios del pipeline para P13/P14": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165308914
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172632044
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172903900
+      }
+    ],
+    "32.2 Añadir tests unitarios del bucle con Validador_Adset": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165309344
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172632186
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172904762
+      }
+    ],
+    "32.3 Endurecer el test de propiedad del bucle de validación": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165309755
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172633426
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172905966
+      }
+    ],
+    "32.4 Endurecer el test de propiedad de cardinalidades": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165310253
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172911984
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792173060321
+      }
+    ],
+    "32.5 Endurecer el test de propiedad de reanudación": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165310608
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792173066647
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792173526599
+      }
+    ],
+    "33.1 Permitir crear `fury.validador_adset` desde `scripts/langfuse_update_prompt_contract.py`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165310924
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165777086
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166112182
+      }
+    ],
+    "34. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792165311232
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792174216830
+      },
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792174393822
+      }
+    ],
+    "27. Validador_Adset en `agents/validador_adset_agent.py`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166111676
+      }
+    ],
+    "33. Publicación del prompt `fury.validador_adset`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792166112579
+      }
+    ],
+    "29. Orquestación P13/P14 en `services/job_runner_service.py`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792168836562
+      }
+    ],
+    "26. Validador_View y mensaje reducido en `services/adset_diversity.py`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792169003866
+      }
+    ],
+    "25. Regla 6.13 en `services/diversity_checker.py`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792170925640
+      }
+    ],
+    "24. Variant_Angle en `services/adset_diversity.py`": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792171138707
+      }
+    ],
+    "30. Adaptar las pruebas existentes a P13/P14": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792172623521
+      }
+    ],
+    "32. Pruebas nuevas de P13/P14 en el Diversity_Path": [
+      {
+        "executionId": "ee49b20d-7540-4306-b4d7-bf8ae4101571",
+        "chatSessionId": "sess_e5fab769-f21d-40b1-93c9-492448c120d3",
+        "timestamp": 1792173526909
+      }
+    ],
+    "35.1 Declarar `ADSET_DECORATIVE_IMAGE_PATTERNS`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331512042
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331544471
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331977855
+      }
+    ],
+    "35.2 Crear la fixture `TEMPLATE_1BB5C1AD`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331513048
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331545505
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331978054
+      }
+    ],
+    "35.3 Implementar la extracción de Image_Elements": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331513670
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331546719
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331978833
+      }
+    ],
+    "35.4 Escribir test de propiedad de la extracción de Image_Elements": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331514258
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331988449
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332301178
+      }
+    ],
+    "35.5 Implementar `check_image_elements` y `filter_image_prompts`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331514914
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331988594
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332302185
+      }
+    ],
+    "35.6 Escribir test de propiedad del Image_Elements_Checker": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331515554
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332309683
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332664606
+      }
+    ],
+    "35.7 Añadir `image_elements` a `make_variant_validator`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331516151
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332310420
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332665536
+      }
+    ],
+    "35.8 Escribir test de propiedad del validador compuesto con Image_Elements": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331516877
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332784949
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333222549
+      }
+    ],
+    "35.9 Añadir la línea `Image_Elements:` a `build_image_prompt_message`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331517526
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332786133
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333224193
+      }
+    ],
+    "35.10 Escribir test de propiedad del mensaje al Image_Prompter": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331518267
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333235507
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333430021
+      }
+    ],
+    "35.11 Escribir tests unitarios de Image_Elements": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331518891
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334763953
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334960135
+      }
+    ],
+    "36.1 Proteger las capas de texto en `build_abyssale_payload`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331519443
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331547576
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331979939
+      }
+    ],
+    "36.2 Ampliar `OUTPUT_CONTRACT_SECTION` del Image_Prompter": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331520035
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331548500
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331980983
+      }
+    ],
+    "36.3 Escribir test de propiedad de las capas de texto en Abyssale": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331520589
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331989255
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332303056
+      }
+    ],
+    "37. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331521190
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336823746
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792337469126
+      }
+    ],
+    "38.1 Implementar la caché `_JobTemplateDefinitions`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331521824
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332311186
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332666266
+      }
+    ],
+    "38.2 Conectar la caché en `_run_phase1` y en `save_ads`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331522260
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332787312
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333225384
+      }
+    ],
+    "38.3 Implementar `_resolve_ad_image_elements` y llamarlo en `_run_diversity_ad`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331522764
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333235869
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333431217
+      }
+    ],
+    "38.4 Propagar `image_elements` a la generación, el Checkpoint y las regeneraciones": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331523432
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334764867
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334959269
+      }
+    ],
+    "38.5 Filtrar los prompts antes del Image_Generator en `_finish_diversity_ad`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331524090
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334965624
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792335139893
+      }
+    ],
+    "39.1 Añadir los helpers de Image_Elements a los fakes": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331524787
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332788584
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333227045
+      }
+    ],
+    "39.2 Añadir `template_definitions=` a las siete construcciones de `_DiversityDeps`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331525214
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332789551
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333227931
+      }
+    ],
+    "39.3 Hacer que los Image_Prompters falsos del pipeline respondan con los Image_Elements del mensaje": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331525778
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792333449126
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334759086
+      }
+    ],
+    "40. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331526385
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792337473991
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792337481355
+      }
+    ],
+    "41.1 Añadir tests unitarios de la resolución de la Template_Definition": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331526911
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792335146757
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792335845055
+      }
+    ],
+    "41.2 Añadir tests unitarios del Checkpoint `image_prompts` y la regeneración": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331527591
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792335855899
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336067008
+      }
+    ],
+    "41.3 Añadir tests unitarios de la defensa en profundidad": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331528156
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336071709
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336200628
+      }
+    ],
+    "41.4 Escribir test de propiedad del filtrado previo al Image_Generator": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331528880
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336207249
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336366868
+      }
+    ],
+    "41.5 Escribir test de propiedad de la caché por `template_id` y el fallo por Ad": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331529495
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336375251
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336577694
+      }
+    ],
+    "41.6 Escribir test de propiedad del Checkpoint `image_prompts` y la regeneración": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331530070
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336582143
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336818795
+      }
+    ],
+    "41.7 Ampliar la prueba golden del Legacy_Path para P15": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331530654
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792335146969
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792335846050
+      }
+    ],
+    "42. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792331531179
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792337486036
+      },
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792337676214
+      }
+    ],
+    "36. Defensa en Abyssale y contrato del Image_Prompter": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792332303621
+      }
+    ],
+    "39. Adaptar las pruebas existentes a P15": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334759537
+      }
+    ],
+    "35. Image_Elements puros en `services/adset_diversity.py` y configuración": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792334960432
+      }
+    ],
+    "38. Resolución y propagación de Image_Elements en `services/job_runner_service.py`": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792335140312
+      }
+    ],
+    "41. Pruebas nuevas de P15 en el Diversity_Path": [
+      {
+        "executionId": "438dc460-bae0-4f30-91e7-3d655dcf45c5",
+        "chatSessionId": "sess_a46e139a-c779-4ac6-ba18-91d31a242371",
+        "timestamp": 1792336819061
+      }
+    ]
+  }
+}

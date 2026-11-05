@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiment_experiments",
+  "info": {
+    "singularName": "experiment-experiment",
+    "pluralName": "experiment-experiments",
+    "displayName": "Experiment-Experiment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "ad_set_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ad-set.ad-set",
+      "inversedBy": "experiment_ref"
+    },
+    "subcategory_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::experiment-subcategory.experiment-subcategory",
+      "inversedBy": "experiments"
+    }
+  }
+}

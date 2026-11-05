@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ad_sets",
+  "info": {
+    "singularName": "ad-set",
+    "pluralName": "ad-sets",
+    "displayName": "Ad-Set",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "funnel_flow_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::funnel-flow.funnel-flow"
+    },
+    "name": {
+      "type": "text"
+    },
+    "ads": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ad.ad",
+      "mappedBy": "ad_set_ref2"
+    },
+    "audiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-audience.audience-audience",
+      "mappedBy": "ad_set_ref"
+    },
+    "experiment_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::experiment-experiment.experiment-experiment",
+      "mappedBy": "ad_set_ref"
+    },
+    "saved_audiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-saved-audience.audience-saved-audience",
+      "mappedBy": "ad_set_ref"
+    },
+    "description": {
+      "type": "text"
+    },
+    "media_platform_project_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::media-platform-project.media-platform-project",
+      "inversedBy": "ad_sets"
+    }
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b2c_producto_surveys",
+  "info": {
+      "singularName": "b2c-producto-survey",
+      "pluralName": "b2c-producto-surveys",
+      "displayName": "b2c-producto-survey"
+  },
+  "options": {
+      "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+      "parent_ref": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::project.project"
+      },
+      "cual-es-el-nombre-de-tu-producto": {
+          "type": "text"
+      },
+      "tienes-una-imagen-o-avatar-representativo-para-tu-produc": {
+          "type": "text"
+      },
+      "describe-brevemente-tu-producto": {
+          "type": "text"
+      },
+      "en-que-industria-opera-tu-producto": {
+          "type": "text"
+      },
+      "cual-es-el-mercado-principal-para-tu-producto": {
+          "type": "text"
+      },
+      "existe-un-submercado-o-nicho-especifico-donde-se-enfoca-": {
+          "type": "text"
+      },
+      "cual-consideras-que-es-la-principal-ventaja-competitiva-": {
+          "type": "text"
+      },
+      "cual-es-la-oferta-comercial-mas-agresiva-de-tu-producto": {
+          "type": "text"
+      },
+      "1-menciona-una-caracteristica-clave-de-tu-producto": {
+          "type": "text"
+      },
+      "1-como-esta-ventaja-beneficia-al-cliente": {
+          "type": "text"
+      },
+      "2-menciona-una-caracteristica-clave-de-tu-producto": {
+          "type": "text"
+      },
+      "2-como-esta-ventaja-beneficia-al-cliente": {
+          "type": "text"
+      },
+      "3-menciona-una-caracteristica-clave-de-tu-producto": {
+          "type": "text"
+      },
+      "3-como-esta-ventaja-beneficia-al-cliente": {
+          "type": "text"
+      },
+      "4-menciona-una-caracteristica-clave-de-tu-producto": {
+          "type": "text"
+      },
+      "4-como-esta-ventaja-beneficia-al-cliente": {
+          "type": "text"
+      },
+      "5-menciona-una-caracteristica-clave-de-tu-producto": {
+          "type": "text"
+      },
+      "5-como-esta-ventaja-beneficia-al-cliente": {
+          "type": "text"
+      },
+      "6-menciona-una-caracteristica-clave-de-tu-producto": {
+          "type": "text"
+      },
+      "6-como-esta-ventaja-beneficia-al-cliente": {
+          "type": "text"
+      },
+      "tu-producto-cuenta-con-garantia-breve-descripcion": {
+          "type": "text"
+      },
+      "cuales-son-las-politicas-de-garantia-de-tu-producto": {
+          "type": "text"
+      },
+      "tienes-politicas-de-retorno-o-reembolso-describelas-brev": {
+          "type": "text"
+      },
+      "ofreces-alguna-prueba-gratuita-o-demostracion-de-tu-prod": {
+          "type": "text"
+      },
+      "1-tienes-alguna-promocion-activa-actualmente-describela": {
+          "type": "text"
+      },
+      "1-cuanto-tiempo-estara-disponible-esta-promocion": {
+          "type": "text"
+      },
+      "1-detalla-los-terminos-o-condiciones-especificos-de-la-p": {
+          "type": "text"
+      },
+      "2-tienes-una-segunda-promocion-activa-actualmente-descri": {
+          "type": "text"
+      },
+      "2-cuanto-tiempo-estara-disponible-esta-segunda-promocion": {
+          "type": "text"
+      },
+      "2-detalla-los-terminos-o-condiciones-especificos-de-la-s": {
+          "type": "text"
+      },
+      "3-tienes-alguna-promocion-activa-actualmente-describela": {
+          "type": "text"
+      },
+      "3-cuanto-tiempo-estara-disponible-esta-promocion": {
+          "type": "text"
+      },
+      "3-detalla-los-terminos-o-condiciones-especificos-de-la-s": {
+          "type": "text"
+      },
+      "identifica-la-principal-debilidad-de-tu-producto-frente-": {
+          "type": "text"
+      },
+      "identifica-la-segunda-principal-debilidad-de-tu-producto": {
+          "type": "text"
+      },
+      "menciona-otras-debilidades-que-creas-importantes": {
+          "type": "text"
+      },
+      "describe-una-oportunidad-principal-que-tu-producto-tiene": {
+          "type": "text"
+      },
+      "cual-es-una-oportunidad-secundaria-que-tu-producto-puede": {
+          "type": "text"
+      },
+      "lista-otras-oportunidades-que-veas-para-tu-producto-en-e": {
+          "type": "text"
+      },
+      "cual-es-el-mercado-geografico-principal-de-tu-producto": {
+          "type": "text"
+      },
+      "existen-mercados-geograficos-secundarios-donde-tu-produc": {
+          "type": "text"
+      },
+      "menciona-otros-mercados-geograficos-de-interes-para-tu-p": {
+          "type": "text"
+      },
+      "como-consideras-que-esta-posicionado-tu-producto-en-el-m": {
+          "type": "text"
+      },
+      "en-que-categoria-del-mercado-se-ubica-tu-producto-y-como": {
+          "type": "text"
+      },
+      "en-que-posicion-se-encuentra-tu-producto-en-terminos-de-": {
+          "type": "text"
+      },
+      "cual-es-el-precio-minimo-de-tu-producto": {
+          "type": "text"
+      },
+      "cual-es-el-precio-maximo-de-tu-producto": {
+          "type": "text"
+      },
+      "cual-es-el-ticket-promedio-de-venta-de-tu-producto": {
+          "type": "text"
+      },
+      "describe-los-planes-de-precios-disponibles-para-tu-produ": {
+          "type": "text"
+      },
+      "menciona-el-primer-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-segundo-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-tercer-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-cuarto-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-quinto-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-sexto-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-septimo-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-octavo-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-noveno-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "menciona-el-decimo-paso-en-el-proceso-de-ventas": {
+          "type": "text"
+      },
+      "cuanto-tiempo-suele-durar-el-ciclo-completo-de-ventas-pa": {
+          "type": "text"
+      },
+      "menciona-un-testimonio-de-cliente": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-video-testimonial-de-un-cliente": {
+          "type": "text"
+      },
+      "menciona-el-segundo-testimonio-de-cliente": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-segundo-video-testimonial-de-un": {
+          "type": "text"
+      },
+      "menciona-el-tercer-testimonio-de-cliente": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-tercer-video-testimonial-de-un-": {
+          "type": "text"
+      },
+      "describe-un-caso-de-estudio-relevante": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-video-del-caso-de-estudio-1": {
+          "type": "text"
+      },
+      "describe-el-segundo-caso-de-estudio-relevante": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-video-del-caso-de-estudio-2": {
+          "type": "text"
+      },
+      "describe-el-tercer-caso-de-estudio-relevante": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-video-del-caso-de-estudio-3": {
+          "type": "text"
+      },
+      "comparte-las-calificaciones-de-satisfaccion-del-cliente-": {
+          "type": "text"
+      },
+      "comparte-las-calificaciones-de-satisfaccion-del-cliente-_1": {
+          "type": "text"
+      },
+      "enumera-alianzas-estrategicas-o-asociaciones": {
+          "type": "text"
+      },
+      "nombra-un-cliente-grande-o-significativo": {
+          "type": "text"
+      },
+      "nombra-un-segundo-cliente-grande-o-significativo": {
+          "type": "text"
+      },
+      "nombra-un-tercer-cliente-grande-o-significativo": {
+          "type": "text"
+      },
+      "nombra-un-cuarto-cliente-grande-o-significativo": {
+          "type": "text"
+      },
+      "nombra-un-quinto-cliente-grande-o-significativo": {
+          "type": "text"
+      },
+      "detalla-esfuerzos-en-sostenibilidad-ambiental": {
+          "type": "text"
+      },
+      "describe-cobertura-en-relaciones-publicas-y-medios-de-co": {
+          "type": "text"
+      },
+      "detalla-un-caso-de-uso-del-producto": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-video-del-caso-de-uso-1": {
+          "type": "text"
+      },
+      "detalla-el-segundo-caso-de-uso-del-producto": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-video-del-caso-de-uso-2": {
+          "type": "text"
+      },
+      "detalla-el-tercer-caso-de-uso-del-producto": {
+          "type": "text"
+      },
+      "proporciona-un-enlace-al-video-del-caso-de-uso-3": {
+          "type": "text"
+      },
+      "describe-el-proceso-de-incorporacion-para-nuevos-usuario": {
+          "type": "text"
+      },
+      "canales-de-soporte-al-cliente-telefono": {
+          "type": "text"
+      },
+      "canales-de-soporte-al-cliente-correo-electronico": {
+          "type": "text"
+      },
+      "canales-de-soporte-al-cliente-chat-en-vivo": {
+          "type": "text"
+      },
+      "otros-canales-de-soporte-al-cliente": {
+          "type": "text"
+      },
+      "faq-1-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-2-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-3-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-4-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-5-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-6-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-7-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-8-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-9-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "faq-10-pregunta-y-respuesta-corta": {
+          "type": "text"
+      },
+      "menciona-una-palabra-clave-relevante-para-tu-producto": {
+          "type": "text"
+      },
+      "menciona-una-segunda-palabra-clave-relevante": {
+          "type": "text"
+      },
+      "menciona-una-tercera-palabra-clave-relevante": {
+          "type": "text"
+      },
+      "menciona-una-cuarta-palabra-clave-relevante": {
+          "type": "text"
+      },
+      "menciona-una-quinta-palabra-clave-relevante": {
+          "type": "text"
+      }
+  }
+}

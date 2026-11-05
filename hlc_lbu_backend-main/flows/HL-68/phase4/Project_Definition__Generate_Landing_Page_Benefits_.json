@@ -1,0 +1,1042 @@
+{
+  "name": "Project Definition (Generate Landing Page Benefits)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "bb6c6c9c-8142-40a3-be8a-090a00fdfcdd",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3860,
+        -1560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "71ce960c-4131-4f84-a0d0-41dd18c342e8",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -3840,
+        -1140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ae56067b-ca3c-436d-8282-79acab7669e2",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -4060,
+        -1320
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "de5ebe6a-2c6c-4c03-a1cc-7e727229fe03",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -4300,
+        -1320
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "78977b40-6354-4e54-ae70-7b3eecb88b36",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1460,
+        -1480
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "c6800e7f-0dbb-4d77-8351-635a52d71eef",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -4160,
+        -1040
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "8b6aeffd-914a-442d-88a5-a004c70a9467",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3640,
+        -1140
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $('Edit Fields2').item.json.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "=4",
+              "type": "string"
+            },
+            {
+              "id": "4dca6cfd-0710-448d-8bb2-e3dd9b70e32b",
+              "name": "landing_page_benefits_section_generated",
+              "value": "={{ $json.json_output }}",
+              "type": "object"
+            },
+            {
+              "id": "8260d882-8b51-4148-b351-937389b5da60",
+              "name": "landing_page_benefits_section_configured",
+              "value": "null",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8dff2208-949f-4b91-8301-41c8f27a53a7",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1860,
+        -1560
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=landing_page_benefits_section_generated,current_phase,landing_page_benefits_section_configured"
+      },
+      "id": "dfb7c206-7012-4132-92a7-78d7056204f1",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -1680,
+        -1560
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"landing_page_benefits_section_generated\" : {{ $json.attributes.landing_page_benefits_section_generated.toJsonString() }},\n       \"type\": \"{{ $('Edit Fields2').item.json.type }}\"\n   } \n}",
+        "options": {}
+      },
+      "id": "dc128d98-1194-4151-823a-754ce5a16538",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1460,
+        -1660
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac355ca2-7aaf-472a-aa9d-72635c0d3a8f",
+              "name": "product_name",
+              "value": "={{ $json.attributes.preferred_product.Product.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "eb4b63f9-34cf-4330-a5e9-91fa54860347",
+              "name": "assistant_id",
+              "value": "={{ $json.attributes.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ab1d4aef-6842-4aa9-b7c7-abe49d595198",
+              "name": "product_details",
+              "value": "={{ $json.attributes.preferred_product.Product.Name }}, {{ $json.attributes.preferred_product.Product.Details.Description }}\n\nCore_Characteristic: {{ $json.attributes.preferred_product.Product.Details.Core_Characteristic }}\n\nFeatures: {{ $json.attributes.preferred_product.Product.Details.Product_Details.Features }}\n",
+              "type": "string"
+            },
+            {
+              "id": "706bf5c7-ef2c-418b-918a-ec7dd204b963",
+              "name": "buyer_person_details",
+              "value": "=BUYER PERSON DETAILS\n\nName: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}\nAge: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Age }}\nTitle: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Title }}\nDescription: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Description }}\n\nGoals: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Goals }}\n\nNeeds: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Needs }}\n\nValues: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Values }}\n\nPain Points: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}\n",
+              "type": "string"
+            },
+            {
+              "id": "59a80430-4467-40b6-b491-3fae12f0d96a",
+              "name": "buyer_person_name",
+              "value": "={{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "1b3320a2-5341-4bf2-980d-43e752e0ba9e",
+              "name": "product_core_characteristic",
+              "value": "={{ $json.attributes.preferred_product.Product.Details.Core_Characteristic }}",
+              "type": "string"
+            },
+            {
+              "id": "f0d8e484-6b1e-4e5b-804d-607d8e630b91",
+              "name": "buyer_person_goals",
+              "value": "=Goals: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Goals }}",
+              "type": "string"
+            },
+            {
+              "id": "b6e61c63-d9f1-4593-91d9-b0c28d6ae8bd",
+              "name": "buyer_person_problems",
+              "value": "=Problems: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}",
+              "type": "string"
+            },
+            {
+              "id": "ae562c17-4f63-47c6-850a-7e826315e13e",
+              "name": "product_benefits",
+              "value": "=Competitive Advantages: {{ $json.attributes.preferred_product.Product.Details.Competitive_Advantage }}\nBenefits: {{ $json.attributes.preferred_product.Product.Details.Benefit_Related_to_Hypothesis }}",
+              "type": "string"
+            },
+            {
+              "id": "0a9f11e1-93b9-4694-9d6a-668376f7f006",
+              "name": "buyer_person_pain_points",
+              "value": "=Pain Points: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}",
+              "type": "string"
+            },
+            {
+              "id": "8df3d79e-0993-455f-b08d-42896fde0d57",
+              "name": "buyer_person_needs",
+              "value": "=Needs: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Needs }}",
+              "type": "string"
+            },
+            {
+              "id": "aaf7e49d-ded0-4ed7-9fa9-c99e0d155d2a",
+              "name": "type",
+              "value": "={{ $('Webhook').item.json.body.type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fbf801bc-fc18-436a-bace-13a7e1ea61cd",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3140,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "cfc5acc3-0244-4afd-87ae-7da13e775343",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3400,
+        -920
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b7716c58-14b8-4e4e-8402-6af44f7957ec",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3400,
+        -1340
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\n\noutput = _input.item.json.output\njson_output = json.loads(output)\n\nreturn {'json_output': json_output}"
+      },
+      "id": "4cc4a068-ddad-4ef3-b3d1-89f43fb564e5",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2280,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.project_id }}"
+      },
+      "id": "95d0e949-ad4e-4bd5-a842-3a0618ff82a4",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        -2500,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/project/landing_page/benefits/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "efaadbfc-696d-4b71-87fc-3b386dfc2491",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -4560,
+        -1320
+      ],
+      "webhookId": "54254fd3-8b63-43f4-8bcb-9bfb89a38d47"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=I need you to act as MRLANDING, an AI agent specialized in creating lead generation landing pages. You are a senior creative copywriter with expertise in digital marketing and lead generation. You utilize the six principles of influence from Robert Cialdini's book Influence to craft compelling and persuasive landing pages.\n\nYour communication style follows the best practices of landing page creation and copywriting taught by Alex Cattoni. You write in an authentic, conversational tone, using storytelling techniques, emotional triggers, and persuasive language to engage the audience. You focus on clarity and simplicity, avoiding jargon, and ensuring the message is clear and relatable.\n\nYou adhere to industry best practices for creating effective landing pages:\nFocus on a Single Action: Design landing pages around one primary goal to prevent user distraction.\n\n- Compelling Hero Image: Use visually appealing graphics to capture attention.\n- Catchy Headline and Subheading: Engage visitors with strong headlines that explain the main benefit in 10 words or fewer, followed by subheadings with additional details.\n- Concise Supporting Copy: Provide essential information that doesn't fit into the headline or subheading, keeping it brief and using bullet points if necessary.\n- Include a Form: Add forms to capture visitor information, asking only for essential details to maximize conversions.\n- Strong Call to Action (CTA): Use prominent buttons indicating the next step, with clear labels like \"Sign Up,\" \"Try It Now,\" or \"Buy Now.\"\n- Optimize for Relevance: Ensure the landing page matches the ad's messaging and keywords, mirroring the call to action to increase conversions.\n\nWhen I invoke you by name, MRLANDING, you will use this information and context to assist me in creating effective lead generation landing pages. \n\n--------------------------------------------------------------------------------\n\nMRLANDING, use your creative writing skills and apply the principles of Alex Cattoni to craft a landing page to sell \"{{ $json.product_name }}\". The target audience visiting this landing page are people like \"{{ $json.buyer_person_name }}\". Use Alex Cattoni writing style.\n\nThe visitors of the landing page will be individuals similar to \"{{ $json.buyer_person_name }}\". When creating the text for this landing page, keep in mind that you should focus on addressing the concern that \"{{ $json.buyer_person_name }}\" has regarding:\n \n{{ $json.buyer_person_goals }}\n\n{{ $json.buyer_person_pain_points }}\n\n{{ $json.buyer_person_needs }}\n\nThis is the text structure that the landing page has:\n\nSection 5 - Benefits\n\n1.  H2. Benefits Section headline.\n\nGenerate 5 versions of headlines texts explaining in short the core benefits a client like \"{{ $json.buyer_person_name }}\" can receive from buying a product like \"{{ $json.product_name }}\". Use these benefits for the texts: \n\n{{ $json.product_benefits }}\nCore Characteristics: {{ $json.product_core_characteristic }}\n\nThe section title must talk directly to a person like \"{{ $json.buyer_person_name }}\": Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Use between 10 and 15 words.\n\n2. Paragraph. Paragraph for header text.\n\nGenerate 5 versions of 2 paragraphs explaining a person like \"{{ $json.buyer_person_name }}\" in more detail how \"{{ $json.product_name }}\"  product features such as: \n\n{{ $json.product_details }}\n\nIn such a way that can help \"{{ $json.buyer_person_name }}\" minimize fears such as: \n\n{{ $json.buyer_person_problems }}\n\n{{ $json.buyer_person_needs }}\n\nDon't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Use between 25 and 35 words for each paragraph.\n\n\n3. CTA Button text.\n\nGenerate 5 versions of call to action texts. Write the text to influence \"{{ $json.buyer_person_name }}\" to take action. Write the call to action text from the reader’s point of view, something like: MAKE MY PURCHASE, I’LL SUBSCRIBE, I WANT TO BOOK. Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Use 4 words or less.\n\n4. Image. Benefit section main Image.\n\nGenerate 5 images descriptions that will be used in the benefit section, based on the information provided in your proposals for the Benefits Section title and Paragraph for header text. Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Generate 2 versions of Alt_text that can be used for SEO purposes.\n\n5. Paragraph. Call to Action Paragraph below the benefit section main image.\n\nGenerate 5 paragraph versions of call to action text to communicate to a person like \"{{ $json.buyer_person_name }}\" how it can use the product and benefit from it. Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\".  Use between 25 and 35 words.\n\n6. The Output.\n\na- Product details to use in the texts\nUse the list of product details that I’m sharing at the end of this paragraph whenever possible without damaging the logic of the the texts: \n\n{{ $json.product_details }}\n\nb- Create a JSON Structure, for the key add the title of the landing page text subsection and in the value put in a array the text versions of each section, in this form:\n\n{\n  \"Header\" : [<text generated 1>,<text generated 2>,..,<text generated n>],\n  \"Paragraph\" : [<text generated 1>,<text generated 2>,..,<text generated n>],\n  \"CTA_Button_Text\" : [<text generated 1>,<text generated 2>,..,<text generated n>],\n  \"Image\": {\n    \"Description: [<text generated 1>,<text generated 2>,..,<text generated n>],\n    \"Alt_text\" : [<text generated 1>,<text generated 2>,..,<text generated n>]\n  },\n  \"Action_Paragraph\" : [<text generated 1>,<text generated 2>,..,<text generated n>]\n}\n\nc- Generate the response using temperature 0.8\n\nd- Please, omit any introductory comment previously to the answer, go directly to the output, and remove from response the tag \"```json\" .\n",
+        "options": {}
+      },
+      "id": "6a925fa7-9b84-4c4b-94e1-0d3b3aad570c",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -2700,
+        -1540
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type.toUpperCase() }}",
+                    "rightValue": "N",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "252fcf92-dbf1-42ca-bbe8-0f55cd30c768",
+                    "leftValue": "={{ $json.type.toUpperCase() }}",
+                    "rightValue": "R",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3e76ce00-60fa-4e21-96fc-623dde048448",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2940,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Edit Fields2').item.json.type.toUpperCase() }}",
+                    "rightValue": "N",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "438e9e67-b5ac-4f72-906d-06e3938b9da9",
+                    "leftValue": "={{ $('Edit Fields2').item.json.type.toUpperCase() }}",
+                    "rightValue": "R",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6a4e8e0d-e4a2-46a6-aadc-6e5eecbebe73",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2080,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $('Edit Fields2').item.json.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "=4",
+              "type": "string"
+            },
+            {
+              "id": "4dca6cfd-0710-448d-8bb2-e3dd9b70e32b",
+              "name": "landing_page_benefits_remarketing_section_generated",
+              "value": "={{ $json.json_output }}",
+              "type": "object"
+            },
+            {
+              "id": "8260d882-8b51-4148-b351-937389b5da60",
+              "name": "landing_page_benefits_remarketing_section_configured",
+              "value": "null",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "54581c37-edc1-4810-9315-f7c874df1393",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1860,
+        -1160
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=landing_page_benefits_remarketing_section_generated,current_phase,landing_page_benefits_remarketing_section_configured"
+      },
+      "id": "31565932-a71c-4e4d-8d54-50836f40136e",
+      "name": "Strapi3",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -1660,
+        -1160
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "743bb699-d951-47c3-9008-f14de8e449f9",
+      "name": "Respond to Webhook5",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1440,
+        -1060
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"landing_page_benefits_section_generated\" : {{ $json.attributes.landing_page_benefits_remarketing_section_generated.toJsonString() }},\n       \"type\": \"{{ $('Edit Fields2').item.json.type }}\"\n   } \n}",
+        "options": {}
+      },
+      "id": "33a97c48-c8b5-4450-b10c-c9d90fe0f3cf",
+      "name": "Respond to Webhook6",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1440,
+        -1260
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.project_id }}"
+      },
+      "id": "5996ee99-676b-4f4f-8c87-4893d556523b",
+      "name": "Window Buffer Memory1",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        -2500,
+        -980
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=I need you to act as MRLANDING, an AI agent specialized in creating lead generation landing pages. You are a senior creative copywriter with expertise in digital marketing and lead generation. You utilize the six principles of influence from Robert Cialdini's book Influence to craft compelling and persuasive landing pages.\n\nYour communication style follows the best practices of landing page creation and copywriting taught by Alex Cattoni. You write in an authentic, conversational tone, using storytelling techniques, emotional triggers, and persuasive language to engage the audience. You focus on clarity and simplicity, avoiding jargon, and ensuring the message is clear and relatable.\n\nYou adhere to industry best practices for creating effective landing pages:\nFocus on a Single Action: Design landing pages around one primary goal to prevent user distraction.\n\n- Compelling Hero Image: Use visually appealing graphics to capture attention.\n- Catchy Headline and Subheading: Engage visitors with strong headlines that explain the main benefit in 10 words or fewer, followed by subheadings with additional details.\n- Concise Supporting Copy: Provide essential information that doesn't fit into the headline or subheading, keeping it brief and using bullet points if necessary.\n- Include a Form: Add forms to capture visitor information, asking only for essential details to maximize conversions.\n- Strong Call to Action (CTA): Use prominent buttons indicating the next step, with clear labels like \"Sign Up,\" \"Try It Now,\" or \"Buy Now.\"\n- Optimize for Relevance: Ensure the landing page matches the ad's messaging and keywords, mirroring the call to action to increase conversions.\n\nWhen I invoke you by name, MRLANDING, you will use this information and context to assist me in creating effective lead generation landing pages. \n\n--------------------------------------------------------------------------------\n\nMRLANDING, use your creative writing skills and apply the principles of Alex Cattoni to craft a landing page to sell \"{{ $json.product_name }}\". The target audience visiting this landing page are people like \"{{ $json.buyer_person_name }}\". Use Alex Cattoni writing style.\n\nThe visitors of the landing page will be individuals similar to \"{{ $json.buyer_person_name }}\". When creating the text for this landing page, keep in mind that you should focus on addressing the concern that \"{{ $json.buyer_person_name }}\" has regarding:\n \n{{ $json.buyer_person_goals }}\n\n{{ $json.buyer_person_pain_points }}\n\n{{ $json.buyer_person_needs }}\n\nThis is the text structure that the landing page has:\n\nSection 5 - Benefits\n\n1.  H2. Benefits Section headline.\n\nGenerate 5 versions of headlines texts explaining in short the core benefits a client like \"{{ $json.buyer_person_name }}\" can receive from buying a product like \"{{ $json.product_name }}\". Use these benefits for the texts: \n\n{{ $json.product_benefits }}\nCore Characteristics: {{ $json.product_core_characteristic }}\n\nThe section title must talk directly to a person like \"{{ $json.buyer_person_name }}\": Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Use between 10 and 15 words.\n\n2. Paragraph. Paragraph for header text.\n\nGenerate 5 versions of 2 paragraphs explaining a person like \"{{ $json.buyer_person_name }}\" in more detail how \"{{ $json.product_name }}\"  product features such as: \n\n{{ $json.product_details }}\n\nIn such a way that can help \"{{ $json.buyer_person_name }}\" minimize fears such as: \n\n{{ $json.buyer_person_problems }}\n\n{{ $json.buyer_person_needs }}\n\nDon't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Use between 25 and 35 words for each paragraph.\n\n\n3. CTA Button text.\n\nGenerate 5 versions of call to action texts. Write the text to influence \"{{ $json.buyer_person_name }}\" to take action. Write the call to action text from the reader’s point of view, something like: MAKE MY PURCHASE, I’LL SUBSCRIBE, I WANT TO BOOK. Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Use 4 words or less.\n\n4. Image. Benefit section main Image.\n\nGenerate 5 images descriptions that will be used in the benefit section, based on the information provided in your proposals for the Benefits Section title and Paragraph for header text. Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\". Generate 2 versions of Alt_text that can be used for SEO purposes.\n\n5. Paragraph. Call to Action Paragraph below the benefit section main image.\n\nGenerate 5 paragraph versions of call to action text to communicate to a person like \"{{ $json.buyer_person_name }}\" how it can use the product and benefit from it. Don't use the word \"{{ $json.buyer_person_name }}\" neither \"{{ $json.product_name }}\".  Use between 25 and 35 words.\n\n6. The Output.\n\na- Product details to use in the texts\nUse the list of product details that I’m sharing at the end of this paragraph whenever possible without damaging the logic of the the texts: \n\n{{ $json.product_details }}\n\nb- Create a JSON Structure, for the key add the title of the landing page text subsection and in the value put in a array the text versions of each section, in this form:\n\n{\n  \"Header\" : [<text generated 1>,<text generated 2>,..,<text generated n>],\n  \"Paragraph\" : [<text generated 1>,<text generated 2>,..,<text generated n>],\n  \"CTA_Button_Text\" : [<text generated 1>,<text generated 2>,..,<text generated n>],\n  \"Image\": {\n    \"Description: [<text generated 1>,<text generated 2>,..,<text generated n>],\n    \"Alt_text\" : [<text generated 1>,<text generated 2>,..,<text generated n>]\n  },\n  \"Action_Paragraph\" : [<text generated 1>,<text generated 2>,..,<text generated n>]\n}\n\nc- Generate the response using temperature 0.8\n\nd- Please, omit any introductory comment previously to the answer, go directly to the output, and remove from response the tag \"```json\" .\n",
+        "options": {}
+      },
+      "id": "32df28c8-ff3b-4184-905a-28eb7948f36e",
+      "name": "OpenAIRemarketing",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -2700,
+        -1180
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "OpenAI": [
+      {
+        "json": {
+          "output": "{\n  \"Header\": [\n    \"Unlock Unparalleled Flexibility for Tailored Cashback Rewards\",\n    \"Embrace Dynamic Cashback on Your Terms\",\n    \"Revolutionize Your Spending with Tailored Rewards\",\n    \"Experience Cashback Flexibility Like Never Before\",\n    \"Maximize Your Rewards with Unlimited Category Options\"\n  ],\n  \"Paragraph\": [\n    \"Discover the ultimate financial tool that seamlessly adapts to your evolving needs. Enjoy unmatched flexibility with dynamic rewards that put you in control, empowering you to maximize cashback on every purchase.\",\n    \"Transform the way you save with unrivaled cashback categories and premium travel perks. Our product ensures you benefit where it matters most, aligning perfectly with your personal spending habits.\",\n    \"Say goodbye to limited rewards and hello to endless possibilities. Enjoy the freedom to choose how and where you earn cashback, backed by innovative features designed to enhance your lifestyle.\",\n    \"Liberate your spending with adaptable rewards tailored to ensure maximum benefits. Our cutting-edge features cater to your needs, optimizing each transaction with data-driven analytics and personalized insights.\",\n    \"Empower your financial journey with customizable cashback options and real-time reward adjustments. Experience elevated customer support and seamless engagement tools designed to fit your lifestyle effortlessly.\"\n  ],\n  \"CTA_Button_Text\": [\n    \"Boost My Rewards\",\n    \"Unlock My Cashback\",\n    \"Start Saving Now\",\n    \"Upgrade My Card\",\n    \"Maximize My Perks\"\n  ],\n  \"Image\": {\n    \"Description\": [\n      \"A modern credit card surrounded by icons representing various cashback categories.\",\n      \"A traveler joyfully exploring, symbolizing premium travel benefits and reward flexibility.\",\n      \"A dynamic graphic showcasing flexible cashback categories and innovative card technology.\",\n      \"A wallet overflowing with cash, illustrating high cashback potential and user empowerment.\",\n      \"A sleek digital interface of card features, emphasizing adaptability and customer support.\"\n    ],\n    \"Alt_text\": [\n      \"Credit card with diverse cashback category icons\",\n      \"Traveler enjoying benefits from flexible rewards\"\n    ]\n  },\n  \"Action_Paragraph\": [\n    \"Elevate your spending strategy by tailoring your cashback to suit your unique lifestyle. Embrace dynamic category selection and premium travel rewards for an unparalleled financial experience.\",\n    \"Step into a world of personalized rewards where flexibility takes center stage. Optimize your financial outcomes with a product that adjusts effortlessly to your every need.\",\n    \"Take charge of your financial future by choosing a path that aligns with your goals. Enjoy seamless category adjustments and innovative features that enhance your everyday transactions.\",\n    \"Discover how tailored rewards can transform mundane purchases into significant savings. Leverage flexible categories to gain the most from every transaction with ease and efficiency.\",\n    \"Join the revolution that prioritizes your unique spending preferences. Harness the power of analytic tools and personalized customer support for optimal reward optimization.\"\n  ]\n}",
+          "threadId": "thread_XI65sDZsITO49M235GA00ITX",
+          "usage": {
+            "prompt_tokens": 3080,
+            "completion_tokens": 568,
+            "total_tokens": 3648,
+            "prompt_token_details": {
+              "cached_tokens": 0
+            }
+          }
+        }
+      }
+    ],
+    "OpenAIRemarketing": [
+      {
+        "json": {
+          "threadId": "thread_2YyVpZ8pGE4PVHTsfK5AZpQm",
+          "output": "{\n  \"Header\": [\n    \"Unlock the Full Potential of Your Cashback Rewards\",\n    \"Personalize Your Cashback with Unlimited Flexibility\",\n    \"Transform Rigid Rewards into Tailored Benefits\",\n    \"Maximize Your Savings with Flexible Rewards\",\n    \"Empower Your Spending with Customizable Cashback Options\"\n  ],\n  \"Paragraph\": [\n    \"Adapt to your lifestyle with features that grow with you. Enjoy limitless cashback flexibility that ensures you're rewarded exactly where it benefits you most, enhancing your overall financial well-being effortlessly.\",\n    \"Break free from traditional spending limits and tailor your experience. Offering unparalleled flexibility, this product empowers you to optimize rewards in line with your personal goals and spending habits.\",\n    \"Harness the power of dynamic rewards that shift with your needs. Seamlessly integrated analytics ensure you gain maximum value while accessing exclusive travel benefits and superior support.\",\n    \"Embrace a revolutionary approach to credit benefits, putting control at your fingertips. Choose where you save, backed by innovative technologies that elevate your financial management.\",\n    \"Step into the future of spending with solutions for every need. Whether maximizing cashback or planning travel, flexible categories ensure your financial strategy always aligns with your aspirations.\"\n  ],\n  \"CTA_Button_Text\": [\n    \"Enhance My Cashbacks\",\n    \"Tailor My Rewards\",\n    \"Activate My Savings\",\n    \"Boost My Benefits\",\n    \"Customize My Perks\"\n  ],\n  \"Image\": {\n    \"Description\": [\n      \"A vibrant graphic showing a credit card surrounded by colorful cashback icons.\",\n      \"User-friendly mobile interface displaying flexible reward adjustments and travel perks.\",\n      \"A sleek, modern credit card glowing with dynamic benefits symbols.\",\n      \"Traveler enjoying journey enhanced by premium travel rewards.\",\n      \"User interacting with an intuitive app showcasing reward customization.\"\n    ],\n    \"Alt_text\": [\n      \"Credit card with diverse flexible cashback options\",\n      \"Mobile interface displaying dynamic reward categories\"\n    ]\n  },\n  \"Action_Paragraph\": [\n    \"Harness tailor-made rewards that fit your personal spending style. Explore the freedom of choice and optimize your financial strategy with a tool that evolves as you do.\",\n    \"Capitalize on innovative features and maximize every purchase's potential, tailoring your financial future with a product that adapts to your unique goals and lifestyle ambitions.\",\n    \"Unlock a world where rewards reflect your personal spending habits. Embrace a system that meets your needs and enhances each financial step with ease and confidence.\",\n    \"Discover empowerment in flexibility, turning routine spending into meaningful savings. Leverage tailored options that resonate with your everyday financial needs and future aspirations.\",\n    \"Begin a journey of personalized savings where financial tools align with your life goals. Experience unparalleled adaptability and maximize rewards unique to your preferences.\"\n  ]\n}",
+          "usage": {
+            "prompt_tokens": 5058,
+            "completion_tokens": 551,
+            "total_tokens": 5609,
+            "prompt_token_details": {
+              "cached_tokens": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAIRemarketing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Strapi3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi3": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "OpenAIRemarketing",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAIRemarketing": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2eb1c657-bd1b-4123-842c-f03000eb7eb4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "LbMICzjEzryLeGMZ",
+  "tags": [
+    {
+      "createdAt": "2024-10-14T12:22:17.380Z",
+      "updatedAt": "2024-10-14T12:22:17.380Z",
+      "id": "lVOywqOvk0U2FLOg",
+      "name": "Fase 4"
+    },
+    {
+      "createdAt": "2024-10-06T13:17:50.176Z",
+      "updatedAt": "2024-10-06T13:17:50.176Z",
+      "id": "rqc1VZ2MNe04eto2",
+      "name": "IA"
+    }
+  ]
+}

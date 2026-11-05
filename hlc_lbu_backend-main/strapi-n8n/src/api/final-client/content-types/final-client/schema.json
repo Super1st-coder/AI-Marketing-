@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "final_clients",
+  "info": {
+    "singularName": "final-client",
+    "pluralName": "final-clients",
+    "displayName": "final-client",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "responsible_name": {
+      "type": "string"
+    },
+    "responsible_phone_number": {
+      "type": "string"
+    },
+    "assistant_name": {
+      "type": "string"
+    },
+    "assistant_phone_number": {
+      "type": "string"
+    },
+    "parent_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    }
+  }
+}

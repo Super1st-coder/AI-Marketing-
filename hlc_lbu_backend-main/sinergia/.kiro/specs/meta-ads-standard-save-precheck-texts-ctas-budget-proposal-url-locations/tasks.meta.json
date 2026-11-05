@@ -1,0 +1,839 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Reemplazar el cuerpo `pass` del bloque `elif ... STANDARD.value and story_spec:` de `FacebookSavePreCheckTextsUseCase.execute()` en `sinergia/app/v2/use_cases/meta_ads.py` por la implementación inline descrita en el Componente 1 de `design.md`: reasignar `link_data = story_spec.get('link_data')` a un diccionario vacío nuevo cuando sea `None` (reasignado a `story_spec['link_data']`), y luego, para cada uno de title/body/description (mediante el bucle sobre tuplas `(candidates, link_key, valid_key, singular_type)` de `design.md`), anotar `link_data[valid_key] = False` sin invocar `MetaAdsValidator.is_valid_length` cuando `len(candidates) != 1`, o invocar `MetaAdsValidator.is_valid_length(singular_type, [text_item])` y anotar `link_data[valid_key]`/`link_data[link_key]` (este último solo si la validación resulta exitosa) cuando `len(candidates) == 1`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407845301
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407879983
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407970873
+      }
+    ],
+    "2.1 Añadir a `sinergia/tests/v2/unit/use_cases/test_facebook_save_pre_check_texts.py` el builder `make_link_data(**overrides)` (mismos campos por defecto en `None`: `name`, `message`, `description`, `image_url`, `link`, `call_to_action`), sin modificar ningún builder/fixture existente del archivo (`make_pre_check_texts_data`, `make_text_entry`, `make_ad_channel`, `make_campaign_setup`, `make_asset_feed_spec`, `make_object_story_spec`, `make_ad_creative`, `make_ad`, `make_creative`, `use_case_factory`, `patch_redis_client`, `patch_text_validators`, `deny_network`)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407845517
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407981363
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789408084825
+      }
+    ],
+    "2.2 Reemplazar por completo la clase `TestStandardBranchNoOp` e implementar el escenario de éxito: Valor_Candidato == 1 con longitud válida, para cada uno de title/body/description (parametrizado o en pruebas separadas); verificar `link_data['name']/['message']/['description']` y `link_data['title_valid']/['body_valid']/['description_valid']` anotados": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407845818
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789408099044
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409092810
+      }
+    ],
+    "2.3 Implementar, parametrizado, el escenario de Valor_Candidato == 0 y Valor_Candidato > 1 (por campo): verificar `*_valid = False`, que `MetaAdsValidator.is_valid_length` no fue invocado para ese campo, y que `link_data['name']/['message']/['description']` no se modifica": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407846185
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409109895
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409471879
+      }
+    ],
+    "2.4 Implementar el escenario de Valor_Candidato == 1 con longitud inválida (según `is_valid_length`): verificar `*_valid = False` y que `link_data['name']/['message']/['description']` NO se sobrescribe con el texto inválido": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407846502
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409498500
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410075699
+      }
+    ],
+    "2.5 Implementar el escenario en el que `story_spec` carece de la clave `link_data`, o es `None`: verificar ausencia de excepción y que se crea/reasigna un `link_data` nuevo compartido por los tres campos": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407846747
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410095943
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410404313
+      }
+    ],
+    "2.6 Implementar el escenario de `execute()` completo en modo STANDARD, sin parchear la lógica interna, verificando que la Respuesta_de_Precheck final refleja `titles`/`bodies`/`descriptions` conforme a las anotaciones esperadas": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407846973
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410432117
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410793148
+      }
+    ],
+    "2.7 Añadir, sin modificar las aserciones de los escenarios de Rama_DYNAMIC ya existentes en el archivo, un escenario que confirme que la Rama_DYNAMIC de Caso_de_Uso_Textos continúa comportándose exactamente igual que antes de esta especificación, y otro que confirme que la lógica STANDARD no se ejecuta cuando `campaign_setup['attributes']['meta_campaign_mode']` es `\"DYNAMIC\"`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407847253
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410816802
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411168288
+      }
+    ],
+    "2.8 Implementar el escenario en el que se ejercita la validación real de longitud de texto (sin parchear `MetaAdsValidator.is_valid_length`), verificando ausencia de solicitudes HTTP reales mediante el mismo patrón de aislamiento de red ya usado por las suites existentes (`deny_network`)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407847487
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411199652
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411581109
+      }
+    ],
+    "3. Checkpoint - Caso_de_Uso_Textos completo": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407847829
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789413080782
+      }
+    ],
+    "4.1 Añadir el método privado nuevo `_validate_ctas_standard(self, link_data, objective, optimization_goal)` dentro de `FacebookSavePreCheckCTAsUseCase` en `sinergia/app/v2/use_cases/meta_ads.py`, conforme al Componente 2 de `design.md`: `len(self.call_to_action_types) == 0` elimina/omite `link_data['call_to_action']` (`link_data.pop('call_to_action', None)`) y retorna; `len(self.call_to_action_types) > 1` retorna sin tocar `link_data['call_to_action']`; `len(...) == 1` invoca `MetaAdsValidator.validate_cta_for_goal(cta_text=..., objective=objective, goal=optimization_goal, throw=False)` envuelto en `try/except Exception: valid_cta = False`, y anota `link_data['call_to_action'] = {'type': {'value': cta_value, 'valid': valid_cta}}`. Reemplazar el cuerpo `pass` del bloque `elif ... STANDARD.value and story_spec:` de `execute()` para leer `campaign_objective`/`optimization_goal` desde `campaign_setup.get('attributes', {})` (no desde `self.objective`/`self.optimization_goal`), crear/reasignar `link_data` cuando esté ausente/`None` (mismo patrón del Componente 1), e invocar `self._validate_ctas_standard(link_data, campaign_objective, optimization_goal)`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407848191
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407985987
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789408089823
+      }
+    ],
+    "5.1 Crear `sinergia/tests/v2/unit/use_cases/test_facebook_save_pre_check_ctas.py`, replicando el estilo de builders/fixtures ya usado por `test_facebook_save_pre_check_texts.py`/`test_facebook_save_pre_check_images.py`: `make_pre_check_ctas_data`, `make_ad_channel`, `make_campaign_setup`, `make_asset_feed_spec`, `make_object_story_spec`, `make_link_data`, `make_ad_creative`, `make_ad`, `make_creative`, `use_case_factory`, `patch_redis_client`, `deny_network`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407848456
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789408101639
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409095564
+      }
+    ],
+    "5.2 Implementar el escenario de un CTA_Candidato único (Valor_Candidato == 1) para el cual `MetaAdsValidator.validate_cta_for_goal` (ejercitado realmente o con retorno controlado mediante parcheo) resulta en `valid=True`: verificar que `link_data['call_to_action']` queda anotado como `{'type': {'value': ..., 'valid': True}}`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407848753
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409112010
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409473998
+      }
+    ],
+    "5.3 Implementar el escenario análogo con `valid=False`: verificar la misma forma de anotación con `valid=False`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407849196
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409499636
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410073885
+      }
+    ],
+    "5.4 Implementar, parametrizado, el escenario de Valor_Candidato == 0 (verificar que `link_data['call_to_action']` queda ausente/eliminado, sin invocar `validate_cta_for_goal`) y de Valor_Candidato > 1 (verificar que un valor previo de `link_data['call_to_action']` se preserva sin modificar, sin invocar `validate_cta_for_goal`)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407849567
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410098540
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410406485
+      }
+    ],
+    "5.5 Implementar el escenario en el que `story_spec` carece de la clave `link_data`, o es `None`: verificar ausencia de excepción y creación/reasignación de un `link_data` nuevo": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407849799
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410433965
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410791191
+      }
+    ],
+    "5.6 Implementar el escenario de `execute()` completo en modo STANDARD, sin parchear `_validate_ctas_standard`, verificando que la Respuesta_de_Precheck final refleja `call_to_action_types` conforme a la anotación esperada": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407850032
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410818732
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411169942
+      }
+    ],
+    "5.7 Implementar un escenario que confirme que la Rama_DYNAMIC de Caso_de_Uso_CTAs (`_validate_ctas`) continúa invocándose exactamente igual que antes de esta especificación, y otro que confirme que `_validate_ctas_standard` no se invoca cuando `campaign_setup['attributes']['meta_campaign_mode']` es `\"DYNAMIC\"`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407850292
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411204413
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411583482
+      }
+    ],
+    "6. Checkpoint - Caso_de_Uso_CTAs completo": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407850557
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789413110240
+      }
+    ],
+    "7.1 Reemplazar el cuerpo `pass` del bloque `elif ... STANDARD.value and story_spec:` de `FacebookSavePreCheckBudgetUseCase.execute()` en `sinergia/app/v2/use_cases/meta_ads.py` por la implementación inline descrita en el Componente 3 de `design.md`: invocar `self._get_account_details()` y `self._get_minimum_budget(...)` exactamente una vez cada uno para calcular `min_budget`, anotar `story_spec['min_daily_budget'] = min_budget` incondicionalmente, y, únicamente cuando `isinstance(self.daily_budget, (int, float)) and not isinstance(self.daily_budget, bool)`, anotar `story_spec['daily_budget_valid'] = (self.daily_budget >= min_budget)` y `creative['daily_budget'] = self.daily_budget`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407850816
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789408105597
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409099111
+      }
+    ],
+    "8.1 Crear `sinergia/tests/v2/unit/use_cases/test_facebook_save_pre_check_budget.py`, replicando el estilo de builders/fixtures ya usado por las suites hermanas: `make_pre_check_budget_data`, `make_ad_channel`, `make_campaign_setup`, `make_asset_feed_spec`, `make_object_story_spec`, `make_link_data`, `make_ad_creative`, `make_ad`, `make_creative`, `use_case_factory`, `patch_redis_client`, `deny_network`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407851069
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409114497
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409476595
+      }
+    ],
+    "8.2 Implementar el escenario en el que `self.daily_budget` es comparable y suficiente (`>= min_budget`): verificar `story_spec['daily_budget_valid'] is True`, `story_spec['min_daily_budget']` y `creative['daily_budget']`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407851333
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409501231
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410077346
+      }
+    ],
+    "8.3 Implementar el escenario en el que `self.daily_budget` es comparable e insuficiente (`< min_budget`): verificar `story_spec['daily_budget_valid'] is False`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407851812
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410099475
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410408599
+      }
+    ],
+    "8.4 Implementar el escenario en el que `self.daily_budget` no es comparable (por ejemplo `None`, o de tipo `bool`): verificar que `story_spec['daily_budget_valid']` queda sin anotar, sin lanzar una excepción no controlada, y que `story_spec['min_daily_budget']` sí se anota": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407852095
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410435689
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410788134
+      }
+    ],
+    "8.5 Implementar el escenario en el que `Object_Story_Spec` está vacío o carece de valores previos: verificar ausencia de excepción no controlada": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407852323
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410819894
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411171518
+      }
+    ],
+    "8.6 Implementar el escenario de `execute()` completo en modo STANDARD, verificando que la Respuesta_de_Precheck final refleja `daily_budget_valid` conforme a la anotación esperada": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407852544
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411202518
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411577489
+      }
+    ],
+    "8.7 Implementar un escenario que confirme que la Rama_DYNAMIC de Caso_de_Uso_Budget continúa comportándose exactamente igual que antes de esta especificación, y otro que confirme que la lógica STANDARD no se ejecuta cuando `campaign_setup['attributes']['meta_campaign_mode']` es `\"DYNAMIC\"`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407852809
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411608931
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411809740
+      }
+    ],
+    "9. Checkpoint - Caso_de_Uso_Budget completo": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407853080
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789413136425
+      }
+    ],
+    "10.1 Reemplazar el cuerpo `pass` del bloque `elif ... STANDARD.value and story_spec:` de `FacebookSavePreCheckProposalURLUseCase.execute()` en `sinergia/app/v2/use_cases/meta_ads.py` por la implementación inline descrita en el Componente 4 de `design.md`: crear/reasignar `link_data` cuando esté ausente/`None` (mismo patrón del Componente 1), y, cuando `self.proposal_url` es truthy, anotar `link_data['link'] = self.proposal_url` e invocar `MetaAdsValidator.is_valid_link_url(self.proposal_url)` anotando su resultado en `link_data['link_url_valid']`; cuando `self.proposal_url` es falsy, anotar únicamente `link_data['link_url_valid'] = False` sin invocar `is_valid_link_url` ni modificar `link_data['link']`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407853334
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409117479
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409480134
+      }
+    ],
+    "11.1 Crear `sinergia/tests/v2/unit/use_cases/test_facebook_save_pre_check_proposal_url.py`, replicando el estilo de builders/fixtures ya usado por las suites hermanas: `make_pre_check_proposal_url_data`, `make_ad_channel`, `make_campaign_setup`, `make_asset_feed_spec`, `make_object_story_spec`, `make_link_data`, `make_ad_creative`, `make_ad`, `make_creative`, `use_case_factory`, `patch_redis_client`, `deny_network`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407853553
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409503815
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410072854
+      }
+    ],
+    "11.2 Implementar el escenario con URL_Candidata válida: verificar `link_data['link']` y `link_data['link_url_valid'] is True`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407853824
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410100922
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410411674
+      }
+    ],
+    "11.3 Implementar el escenario con URL_Candidata inválida (formato incorrecto conforme a `is_valid_link_url`): verificar `link_data['link']` y `link_data['link_url_valid'] is False`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407854074
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410437165
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410789709
+      }
+    ],
+    "11.4 Implementar el escenario con URL_Candidata ausente/falsy (`None` o cadena vacía): verificar `link_data['link_url_valid'] is False`, que `link_data['link']` no se modifica, y que `MetaAdsValidator.is_valid_link_url` no fue invocado": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407854306
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410821545
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411173405
+      }
+    ],
+    "11.5 Implementar el escenario en el que `story_spec` carece de la clave `link_data`, o es `None`: verificar ausencia de excepción y creación/reasignación de un `link_data` nuevo": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407854562
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411200728
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411575503
+      }
+    ],
+    "11.6 Implementar el escenario de `execute()` completo en modo STANDARD, verificando que la Respuesta_de_Precheck final refleja `proposal_url_valid` conforme a la anotación esperada": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407854786
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411610455
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411811595
+      }
+    ],
+    "11.7 Implementar un escenario que confirme que la Rama_DYNAMIC de Caso_de_Uso_URL continúa comportándose exactamente igual que antes de esta especificación, y otro que confirme que la lógica STANDARD no se ejecuta cuando `campaign_setup['attributes']['meta_campaign_mode']` es `\"DYNAMIC\"`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407855044
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411840516
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789412091159
+      }
+    ],
+    "12. Checkpoint - Caso_de_Uso_URL completo": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407855295
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789413163152
+      }
+    ],
+    "13.1 Reemplazar el cuerpo `pass` del bloque `elif ... STANDARD.value and story_spec:` de `FacebookSavePreCheckLocationsUseCase.execute()` en `sinergia/app/v2/use_cases/meta_ads.py` por la implementación inline descrita en el Componente 5 de `design.md`: invocar `geo_locations = self._build_geo_locations()` y asignar `creative['targeting']['geo_locations'] = geo_locations` **sin ningún `try/except` adicional** al ya existente en `execute()` (propagación deliberada de la misma excepción que ya propagaría hoy la Rama_DYNAMIC ante un `creative['targeting']` ausente o no-diccionario), y, únicamente si esa asignación no lanza, anotar a continuación `story_spec['locations'] = self.locations` y `story_spec['locations_valid'] = len(self.locations) > 0`, en ese orden": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407855537
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409506931
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410070458
+      }
+    ],
+    "14.1 Crear `sinergia/tests/v2/unit/use_cases/test_facebook_save_pre_check_locations.py`, replicando el estilo de builders/fixtures ya usado por las suites hermanas: `make_pre_check_locations_data`, `make_ad_channel`, `make_campaign_setup`, `make_asset_feed_spec`, `make_object_story_spec`, `make_link_data`, `make_ad_creative`, `make_ad`, `make_creative`, `use_case_factory`, `patch_redis_client`, `deny_network`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407855787
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410102918
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410410319
+      }
+    ],
+    "14.2 Implementar el escenario con al menos una ubicación candidata: verificar `story_spec['locations_valid'] is True` y que `creative['targeting']['geo_locations']` refleja el resultado de `_build_geo_locations()`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407856079
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410438490
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410794533
+      }
+    ],
+    "14.3 Implementar el escenario con cero ubicaciones candidatas: verificar `story_spec['locations_valid'] is False`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407856455
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410822676
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411174569
+      }
+    ],
+    "14.4 Implementar el escenario en el que `creative` carece de la clave `targeting`, o su valor no es un diccionario: verificar que se propaga la misma excepción no controlada que ya propagaría hoy la Rama_DYNAMIC de este mismo Caso_de_Uso para ese escenario, y que `story_spec['locations']`/`['locations_valid']` no se anotan": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407856688
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411197584
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411579320
+      }
+    ],
+    "14.5 Implementar el escenario de `execute()` completo en modo STANDARD, verificando que la Respuesta_de_Precheck final refleja `locations`/`locations_valid` conforme a la anotación esperada": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407856944
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411611675
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411812853
+      }
+    ],
+    "14.6 Implementar un escenario que confirme que la Rama_DYNAMIC de Caso_de_Uso_Locations continúa comportándose exactamente igual que antes de esta especificación, y otro que confirme que la lógica STANDARD no se ejecuta cuando `campaign_setup['attributes']['meta_campaign_mode']` es `\"DYNAMIC\"`": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407857219
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411841972
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789412092826
+      }
+    ],
+    "15. Checkpoint - Caso_de_Uso_Locations completo": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407857454
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789413187433
+      }
+    ],
+    "16.1 Ejecutar, desde `sinergia/` y con el intérprete de `sinergia/venv`, `./venv/bin/python -m pytest --collect-only -q` seguido de `./venv/bin/python -m pytest -q -ra` para cada uno de los cinco archivos (`test_facebook_save_pre_check_texts.py`, `test_facebook_save_pre_check_ctas.py`, `test_facebook_save_pre_check_budget.py`, `test_facebook_save_pre_check_proposal_url.py`, `test_facebook_save_pre_check_locations.py`), corrigiendo cualquier `failed`/`skipped`/error de recopilación encontrado hasta obtener cero en las tres categorías en cada archivo, sin modificar las aserciones de ninguna prueba de Rama_DYNAMIC ya existente distinta de la sustitución de `TestStandardBranchNoOp` (Requirement 2.7)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407857725
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789412122813
+      },
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789413012293
+      }
+    ],
+    "1. Implementar la Rama_STANDARD de Caso_de_Uso_Textos": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789407971180
+      }
+    ],
+    "4. Implementar la Rama_STANDARD de Caso_de_Uso_CTAs": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789408090140
+      }
+    ],
+    "7. Implementar la Rama_STANDARD de Caso_de_Uso_Budget": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409099390
+      }
+    ],
+    "10. Implementar la Rama_STANDARD de Caso_de_Uso_URL": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789409480639
+      }
+    ],
+    "13. Implementar la Rama_STANDARD de Caso_de_Uso_Locations": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789410070852
+      }
+    ],
+    "2. Ampliar Suite_de_Pruebas_Textos con la Rama_STANDARD": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411581548
+      }
+    ],
+    "5. Crear Suite_de_Pruebas_CTAs (`test_facebook_save_pre_check_ctas.py`)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411584011
+      }
+    ],
+    "8. Crear Suite_de_Pruebas_Budget (`test_facebook_save_pre_check_budget.py`)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789411810081
+      }
+    ],
+    "11. Crear Suite_de_Pruebas_URL (`test_facebook_save_pre_check_proposal_url.py`)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789412091594
+      }
+    ],
+    "14. Crear Suite_de_Pruebas_Locations (`test_facebook_save_pre_check_locations.py`)": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789412093118
+      }
+    ],
+    "16. Ejecución final de las cinco suites de pruebas": [
+      {
+        "executionId": "d8153b43-273b-427f-aeeb-905080c82ee1",
+        "chatSessionId": "sess_f1476c3a-ed1a-41a1-8e4a-2637dc24ddf3",
+        "timestamp": 1789413012760
+      }
+    ]
+  }
+}

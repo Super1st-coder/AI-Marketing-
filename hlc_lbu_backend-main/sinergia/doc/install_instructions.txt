@@ -1,0 +1,21 @@
+# Install Sinergia Framework
+
+    pip install flask-restplus
+    pip install flask-sqlalchemy
+    pip install Flask-Alembic
+    pip install flask-blueprint
+    pip install flask-cors
+    pip install flask-redis
+    pip install PyJWT==1.6.1
+    pip install flask_jwt_extended==3.25.1
+    pip install flask_babel
+    pip install flask_script
+    pip install cached_property
+    pip install  Werkzeug==0.16.1
+    pip install passlib
+    pip install psycopg2-binary
+    pip install pandas
+    pip install requests
+    pip install gunicorn
+
+# Install Airflow

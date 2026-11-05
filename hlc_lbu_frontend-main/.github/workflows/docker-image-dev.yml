@@ -1,0 +1,301 @@
+name: Docker Develop Frontend DEV
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: "read"
+  id-token: "write"
+  security-events: "write"
+
+jobs:
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    environment: develop
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate || true
+
+      - name: Run Snyk security scan
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+        continue-on-error: true
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          scan-ref: "."
+          format: "sarif"
+          output: "trivy-results.sarif"
+        continue-on-error: true
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: "trivy-results.sarif"
+        continue-on-error: true
+
+  build-and-pack:
+    name: Build & Pack Image
+    runs-on: ubuntu-latest
+    environment: develop
+    needs: [security-scan]
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - id: auth
+        name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          service_account: githubactions@careful-acumen-422922-k4.iam.gserviceaccount.com
+          workload_identity_provider: projects/401654669410/locations/global/workloadIdentityPools/github-pool/providers/hi-luca-repo
+
+      - name: Configure Docker for GCR
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Obtener último release
+        id: obtener_release
+        run: |
+          LATEST_TAG=$(curl -s -H "Authorization: token ${{ secrets.TOKEN_USER_GITHUB }}" \
+            "https://api.github.com/repos/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}/releases/latest" \
+            | jq -r '.tag_name')
+          echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
+
+      - name: Configurar variables de entorno para DEV
+        run: |
+          cp .env_base .env
+          sed -i "s|VITE_API_BASE_URL=.*|VITE_API_BASE_URL=${{ secrets.API_BASE_URL }}|g" .env
+          sed -i "s|GOOGLE_CLIENT_ID=.*|GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}|g" .env
+          sed -i "s|GOOGLE_CLIENT_SECRET=.*|GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}|g" .env
+          sed -i "s|VITE_GOOGLE_MAPS_API_KEY=.*|VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}|g" .env
+          sed -i "s|VITE_GOOGLE_CLIENT_ID=.*|VITE_GOOGLE_CLIENT_ID=${{ secrets.VITE_GOOGLE_CLIENT_ID }}|g" .env
+          sed -i "s|VITE_POSTHOG_KEY=.*|VITE_POSTHOG_KEY=${{ secrets.VITE_POSTHOG_KEY }}|g" .env
+          sed -i "s|VITE_ENABLE_HUBSPOT=.*|VITE_ENABLE_HUBSPOT=${{ secrets.VITE_ENABLE_HUBSPOT }}|g" .env
+          sed -i "s|VITE_HUBSPOT_PORTAL_ID=.*|VITE_HUBSPOT_PORTAL_ID=${{ secrets.VITE_HUBSPOT_PORTAL_ID }}|g" .env
+          sed -i "s|VITE_ENABLE_LUCA_GUIDE=.*|VITE_ENABLE_LUCA_GUIDE=${{ secrets.VITE_ENABLE_LUCA_GUIDE }}|g" .env
+          # Video flow on by default on this environment (not on production)
+          sed -i "s|VITE_ENABLE_VIDEO_GENERATION=.*|VITE_ENABLE_VIDEO_GENERATION=true|g" .env
+          sed -i "s|VITE_LUCA_GUIDE_API_BASE_URL=.*|VITE_LUCA_GUIDE_API_BASE_URL=${{ secrets.VITE_LUCA_GUIDE_API_BASE_URL }}|g" .env
+          sed -i "s|VITE_ENABLE_BUDGET_STRATEGY=.*|VITE_ENABLE_BUDGET_STRATEGY=${{ secrets.VITE_ENABLE_BUDGET_STRATEGY }}|g" .env
+          echo "Archivo .env configurado para DEV:"
+          cat .env
+
+      - name: Build & push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:develop
+          platforms: linux/amd64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            BUILDKIT_INLINE_CACHE=1
+
+      - name: Scan Docker image for vulnerabilities
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: "us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:develop"
+          format: "sarif"
+          output: "trivy-image-results.sarif"
+        continue-on-error: true
+
+      - name: Upload Docker scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: "trivy-image-results.sarif"
+        continue-on-error: true
+  # e2e-tests:
+  #   name: Playwright E2E
+  #   runs-on: ubuntu-latest
+  #   environment: develop
+  #   needs: [build-and-pack]
+
+  #   steps:
+  #     - uses: actions/checkout@v4
+
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: "24"
+  #         cache: "npm"
+
+  #     - name: Install dependencies
+  #       run: npm ci
+
+  #     - name: Cache Playwright browsers
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: ~/.cache/ms-playwright
+  #         key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-playwright-
+
+  #     - name: Install Playwright (browsers + deps)
+  #       run: npx playwright install --with-deps
+
+  #     - id: auth-e2e
+  #       name: Authenticate to GCP
+  #       uses: google-github-actions/auth@v2
+  #       with:
+  #         service_account: githubactions@careful-acumen-422922-k4.iam.gserviceaccount.com
+  #         workload_identity_provider: projects/401654669410/locations/global/workloadIdentityPools/github-pool/providers/hi-luca-repo
+
+  #     - name: Configure Docker for Artifact Registry
+  #       run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+  #     - name: Pull app image
+  #       run: docker pull us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:develop
+
+  #     - name: Run app container
+  #       run: |
+  #         docker run -d --rm \
+  #           -p 127.0.0.1:8080:8080 \
+  #           --name frontend-under-test \
+  #           us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:develop
+
+  #     - name: Wait for app to be ready
+  #       run: |
+  #         echo "Waiting for application to be ready..."
+  #         curl --retry 60 --retry-delay 2 --retry-connrefused --retry-all-errors \
+  #             -fsS http://127.0.0.1:8080/ >/dev/null
+  #         echo "Application is ready!"
+
+  #     - name: Verify app health
+  #       run: |
+  #         echo "Verifying application health..."
+  #         response=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8080/)
+  #         if [ "$response" = "200" ]; then
+  #           echo "✅ Application is healthy (HTTP $response)"
+  #         else
+  #           echo "❌ Application health check failed (HTTP $response)"
+  #           exit 1
+  #         fi
+
+  #     - name: Run Playwright tests
+  #       env:
+  #         CI: true
+  #         PLAYWRIGHT_BASE_URL: http://127.0.0.1:8080
+  #       run: |
+  #         echo "Starting Playwright E2E tests..."
+  #         echo "Testing against: $PLAYWRIGHT_BASE_URL"
+          
+  #         # Run tests with better error reporting and retries
+  #         npx playwright test -c playwright.config.ts \
+  #           --reporter=html,line \
+  #           --retries=2 \
+  #           --timeout=30000 \
+  #           --max-failures=5 \
+  #           --workers=1
+          
+  #         echo "Playwright tests completed!"
+
+  #     - name: Upload Playwright report & artifacts
+  #       if: always()
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: playwright-artifacts
+  #         path: |
+  #           playwright-report
+  #           test-results/**
+  #           results.xml
+  #         if-no-files-found: ignore
+  #         retention-days: 7
+
+  #     - name: Dump container logs on failure
+  #       if: failure()
+  #       run: |
+  #         echo "❌ Tests failed! Dumping container logs for debugging..."
+  #         docker logs frontend-under-test --tail 100 || echo "Could not retrieve container logs"
+          
+  #         echo "Container status:"
+  #         docker ps -a | grep frontend-under-test || echo "Container not found"
+          
+  #         echo "Container resource usage:"
+  #         docker stats frontend-under-test --no-stream || echo "Could not get container stats"
+
+  #     - name: Stop app container
+  #       if: always()
+  #       run: docker rm -f frontend-under-test
+
+  deploy:
+    name: Download & Deploy
+    runs-on: ubuntu-latest
+    needs: [build-and-pack]
+    environment: develop
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - id: auth-deploy
+        name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          service_account: githubactions@careful-acumen-422922-k4.iam.gserviceaccount.com
+          workload_identity_provider: projects/401654669410/locations/global/workloadIdentityPools/github-pool/providers/hi-luca-repo
+
+      - name: Configure Docker for GCR
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      - name: Pull Docker image
+        run: |
+          docker pull us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:develop
+
+      - name: Save image to tar
+        run: |
+          docker save -o frontend.tar us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:develop
+
+      - name: Configurar clave SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Copiar tar al servidor
+        run: scp -P ${{ secrets.SSH_PORT }} -i ~/.ssh/id_rsa frontend.tar ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/mnt/disks/hiluca-data/temp/
+
+      - name: Desplegar en servidor
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /home/ramon/hiluca-frontend-v2
+            docker load -i /mnt/disks/hiluca-data/temp/frontend.tar
+            docker compose up -d
+            rm -f /mnt/disks/hiluca-data/temp/frontend.tar
+            echo "Despliegue realizado exitosamente."
+
+      - name: Finalizar
+        run: echo "Despliegue completado."

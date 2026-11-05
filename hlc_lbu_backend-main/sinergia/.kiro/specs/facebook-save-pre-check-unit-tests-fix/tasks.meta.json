@@ -1,0 +1,249 @@
+{
+  "pbtResults": {
+    "1. Capturar el baseline de la condición de bug y documentar los contraejemplos": {
+      "status": "passed",
+      "failingExample": "Baseline sobre codigo sin arreglar: `7 failed, 2567 passed, 12 warnings in 52.79s` (2574 casos recolectados). Los 7 contraejemplos son exactamente los nodos del Inventario de design.md.\n\nGRUPO A - assertsStandardMaxAmountDefaults (6 nodos, clausulas 1.1/1.2/1.3)\n`AssertionError: assert 0 == 1` en la primera asercion de images_max_amount:\n- test_facebook_save_pre_check_images.py:3079 :: TestBuildResponse::test_response_uses_exact_defaults_for_every_omitted_field  (I3, clausula 1.1)\n- test_facebook_save_pre_check_images.py:3446 :: TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_is_explicit_none  (I7, clausula 1.2)\n- test_facebook_save_pre_check_images.py:3514 :: TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_key_absent  (I8, clausula 1.3)\n- test_facebook_save_pre_check_texts.py:4417 :: TestBuildResponse::test_defaults_for_all_omitted_fields  (T3, clausula 1.1)\n- test_facebook_save_pre_check_texts.py:4606 :: TestBuildResponse::test_isolated_call_with_explicit_none_ad_creative_returns_default_response  (T6, clausula 1.2)\n- test_facebook_save_pre_check_texts.py:4663 :: TestBuildResponse::test_isolated_call_with_ad_creative_key_absent_returns_default_response  (T7, clausula 1.3)\n\nGRUPO B - assertsStandardMappingTable (1 nodo, clausula 1.4)\n`AssertionError: assert 0 == 'channel-7-7'` en test_facebook_save_pre_check_images.py:3347 :: TestBuildResponse::test_direct_isolated_call_reflects_pre_annotated_standard_link_data_per_mapping_table (I6). adchannel_id se resuelve desde asset_feed_spec en lugar de object_story_spec; las 29 aserciones restantes de la tabla de mapeo quedan sin evaluar tras el primer fallo.\n\nCAUSA RAIZ CONFIRMADA (Hypothesized Root Cause de design.md, sin re-hipotetizar)\n`if self.creative_type == CreativeType.STANDARD.value:` verificado en app/v2/use_cases/meta_ads.py:2533; `creative_type: str = ''` verificado en el constructor (meta_ads.py:988, :1291). `'' != 'STANDARD'` => rama `else` => extraccion DYNAMIC. El estado `creative_type == ''` es inalcanzable en produccion: los seis execute() de pre-check llaman _set_creative_type, que aborta con ValueError ante cualquier modo fuera de {\"DYNAMIC\",\"STANDARD\"}. El defecto esta en las pruebas, no en app/.\n\nSin cambios en el arbol de trabajo: `git diff --stat -- app/` vacio; ningun archivo modificado en esta tarea.",
+      "lastRunTimestamp": 1790465128228
+    },
+    "3.8 Verificar que los nodos de la condición de bug ahora pasan (Fix Checking)": {
+      "status": "passed",
+      "failingExample": "FIX CHECKING - Property 1 (Expected Behavior) SATISFECHA. Sin contraejemplos.\n\nComando 1: pytest \"...images.py::TestBuildResponse\" \"...texts.py::TestBuildResponse\" -v\nResultado: 24 passed, 12 warnings in 1.98s (0 failed, 0 skipped, 0 xfail, 0 xpass, 0 error)\n\nLos 13 nodos de la condicion de bug, todos PASSED:\nGRUPO A - 6 casos x 2 ramas = 12 nodos parametrizados\nimages.py::TestBuildResponse::test_response_uses_exact_defaults_for_every_omitted_field[dynamic-max-amount-0] PASSED (I3)\nimages.py::TestBuildResponse::test_response_uses_exact_defaults_for_every_omitted_field[standard-max-amount-1] PASSED (I3)\nimages.py::TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_is_explicit_none[dynamic-max-amount-0] PASSED (I7)\nimages.py::TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_is_explicit_none[standard-max-amount-1] PASSED (I7)\nimages.py::TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_key_absent[dynamic-max-amount-0] PASSED (I8)\nimages.py::TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_key_absent[standard-max-amount-1] PASSED (I8)\ntexts.py::TestBuildResponse::test_defaults_for_all_omitted_fields[dynamic-max-amount-0] PASSED (T3)\ntexts.py::TestBuildResponse::test_defaults_for_all_omitted_fields[standard-max-amount-1] PASSED (T3)\ntexts.py::TestBuildResponse::test_isolated_call_with_explicit_none_ad_creative_returns_default_response[dynamic-max-amount-0] PASSED (T6)\ntexts.py::TestBuildResponse::test_isolated_call_with_explicit_none_ad_creative_returns_default_response[standard-max-amount-1] PASSED (T6)\ntexts.py::TestBuildResponse::test_isolated_call_with_ad_creative_key_absent_returns_default_response[dynamic-max-amount-0] PASSED (T7)\ntexts.py::TestBuildResponse::test_isolated_call_with_ad_creative_key_absent_returns_default_response[standard-max-amount-1] PASSED (T7)\nGRUPO B - 1 nodo no parametrizado\nimages.py::TestBuildResponse::test_direct_isolated_call_reflects_pre_annotated_standard_link_data_per_mapping_table PASSED (I6)\n\nComando 2: pytest ...images.py ...texts.py -v -k \"max-amount\"\nResultado: 12 passed, 179 deselected in 1.96s. Los 12 ids dynamic-max-amount-0 / standard-max-amount-1 existen y son distinguibles (clausula 2.7).\nNOTA: en tasks.md el comando usa -k \"max_amount\" (guion bajo), que selecciona 0 items (191 deselected) porque los ids de pytest usan guiones. Verificado con -k \"max-amount\".\n\nCLAUSULA 2.10 - ningun caso eliminado, marcado skip/xfail ni relajado:\n- grep de mark.skip / mark.skipif / mark.xfail / pytest.skip / pytest.xfail / unittest.skip en ambos archivos: NINGUNA coincidencia\n- recuento `def test_` HEAD vs actual: images 61 vs 61, texts 65 vs 65 (ningun caso eliminado)\n- recuento `assert ` HEAD vs actual: images 269 vs 269, texts 285 vs 285 (ninguna asercion eliminada)\n- git diff de asserts: las UNICAS lineas de asercion modificadas son las 30 de *_max_amount (6 nodos x 5 claves), que pasan de `== 1` a `== expected_max_amount`. Cero aserciones relajadas o suprimidas.\n\nCLAUSULA 2.9 - `git diff --stat -- app/` vacio y `git status --porcelain -- app/` sin modificaciones sobre archivos versionados (unica entrada: `?? sinergia/app/v2/resources/audience.py`, archivo no versionado preexistente ajeno a este bugfix; no lo crea ni lo toca ninguna tarea del plan).",
+      "lastRunTimestamp": 1790466510148
+    },
+    "3.9 Verificar que los nodos preservados siguen pasando (Preservation Checking)": {
+      "status": "passed",
+      "failingExample": "Property 2 (Preservation) verificada de forma exhaustiva sobre el dominio finito de nodos de pytest. Sin contraejemplos.\n\nPASO 1 - Suite de alcance completa (cwd: sinergia/)\n`venv/bin/python -m pytest tests/v2/unit -q` -> `2580 passed, 12 warnings in 51.98s` (exit 0). 0 failed, 0 error, 0 skipped, 0 xfail, 0 xpass. Baseline previo: `7 failed, 2567 passed, 12 warnings in 52.30s`. Tiempo dentro del orden 51-53 s exigido por la clausula 3.11.\n\nPASO 2 - Diff nodo por nodo contra /tmp/baseline_nodes.txt\nRecuentos: /tmp/baseline_nodes.txt = 2608 lineas (2574 ids + 34 lineas de ruido de \"warnings summary\"); /tmp/after_nodes.txt = 2614 lineas (2580 ids + 34 de ruido).\nDiff limpio (`grep '::'` en ambos lados): 2574 -> 2580 ids; removidos = 6, agregados = 12; NADA MAS.\n\nLos 6 nodos originales sustituidos por sus 12 parametrizaciones:\n- images.py::TestBuildResponse::test_response_uses_exact_defaults_for_every_omitted_field (I3) -> [dynamic-max-amount-0], [standard-max-amount-1]\n- images.py::TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_is_explicit_none (I7) -> [dynamic-max-amount-0], [standard-max-amount-1]\n- images.py::TestBuildResponse::test_direct_isolated_call_returns_default_response_when_ad_creative_key_absent (I8) -> [dynamic-max-amount-0], [standard-max-amount-1]\n- texts.py::TestBuildResponse::test_defaults_for_all_omitted_fields (T3) -> [dynamic-max-amount-0], [standard-max-amount-1]\n- texts.py::TestBuildResponse::test_isolated_call_with_explicit_none_ad_creative_returns_default_response (T6) -> [dynamic-max-amount-0], [standard-max-amount-1]\n- texts.py::TestBuildResponse::test_isolated_call_with_ad_creative_key_absent_returns_default_response (T7) -> [dynamic-max-amount-0], [standard-max-amount-1]\nUnica otra linea del diff crudo: el contador \"2574 tests collected in 2.71s\" -> \"2580 tests collected in 2.70s\". Ningun nodo desaparecido, ningun nodo nuevo fuera de las 12 parametrizaciones.\n\nPASO 3 - Los otros cuatro pre-check (clausula 3.5): `33 passed in 2.05s`.\nPASO 4 - launch_campaign / get_launch_campaign_creatives / funnel_flow_validator (clausula 3.6): `1119 passed in 26.58s`.\nPASO 5 - `-k UnsupportedMetaCampaignMode` (clausula 3.4): `8 passed, 183 deselected in 2.12s`.\n\nCASOS DE PRESERVACION CONCRETOS DE design.md\n1. Los 8 invocadores directos DYNAMIC (I1,I2,I4,I5,T1,T2,T4,T5) pasan con aserciones LITERALMENTE intactas. Prueba estructural: el diff de los dos archivos solo altera 30 lineas `assert` (= 6 nodos x 5 `*_max_amount`, `== 1` -> `== expected_max_amount`); cero lineas `assert` removidas o agregadas en cualquier otro nodo.\n2. Los nodos que atraviesan execute() siguen obteniendo el modo via `_set_creative_type`, sin fijacion manual. Las 15 asignaciones `use_case.creative_type = ` se distribuyen exactamente asi: 8 DYNAMIC (images 3047, 3107, 3237, 3267; texts 4341, 4430, 4549, 4575), 1 STANDARD (images 3474, I6) y 6 parametrizadas (images 3188, 3574, 3657; texts 4496, 4706, 4781). Ninguna cae en test_execute_dynamic_branch..., test_execute_standard_branch... ni test_full_execute_dynamic_scenario...\n3. `TestUnsupportedMetaCampaignModeRaisesValueError` sigue aseverando `use_case.creative_type == \"\"` en images.py:2285 y texts.py:3636, sin modificar (paso 5 verde).\n4. Aislamiento: ningun nodo disparo `deny_network`. La fixture autouse sigue en images.py:370 y texts.py:380 con el mensaje \"Network access is forbidden in this unit test suite\"; una fuga habria producido AssertionError y fallo, y la suite cerro con exit 0. `redis_client` sigue parcheado (54 referencias en images, 88 en texts) y `AdChannelRepository`/`CampaignChannelPublishRepository` siguen sustituidos por dobles parcheados en `app.v2.use_cases.meta_ads` (10 y 11 referencias). Cero acceso real a Strapi, Redis o red.\n5. Identidad por referencia y recuento de instanciaciones intactos: `mock_build_response.call_args.args[0] is creative` y `mock_save_creative_to_publish.call_args.args[0] is creative` (images 1473-1474, 1979-1980, 2516-2517, 2571-2572, 2748; texts 1531-1532, 2756-2757, 3873-3874, 4072) no aparecen en el diff y pasan.\n6. Tiempo de ejecucion: 51.98 s, en el orden 51-53 s de referencia.\n\nBUILDERS Y FIXTURES COMPARTIDOS (clausula 3.7)\n`git diff` no toca ninguna definicion de `make_ad_creative`, `make_asset_feed_spec`, `make_object_story_spec`, `make_link_data`, `make_ad`, `make_creative`, `use_case_factory` ni el centinela `ABSENT`. `git diff --stat -- app/` VACIO. No existe ningun `conftest.py` bajo `tests/` (`find tests -name conftest.py` sin resultados).",
+      "lastRunTimestamp": 1790466832826
+    }
+  },
+  "executionHistory": {
+    "1. Capturar el baseline de la condición de bug y documentar los contraejemplos": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464984819
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464994876
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465154987
+      }
+    ],
+    "2. Capturar el baseline de preservación nodo por nodo (ANTES de aplicar el arreglo)": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464985059
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465158867
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465334523
+      }
+    ],
+    "3.1 Aplicar el Cambio 1 (import de `CreativeType`) y el Cambio 2 (constante de parametrización) en ambos archivos": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464985253
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465341870
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465486763
+      }
+    ],
+    "3.2 Aplicar el Cambio 4: fijar STANDARD en el nodo de la tabla de mapeo (I6)": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464985452
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465490794
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465603967
+      }
+    ],
+    "3.3 Aplicar el Cambio 3 en `test_facebook_save_pre_check_images.py`: parametrizar los tres casos de defaults (I3, I7, I8)": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464985644
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465609216
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465805977
+      }
+    ],
+    "3.4 Aplicar el Cambio 3 en `test_facebook_save_pre_check_texts.py`: parametrizar los tres casos de defaults (T3, T6, T7)": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464985825
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465613329
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465811116
+      }
+    ],
+    "3.5 Aplicar el Cambio 5: declarar DYNAMIC en los ocho invocadores directos que ya pasan (I1, I2, I4, I5, T1, T2, T4, T5)": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464986048
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465816876
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465977831
+      }
+    ],
+    "3.6 Aplicar el Cambio 6: reescribir los siete docstrings de caso y los dos docstrings de clase": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464986249
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790465982382
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466289070
+      }
+    ],
+    "3.7 Aplicar el Cambio 7: auditar los identificadores de caso": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464986563
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466293233
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466405644
+      }
+    ],
+    "3.8 Verificar que los nodos de la condición de bug ahora pasan (Fix Checking)": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464986784
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466410417
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466540261
+      }
+    ],
+    "3.9 Verificar que los nodos preservados siguen pasando (Preservation Checking)": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464986968
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466544464
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466874952
+      }
+    ],
+    "3.10 Auditar que el código productivo no cambió y cerrar el recuento de nodos": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464987205
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790466881257
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790467134265
+      }
+    ],
+    "4. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790464987441
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790467138951
+      },
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790467250034
+      }
+    ],
+    "3. Realineamiento de `TestBuildResponse` con el despacho por `self.creative_type`": [
+      {
+        "executionId": "64991282-2d86-466d-928f-79787b02a682",
+        "chatSessionId": "sess_96351815-a521-4cb0-a807-ad2de0bfbc3d",
+        "timestamp": 1790467134635
+      }
+    ]
+  }
+}

@@ -1,0 +1,4610 @@
+{
+	"info": {
+		"_postman_id": "91057bb4-d810-4530-90dc-97101426e09e",
+		"name": "HiLUCA",
+		"description": "2 - Choose one buyer that fits your hypothesis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "447780"
+	},
+	"item": [
+		{
+			"name": "Fase 4 - Landing Page",
+			"item": [
+				{
+					"name": "Hero",
+					"item": [
+						{
+							"name": "Generate Landing Page (Hero)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1OTc5NTEsIm5iZiI6MTcyOTU5Nzk1MSwianRpIjoiODhjODRiYzItZWIxNy00NjMyLWFlYjEtMTE0YWI0YTNmOTk3IiwiZXhwIjoxNzI5NjQxMTUxLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.WXkd9xED_oaQuoXk-zDFXuIt2eFi9-obwttIbAo4fCA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/hero/generate",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"hero",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Elements Landing Page (Hero)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1OTc5NTEsIm5iZiI6MTcyOTU5Nzk1MSwianRpIjoiODhjODRiYzItZWIxNy00NjMyLWFlYjEtMTE0YWI0YTNmOTk3IiwiZXhwIjoxNzI5NjQxMTUxLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.WXkd9xED_oaQuoXk-zDFXuIt2eFi9-obwttIbAo4fCA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/hero/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"hero",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Elements Landing Page (Hero)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1OTc5NTEsIm5iZiI6MTcyOTU5Nzk1MSwianRpIjoiODhjODRiYzItZWIxNy00NjMyLWFlYjEtMTE0YWI0YTNmOTk3IiwiZXhwIjoxNzI5NjQxMTUxLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.WXkd9xED_oaQuoXk-zDFXuIt2eFi9-obwttIbAo4fCA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_hero_section_generated\": {\n        \"Header\": [\n            \"Maximize Your Everyday Spending Power\",\n            \"Revolutionize Your Cashback Experience Today\",\n            \"Effortless Cashback on Every Purchase\",\n            \"Transform Routine Spending into Rewards\",\n            \"Unlock Value in Every Dollar Spent\"\n        ],\n        \"Paragraph\": [\n            \"Experience up to 5% cashback on groceries and fuel, effortlessly. Join now for simple cashback redemption and start enjoying increased retention benefits.\",\n            \"Cashback just got easier. Benefit from up to 5% on everyday essentials and enjoy a simplified redemption process for more rewarding spending.\",\n            \"Seamlessly earn up to 5% cashback on everyday purchases. Enjoy uncomplicated rewards and enhanced retention – banking made easy.\",\n            \"Effortless 5% cashback on groceries and gas awaits you. Benefit from an easy redemption process and greater card usage rewards.\",\n            \"Earn up to 5% cashback without hassle. Simple redemption encourages spending, ensuring valuable rewards on routine purchases.\"\n        ],\n        \"SubHeader\": [\n            \"Say goodbye to complex fees and hello to savings.\",\n            \"Enjoy quick service and no more banking delays.\",\n            \"Simplify your finances with easy, modern solutions.\",\n            \"Experience banking without the painful complexities.\",\n            \"Trust in clear, fast, and efficient banking.\"\n        ],\n        \"CTA_Button_Text\": [\n            \"Claim My Cashback\",\n            \"Start Earning Now\",\n            \"Unlock My Rewards\",\n            \"Begin My Savings\",\n            \"Boost My Spending\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/hero/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"hero",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Configured Landing Page (Hero)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1OTc5NTEsIm5iZiI6MTcyOTU5Nzk1MSwianRpIjoiODhjODRiYzItZWIxNy00NjMyLWFlYjEtMTE0YWI0YTNmOTk3IiwiZXhwIjoxNzI5NjQxMTUxLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.WXkd9xED_oaQuoXk-zDFXuIt2eFi9-obwttIbAo4fCA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_hero_section_configured\": {\n        \"Header\": [\n            \"Lead With Cutting-Edge Finance\"\n        ],\n        \"Paragraph\": [\n            \"ENPOWER finances with AI insights and tailored support, elevating your experience to innovative heights.\"\n        ],\n        \"SubHeader\": [\n            \"Predict financial trends with superior technology integration.\"\n        ],\n        \"CTA_Button_Text\": [\n            \"Transform My Wealth\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/hero",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"hero"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Configured Landing Page (Hero)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1OTc5NTEsIm5iZiI6MTcyOTU5Nzk1MSwianRpIjoiODhjODRiYzItZWIxNy00NjMyLWFlYjEtMTE0YWI0YTNmOTk3IiwiZXhwIjoxNzI5NjQxMTUxLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.WXkd9xED_oaQuoXk-zDFXuIt2eFi9-obwttIbAo4fCA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/hero",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"hero"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Competitive Advantages",
+					"item": [
+						{
+							"name": "Generate Landing Page (Competitive Advantages)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/competitive_advantages/generate",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"competitive_advantages",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Elements Landing Page (Competitive Advantages)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/competitive_advantages/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"competitive_advantages",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Elements Landing Page (Competitive Advantages)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_competitive_advantages_section_generated\": {\n        \"Header\": [\n            \"UNLOCK Unmatched Financial Innovations Today\",\n            \"Revolutionize Your Financial Experience with Innovation\",\n            \"Empower Your Finances with Cutting-Edge Tech\",\n            \"Experience Next-Level Financial Control\",\n            \"Elevate Financial Intelligence with Advanced Tech\"\n        ],\n        \"Paragraph\": [\n            \"Discover a realm where technology and finance merge seamlessly, offering AI-driven insights and personalized support for tech-savvy individuals seeking financial mastery. Experience a unique journey filled with engaging tools and rewarding experiences, crafted to meet the high standards of modern financial enthusiasts.\",\n            \"Elevate your financial prowess with a premium experience that powers decision-making through predictive analytics and AI-driven customer care. This service redefines traditional banking with gamified elements and personalized interactions, setting a remarkable new standard for tech-loving users.\",\n            \"Step into the future of finance with an all-encompassing solution delivering AI insights and bespoke support. This product captures the essence of technology in finance, providing a highly engaging, tech-forward financial experience that meets the challenges of the digital age.\",\n            \"Anchor your financial journey in a landscape where AI-driven analysis and engaging experiences redefine traditional services. This solution stands at the forefront of financial innovation, delivering customized support and valuable insights, perfect for tech enthusiasts seeking dynamic financial control.\",\n            \"Venture into a financial experience enriched with AI-driven solutions and tailored support, promising a powerful tool for managing wealth. This service revolutionizes engagement and transformation in financial management, offering unparalleled insights and rewards for discerning, tech-savvy individuals.\"\n        ],\n        \"SubHeader\": [\n            \"Harness AI for superior financial insights and control at your fingertips.\",\n            \"Transform financial decision-making with real-time, AI-driven analytics.\",\n            \"Embrace gamified financial management for an engaging experience.\",\n            \"Seize unparalleled customer support tailored for tech enthusiasts.\",\n            \"Stay ahead with innovative financial tools and personalized assistance.\"\n        ],\n        \"Action_Paragraph\": [\n            \"Sign up today to harness the power of technology-led financial management, bolstered by personalized insights and engaging support.\",\n            \"Take the first step towards a smarter financial future by joining a community that redefines banking with technology.\",\n            \"Embrace the tech-driven revolution in finance, and submit your details to start benefiting from cutting-edge innovations.\",\n            \"Experience a groundbreaking financial service—share your details and unlock personalized, AI-driven insights.\",\n            \"Join a journey of financial excellence driven by technology—submit your information to explore a new frontier.\"\n        ],\n        \"CTA_Button_Text_1\": [\n            \"Transform My Finances\",\n            \"Join the Evolution\",\n            \"Elevate My Experience\",\n            \"Start My Journey\",\n            \"Unlock the Future\"\n        ],\n        \"CTA_Button_Text_2\": [\n            \"Get More Insights\",\n            \"Unlock My Benefits\",\n            \"Start My Journey\",\n            \"Discover More\",\n            \"Join Now\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/competitive_advantages/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"competitive_advantages",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Configured Landing Page (Competitive Advantages)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_competitive_advantages_section_configured\": {\n        \"Header\": [\n            \"UNLOCK Unmatched Financial Innovations Today\"\n        ],\n        \"Paragraph\": [\n            \"Venture into a financial experience enriched with AI-driven solutions and tailored support, promising a powerful tool for managing wealth. This service revolutionizes engagement and transformation in financial management, offering unparalleled insights and rewards for discerning, tech-savvy individuals.\"\n        ],\n        \"SubHeader\": [\n            \"Stay ahead with innovative financial tools and personalized assistance.\"\n        ],\n        \"Action_Paragraph\": [\n            \"Join a journey of financial excellence driven by technology—submit your information to explore a new frontier.\"\n        ],\n        \"CTA_Button_Text_1\": [\n            \"Unlock the Future\"\n        ],\n        \"CTA_Button_Text_2\": [\n            \"Join Now\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/competitive_advantages",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"competitive_advantages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Configured Landing Page (Competitive Advantages)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/competitive_advantages",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"competitive_advantages"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "HowWeDo",
+					"item": [
+						{
+							"name": "Generate Landing Page (HowWeDo)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/howwedo/generate",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"howwedo",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Elements Landing Page (HowWeDoo)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/howwedo/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"howwedo",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Elements Landing Page (HowWeDoo)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_howwedo_section_generated\": {\n        \"Header\": [\n            \"START experiencing the future of finance effortlessly today\",\n            \"Effortlessly manage wealth with cutting-edge tools in three simple steps\",\n            \"Begin your gamified financial journey in just three easy steps\"\n        ],\n        \"Step_Process_1\": {\n            \"Paragraph\": [\n                \"Register easily online and get exclusive access to personalized features without any hassle.\",\n                \"Join our platform today to dive into advanced financial tools crafted for tech leaders.\",\n                \"Sign up now to uncover a world of gamified and insightful financial management.\"\n            ],\n            \"Subheader\": [\n                \"Sign up for exclusive access today\",\n                \"Register to unlock high-tech financial benefits\",\n                \"Join to explore premium financial insights\"\n            ]\n        },\n        \"Step_Process_2\": {\n            \"Paragraph\": [\n                \"Our AI-driven platform tailors financial strategies based on your unique tech needs.\",\n                \"Personalize your financial dashboard to fit your advanced analytical preferences seamlessly.\",\n                \"Utilize AI tools to customize your experience, ensuring personalized financial growth.\"\n            ],\n            \"Subheader\": [\n                \"Customize your experience with AI-driven insights\",\n                \"Personalize your dashboard for maximum engagement\",\n                \"Tailor your financial journey with intuitive AI tools\"\n            ]\n        },\n        \"Step_Process_3\": {\n            \"Paragraph\": [\n                \"Engage with our gamified financial tools and earn loyalty points effortlessly.\",\n                \"Boost your financial interaction while accumulating rewards tailored for tech enthusiasts.\",\n                \"Enhance your financial control and enjoy exclusive rewards as you reach your goals.\"\n            ],\n            \"Subheader\": [\n                \"Gain rewards while enhancing your financial control\",\n                \"Boost your engagement with rewarding financial goals\",\n                \"Augment your financial strategy with loyalty incentives\"\n            ]\n        },\n        \"CTA_Button_Text\": [\n            \"Join Now\",\n            \"Sign Up Today\",\n            \"Get Started\",\n            \"Claim My Spot\",\n            \"Unlock Access\"\n        ],\n        \"Action_Paragraph\": [\n            \"Secure your future with innovative financial insights before others.\",\n            \"Don't miss out on AI-driven strategies—take control now.\",\n            \"Act fast to experience cutting-edge financial management tools.\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/howwedo/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"howwedo",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Configured Landing Page (HowWeDo)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_howwedo_section_configured\": {\n        \"Header\": [\n            \"JOIN the Tech Financial Revolution Seamlessly Today\"\n        ],\n        \"Step_Process_1\": {\n            \"Paragraph\": [\n                \"Swift registration opens doors to exclusive tech insights and personalized assistance.\"\n            ],\n            \"Subheader\": [\n                \"Effortless Account Creation for Immediate Benefits\"\n            ]\n        },\n        \"Step_Process_2\": {\n            \"Paragraph\": [\n                \"Activate now for a rewarding experience with zero foreign transaction fees.\"\n            ],\n            \"Subheader\": [\n                \"Card Activation: Your Key to Financial Prowess\"\n            ]\n        },\n        \"Step_Process_3\": {\n            \"Paragraph\": [\n                \"Enjoy a gamified and insightful approach to your financial future with AI.\"\n            ],\n            \"Subheader\": [\n                \"Optimize Engagement with Advanced Tools\"\n            ]\n        },\n        \"CTA_Button_Text\": [\n            \"Unlock My Future\"\n        ],\n        \"Action_Paragraph\": [\n            \"Seize the chance for exclusive advantages with immediate enrollment.\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/howwedo",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"howwedo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Configured Landing Page (HowWeDo)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/howwedo",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"howwedo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Testimonial",
+					"item": [
+						{
+							"name": "Generate Landing Page (Testimonial)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/testimonial/generate",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"testimonial",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Elements Landing Page (Testimonial)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/testimonial/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"testimonial",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Elements Landing Page (Testimonial)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_testimonial_section_generated\": {\n        \"Header\": [\n            \"Thousands Rely on Our Smart Solutions\",\n            \"EXPERIENCE Unmatched Financial Confidence Every Day\",\n            \"Join the Movement of Satisfied Innovators\"\n        ],\n        \"Testimonial_1\": {\n            \"Review\": [\n                \"Game-changing tools are growing my wealth efficiently.\",\n                \"Predictive analytics empowered my financial decisions.\",\n                \"I've hit my goals with rewarding gamified features.\"\n            ],\n            \"User_Name\": [\n                \"Sam Taylor\",\n                \"Jordan Parker\",\n                \"Casey Morgan\"\n            ]\n        },\n        \"Testimonial_2\": {\n            \"Review\": [\n                \"Finally, a service that breaks banking norms!\",\n                \"Interactive service solved my innovation frustrations.\",\n                \"No more boring banking; I'm fully engaged!\"\n            ],\n            \"User_Name\": [\n                \"Riley Thompson\",\n                \"Alex Hunter\",\n                \"Jamie Barrett\"\n            ]\n        },\n        \"Testimonial_3\": {\n            \"Review\": [\n                \"Their tech-driven tools bettered my everyday finances!\",\n                \"Enhanced life with amazing tech benefits daily.\",\n                \"Consistent perks keep elevating my financial world.\"\n            ],\n            \"User_Name\": [\n                \"Taylor Reed\",\n                \"Chris Lee\",\n                \"Jordan Diaz\"\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/testimonial/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"testimonial",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Configured Landing Page (Testimonial)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_testimonial_section_configured\": {\n        \"Header\": [\n            \"Join the Movement of Satisfied Innovators\"\n        ],\n        \"Testimonial_1\": {\n            \"Review\": [\n                \"I've hit my goals with rewarding gamified features.\"\n            ],\n            \"User_Name\": [\n                \"Casey Morgan\"\n            ]\n        },\n        \"Testimonial_2\": {\n            \"Review\": [\n                \"No more boring banking; I'm fully engaged!\"\n            ],\n            \"User_Name\": [\n                \"Jamie Barrett\"\n            ]\n        },\n        \"Testimonial_3\": {\n            \"Review\": [\n                \"Consistent perks keep elevating my financial world.\"\n            ],\n            \"User_Name\": [\n                \"Jordan Diaz\"\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/testimonial",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"testimonial"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Configured Landing Page (Testimonial)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/testimonial/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"testimonial",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Benefits",
+					"item": [
+						{
+							"name": "Generate Landing Page (Benefits)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/benefits/generate",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"benefits",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Elements Landing Page (Benefits)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/benefits/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"benefits",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Elements Landing Page (Benefits)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_benefits_section_generated\": {\n        \"Image\": {\n            \"Alt_text\": [\n                \"Professional utilizing AI-driven financial tools\",\n                \"TECH professional in advanced financial management\"\n            ],\n            \"Description\": [\n                \"Dynamic image of a professional utilizing AI-driven financial tools.\",\n                \"Visual representation of a modern tech professional engaging in advanced financial management.\",\n                \"Artistic depiction of technological integration in finance for seamless user experience.\",\n                \"Graphic of innovative financial technology empowering professionals.\",\n                \"Illustration of a high-tech financial toolkit benefiting the user.\"\n            ]\n        },\n        \"Header\": [\n            \"Master Financial Innovation with Cutting-Edge Tools\",\n            \"Elevate Your Financial Game with Advanced AI Insights\",\n            \"Transform Finance with Seamless Tech Integration\",\n            \"Empower Your Wealth with Innovative Solutions\",\n            \"Revolutionize Your Financial Journey Effortlessly\"\n        ],\n        \"Paragraph\": [\n            \"Dive into the future of finance with an innovative card offering exclusive high reward points and access to premier tech events, personalized to enhance your financial strategy.\",\n            \"Adapt to evolving trends with predictive insights and a gamified experience. Enjoy personalized support and high rewards tailored for the tech-savvy individual.\",\n            \"Harness AI-driven insights for smarter financial decisions. Engage uniquely with exclusive tech events and a seamless, rewarding experience.\",\n            \"Stay on the cutting-edge with advanced analytics and a card designed to suit your high-tech profile, ensuring superior financial control and engagement.\",\n            \"Gain personalized AI support and advanced event access, maximizing your potential to navigate financial landscapes with innovative tools at your disposal.\"\n        ],\n        \"CTA_Button_Text\": [\n            \"Get Started Today\",\n            \"Join Now\",\n            \"Claim My Card\",\n            \"Enhance My Finances\",\n            \"Unlock Rewards\"\n        ],\n        \"Action_Paragraph\": [\n            \"Step into the future of finance today with a card designed to fulfill all your tech-driven needs and aspirations.\",\n            \"Unleash your potential with unparalleled financial tools offering seamless integration into your tech-focused lifestyle.\",\n            \"Join the league of tech innovators revolutionizing the world of finance with unmatched efficiency.\",\n            \"Tailored for your ambition, experience the ease and sophistication of high-tech financial solutions.\",\n            \"Take control of your finances with tools that match your innovation-driven mindset and goals.\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/benefits/elements",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"benefits",
+										"elements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Configured Landing Page (Benefits)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 2,\n    \"landing_page_benefits_section_configured\": {\n        \"Image\": {\n            \"Alt_text\": [\n                \"TECH professional in advanced financial management\"\n            ],\n            \"Description\": [\n                \"Illustration of a high-tech financial toolkit benefiting the user.\"\n            ]\n        },\n        \"Header\": [\n            \"Revolutionize Your Financial Journey Effortlessly\"\n        ],\n        \"Paragraph\": [\n            \"Gain personalized AI support and advanced event access, maximizing your potential to navigate financial landscapes with innovative tools at your disposal.\"\n        ],\n        \"CTA_Button_Text\": [\n            \"Unlock Rewards\"\n        ],\n        \"Action_Paragraph\": [\n            \"Take control of your finances with tools that match your innovation-driven mindset and goals.\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/landing_page/benefits",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"landing_page",
+										"benefits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Configured Landing Page (Benefits)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjk1ODkzNDYsIm5iZiI6MTcyOTU4OTM0NiwianRpIjoiNWQxOTQ2MTQtN2Q2Yi00NDlhLTg2MWMtY2Y4MmI3Yjc1YzUxIiwiZXhwIjoxNzI5NjMyNTQ2LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Kf_7NtHw_0MDGXP8a-p2WeFxuQ1lPUSFyFBlZ1nnnKQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "email",
+										"value": "ramon@hiluca.com",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/landing_page/benefits",
+									"protocol": "http",
+									"host": [
+										"backend",
+										"hiluca",
+										"com"
+									],
+									"port": "60000",
+									"path": [
+										"api",
+										"v1",
+										"application",
+										"hiluca",
+										"project",
+										"2",
+										"landing_page",
+										"benefits"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Fase 4",
+			"item": [
+				{
+					"name": "Generate Meta Ads",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/meta_ads/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"meta_ads",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Meta Ads",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/meta_ads",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"meta_ads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Meta Ad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/meta_ad/0",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"meta_ad",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save One Meta Ad",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"meta_ad\": {\n        \"ad\": {\n            \"cta\": \"Learn More\",\n            \"headline\": \"Maximize Your Cashback\",\n            \"image_hook\": \"Complex Fees?\",\n            \"description\": \"UNLOCK SAVING\",\n            \"primary_text\": \"Enjoy up to 15% cashback on your expenses with PLATA Cashback PLATINUM. Experience true financial freedom now! 👇\",\n            \"image_punchline\": \"Simplify with PLATA!\"\n        },\n        \"id\": 0,\n        \"context\": \"Credit card offering seamless cashback rewards and minimal fees\",\n        \"preferred\": 0,\n        \"image_prompts\": {}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/meta_ad",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"meta_ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Image Prompts from Meta Ad",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"meta_ad_id\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/meta_ad/image/prompts/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"meta_ad",
+								"image",
+								"prompts",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Meta Ad Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/ramon/Desarrollos/marketing/images/meta_ad_2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/meta_ad/2/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"meta_ad",
+								"2",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Meta Ad Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/meta_ad/2/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"meta_ad",
+								"2",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fase 3",
+			"item": [
+				{
+					"name": "Generate Audiences",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/audience/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"audience",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setting Preferred Audience",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"audience_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/audience/set_preferred",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"audience",
+								"set_preferred"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Preferred Audience",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"preferred_audience\": {\n        \"id\": 2,\n        \"Audience\": \"Busy Business Male Professionals Interested in Financial Tools\",\n        \"Interests\": [\n            \"Mobile Banking\",\n            \"Home Office Setup\",\n            \"Streaming Services\",\n            \"Productivity Apps\",\n            \"Weekend Getaways\"\n        ],\n        \"preferred\": 1,\n        \"Demographics\": {\n            \"Age\": \"25-50 years old\",\n            \"Gender\": \"Male\",\n            \"Location\": [\n                \"Urban Areas\",\n                \"Suburban Areas Near Metropolises\"\n            ],\n            \"IncomeLevel\": \"Middle to Upper Middle-Class\"\n        },\n        \"AudienceSegment\": \"Audience 3\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_audience",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_audience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Preferred Audience",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/preferred_audience",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"preferred_audience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Creative Concept Description (Deprecated)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 14,\n  \"consumer_insight\": \"High-income men in urban Mexico seek financial tools that offer flexibility, exclusivity, and simplicity without the slow processes and high fees typical of traditional banks.\",\n  \"value_proposition\": \"Offers high credit limits, minimal fees, interest-free installments, and up to 15% cashback, providing superior flexibility and rewards compared to competitors.\",\n  \"communication objetive\" : \"Increase awareness of Plata Plus among high-income urban professionals, positioning it as the most convenient and premium credit solution for modern, ambitious men.\",\n  \"tone_brand_personality\" : \"Confident, professional, and sophisticated, with an aspirational yet approachable tone to connect with ambitious professionals who value status and convenience.\",\n  \"big_idea\" : \"The credit card that keeps up with your ambition, offering exclusive benefits and financial freedom without the hassle.\",\n  \"time_frame\" : \"October to December\",\n  \"target_regions\" : \"Mexico City, Guadalajara, Monterrey\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/webhook/project/creative_concept/description/deprecated",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"webhook",
+								"project",
+								"creative_concept",
+								"description",
+								"deprecated"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Creative Concept Description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"creative_concept_description\": {\n        \"consumer_insight\": \"High-income men in urban Mexico seek financial tools that offer flexibility, exclusivity, and simplicity without the slow processes and high fees typical of traditional banks.\",\n        \"value_proposition\": \"Offers high credit limits, minimal fees, interest-free installments, and up to 15% cashback, providing superior flexibility and rewards compared to competitors.\",\n        \"communication objetive\": \"Increase awareness of Plata Plus among high-income urban professionals, positioning it as the most convenient and premium credit solution for modern, ambitious men.\",\n        \"tone_brand_personality\": \"Confident, professional, and sophisticated, with an aspirational yet approachable tone to connect with ambitious professionals who value status and convenience.\",\n        \"big_idea\": \"The credit card that keeps up with your ambition, offering exclusive benefits and financial freedom without the hassle.\",\n        \"time_frame\": \"October to December\",\n        \"target_regions\": \"Mexico City, Guadalajara, Monterrey\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/creative_concept/description",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"creative_concept",
+								"description"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Creative Concepts Attibutes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"creative_concept_attributes_generated\": {\n        \"Content_Types\": [\n            \"Expert financial advice articles\",\n            \"Interactive savings calculators\",\n            \"Testimonial videos from professionals\",\n            \"Engaging webinars on finance management\",\n            \"Visual guides on investment options\"\n        ],\n        \"Local_Relevance\": [\n            \"Featuring local cuisine in cashback offers\",\n            \"Promotions tied to local events and festivals\",\n            \"Ads in regional languages and dialects\",\n            \"Support for local businesses and startups\",\n            \"Aligned with national initiatives and policies\"\n        ],\n        \"Seasonal_Relevance\": [\n            \"Year-end financial planning guides\",\n            \"Black Friday shopping strategies\",\n            \"Summer travel rewards promotions\",\n            \"Holiday cashback offers\",\n            \"Quarterly financial health checks\"\n        ],\n        \"Influence_Principles\": [\n            \"Authority: Trusted financial experts\",\n            \"Social Proof: Success stories from users\",\n            \"Reciprocity: Cashback rewards\",\n            \"Scarcity: Limited time sign-up bonuses\",\n            \"Commitment: Long-term financial benefits\"\n        ],\n        \"Buyer_Persona_Interests\": [\n            \"Mobile banking innovations\",\n            \"Exclusive travel experiences\",\n            \"High-tech home office solutions\",\n            \"Premium entertainment subscriptions\",\n            \"Luxury weekend getaways\"\n        ],\n        \"Non_Obvious_Correlations\": [\n            \"Executives preferring simplified usabilidad\",\n            \"Urban professionals interested in rural retreats\",\n            \"Tech adopters valuing traditional craftsmanship\",\n            \"Finance-savvy individuals seeking wellness programs\",\n            \"Freelancers invested in team collaboration tools\"\n        ],\n        \"Competitive_Advantage_Insights\": [\n            \"No foreign transaction fees\",\n            \"Access to exclusive airport lounges\",\n            \"Instant virtual card issuance\",\n            \"Tailored rewards program adaptability\",\n            \"Robust customer support in multiple languages\"\n        ]\n    },\n    \"creative_concept_attributes_saved\": {\n        \"Content_Types\": [\n            \"Testimonial videos from professionals\"\n        ],\n        \"Local_Relevance\": [\n            \"Promotions tied to local events and festivals\"\n        ],\n        \"Seasonal_Relevance\": [\n        ],\n        \"Influence_Principles\": [\n            \"Social Proof: Success stories from users\"\n        ],\n        \"Buyer_Persona_Interests\": [\n        ],\n        \"Non_Obvious_Correlations\": [\n            \"Freelancers invested in team collaboration tools\"\n        ],\n        \"Competitive_Advantage_Insights\": [\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/creative_concept/attributes",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"creative_concept",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Campaigns",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/campaign/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"campaign",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setting Preferred Campaign",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"campaign_id\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/campaign/set_preferred",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"campaign",
+								"set_preferred"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Preferred Campaign",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"preferred_campaign\":  {\n        \"id\": 0,\n        \"campaign\": {\n            \"title\": \"Unlock Spend Power with Strategic Cashback\"\n        },\n        \"sections\": {\n            \"slogan\": {\n                \"text\": \"Maximize Your Cashback, Minimize the Complexity.\",\n                \"title\": \"Slogan\"\n            },\n            \"concept\": {\n                \"title\": \"Concept\",\n                \"description\": \"Leveraging the influence of social proof, this concept presents testimonial videos of young professionals and freelancers who streamlined their spending with Plata Cashback PLATINUM, emphasizing the hassle-free cashback experience. This will showcase how efficient financial solutions complement a busy lifestyle, resonating with Miguel's values of transparency and ease of use.\"\n            },\n            \"message\": {\n                \"title\": \"Message\",\n                \"description\": \"The campaign positions Plata Cashback PLATINUM as the smart choice for savvy spenders, offering up to 5% cashback on daily essentials like groceries and gas, with no annual fees. This appeals to Miguel’s desire for efficiency and financial oversight through simple redemption processes, ensuring value at every transaction. The message communicates trust and transparency, addressing pain points related to complex banking fees and procedures.\"\n            }\n        },\n        \"preferred\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_campaign",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_campaign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Preferred Campaign",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/preferred_campaign",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"preferred_campaign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Image Prompts from Preferred Campaign",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_campaign/image/prompts/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_campaign",
+								"image",
+								"prompts",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setting Preferred Image Prompt from Preferred Campaign",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"campaign_image_prompt_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_campaign/image/prompts/set_preferred",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_campaign",
+								"image",
+								"prompts",
+								"set_preferred"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image Prompts from Preferred Campaign",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/preferred_campaign/image/prompts",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"preferred_campaign",
+								"image",
+								"prompts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Campaign Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/ramon/Desarrollos/marketing/images/campaign_4.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/campaign/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"campaign",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/campaign/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"campaign",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Campaign Image (n8n)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/ramon/Desarrollos/marketing/images/campaign_2.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5678/webhook/project/campaign/image?project_id=14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5678",
+							"path": [
+								"webhook",
+								"project",
+								"campaign",
+								"image"
+							],
+							"query": [
+								{
+									"key": "project_id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fase 2 - Inicializar",
+			"item": [
+				{
+					"name": "Init Project Refination",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/refination",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"refination"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "1 - Refine Your Growth Strategy"
+		},
+		{
+			"name": "Fase 2 - Buyer Persona",
+			"item": [
+				{
+					"name": "Generate Buyer Persona",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/buyer_person/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"buyer_person",
+								"generate"
+							]
+						},
+						"description": "2 - Choose one buyer that fits your hypothesis"
+					},
+					"response": []
+				},
+				{
+					"name": "Setting Preferred Buyer Persona",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"buyer_person_id\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/buyer_person/set_preferred",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"buyer_person",
+								"set_preferred"
+							]
+						},
+						"description": "3 - Choose one buyer that fits your hypothesis"
+					},
+					"response": []
+				},
+				{
+					"name": "Save Preferred Buyer Persona",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"preferred_buyer_person\": {\n        \"Buyer_Persona\": {\n            \"id\": 0,\n            \"Age\": 32,\n            \"Name\": \"Laura\",\n            \"Title\": \"The MOST Innovative Explorer\",\n            \"Details\": {\n                \"Goals\": [\n                    \"Streamline financial processes with cutting-edge technology.\",\n                    \"Avoid traditional banking hassles.\",\n                    \"Discover comprehensive financial tools that integrate well with technology.\"\n                ],\n                \"Lives\": \"Tech-forward neighborhood in Austin, Texas.\",\n                \"Needs\": [\n                    \"Real-time customer support with live chat options.\",\n                    \"Banking services with simple and transparent pricing.\",\n                    \"Access to loyalty programs that reward frequent use.\"\n                ],\n                \"Values\": \"Innovation, efficiency, and user-friendly experiences.\",\n                \"Pain_Points\": [\n                    \"Annoyed by slow and outdated banking methods.\",\n                    \"Avoids complex and hidden banking fees.\",\n                    \"Frustrated by long wait times for customer service.\"\n                ]\n            },\n            \"preferred\": 1,\n            \"Description\": \"A tech-savvy professional searching for modern banking solutions that streamline her financial operations.\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_buyer_person",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_buyer_person"
+							]
+						},
+						"description": "4- The Strategic Starter: Carlos / 27 years old"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Preferred Buyer Persona",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/preferred_buyer_person",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"preferred_buyer_person"
+							]
+						},
+						"description": "5 - The Strategic Starter: Carlos / 27 years old"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Image Prompts from Preferred Buyer Persona",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_buyer_person/image/prompts/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_buyer_person",
+								"image",
+								"prompts",
+								"generate"
+							]
+						},
+						"description": "6 - The Strategic Starter: Carlos / 27 years old"
+					},
+					"response": []
+				},
+				{
+					"name": "Setting Preferred Image Prompt from Buyer Persona",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"buyer_person_image_prompt_id\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_buyer_person/image/prompts/set_preferred",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_buyer_person",
+								"image",
+								"prompts",
+								"set_preferred"
+							]
+						},
+						"description": "7 - The Strategic Starter: Carlos / 27 years old"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image Prompts from Preferred Buyer Person",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg0ODI4OTcsIm5iZiI6MTcyODQ4Mjg5NywianRpIjoiNGJiZGY0NTYtMTc2My00ZWRlLWE2ZTktZjNmMDA2Yjk5NmMzIiwiZXhwIjoxNzI4NTI2MDk3LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.AcrhO71pGW6jonpRhjiOl5IFeKayC5n-8TX1aaagoT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/preferred_buyer_person/image/prompts",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"preferred_buyer_person",
+								"image",
+								"prompts"
+							]
+						},
+						"description": "8 - The Strategic Starter: Carlos / 27 years old"
+					},
+					"response": []
+				},
+				{
+					"name": "Image Generation - VertexAI GCP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\" : \"Photo of a 29-year-old man with a focused look, working on his ultra-modern laptop in a stylish San Francisco café. Multiple screens reflect the gamified financial tools he uses to manage and grow his wealth.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:5678/webhook/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "5678",
+							"path": [
+								"webhook",
+								"image"
+							]
+						},
+						"description": "9 - The Strategic Starter: Carlos / 27 years old"
+					},
+					"response": []
+				},
+				{
+					"name": "Image Generation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjkwMjQzNjIsIm5iZiI6MTcyOTAyNDM2MiwianRpIjoiZWRhNDUyZjgtYWZiYi00MTRkLTliYWEtMGUzYzE0ZDVmYWM0IiwiZXhwIjoxNzI5MDY3NTYyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.PtREWIaYjT7iJiDu7Gk90uwPTYVfn9ukaVM-oJmhIic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "",
+								"description": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Photo of a 42-year-old Hispanic man confidently sitting at a modern office desk in Miami, surrounded by financial documents and tech gadgets. His face shows determination as he interacts with a digital assistant on his laptop, reflecting his commitment to streamlining financial management.\"\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Buyer Person Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/ramon/Desarrollos/marketing/images/buyer_person_2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/buyer_person/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"buyer_person",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Buyer Person Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg0ODI4OTcsIm5iZiI6MTcyODQ4Mjg5NywianRpIjoiNGJiZGY0NTYtMTc2My00ZWRlLWE2ZTktZjNmMDA2Yjk5NmMzIiwiZXhwIjoxNzI4NTI2MDk3LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.AcrhO71pGW6jonpRhjiOl5IFeKayC5n-8TX1aaagoT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/buyer_person/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"buyer_person",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fase 2 - Producto",
+			"item": [
+				{
+					"name": "Generate Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/product/generate",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"product",
+								"generate"
+							]
+						},
+						"description": "10 - Select The Optimal Product For Your Hypothesis"
+					},
+					"response": []
+				},
+				{
+					"name": "Setting Preferred Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"product_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/product/set_preferred",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"product",
+								"set_preferred"
+							]
+						},
+						"description": "11 - Select The Optimal Product For Your Hypothesis"
+					},
+					"response": []
+				},
+				{
+					"name": "Save Preferred Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"preferred_product\": {\n            \"Product\": {\n                \"id\": 1,\n                \"Name\": \"Plata Cashback PLATINUM\",\n                \"Type\": \"Rewards Credit Card\",\n                \"Details\": {\n                    \"Description\": \"Plata Cashback is tailored for individuals who want to make the most out of every dollar spent, ensuring value on routine purchases.\",\n                    \"Product_Details\": {\n                        \"Features\": [\n                            \"5% Cashback on Groceries and Gas\",\n                            \"1% Cashback on All Other Purchases\",\n                            \"No Annual Fees\"\n                        ]\n                    },\n                    \"Core_Characteristic\": \"A credit card that maximizes cashback opportunities on everyday spending.\",\n                    \"Competitive_Advantage\": \"Up to 5% cashback on select categories such as groceries and fuel, simple cashback redemption process.\",\n                    \"Benefit_Related_to_Hypothesis\": \"Encourages higher card usage and increases spending by offering tangible benefits, leading to increased retention.\"\n                },\n                \"preferred\": 1\n            }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/preferred_product",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"preferred_product"
+							]
+						},
+						"description": "12 - FlexiCard"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Preferred Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/preferred_product",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"preferred_product"
+							]
+						},
+						"description": "12 - FlexiCard"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Product Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/ramon/Desarrollos/marketing/images/product.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/product/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"product",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg0ODI4OTcsIm5iZiI6MTcyODQ4Mjg5NywianRpIjoiNGJiZGY0NTYtMTc2My00ZWRlLWE2ZTktZjNmMDA2Yjk5NmMzIiwiZXhwIjoxNzI4NTI2MDk3LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.AcrhO71pGW6jonpRhjiOl5IFeKayC5n-8TX1aaagoT0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/product/image",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"product",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fase 2 - Hypothesis Builder",
+			"item": [
+				{
+					"name": "Get Hypothesis Builder Elements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/hypothesis_builder/elements",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"hypothesis_builder",
+								"elements"
+							]
+						},
+						"description": "13 - Select the Hypothesis That Best Aligns with your Goal"
+					},
+					"response": []
+				},
+				{
+					"name": "Save Hypothesis Builder Options",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"hypothesis_builder_options\": [\n        {\n            \"Hypothesis_option\": {\n                \"id\": 0,\n                \"Goal\": \"Increase approval rates by 15%\",\n                \"Audience\": \"Budget-conscious young adults\",\n                \"preferred\": 0,\n                \"Testing_Variable\": \"Offer 10% cashback\"\n            }\n        },\n        {\n            \"Hypothesis_option\": {\n                \"id\": 1,\n                \"Goal\": \"Increase approval rates by 15%\",\n                \"Audience\": \"Budget-conscious young adults\",\n                \"preferred\": 0,\n                \"Testing_Variable\": \"Offer 20% cashback\"\n            }\n        },\n        {\n            \"Hypothesis_option\": {\n                \"id\": 2,\n                \"Goal\": \"Increase approval rates by 15%\",\n                \"Audience\": \"Budget-conscious young adults\",\n                \"preferred\": 0,\n                \"Testing_Variable\": \"Offer 50% cashback\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/hypothesis_builder/options",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"hypothesis_builder",
+								"options"
+							]
+						},
+						"description": "14 - Select the Hypothesis That Best Aligns with your Goal"
+					},
+					"response": []
+				},
+				{
+					"name": "Setting Preferred Option in Hypothesis Builder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"option_id\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/hypothesis_builder/options/set_preferred",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"hypothesis_builder",
+								"options",
+								"set_preferred"
+							]
+						},
+						"description": "15 - Select the Hypothesis That Best Aligns with your Goal"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hypothesis Builder Options",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjgyMTc5MTMsIm5iZiI6MTcyODIxNzkxMywianRpIjoiZWI2Yzg4YmUtODc5OC00Nzc5LWI1MDMtNzVhMWNlOTYzZDRjIiwiZXhwIjoxNzI4MjYxMTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cS_bKhBi98XZ8ymxL2x2IYzwiVKsMcWMcnxv-pozfbU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "email",
+								"value": "ramon@hiluca.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 14\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2/hypothesis_builder/options",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2",
+								"hypothesis_builder",
+								"options"
+							]
+						},
+						"description": "16 - Select the Hypothesis That Best Aligns with your Goal"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"usuario@example1.com\",\n    \"name\": \"Usuario de Ejemplo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:5678/webhook/account",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "5678",
+							"path": [
+								"webhook",
+								"account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fase 1",
+			"item": [
+				{
+					"name": "Get Projects",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjczODc5MjIsIm5iZiI6MTcyNzM4NzkyMiwianRpIjoiY2IyMTk4NmItZjY5Mi00NmRkLWE1MzktNmE0NjM1ODE2NGE2IiwiZXhwIjoxNzI3NDMxMTIyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.0POpKE5FYVDlSR7bcYiCEAErMGoR5orK2H4ymFj3Pyk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjczNzk0MDQsIm5iZiI6MTcyNzM3OTQwNCwianRpIjoiNTJhMDFiZWQtZGYzZS00MDQ5LWI2OGMtNTE0NjM1MzhlMGQ1IiwiZXhwIjoxNzI3MzgwMzA0LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.JXRdGiNvYk-6YXmNSWivcA-r8Q-ENZKkeiyftmZVNwg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/2",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjczNzgzMjAsIm5iZiI6MTcyNzM3ODMyMCwianRpIjoiN2Y4YmUzNTMtYmMzYy00YWQ2LWJhMTgtYzQ5MzY2MmVmMjM1IiwiZXhwIjoxNzI3Mzc5MjIwLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.lpcImWvCMqEuiglOcCV67ewoRq3NNt6VxpulZv-8WxQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Proyecto HiLuca - Platacards\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Marketing Hypothesis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjczNzk0MDQsIm5iZiI6MTcyNzM3OTQwNCwianRpIjoiNTJhMDFiZWQtZGYzZS00MDQ5LWI2OGMtNTE0NjM1MzhlMGQ1IiwiZXhwIjoxNzI3MzgwMzA0LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.JXRdGiNvYk-6YXmNSWivcA-r8Q-ENZKkeiyftmZVNwg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"marketing_hypothesis\": \"I believe that maybe sales will increase if we use different creatives like video explainers\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/marketing-hypothesis",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"marketing-hypothesis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Product Description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjg3NjE3MTMsIm5iZiI6MTcyODc2MTcxMywianRpIjoiOTdhYzM4OTEtMWU4Mi00MDczLTgwZmQtMGZlNzFjNWQxMGVhIiwiZXhwIjoxNzI4ODA0OTEzLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ZA-7G0A0fmToSosZXcQski99elwD85UeJMdypabaAfQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"brand_name\": \"platacard\",\n  \"product_name\": \"tarjeta platacard\",\n  \"product_url\": \"https://platacard.mx/es/\",\n  \"faq_product_url\": \"https://platacard.mx/es/faq/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/product/description",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"product",
+								"description"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Product Attributes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjczNzk0MDQsIm5iZiI6MTcyNzM3OTQwNCwianRpIjoiNTJhMDFiZWQtZGYzZS00MDQ5LWI2OGMtNTE0NjM1MzhlMGQ1IiwiZXhwIjoxNzI3MzgwMzA0LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.JXRdGiNvYk-6YXmNSWivcA-r8Q-ENZKkeiyftmZVNwg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"product_attributes_generated\": {\n        \"Pricing\": [\n            \"No Info on the page\"\n        ],\n        \"Benefits\": [\n            \"No Info on the page\"\n        ],\n        \"Features\": [\n            \"No Info on the page\"\n        ],\n        \"Custom Category\": [\n            \"Category 1\",\n            \"Category 2\",\n            \"Category 3\"\n        ],\n        \"Value Proposition\": [\n            \"No Info on the page\"\n        ],\n        \"Discounts and Promotions\": [\n            \"No Info on the page\"\n        ]\n    },\n    \"product_attributes_saved\": {\n        \"Pricing\": [\n            \"No Info on the page\"\n        ],\n        \"Benefits\": [\n            \"No Info on the page\"\n        ],\n        \"Features\": [\n            \"No Info on the page\"\n        ],\n        \"Custom Category\": [\n            \"Category 1\",\n            \"Category 3\"\n        ],\n        \"Value Proposition\": [\n            \"No Info on the page\"\n        ],\n        \"Discounts and Promotions\": [\n            \"No Info on the page\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/product/attributes",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"product",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Target Consumer Description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0MzcwNTIsIm5iZiI6MTcyNzQzNzA1MiwianRpIjoiM2ViMDY4YTAtN2JjYi00NjJhLWI2MDMtMjk5Y2Q4M2U2MzJiIiwiZXhwIjoxNzI3NDgwMjUyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.jwUvhebsSdnUojRj7j3vATex8PDaYabx7MnDXVSracE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"target_customer_description\": \"He is a tech-savvy buyer, loves simplicity and is frustrated with traditional banks. He’s open to alternatives, seeks clear benefits, and lives in major cities.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/target_customer/description",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"target_customer",
+								"description"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Target Consumer Attributes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc5ODAwMzcsIm5iZiI6MTcyNzk4MDAzNywianRpIjoiZjI4YWIyMDAtMmM0Ni00ZGJiLTlkYTctOTI3OGY3MGMwZGJkIiwiZXhwIjoxNzI4MDIzMjM3LCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.Ss5103nY7UyI-4OjQ4xqi_WSUI3TNdUhDuxpfCjEeVs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 60,\n    \"target_customer_attributes_generated\": {\n        \"Goals\": [\n            \"Simplify finances\",\n            \"Efficient alternatives\",\n            \"Modern banking solutions\",\n            \"Maximize benefits\",\n            \"Streamline transactions\"\n        ],\n        \"Pain Points\": [\n            \"Complex banking processes\",\n            \"Lack of innovation\",\n            \"Hidden fees\",\n            \"Poor customer service\",\n            \"Inconvenient bank visits\"\n        ],\n        \"Problem to Solve\": [\n            \"Traditional bank issues\",\n            \"Inefficient financial tools\",\n            \"Opaque fee structures\",\n            \"Outdated banking methods\",\n            \"Tedious bank procedures\"\n        ],\n        \"Preferences\": [\n            \"Clear benefits\",\n            \"Tech-driven solutions\",\n            \"User-friendly apps\",\n            \"24/7 support\",\n            \"Innovative features\"\n        ],\n        \"Buyer Profile\": [\n            \"Tech-savvy\",\n            \"Lives in major cities\",\n            \"Seeks simplicity\",\n            \"Open to alternatives\",\n            \"Dislikes traditional banks\"\n        ]\n    },\n    \"target_customer_attributes_saved\": {\n        \"Goals\": [\n            \"Simplify finances\",\n            \"Efficient alternatives\"\n        ],\n        \"Pain Points\": [\n            \"Complex banking processes\",\n            \"Hidden fees\",\n            \"Inconvenient bank visits\"\n        ],\n        \"Problem to Solve\": [\n            \"Traditional bank issues\",\n            \"Inefficient financial tools\",\n            \"Outdated banking methods\",\n            \"Tedious bank procedures\"\n        ],\n        \"Preferences\": [\n            \"Innovative features\"\n        ],\n        \"Buyer Profile\": [\n            \"Tech-savvy\",\n            \"Seeks simplicity\",\n            \"Dislikes traditional banks\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/application/hiluca/project/target_customer/attributes",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"target_customer",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Goal Description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0MzcwNTIsIm5iZiI6MTcyNzQzNzA1MiwianRpIjoiM2ViMDY4YTAtN2JjYi00NjJhLWI2MDMtMjk5Y2Q4M2U2MzJiIiwiZXhwIjoxNzI3NDgwMjUyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.jwUvhebsSdnUojRj7j3vATex8PDaYabx7MnDXVSracE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"goal_description\": \"I want to increase customer retention and improve engagement on our platform.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/goal/description",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"goal",
+								"description"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Goal Attributes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0MzcwNTIsIm5iZiI6MTcyNzQzNzA1MiwianRpIjoiM2ViMDY4YTAtN2JjYi00NjJhLWI2MDMtMjk5Y2Q4M2U2MzJiIiwiZXhwIjoxNzI3NDgwMjUyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.jwUvhebsSdnUojRj7j3vATex8PDaYabx7MnDXVSracE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"goal_attributes_generated\": {\n        \"Customer Satisfaction\": [\n            \"Conduct weekly surveys\",\n            \"Reduce ticket response time\",\n            \"Increase NPS by 10%\",\n            \"Achieve 95% CSAT score\",\n            \"Implement feedback loops\"\n        ],\n        \"User Engagement\": [\n            \"Boost app login rates\",\n            \"Increase daily active users\",\n            \"Raise click-through rate\",\n            \"Extend session duration\",\n            \"Enhance feature usage\"\n        ],\n        \"Retention Rates\": [\n            \"Lower churn by 15%\",\n            \"Upsell to 20% of users\",\n            \"Expand loyalty programs\",\n            \"Reduce dormancy rate\",\n            \"Increase subscription renewals\"\n        ],\n        \"Content Quality\": [\n            \"Publish weekly blogs\",\n            \"Produce monthly webinars\",\n            \"Update content quarterly\",\n            \"Curate user-generated content\",\n            \"Expand video library weekly\"\n        ],\n        \"Customer Support\": [\n            \"Implement live chat\",\n            \"24/7 support availability\",\n            \"Decrease resolution time\",\n            \"Add self-help resources\",\n            \"Launch help center\"\n        ]\n    },\n    \"goal_attributes_saved\": {\n        \"Customer Satisfaction\": [\n            \"Conduct weekly surveys\",\n            \"Implement feedback loops\"\n        ],\n        \"User Engagement\": [\n            \"Boost app login rates\",\n            \"Increase daily active users\",\n            \"Enhance feature usage\"\n        ],\n        \"Retention Rates\": [\n            \"Lower churn by 15%\",\n            \"Reduce dormancy rate\",\n            \"Increase subscription renewals\"\n        ],\n        \"Content Quality\": [\n            \"Expand video library weekly\"\n        ],\n        \"Customer Support\": [\n            \"Implement live chat\",\n            \"Decrease resolution time\",\n            \"Launch help center\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/goal/attributes",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"goal",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Advantages Description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0MzcwNTIsIm5iZiI6MTcyNzQzNzA1MiwianRpIjoiM2ViMDY4YTAtN2JjYi00NjJhLWI2MDMtMjk5Y2Q4M2U2MzJiIiwiZXhwIjoxNzI3NDgwMjUyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.jwUvhebsSdnUojRj7j3vATex8PDaYabx7MnDXVSracE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"advantages_description\": \"I want to increase customer retention and improve engagement on our platform.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/advantages/description",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"advantages",
+								"description"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Advantages Attributes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0MzcwNTIsIm5iZiI6MTcyNzQzNzA1MiwianRpIjoiM2ViMDY4YTAtN2JjYi00NjJhLWI2MDMtMjk5Y2Q4M2U2MzJiIiwiZXhwIjoxNzI3NDgwMjUyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.jwUvhebsSdnUojRj7j3vATex8PDaYabx7MnDXVSracE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"advantages_attributes_generated\": {\n        \"Customer Satisfaction\": [\n            \"Conduct weekly surveys\",\n            \"Reduce ticket response time\",\n            \"Increase NPS by 10%\",\n            \"Achieve 95% CSAT score\",\n            \"Implement feedback loops\"\n        ],\n        \"User Engagement\": [\n            \"Boost app login rates\",\n            \"Increase daily active users\",\n            \"Raise click-through rate\",\n            \"Extend session duration\",\n            \"Enhance feature usage\"\n        ],\n        \"Retention Rates\": [\n            \"Lower churn by 15%\",\n            \"Upsell to 20% of users\",\n            \"Expand loyalty programs\",\n            \"Reduce dormancy rate\",\n            \"Increase subscription renewals\"\n        ],\n        \"Content Quality\": [\n            \"Publish weekly blogs\",\n            \"Produce monthly webinars\",\n            \"Update content quarterly\",\n            \"Curate user-generated content\",\n            \"Expand video library weekly\"\n        ],\n        \"Customer Support\": [\n            \"Implement live chat\",\n            \"24/7 support availability\",\n            \"Decrease resolution time\",\n            \"Add self-help resources\",\n            \"Launch help center\"\n        ]\n    },\n    \"advantages_attributes_saved\": {\n        \"Customer Satisfaction\": [\n            \"Conduct weekly surveys\",\n            \"Implement feedback loops\"\n        ],\n        \"User Engagement\": [\n            \"Boost app login rates\",\n            \"Increase daily active users\",\n            \"Enhance feature usage\"\n        ],\n        \"Retention Rates\": [\n            \"Lower churn by 15%\",\n            \"Reduce dormancy rate\",\n            \"Increase subscription renewals\"\n        ],\n        \"Content Quality\": [\n            \"Expand video library weekly\"\n        ],\n        \"Customer Support\": [\n            \"Implement live chat\",\n            \"Decrease resolution time\",\n            \"Launch help center\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/advantages/attributes",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"advantages",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Hypothesis Description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0MzcwNTIsIm5iZiI6MTcyNzQzNzA1MiwianRpIjoiM2ViMDY4YTAtN2JjYi00NjJhLWI2MDMtMjk5Y2Q4M2U2MzJiIiwiZXhwIjoxNzI3NDgwMjUyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.jwUvhebsSdnUojRj7j3vATex8PDaYabx7MnDXVSracE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"hypothesis_element_description\": \"I want to increase customer retention and improve engagement on our platform.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/hypothesis/description",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"hypothesis",
+								"description"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Hypothesis Attributes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0MzcwNTIsIm5iZiI6MTcyNzQzNzA1MiwianRpIjoiM2ViMDY4YTAtN2JjYi00NjJhLWI2MDMtMjk5Y2Q4M2U2MzJiIiwiZXhwIjoxNzI3NDgwMjUyLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.jwUvhebsSdnUojRj7j3vATex8PDaYabx7MnDXVSracE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 2,\n    \"hypothesis_element_attributes_generated\": {\n        \"Customer Satisfaction\": [\n            \"Conduct weekly surveys\",\n            \"Reduce ticket response time\",\n            \"Increase NPS by 10%\",\n            \"Achieve 95% CSAT score\",\n            \"Implement feedback loops\"\n        ],\n        \"User Engagement\": [\n            \"Boost app login rates\",\n            \"Increase daily active users\",\n            \"Raise click-through rate\",\n            \"Extend session duration\",\n            \"Enhance feature usage\"\n        ],\n        \"Retention Rates\": [\n            \"Lower churn by 15%\",\n            \"Upsell to 20% of users\",\n            \"Expand loyalty programs\",\n            \"Reduce dormancy rate\",\n            \"Increase subscription renewals\"\n        ],\n        \"Content Quality\": [\n            \"Publish weekly blogs\",\n            \"Produce monthly webinars\",\n            \"Update content quarterly\",\n            \"Curate user-generated content\",\n            \"Expand video library weekly\"\n        ],\n        \"Customer Support\": [\n            \"Implement live chat\",\n            \"24/7 support availability\",\n            \"Decrease resolution time\",\n            \"Add self-help resources\",\n            \"Launch help center\"\n        ]\n    },\n    \"hypothesis_element_attributes_saved\": {\n        \"Customer Satisfaction\": [\n            \"Conduct weekly surveys\",\n            \"Implement feedback loops\"\n        ],\n        \"User Engagement\": [\n            \"Boost app login rates\",\n            \"Increase daily active users\",\n            \"Enhance feature usage\"\n        ],\n        \"Retention Rates\": [\n            \"Lower churn by 15%\",\n            \"Reduce dormancy rate\",\n            \"Increase subscription renewals\"\n        ],\n        \"Content Quality\": [\n            \"Expand video library weekly\"\n        ],\n        \"Customer Support\": [\n            \"Implement live chat\",\n            \"Decrease resolution time\",\n            \"Launch help center\"\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/hypothesis/attributes",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"hypothesis",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Project Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjczNzgzMjAsIm5iZiI6MTcyNzM3ODMyMCwianRpIjoiN2Y4YmUzNTMtYmMzYy00YWQ2LWJhMTgtYzQ5MzY2MmVmMjM1IiwiZXhwIjoxNzI3Mzc5MjIwLCJpZGVudGl0eSI6InJhbW9uQGhpbHVjYS5jb20iLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.lpcImWvCMqEuiglOcCV67ewoRq3NNt6VxpulZv-8WxQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"project_id\": 2,\n  \"status\": \"initiated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.209.130.147:60000/api/v1/application/hiluca/project/status",
+							"protocol": "http",
+							"host": [
+								"35",
+								"209",
+								"130",
+								"147"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"application",
+								"hiluca",
+								"project",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authentication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"ramon@hiluca.com\",\n  \"password\": \"admin1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://backend.hiluca.com:60000/api/v1/member/login",
+							"protocol": "http",
+							"host": [
+								"backend",
+								"hiluca",
+								"com"
+							],
+							"port": "60000",
+							"path": [
+								"api",
+								"v1",
+								"member",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Image Generation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\" : \"Genera una imagen al estilo Comics, que tenga una persona vestida con la bandera de venezuela\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5678/webhook/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5678",
+							"path": [
+								"webhook",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

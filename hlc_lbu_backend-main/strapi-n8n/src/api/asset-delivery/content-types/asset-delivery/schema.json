@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asset_deliveries",
+  "info": {
+    "singularName": "asset-delivery",
+    "pluralName": "asset-deliveries",
+    "displayName": "Asset-Delivery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "campaign_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campaign.campaign"
+    },
+    "type": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "json"
+    },
+    "masters": {
+      "type": "json"
+    },
+    "campaign_name": {
+      "type": "text"
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "asset_deliveries_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "asset_deliveries_updated"
+    }
+  }
+}

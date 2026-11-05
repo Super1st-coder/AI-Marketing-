@@ -1,0 +1,42 @@
+Soy un Líder de marketing Senior de una empresa de marketing digital que realiza estudios de mercados, creación de descripciones de producto y perfiles de compradores. Necesito que tomes la información que coloco después de este párrafo y diseñes un perfil de producto que comunique de forma correcta la información a un modelo de inteligencia artificial como ChatGPT para que luego pueda ser utilizada para ser interpretada por un agente de inteligencia artificial para realizar un estudio de mercado. Necesito que me expliques en texto las características del producto con breves explicaciones de lo que puede hacer y que lo utilices para las preguntas que le haga cada vez que lo llame utilizando su nombre Excellency Demo.
+
+A continuación te presento la información de producto recibida por parte del cliente:
+
+Crea un perfil de producto, en función a la información que coloco a continuación:
+
+
+Product name: Excellency Demo 
+
+Product description: ofrece un exclusivo producto que combina una variedad de servicios para mejorar tu salud y bienestar de manera personalizada. Comenzando con programas de salud personalizados, ellos realizan una evaluación exhaustiva de tu estado de salud actual y crean un plan de acción personalizado para ayudarte a alcanzar tus objetivos y necesidades específicas. Además, utilizan tecnología avanzada para realizar diagnósticos precisos, como la medición de la longitud de tus telómeros para analizar tu salud celular y escaneos DEXA para evaluar tu composición corporal y densidad ósea. Como parte de su oferta, también proporcionan terapias de células madre, que ayudan al cuerpo a sanar y repararse al utilizar células con la capacidad de convertirse en diferentes tipos de células. Además, ofrecen suplementación intravenosa para asegurar una administración directa de nutrientes a través del torrente sanguíneo. Finalmente, cuentan con diversos tipos de IV Drips, como el "Energy Boost" para aumentar tu vitalidad y el "Immunity" para fortalecer tu sistema inmunológico, brindándote una variedad de opciones para mejorar tu bienestar general. 
+
+Unique selling points: Atención médica proactiva y preventiva: A diferencia de la atención médica tradicional, que generalmente trata los síntomas y enfermedades después de que aparecen, Cenegenics se enfoca en prevenir problemas de salud antes de que ocurran. Esto se logra a través de un enfoque proactivo basado en la ciencia, con el objetivo de promover una salud óptima y un envejecimiento saludable.
+
+Atención personalizada y atención: Cenegenics ofrece un alto nivel de atención clínica y atención personalizada a sus clientes, con el objetivo de brindar una comprensión completa de su salud general y los posibles factores de riesgo. La compañía se enfoca en ayudar a los clientes a alcanzar sus metas de salud individuales.
+
+Equipo de salud y rendimiento: Cada cliente recibe un equipo personal de salud y rendimiento, que incluye un médico de Cenegenics, un entrenador de salud y rendimiento para una nutrición y acondicionamiento físico óptimos, un coordinador de experiencia del paciente y un flebotomista. Este equipo brinda un monitoreo frecuente de los biomarcadores, asesoramiento sobre el estilo de vida e intervenciones personalizadas para mejorar la salud mental, física y metabólica de los clientes.
+
+Programa integral: El Programa de Cenegenics se basa en cinco componentes clave, utilizando resultados de laboratorio para revisar los biomarcadores esenciales y evaluar continuamente los requisitos de nutrición, ejercicio, suplementación y medicamentos recetados para cada miembro. El programa tiene como objetivo mejorar estos biomarcadores, promover un envejecimiento saludable, reducir el riesgo de enfermedades, aumentar la energía, mejorar el sueño, aumentar la agudeza mental, aumentar la libido y ayudar en el manejo del peso.
+
+Basado en datos y tecnología: Cenegenics utiliza datos sofisticados, tecnología y ciencia metabólica para proporcionar lo que afirman ser la mejor solución de gestión de edad y salud en el rendimiento del mundo. Este enfoque está diseñado para motivar e inspirar a los clientes a alcanzar su máximo nivel de salud cognitiva, física y metabólica. 
+
+Target geographic markets 1: Ciudad de México 
+
+Benefit for the client 1: Aumento de energía y vitalidad 
+
+Benefit for the client 2: Control de peso y composición corporal 
+
+Benefit for the client 3: Mayor deseo y rendimiento sexual 
+
+Benefit for the client 4: Mejor agudeza mental y concentración 
+
+Benefit for the client 5: Reducción de estrés y sueño reparador 
+
+Benefit for the client 6: Refuerzo del sistema inmune 
+
+Key feature 1: Programas de Salud Personalizados: Cenegenics Wellness ofrece programas de salud personalizados que buscan optimizar la salud y longevidad de los clientes. Estos programas se basan en una estrategia médica personalizada que se inicia con una evaluación diagnóstica avanzada, seguida de la implementación de acciones personalizadas para mejorar la salud del cliente. 
+
+Key feature 2: Diagnósticos Avanzados: Cenegenics Wellness proporciona una serie de exámenes y pruebas de diagnóstico avanzadas para gestionar la salud de los clientes. Estos diagnósticos incluyen análisis de la longitud de los telómeros para analizar la salud y envejecimiento celular, y DEXA Scan para medir con precisión la composición corporal y densidad ósea. 
+
+Key feature 3: Su programa de salud de desempeño continuo es monitoreado por su equipo de salud de desempeño y las extracciones de sangre trimestrales lo ayudan a mantenerse encaminado mes tras mes, año tras año. 
+
+Price position: El precio del producto es accesible para personas de alto poder adquisitivo 

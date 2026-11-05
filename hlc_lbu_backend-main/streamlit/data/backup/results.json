@@ -1,0 +1,26 @@
+{
+    "buyer_personas": [
+        {
+            "name": "Luca, el Blogger Fitness",
+            "age": "20-30 años",
+            "occupation": "Blogger de fitness y bienestar",
+            "hobbies": "Entrenamiento de alta intensidad, yoga, preparación de comidas saludables",
+            "communication_style": "Casual y conversacional",
+            "interests": "Fitness, nutrición, bienestar, viajes, moda deportiva",
+            "preferred_channels": "Instagram, TikTok, Snapchat, Blogs personal",
+            "pain_points": "Lucha constantemente para encontrar contenido único que se distinga de la competencia, busca formas de monetizar su contenido mientras mantiene la autenticidad, mantiene el equilibrio entre su vida personal y su presencia online",
+            "description": "Luca, el Blogger Fitness, es una apasionada del fitness y la buena nutrición. Siempre está buscando nuevas formas de mejorar su salud y compartirlas con sus seguidores. Su estilo casual y cercano le permite interactuar fácilmente con su audiencia"
+        },
+        {
+            "name": "Victoria, la CEO Tech-Savvy",
+            "age": "35-50 años",
+            "occupation": "CEO de una empresa de tecnología",
+            "hobbies": "Lectura de literatura de negocios, viajar, vinos, golf",
+            "communication_style": "Profesional y formal",
+            "interests": "Tecnología emergente, empresarialismo, liderazgo, innovación",
+            "preferred_channels": "LinkedIn, correo electrónico, conferencias de negocios, blogs de análisis de mercado",
+            "pain_points": "Constante necesidad de estar al tanto de las últimas tendencias tecnológicas, equilibrar las demandas de su empresa con su vida personal, construir y mantener una red sólida de contactos profesionales",
+            "description": "Victoria, la CEO Tech-Savvy, lidera una exitosa empresa de tecnología. Aunque muy ocupada, siempre se toma el tiempo para aprender y crecer. Su enfoque y dedicación inspiran a los que la rodean, y su estilo de comunicación formal muestra su profesionalismo y seriedad."
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+---
+description: Handle static text and i18n translation updates consistently
+---
+
+# Translation And Text Update Rule
+
+When the request is about changing text content:
+
+- If the text is static (hardcoded in a component or view), update only that text in place unless the user explicitly asks to add i18n keys.
+- When converting static text to i18n, analyze the component's existing translation namespaces and add new keys to the most suitable namespace.
+- If the text comes from i18n translation keys, update translation JSON files for all project languages.
+- Keep translation keys aligned across locale files; do not update only one language.
+- For all non-primary locales, keep terminology consistent with existing translations, using English as the source reference.
+- Match capitalization style with the English source for equivalent UI labels/text (e.g., title case vs sentence case) unless the language has a strong grammar reason not to.
+- If a translation key is renamed, apply the rename in all locale JSON files and update usages.
+- If translation keys are moved or renamed, update all affected component/page `$t(...)` and `i18n-t` references to the new key paths in the same change.
+- Preserve existing locale file structure and naming conventions.
+- Within the same namespace object, list all leaf string keys first, then all nested object keys. Apply this at every level of nesting.
+
+  ```json
+  // Correct
+  {
+    "key-b": "Text",
+    "key-a": {},
+    "key-c": {}
+  }
+
+  // Incorrect — nested object before a leaf string key
+  {
+    "key-a": {},
+    "key-b": "Text",
+    "key-c": {}
+  }
+  ```
+
+- Use `kebab-case` for translation key segments at all times (e.g., `no-access`, `search-placeholder`, `button-funnel-flow`).
+- In component templates, render translated text with `$t('translation.key')`.
+- If translations are only used in the template, use `$t(...)` directly in the template, instead of using the useI18n composable.
+- Prefer `\n` in translation strings instead of `<br />` when the text is rendered inside a single paragraph or other single element, and ensure the element uses a whitespace style/class (e.g., `white-space: pre-line`) so line breaks render correctly.
+- When a localized sentence needs inline formatting or components (e.g., a bold label plus text, anchor links like `<a>`/`<Link>`, etc), use `i18n-t` with named slots (component interpolation) instead of splitting the sentence across multiple `$t()` calls.
+- Translations are located at /src/plugins/i18n
+
+## Plurals
+
+- Prefer Vue I18n pipe plurals in locale JSON instead of separate keys per count (e.g. avoid `one-item`, `two-items`, `three-items` when one pluralized key can cover all values).
+- Use two pipe-separated forms for simple singular/plural cases:
+
+  ```json
+  "variation-count": "{count} Variation | {count} Variations"
+  ```
+
+- Use three pipe-separated forms when `0`, `1`, and `2+` need different wording:
+
+  ```json
+  "you-need-to-select-at-least-n-items": "You need to select at least 0 items | You need to select at least 1 item | You need to select at least {count} items"
+  ```
+
+- In templates, pass the count as a named value and let Vue I18n choose the plural form:
+
+  ```vue
+  {{ $t("image-studio.variation-count", { count: variations }) }}
+  {{ $t("category-refiner.errors.you-need-to-select-at-least-n-items", { count: minimumItems }) }}
+  ```
+
+## Terminology Consistency
+
+- Keep key product terminology consistent across locales; when translating specific terms, follow the wording already used in the same locale instead of introducing new synonyms.
+- In Spanish (`es`), prefer `asset/assets` (not `recurso(s)`) for creative deliverables.
+- In Spanish (`es`), use `embudo` terminology consistently instead of `funnel`/`funnel flow`.
+- In Spanish (`es`), for **LLM / image-generation prompts** (instructions to the model, prompt lists, regenerate prompt, etc.), use the English loanwords **`prompt`** (singular) and **`prompts`** (plural). Do not paraphrase with _indicaciones_, _sugerencias_, _textos_ (when meaning AI prompt), or similar. Keep normal Spanish for the rest of the sentence. This applies only to the prompt-as-product sense, not to _sugerencias_ for recommendations or _textos_ for ad copy.

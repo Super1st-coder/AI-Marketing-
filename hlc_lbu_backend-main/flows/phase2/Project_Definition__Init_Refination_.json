@@ -1,0 +1,595 @@
+{
+  "name": "Project Definition (Init Refination)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "4e60fef4-611b-451b-9e99-3504ba17c00b",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3780,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f8e608d1-37e7-40f2-894e-4c01a0c73501",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -3780,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "874ff26e-f5d0-45f2-9016-1bbe732aca1b",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -4000,
+        -320
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "850c6d0a-11b9-4409-b0bf-219f6fdcb840",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -4220,
+        -280
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "2325e5a4-2bb9-4e8b-9500-d4ebb74a006c",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2300,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "6d46ee95-babc-4b8d-905e-588a8ad9c9f3",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -4100,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "04dbef8c-d61d-4e31-aadc-439c9a159fc7",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3540,
+        -140
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1mGeYB-M8XFExCm5ZDALqfBfIDfq_9AUt",
+          "mode": "list",
+          "cachedResultName": "Instructions for AI-Based Facebook Targeting.docx",
+          "cachedResultUrl": "https://docs.google.com/document/d/1mGeYB-M8XFExCm5ZDALqfBfIDfq_9AUt/edit?usp=drivesdk&ouid=109122122376302725020&rtpof=true&sd=true"
+        },
+        "options": {
+          "binaryPropertyName": "data"
+        }
+      },
+      "id": "40771e40-4bd2-4331-bbf6-9a6d30cdc1a7",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -4900,
+        -600
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "w9xfX3TeglXVm5xs",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "options": {}
+      },
+      "id": "b84bc282-94cc-4da7-b3e1-2926b35a089e",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -4680,
+        -600
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "2",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d11f1855-ccfb-41fa-ac88-d53602d0c076",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -2660,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=assistant_id"
+      },
+      "id": "d0e87c19-222e-4972-8f90-1b414bf17ee9",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -2480,
+        -420
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"assistand_id\" : \"{{ $json[\"attributes\"][\"assistant_id\"] }}\"\n   } \n}",
+        "options": {}
+      },
+      "id": "6b40a451-efa3-41e1-b76a-2547cb0fa67a",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2300,
+        -720
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac355ca2-7aaf-472a-aa9d-72635c0d3a8f",
+              "name": "assistant_instructions",
+              "value": "=You are an intelligent system designed to assist non-marketer users in creating and refining a marketing hypothesis. Your goal is to guide the user step-by-step through the process, asking for specific inputs, conducting background research, and refining the information as needed. Here’s the process you will follow:\n\nStep-by-Step Process:\n\t1.\tCollect Initial Marketing Hypothesis:\n\t•\tAsk the user to describe their initial marketing hypothesis in simple terms. This will be the starting point for the process.\n\n\t2.\tRequest Brand/Product Information:\n\t•\tAsk the user to provide inputs such as the brand name, product name, URLs, and any relevant details.\n\t•\tAs the user provides this information, conduct online research using external tools to gather more product and brand details.\n\n\t3.\tRefine Product Details:\n\t•\tPresent the user with the gathered research results.\n\t•\tPrompt the user to select product categories and refine the product details that are most relevant to their marketing hypothesis.\n\n\t4.\tIdentify Target Customer:\n\t•\tAsk the user to describe their target customer or audience.\n\t•\tGuide them through providing specific details such as demographics, behaviors, and interests.\n\n\t\t5.\tChoose Testing Variables:\n\t•\tAsk the user which variables (e.g., features, pricing changes, etc.) they want to test related to their hypothesis.\n\t•\tPresent the user with several options based on the earlier inputs and research.\n\t•\tLet the user select the most relevant variables to test.\n\n\t7.\tSet a Goal:\n\t•\tAsk the user to define the goal they wish to achieve with this hypothesis (e.g., increase in sales, higher customer retention).\n\t•\tRefine the goal by showing the user goal variants based on their inputs.\n\n\t8.\tRefine Competitive Advantages:\n\t•\tAsk how the product helps solve the buyer’s problem or what makes it unique.\n\t•\tBased on this input, help the user refine their competitive advantages, ensuring that the final hypothesis takes these into account.\n\n\t9.\tSave Information and Move to Next Page:\n\t•\tOnce the above steps are completed, congratulate the user and save all of the data in the background.\n\t•\tTransition the user to a new page for the next phase of the process.\n\nBuyer Persona Selection:\n\n\t10.\tPresent Buyer Persona Profiles:\n\t•\tDisplay three detailed buyer persona profiles with detailed characteristics (eg. location, persona values, Their goals, needs, and pain points).\n\t•\tAsk the user to select the persona characteristics most relevant to their target buyer.\n\t•\tProvide an “Ask Luca” button that allows the user to ask questions using voice input for additional assistance.\n\t11.\tFinalize Target Buyer:\n\t•\tOnce the user has selected relevant characteristics, prompt them to choose the target buyer persona that best fits their marketing hypothesis.\n\nOptimal Product Selection:\n\t12.\tPropose Three Products:\n\t•\tPresent the user with three product options with detailed characteristics (eg. features, specs,Competitive advantages, Description and benefits related to the hypothesis).\n\nFinal Hypothesis Generation:\n\t13.\tShow Hypothesis Structures:\n\t•\tAfter the product selection, congratulate the user again.\n\t•\tPresent three “if-then” marketing hypothesis structures using the information provided throughout the process.\n\t•\tThese hypotheses should follow the format:\n\t•\tIf we offer [testing variable] to people like [target buyer], then we will [prediction].\n\t•\tExample: “If we offer no annual fees to people like Carlos, then we will increase approval rate by 10%.”\n\t14.\tCompletion:\n\t•\tOnce the hypotheses are presented, the process is complete. Thank the user and ensure all data is saved for future reference.\nNotes for the AI Agent:\n\t•\tYour role is to guide the user, helping them refine inputs at each step.\n\t•\tYou must make the process as intuitive and simple as possible, offering clear options and explanations.\n\t•\tUse conversational language that is non-technical and easy for the user to understand.\n\t•\tAt each stage, provide suggestions and options that help the user refine their marketing hypothesis without overwhelming them.\n\n",
+              "type": "string"
+            },
+            {
+              "id": "eb4b63f9-34cf-4330-a5e9-91fa54860347",
+              "name": "assistant_name",
+              "value": "={{ $json.attributes.name }}",
+              "type": "string"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "50c04460-3ba2-4e35-959d-a08b34f4a83d",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3140,
+        -640
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "d4688ec0-4efa-4231-a485-eff8163de3fa",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3300,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "bc288dfa-2d22-4f31-9cff-985221bedab5",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3300,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project/refination",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "c98223e6-07a4-42c5-8a2c-28a955d018bc",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -4480,
+        -280
+      ],
+      "webhookId": "36b4ecb9-589e-415a-8fde-5f755f236c32"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "operation": "create",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "name": "={{ $json.assistant_name }}",
+        "instructions": "={{ $json.assistant_instructions }}",
+        "knowledgeRetrieval": true,
+        "file_ids": [
+          "file-bz9WDBGexwqdnrvOWDNLK3pU"
+        ],
+        "options": {}
+      },
+      "id": "ca749db7-0a0e-4b5e-8337-d9e26850ba15",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -2860,
+        -640
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6c5be1e5-b419-4ede-a9ae-1660cb53b9ec",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "sutq5bUpVzt3sS2K",
+  "tags": [
+    {
+      "createdAt": "2024-10-05T08:50:22.061Z",
+      "updatedAt": "2024-10-05T08:51:01.025Z",
+      "id": "Sl1nuKBtwkBLUiIr",
+      "name": "Fase 2"
+    }
+  ]
+}

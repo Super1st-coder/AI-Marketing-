@@ -1,0 +1,139 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b_person_v2s",
+  "info": {
+    "singularName": "b-person-v2",
+    "pluralName": "b-person-v2s",
+    "displayName": "BPerson-V2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-v2.brand-v2"
+    },
+    "target_customer_description": {
+      "type": "text"
+    },
+    "mandatory_attributes_generated": {
+      "type": "json"
+    },
+    "mandatory_attributes_saved": {
+      "type": "json"
+    },
+    "description_01": {
+      "type": "text"
+    },
+    "description_02": {
+      "type": "text"
+    },
+    "description_03": {
+      "type": "text"
+    },
+    "collection_id": {
+      "type": "string"
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "product_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-v2.product-v2"
+    },
+    "optional_attributes_generated": {
+      "type": "json"
+    },
+    "optional_attributes_saved": {
+      "type": "json"
+    },
+    "bperson_story": {
+      "type": "text"
+    },
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "step": {
+      "type": "integer",
+      "default": 0
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "image_prompts": {
+      "type": "json"
+    },
+    "preferred_image_prompt": {
+      "type": "json"
+    },
+    "image_attributes_generated": {
+      "type": "json"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "image_attributes_saved": {
+      "type": "json"
+    },
+    "language": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "text"
+    },
+    "thumbnail_url": {
+      "type": "text"
+    },
+    "mandatory_attributes_groups": {
+      "type": "json"
+    },
+    "folder_docs": {
+      "type": "string"
+    },
+    "bucket_docs": {
+      "type": "string"
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "b_persons_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "b_persons_updated"
+    },
+    "thumbnail_id": {
+      "type": "string"
+    },
+    "brand_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "b_persons"
+    },
+    "main_images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::buyer-main-image.buyer-main-image",
+      "mappedBy": "bperson_id"
+    }
+  }
+}

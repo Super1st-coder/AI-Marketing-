@@ -1,0 +1,119 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_v2s",
+  "info": {
+    "singularName": "product-v2",
+    "pluralName": "product-v2s",
+    "displayName": "Product-V2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-v2.brand-v2"
+    },
+    "product_url": {
+      "type": "text"
+    },
+    "faq_product_url": {
+      "type": "text"
+    },
+    "mandatory_attributes_generated": {
+      "type": "json"
+    },
+    "mandatory_attributes_saved": {
+      "type": "json"
+    },
+    "description": {
+      "type": "text"
+    },
+    "document_id": {
+      "type": "string"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "collection_id": {
+      "type": "string"
+    },
+    "optional_attributes_generated": {
+      "type": "json"
+    },
+    "optional_attributes_saved": {
+      "type": "json"
+    },
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "step": {
+      "type": "integer",
+      "default": 0
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "product_story": {
+      "type": "text"
+    },
+    "language": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "text"
+    },
+    "thumbnail_url": {
+      "type": "text"
+    },
+    "folder_docs": {
+      "type": "string"
+    },
+    "bucket_docs": {
+      "type": "string"
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "products_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "products_updated"
+    },
+    "thumbnail_id": {
+      "type": "string"
+    },
+    "brand_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "products"
+    },
+    "images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-image.product-image",
+      "mappedBy": "product_ref"
+    }
+  }
+}

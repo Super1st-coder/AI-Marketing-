@@ -1,0 +1,314 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b2b_bpersona_surveys",
+  "info": {
+      "singularName": "b2b-bpersona-survey",
+      "pluralName": "b2b-bpersona-surveys",
+      "displayName": "b2b-bpersona-survey"
+  },
+  "options": {
+      "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+      "parent_ref": { 
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::project.project"
+      },
+      "informacion-general-de-la-buyer-persona": {
+          "type": "text"
+      },
+      "como-se-llama-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-tipo-de-buyer-persona-es-b2c-b2b": {
+          "type": "text"
+      },
+      "que-rango-de-edad-tiene": {
+          "type": "text"
+      },
+      "cual-es-su-genero": {
+          "type": "text"
+      },
+      "cual-es-su-nivel-de-ingresos": {
+          "type": "text"
+      },
+      "donde-vive-o-trabaja": {
+          "type": "text"
+      },
+      "cual-es-su-titulo-o-profesion": {
+          "type": "text"
+      },
+      "que-posicion-ocupa-en-su-trabajo": {
+          "type": "text"
+      },
+      "cuales-son-sus-prioridades-de-equilibrio-entre-trabajo-y": {
+          "type": "text"
+      },
+      "company-profile-and-relationship-with-the-product": {
+          "type": "text"
+      },
+      "cuantas-personas-trabajan-en-tu-empresa": {
+          "type": "text"
+      },
+      "como-se-llama-tu-empresa": {
+          "type": "text"
+      },
+      "en-que-industrias-opera-tu-buyer-persona": {
+          "type": "text"
+      },
+      "cual-es-el-desafio-principal-busca-resolver-la-buyer-per": {
+          "type": "text"
+      },
+      "cuales-son-las-responsabilidades-principales-de-tu-buyer": {
+          "type": "text"
+      },
+      "que-metas-busca-alcanzar-tu-buyer-persona-en-su-rol": {
+          "type": "text"
+      },
+      "tu-buyer-persona-toma-decisiones-de-compra": {
+          "type": "text"
+      },
+      "cuales-son-las-habilidades-clave-de-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-motiva-principalmente-a-tu-buyer-persona": {
+          "type": "text"
+      },
+      "quien-tiene-la-ultima-palabra-en-decisiones-de-compra-en": {
+          "type": "text"
+      },
+      "problemas-actuales-del-buyer-persona": {
+          "type": "text"
+      },
+      "cual-es-el-desafio-mas-significativo-de-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-no-puede-hacer-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-dificultad-enfrenta-sin-esta-solucion": {
+          "type": "text"
+      },
+      "que-le-frustra-al-no-tener-nuestro-producto": {
+          "type": "text"
+      },
+      "que-necesita-y-no-tiene-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-problema-cotidiano-le-complica-la-vida-sin-esto": {
+          "type": "text"
+      },
+      "que-le-impide-alcanzar-sus-metas-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-le-tomaria-mas-tiempo-o-esfuerzo-sin-nuestra-solucio": {
+          "type": "text"
+      },
+      "que-le-costaria-mas-dinero-sin-usar-nuestro-producto": {
+          "type": "text"
+      },
+      "que-oportunidades-pierde-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-mejoras-significativas-no-puede-lograr-sin-esto": {
+          "type": "text"
+      },
+      "problemas-con-la-solucion-actual": {
+          "type": "text"
+      },
+      "como-esta-resolviendo-esta-persona-su-problema-actualmen": {
+          "type": "text"
+      },
+      "cual-es-el-primer-problema-con-su-solucion-actual": {
+          "type": "text"
+      },
+      "cual-es-el-segundo-problema-con-su-solucion-actual": {
+          "type": "text"
+      },
+      "cual-es-el-tercer-problema-con-su-solucion-actual": {
+          "type": "text"
+      },
+      "objetivo-con-el-producto": {
+          "type": "text"
+      },
+      "que-logro-principal-busca-tu-cliente-con-nuestro-product": {
+          "type": "text"
+      },
+      "que-metas-secundarias-tiene-tu-cliente": {
+          "type": "text"
+      },
+      "hay-otros-objetivos-que-tu-cliente-espera-alcanzar": {
+          "type": "text"
+      },
+      "miedos-y-preocupaciones": {
+          "type": "text"
+      },
+      "cual-es-el-mayor-temor-de-tu-cliente-respecto-a-usar-nue": {
+          "type": "text"
+      },
+      "que-preocupaciones-tiene-tu-cliente-al-pensar-en-adquiri": {
+          "type": "text"
+      },
+      "existen-inquietudes-especificas-sobre-su-funcionamiento": {
+          "type": "text"
+      },
+      "que-dudas-tiene-sobre-el-costo-o-la-inversion": {
+          "type": "text"
+      },
+      "hay-preocupaciones-sobre-la-compatibilidad-o-integracion": {
+          "type": "text"
+      },
+      "que-temores-tiene-tu-cliente-sobre-la-asistencia-y-el-so": {
+          "type": "text"
+      },
+      "existen-preocupaciones-sobre-la-durabilidad-o-las-garant": {
+          "type": "text"
+      },
+      "que-dudas-tiene-tu-cliente-sobre-la-eficacia-o-los-resul": {
+          "type": "text"
+      },
+      "hay-inquietudes-sobre-la-facilidad-de-uso": {
+          "type": "text"
+      },
+      "cuales-son-las-preocupaciones-de-tu-cliente-sobre-las-ac": {
+          "type": "text"
+      },
+      "hay-otros-temores-o-preocupaciones-que-tu-cliente-haya-e": {
+          "type": "text"
+      },
+      "principales-influenciadores-de-la-compra": {
+          "type": "text"
+      },
+      "como-se-llama-el-principal-influenciador-de-tu-buyer-per": {
+          "type": "text"
+      },
+      "que-edad-tiene-este-influenciador": {
+          "type": "text"
+      },
+      "como-describirias-el-estilo-de-esta-persona-mas-casual-o": {
+          "type": "text"
+      },
+      "a-que-se-dedica-el-influenciador-profesion-principal": {
+          "type": "text"
+      },
+      "cual-es-la-relacion-del-influenciador-con-tu-buyer-perso": {
+          "type": "text"
+      },
+      "que-tanto-impacto-crees-que-tiene-este-influenciador-en-": {
+          "type": "text"
+      },
+      "existen-desafios-que-enfrentan-en-su-relacion-si-es-asi-": {
+          "type": "text"
+      },
+      "cuales-consideras-que-son-los-aspectos-negativos-de-su-r": {
+          "type": "text"
+      },
+      "que-opina-el-influenciador-sobre-tu-buyer-persona-adquir": {
+          "type": "text"
+      },
+      "puedes-compartir-algun-recuerdo-significativo-entre-el-i": {
+          "type": "text"
+      },
+      "principales-influenciadores-de-la-compra_1": {
+          "type": "text"
+      },
+      "como-se-llama-el-segundo-influenciador-mas-importante-pa": {
+          "type": "text"
+      },
+      "que-edad-tiene-este-influenciador_1": {
+          "type": "text"
+      },
+      "como-describirias-el-estilo-de-esta-persona-mas-casual-o_1": {
+          "type": "text"
+      },
+      "a-que-se-dedica-el-influenciador-profesion-principal_1": {
+          "type": "text"
+      },
+      "cual-es-la-relacion-del-influenciador-con-tu-buyer-perso_1": {
+          "type": "text"
+      },
+      "que-tanto-impacto-crees-que-tiene-este-influenciador-en-_1": {
+          "type": "text"
+      },
+      "existen-desafios-que-enfrentan-en-su-relacion-si-es-asi-_1": {
+          "type": "text"
+      },
+      "cuales-consideras-que-son-los-aspectos-negativos-de-su-r_1": {
+          "type": "text"
+      },
+      "que-opina-el-influenciador-sobre-tu-buyer-persona-adquir_1": {
+          "type": "text"
+      },
+      "puedes-compartir-algun-recuerdo-significativo-entre-el-i_1": {
+          "type": "text"
+      },
+      "principales-influenciadores-de-la-compra_2": {
+          "type": "text"
+      },
+      "como-se-llama-el-tercer-influenciador-mas-importante-par": {
+          "type": "text"
+      },
+      "que-edad-tiene-este-influenciador_2": {
+          "type": "text"
+      },
+      "como-describirias-el-estilo-de-esta-persona-mas-casual-o_2": {
+          "type": "text"
+      },
+      "a-que-se-dedica-el-influenciador-profesion-principal_2": {
+          "type": "text"
+      },
+      "cual-es-la-relacion-del-influenciador-con-tu-buyer-perso_2": {
+          "type": "text"
+      },
+      "que-tanto-impacto-crees-que-tiene-este-influenciador-en-_2": {
+          "type": "text"
+      },
+      "existen-desafios-que-enfrentan-en-su-relacion-si-es-asi-_2": {
+          "type": "text"
+      },
+      "cuales-consideras-que-son-los-aspectos-negativos-de-su-r_2": {
+          "type": "text"
+      },
+      "que-opina-el-influenciador-sobre-tu-buyer-persona-adquir_2": {
+          "type": "text"
+      },
+      "puedes-compartir-algun-recuerdo-significativo-entre-el-i_2": {
+          "type": "text"
+      },
+      "principales-influenciadores-de-la-compra_3": {
+          "type": "text"
+      },
+      "como-se-llama-el-cuarto-influenciador-mas-importante-par": {
+          "type": "text"
+      },
+      "que-edad-tiene-este-influenciador_3": {
+          "type": "text"
+      },
+      "como-describirias-el-estilo-de-esta-persona-mas-casual-o_3": {
+          "type": "text"
+      },
+      "a-que-se-dedica-el-influenciador-profesion-principal_3": {
+          "type": "text"
+      },
+      "cual-es-la-relacion-del-influenciador-con-tu-buyer-perso_3": {
+          "type": "text"
+      },
+      "que-tanto-impacto-crees-que-tiene-este-influenciador-en-_3": {
+          "type": "text"
+      },
+      "existen-desafios-que-enfrentan-en-su-relacion-si-es-asi-_3": {
+          "type": "text"
+      },
+      "cuales-consideras-que-son-los-aspectos-negativos-de-su-r_3": {
+          "type": "text"
+      },
+      "que-opina-el-influenciador-sobre-tu-buyer-persona-adquir_3": {
+          "type": "text"
+      },
+      "puedes-compartir-algun-recuerdo-significativo-entre-el-i_3": {
+          "type": "text"
+      }
+  }
+}

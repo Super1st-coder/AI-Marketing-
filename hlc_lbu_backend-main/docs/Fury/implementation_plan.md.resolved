@@ -1,0 +1,237 @@
+# Fury Native Orchestration — Implementation Plan
+
+Todo el pipeline corre **dentro de Fury**, sin n8n. El backend inicia el job y el root ADK agent orquesta todos los sub-agentes de forma autónoma.
+
+---
+
+## Arquitectura
+
+```mermaid
+flowchart TD
+    A[Frontend] -->|POST /experiments| B[Fury: crea experiment + job]
+    B -->|POST /jobs/id/start| C{Fury Background Task}
+    C --> D[ADK RootOrchestrator]
+    D --> E[Sub-agent: Estratega\ngenera N planes]
+    E --> F[Sub-agent: Copywriter\ntextos por plan]
+    E --> G[Sub-agent: NanoBanana\nimágenes por plan]
+    F --> H[Sub-agent: TemplateMapper\npayload Abyssale]
+    G --> H
+    H -->|POST async| I[Abyssale API]
+    I -->|Webhook| J[Fury: POST /webhooks/abyssale]
+    J --> K[Fury: AI Expansion 4:5→1:1,9:16]
+    K -->|Webhook /result| L[Fury: guarda formatos derivados]
+    L --> M[Sub-agent: Validador\ndiversidad + fidelidad]
+    M -->|pass| N[Fury: job=DONE, SSE/WS notifica UI]
+    M -->|fail| D
+```
+
+---
+
+## Cómo funciona la orquestación
+
+En ADK, el **root agent** recibe un mensaje y coordina sub-agentes como herramientas. El root agent decide el orden de llamadas basado en sus instrucciones + el output de cada sub-agente.
+
+```
+POST /jobs/{id}/start
+    └─ FastAPI lanza BackgroundTask
+           └─ asyncio: runner.run_async(root_agent, "Genera ads para job_id=...")
+                  ├─ estratega_agent(...)    → planes
+                  ├─ copywriter_agent(...)   → textos (por cada plan)
+                  ├─ nano_banana_agent(...)  → imágenes (por cada plan)
+                  ├─ template_mapper_agent(...) → payloads Abyssale
+                  ├─ [llama Abyssale API → espera webhook]
+                  └─ validador_agent(...)    → aprueba o reintenta
+```
+
+> [!IMPORTANT]
+> El **paso de espera del webhook de Abyssale** es el único punto externo al proceso ADK. El runner pausa el job en base de datos, y cuando Fury recibe el webhook de Abyssale, reanuda el job. Esto requiere un `asyncio.Event` o polling de DB ligero.
+
+---
+
+## User Review Required
+
+> [!WARNING]
+> **¿Nano Banana usa qué API de imágenes?** — Google Imagen (requiere Vertex AI), DALL-E 3, o Stability AI. El tool `generate_image` cambia según tu proveedor.
+
+---
+
+## Proposed Changes
+
+### Estructura de archivos
+
+```
+fury/app/
+├── agents/
+│   ├── __init__.py
+│   ├── base.py                      ← Runner, SessionService compartidos
+│   ├── root_orchestrator.py         ← Root agent (coordina todo)
+│   ├── estratega_agent.py
+│   ├── copywriter_agent.py
+│   ├── nano_banana_agent.py
+│   ├── template_mapper_agent.py
+│   ├── validador_agent.py
+│   └── tools/
+│       ├── campaign_tools.py        ← get_campaign_data, get_brand_guidelines
+│       ├── copy_tools.py            ← generate_copy_variants
+│       ├── image_tools.py           ← generate_image_concept, call_image_api
+│       ├── abyssale_tools.py        ← build_payload, post_to_abyssale
+│       └── validation_tools.py     ← check_diversity, check_fidelity
+├── api/v2/endpoints/
+│   ├── experiments.py               ← POST /experiments
+│   ├── jobs.py                      ← POST /jobs/{id}/start, GET /jobs/{id}
+│   └── webhooks.py                  ← POST /webhooks/abyssale, /webhooks/ai-expansion
+├── services/
+│   └── job_runner_service.py        ← lanza y gestiona el BackgroundTask ADK
+├── core/
+│   └── adk_config.py               ← InMemorySessionService, get_runner()
+└── schemas/
+    ├── experiment_schemas.py
+    └── job_schemas.py
+```
+
+---
+
+### Root Orchestrator Agent
+
+#### [NEW] `agents/root_orchestrator.py`
+
+```python
+from google.adk.agents import Agent
+from agents.estratega_agent import estratega_agent
+from agents.copywriter_agent import copywriter_agent
+from agents.nano_banana_agent import nano_banana_agent
+from agents.template_mapper_agent import template_mapper_agent
+from agents.validador_agent import validador_agent
+
+root_orchestrator = Agent(
+    model="gemini-2.0-flash",
+    name="fury_orchestrator",
+    description="Orquesta la generación completa de ads para un job.",
+    instruction="""
+    Eres el orquestador principal del pipeline de generación de ads.
+
+    Sigue estos pasos en orden:
+    1. Llama a estratega_agent con el job_id para obtener N planes creativos.
+    2. Para cada plan, llama en paralelo a:
+       - copywriter_agent para generar textos.
+       - nano_banana_agent para generar conceptos de imagen.
+    3. Llama a template_mapper_agent con los textos e imágenes para construir
+       el payload de Abyssale. El template_mapper también llama a Abyssale.
+    4. Cuando el webhook de Abyssale llegue (ya guardado en DB), llama a
+       validador_agent con los renders resultantes.
+    5. Si el validador aprueba, termina con status=DONE.
+       Si falla, repite desde el paso 1 solo para el subset indicado.
+    """,
+    sub_agents=[
+        estratega_agent,
+        copywriter_agent,
+        nano_banana_agent,
+        template_mapper_agent,
+        validador_agent,
+    ],
+)
+```
+
+---
+
+### Job Runner Service
+
+#### [NEW] `services/job_runner_service.py`
+
+```python
+import asyncio
+from google.adk.runners import Runner
+from agents.root_orchestrator import root_orchestrator
+from core.adk_config import session_service
+from google.genai import types
+
+async def run_job(job_id: str, experiment_data: dict):
+    """Corre el pipeline ADK como background task."""
+    runner = Runner(
+        agent=root_orchestrator,
+        app_name="fury",
+        session_service=session_service,
+    )
+    session = await session_service.create_session(
+        app_name="fury", user_id=job_id
+    )
+    message = types.Content(
+        role="user",
+        parts=[types.Part(text=f"Genera ads para job_id={job_id}: {experiment_data}")]
+    )
+    async for event in runner.run_async(
+        user_id=job_id,
+        session_id=session.id,
+        new_message=message,
+    ):
+        if event.is_final_response():
+            await mark_job_done(job_id, event.content)
+```
+
+---
+
+### Endpoints nuevos
+
+#### [NEW] `api/v2/endpoints/jobs.py`
+
+```python
+@router.post("/{job_id}/start")
+async def start_job(job_id: str, background_tasks: BackgroundTasks, db=Depends(get_db)):
+    job = await db.get_job(job_id)
+    experiment = await db.get_experiment(job.experiment_id)
+    background_tasks.add_task(run_job, job_id, experiment.dict())
+    return {"ok": 1, "status": "running"}
+
+@router.get("/{job_id}")
+async def get_job_status(job_id: str, db=Depends(get_db)):
+    job = await db.get_job(job_id)
+    return {"ok": 1, "data": job}
+```
+
+#### [NEW] `api/v2/endpoints/webhooks.py`
+
+```python
+@router.post("/abyssale")
+async def abyssale_webhook(payload: dict, db=Depends(get_db)):
+    # Guarda renders, actualiza job, dispara AI Expansion
+    ...
+
+@router.post("/ai-expansion/result")
+async def ai_expansion_result(payload: dict, db=Depends(get_db)):
+    # Guarda formatos derivados, señaliza que el validador puede continuar
+    ...
+```
+
+---
+
+### A2A (opcional)
+
+Si en el futuro quieres que **otros servicios** (como `sinergia`) llamen a alguno de estos agentes, puedes exponerlos vía A2A con una sola línea adicional en [main.py](file:///Users/victoravila/Projects/hiluca/hlc_lbu_backend/fury/app/main.py):
+
+```python
+# Exponer el orquestador como agente A2A externo
+from google.adk.a2a.utils.agent_to_a2a import to_a2a
+a2a_app = to_a2a(root_orchestrator, port=8000)
+app.mount("/a2a", a2a_app)  # → GET /a2a/.well-known/agent.json
+```
+
+---
+
+## Verification Plan
+
+```bash
+# 1. Crear experimento
+curl -X POST http://localhost:8000/api/v2/experiments \
+  -d '{"campaign_id": "camp-001", "n_plans": 2}'
+
+# 2. Iniciar job (lanza ADK pipeline en background)
+curl -X POST http://localhost:8000/api/v2/jobs/{job_id}/start
+
+# 3. Polling de status
+curl http://localhost:8000/api/v2/jobs/{job_id}
+# → {"status": "running"} ... {"status": "done"}
+
+# 4. Simular webhook Abyssale
+curl -X POST http://localhost:8000/api/v2/webhooks/abyssale \
+  -d '{"job_id": "...", "renders": [...]}'
+```

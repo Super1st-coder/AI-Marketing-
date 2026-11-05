@@ -1,0 +1,171 @@
+############################
+# OS X
+############################
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+
+############################
+# Linux
+############################
+
+*~
+
+
+############################
+# Windows
+############################
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+
+############################
+# Packages
+############################
+
+*.7z
+*.csv
+*.dat
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.seed
+*.so
+*.swo
+*.swp
+*.swn
+*.swm
+*.out
+*.pid
+
+
+############################
+# Logs and databases
+############################
+
+.tmp
+*.log
+*.log.*
+*.sql
+*.sqlite
+*.sqlite3
+
+
+############################
+# Misc.
+############################
+
+*#
+ssl
+.idea
+nbproject
+public/uploads/*
+!public/uploads/.gitkeep
+
+############################
+# Node.js
+############################
+
+lib-cov
+lcov.info
+pids
+logs
+results
+node_modules
+.node_history
+
+############################
+# Tests
+############################
+
+coverage
+
+############################
+# Strapi
+############################
+
+.env
+# Safety catch-all: never commit ANY env file with secrets, regardless of name
+# (e.g. ATT25297.env, sinergia.env, fury.env). Templates stay tracked (*.env.example / *.env.template).
+*.env
+!*.env.example
+!*.env.template
+license.txt
+exports
+.strapi
+dist
+build
+.strapi-updater.json
+
+
+__pycache__/
+.idea/
+venv/
+db_dev.db
+db_test.db
+sandbox.py
+
+# Ignore generated credentials from google-github-actions/auth
+gha-creds-*.json
+
+# Ignore oauth secret json from Google Drive API Service
+sinergia/config/client_secret.json
+terraform/billing-cap/terraform.tfvars
+
+############################
+# Terraform
+############################
+
+# Directorio de providers descargados (no commitear, se restauran con terraform init)
+**/.terraform/
+
+# State files (contienen info sensible de infraestructura)
+*.tfstate
+*.tfstate.backup
+
+# ZIP generado automáticamente del código fuente de la Cloud Function
+terraform/billing-cap/billing_cap_source.zip
+
+# Archivos de plan guardados
+*.tfplan
+
+# NOTA: .terraform.lock.hcl SÍ debe commitearse (equivalente a package-lock.json)
+
+terraform/infra/terraform.tfvars
+
+# Tfvars de ambientes (contienen contraseñas y SSH keys reales)
+terraform/infra/env/dev.tfvars
+terraform/infra/env/qas.tfvars
+terraform/infra/env/prd.tfvars
+
+# Archivos .env de producción por ambiente (se suben a Secret Manager, no al repo)
+.env.dev
+.env.qas
+.env.prd
+.env.prod
+terraform/openvpn/terraform.tfvars
+terraform/adk/terraform.tfvars
+terraform/qa/terraform.tfvars
+sinergia/.hypothesis/examples/

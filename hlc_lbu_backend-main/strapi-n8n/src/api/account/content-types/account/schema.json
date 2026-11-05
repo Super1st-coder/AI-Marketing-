@@ -1,0 +1,139 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accounts",
+  "info": {
+    "singularName": "account",
+    "pluralName": "accounts",
+    "displayName": "account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "unique": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "parent_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "users"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::account.account",
+      "mappedBy": "parent_account"
+    },
+    "type": {
+      "type": "string"
+    },
+    "brands_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand-v2.brand-v2",
+      "mappedBy": "created_by_account"
+    },
+    "brands_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand-v2.brand-v2",
+      "mappedBy": "updated_by_account"
+    },
+    "asset_deliveries_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asset-delivery.asset-delivery",
+      "mappedBy": "created_by_account"
+    },
+    "asset_deliveries_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asset-delivery.asset-delivery",
+      "mappedBy": "updated_by_account"
+    },
+    "b_persons_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::b-person-v2.b-person-v2",
+      "mappedBy": "created_by_account"
+    },
+    "b_persons_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::b-person-v2.b-person-v2",
+      "mappedBy": "updated_by_account"
+    },
+    "campaigns_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campaign.campaign",
+      "mappedBy": "created_by_account"
+    },
+    "campaigns_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campaign.campaign",
+      "mappedBy": "updated_by_account"
+    },
+    "marketing_assets_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::marketing-asset.marketing-asset",
+      "mappedBy": "created_by_account"
+    },
+    "marketing_assets_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::marketing-asset.marketing-asset",
+      "mappedBy": "updated_by_account"
+    },
+    "products_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-v2.product-v2",
+      "mappedBy": "created_by_account"
+    },
+    "products_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-v2.product-v2",
+      "mappedBy": "updated_by_account"
+    },
+    "projects_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-v3.project-v3",
+      "mappedBy": "created_by_account"
+    },
+    "projects_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-v3.project-v3",
+      "mappedBy": "updated_by_account"
+    },
+    "u_campaigns_created": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::umbrella-campaign.umbrella-campaign",
+      "mappedBy": "created_by_account"
+    },
+    "u_campaigns_updated": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::umbrella-campaign.umbrella-campaign",
+      "mappedBy": "updated_by_account"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand-v2.brand-v2",
+      "mappedBy": "account_id"
+    }
+  }
+}

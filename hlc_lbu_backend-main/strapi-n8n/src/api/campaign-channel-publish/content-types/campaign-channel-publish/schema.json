@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campaign_channel_publishes",
+  "info": {
+    "singularName": "campaign-channel-publish",
+    "pluralName": "campaign-channel-publishes",
+    "displayName": "Campaign-Channel-Publish",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "meta_campaign_objective": {
+      "type": "string"
+    },
+    "meta_optimization_goal": {
+      "type": "string"
+    },
+    "meta_billing_event": {
+      "type": "string"
+    },
+    "campaign_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campaign.campaign",
+      "inversedBy": "campaign_channel_publishes"
+    },
+    "channel_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::channel-v2.channel-v2",
+      "inversedBy": "campaign_channel_publishes"
+    },
+    "funnel_flow_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::funnel-flow.funnel-flow",
+      "inversedBy": "campaign_channel_publishes"
+    },
+    "meta_campaign_mode": {
+      "type": "string"
+    },
+    "meta_account_id": {
+      "type": "string"
+    },
+    "meta_page_id": {
+      "type": "string"
+    },
+    "meta_published": {
+      "type": "boolean",
+      "default": false
+    },
+    "meta_campaign_id": {
+      "type": "string"
+    },
+    "meta_campaign_name": {
+      "type": "string"
+    },
+    "meta_resources": {
+      "type": "json"
+    },
+    "meta_lead_form_id": {
+      "type": "string"
+    },
+    "meta_whatsapp_id": {
+      "type": "string"
+    },
+    "meta_pixel_id": {
+      "type": "string"
+    },
+    "meta_conversion_event": {
+      "type": "string"
+    }
+  }
+}

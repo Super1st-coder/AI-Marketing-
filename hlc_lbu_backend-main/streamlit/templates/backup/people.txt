@@ -1,0 +1,10 @@
+NQCONSULTANT ¿Cuales pueden ser las 10 principales personas con las que una persona 
+como {{ person_name }} se relaciona en el trabajo u hogar y con objeciones para 
+contratar un producto como {{ product_name }}? 
+Crea un arreglo de estructuras sin numeracion, cada estructura tendra dos elementos, 
+no se permite anidacion, el primera campo es el nombre de la persona con que se relaciona, 
+debe llamarse title y el segundo campo expresa el tipo de relacion y la descripcion de la 
+objecion, debe llamarse description, presentar el resultado como un arreglo de objetos, 
+generar en formato json en la forma de un arreglo de objetos, el resultado 
+debe llamarase result.
+Genera 10 opciones.

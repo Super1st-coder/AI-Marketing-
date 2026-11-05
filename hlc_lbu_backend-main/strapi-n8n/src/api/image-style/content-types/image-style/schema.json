@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "image_styles",
+  "info": {
+    "singularName": "image-style",
+    "pluralName": "image-styles",
+    "displayName": "Image-Style"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "text"
+    },
+    "target": {
+      "type": "string"
+    }
+  }
+}

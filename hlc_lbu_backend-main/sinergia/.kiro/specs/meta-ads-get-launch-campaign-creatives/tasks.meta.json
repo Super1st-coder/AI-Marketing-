@@ -1,0 +1,660 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Crear `sinergia/tests/v2/unit/use_cases/test_facebook_get_launch_campaign_creatives.py` con el docstring de módulo (objetivo bajo prueba y criterios cubiertos), los imports (`copy`, `contextlib`, `unittest.mock.patch`/`MagicMock`, `pytest`, `requests`, `DataNotFoundException` e `IncorrectValidationException` de `app.exceptions.base`, `CreativeType`, `FacebookGetLaunchCampaignCreativesUseCase`, `FacebookLaunchCampaignUseCase` y `AdSetRepository`), el sentinel privado `ABSENT` (clase `_AbsentSentinel` con `__repr__`), la tupla congelada `CREATIVE_ENTRY_KEYS` con las 31 claves del Requirement 8.1 **en orden**, y las nueve funciones constructoras de la tabla de `design.md`: `make_account`, `make_campaign`, `make_dynamic_creative`, `make_standard_creative`, `make_ad_channel`, `make_ad`, `make_ad_set`, `make_ad_sets_response` y `make_campaign_setup`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114061360
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114109102
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114527612
+      }
+    ],
+    "1.2 Añadir al mismo archivo las fixtures y helpers compartidos: la fixture `deny_network(monkeypatch)` con `autouse=True` a nivel de función, que sustituye `requests.sessions.Session.request` por una función que lanza `AssertionError`; el context manager `patched_use_case(...)` que parchea `app.v2.use_cases.meta_ads.AccountRepository`, `app.v2.use_cases.meta_ads.CampaignRepository`, `app.v2.use_cases.meta_ads.AdSetRepository` y `app.v2.use_cases.meta_ads.CampaignChannelPublishRepository` **antes** de construir el Caso_de_Uso y cede la instancia junto a los cuatro dobles; y el helper `assert_exception_type(exc_info, expected_type)` que verifica **solo** el tipo y nunca el texto del mensaje": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114062036
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114538402
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114789503
+      }
+    ],
+    "2.1 Añadir a `sinergia/app/v2/repository/ad_set.py` la sentencia `from typing import Any, Dict, Optional` en la cabecera y el método `get_by_campaign_and_brand_with_selected_ad_channels(self, campaign_id: int, brand_id: int) -> Optional[Dict[str, Any]]` **después** de los cuatro métodos actuales de `AdSetRepository`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114062469
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114797753
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115061649
+      }
+    ],
+    "2.2 Añadir a `sinergia/tests/v2/unit/use_cases/test_facebook_get_launch_campaign_creatives.py` la clase `TestAdSetRepositoryQuery`, que prueba el método **real** sobre una instancia real de `AdSetRepository` con el método `get` heredado de `StrapiClient` sustituido por un doble y 0 peticiones de red": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114062958
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115085118
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115371721
+      }
+    ],
+    "3.1 En `sinergia/app/v2/use_cases/meta_ads.py`, añadir al bloque de imports existente al inicio del archivo la sentencia `from app.v2.repository.ad_set import AdSetRepository`, junto a las cuatro sentencias de repositorio ya presentes; y ampliar `FacebookGetLaunchCampaignCreativesUseCase` con sus tres constantes de clase y con las tres asignaciones de repositorio que faltan en `__init__`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114063294
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114805727
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115069651
+      }
+    ],
+    "3.2 Añadir la clase `TestConstructor` al archivo de pruebas, usando el context manager `patched_use_case` de la tarea 1.2": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114063694
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115380131
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115591376
+      }
+    ],
+    "4.1 Implementar en `FacebookGetLaunchCampaignCreativesUseCase` (`sinergia/app/v2/use_cases/meta_ads.py`) los tres `staticmethod` de lectura tolerante: `_as_list(node, *keys) -> List[Any]`, `_resolve_channel_id(ad_channel) -> int` y `_select_ad_channel(ad) -> Optional[Dict[str, Any]]`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114064089
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115600561
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115905509
+      }
+    ],
+    "4.2 Añadir las clases `TestAsList`, `TestChannelIdResolutionUnit` y `TestAdChannelSelectionUnit`, invocando los tres `staticmethod` directamente": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114064395
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115913314
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116218006
+      }
+    ],
+    "5.1 Implementar `_get_campaign(self, campaign_id: Any, brand_id: Any, parent_account: Any) -> Dict[str, Any]` en `sinergia/app/v2/use_cases/meta_ads.py`: una única invocación de `self.campaign_repository.get_by_id_brand_and_account(campaign_id, brand_id, parent_account)` con los tres argumentos en orden posicional y sin transformarlos; considerar la campaña resuelta solo si el valor retornado es una instancia de `dict` con al menos una clave; en caso contrario `logger.error` con los tres valores empleados y `DataNotFoundException` con un mensaje **indistinguible** para los tres motivos posibles": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114064833
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116228047
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116417881
+      }
+    ],
+    "5.2 Añadir la clase `TestCampaignResolution`, invocando `_get_campaign` directamente sobre la instancia construida por `patched_use_case`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114065297
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116426489
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116738953
+      }
+    ],
+    "6.1 Implementar `_collect_published_creatives(self, campaign_id: Any, brand_id: Any) -> Tuple[List[Dict[str, Any]], int]` en `sinergia/app/v2/use_cases/meta_ads.py`, conforme al bloque de código de la sección *Recorrido de los Ad_Sets* de `design.md`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114065649
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116749189
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116936656
+      }
+    ],
+    "6.2 Añadir la clase `TestPublishedCreativesCollection`, invocando `_collect_published_creatives` directamente": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114065944
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116944491
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790117651103
+      }
+    ],
+    "7. Checkpoint - recolección y auxiliares defensivos completos": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114066410
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790117685259
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790117861112
+      }
+    ],
+    "8.1 Implementar en `sinergia/app/v2/use_cases/meta_ads.py` los tres métodos de la etapa de Campaign_Setup: `_get_campaign_setup(self, campaign_id: Any, channel_id: int) -> Dict[str, Any]`, `_validate_published(self, campaign_setup: Dict[str, Any]) -> None` y `_validate_campaign_mode(self, campaign_setup: Dict[str, Any]) -> str`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114066720
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790117874284
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790118051925
+      }
+    ],
+    "8.2 Añadir la clase `TestCampaignSetupStage`, invocando los tres métodos directamente": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114067167
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790118065421
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790118504082
+      }
+    ],
+    "9.1 Implementar en `sinergia/app/v2/use_cases/meta_ads.py` los tres métodos de composición: `_build_dynamic_creative_published(self, idx, descriptor)`, `_build_standard_creative_published(self, idx, descriptor)` y `_build_creatives(self, descriptors, campaign_mode)`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114067527
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790118550712
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790119762268
+      }
+    ],
+    "9.2 Añadir las clases `TestDynamicCreativeEntry`, `TestStandardCreativeEntry` y `TestCreativesDispatch`, invocando los tres métodos directamente": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114067957
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790119794459
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790120794420
+      }
+    ],
+    "10.1 Implementar `_build_result(self, campaign, campaign_setup, creatives) -> Dict[str, Any]` en `sinergia/app/v2/use_cases/meta_ads.py`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114068389
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790120810610
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121041657
+      }
+    ],
+    "10.2 Añadir la clase `TestResultComposition`, invocando `_build_result` directamente": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114068798
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121054586
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121377324
+      }
+    ],
+    "11. Checkpoint - métodos privados completos y probados por invocación directa": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114069177
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121398964
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121624488
+      }
+    ],
+    "12.1 Implementar `execute(self, brand_id: int, campaign_id: int) -> Dict[str, Any]` en `sinergia/app/v2/use_cases/meta_ads.py` con las **ocho sentencias** del bloque de código de la sección *Cuerpo de `execute()`* de `design.md`, en ese orden textual: `_get_parent_account()`, `_get_campaign(...)`, `_collect_published_creatives(...)`, `_get_campaign_setup(...)`, `_validate_published(...)`, `_validate_campaign_mode(...)`, `_build_creatives(...)` y `return self._build_result(...)`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114069540
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121643558
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121825309
+      }
+    ],
+    "12.2 Añadir la clase `TestMainFlowDynamic` con un fixture de **dos Ad_Sets_de_Consulta** y un Ad_Channel_Seleccionado por Ad, en modo `DYNAMIC`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114070003
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121859975
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790122269087
+      }
+    ],
+    "12.3 Añadir la clase `TestMainFlowStandard` con el mismo fixture en modo `STANDARD`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114070482
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790122284638
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790122615356
+      }
+    ],
+    "12.4 Añadir la clase `TestParityWithLaunchUseCase`: para un mismo fixture de Creativo_Publicado, la Entrada_de_Creativo producida por el Caso_de_Uso es igual **por comparación exacta de diccionarios** a la producida por `FacebookLaunchCampaignUseCase._build_response()` para el mismo modo y el mismo índice, una vez en `DYNAMIC` y una vez en `STANDARD`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114070973
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790122629741
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790123092243
+      }
+    ],
+    "12.5 Añadir las clases `TestCampaignBlock` y `TestMetaUrl`, ahora sobre el resultado completo de `execute()`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114071395
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790123105204
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790123416706
+      }
+    ],
+    "12.6 Añadir las clases `TestChannelIdResolution` y `TestAdChannelSelection`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114071795
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790123430725
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790123976186
+      }
+    ],
+    "12.7 Añadir la clase `TestStrapiIdentifiers`: `adset_id`, `ad_id` y `adchannel_id` de cada Entrada_de_Creativo iguales a los identificadores de Strapi declarados en el fixture (`creativo.id`, `creativo.ads[0].id` y el `ad_channel_id` de la especificación correspondiente al modo), y ninguna Entrada_de_Creativo con una clave cuyo nombre incluya la subcadena `meta_`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114072101
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790123993688
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790125858589
+      }
+    ],
+    "12.8 Añadir la clase `TestFailureScenarios` con un caso por cada uno de los **seis** escenarios de fallo, verificando **únicamente el tipo** de excepción y nunca el texto del mensaje": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114072530
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790125887600
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790126350814
+      }
+    ],
+    "12.9 Añadir la clase `TestValidationOrder` con los tres casos de cortocircuito del Requirement 11.16, usando `assert_not_called` sobre los dobles de las etapas posteriores": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114072920
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790126380422
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790126992598
+      }
+    ],
+    "12.10 Añadir la clase `TestDegradedStructures` con un caso por cada una de las **cinco** estructuras degradadas de los Requirements 5.5, 5.6 y 5.7, ahora a través de `execute()`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114073444
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790127012643
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790127647202
+      }
+    ],
+    "12.11 Añadir la clase `TestNoExternalTraffic` y la clase de auto-auditoría `TestSuiteSelfAudit`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114073836
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790127671269
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790130282091
+      }
+    ],
+    "13. Checkpoint - suite unitaria completa y verde": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114074285
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790130321323
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790130645597
+      }
+    ],
+    "14.1 Ejecutar la recolección y la suite nueva, corrigiendo cualquier `failed`, `skipped` o error de recopilación hasta obtener cero en las tres categorías y un número de `passed` igual al total recolectado": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114074667
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790130686661
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790130912206
+      }
+    ],
+    "14.2 Verificar la no regresión y auditar el alcance: ejecutar la suite completa de la capa de servicio confirmando que ninguna prueba preexistente cambia de resultado, y auditar el diff con `git status`/`git diff`": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114075058
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790130944548
+      },
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790131667028
+      }
+    ],
+    "1. Crear el andamiaje del archivo de pruebas": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790114790071
+      }
+    ],
+    "2. Añadir el método nuevo al Repositorio_de_Ad_Sets": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115372150
+      }
+    ],
+    "3. Preparar la cabecera y el constructor del Caso_de_Uso": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790115591703
+      }
+    ],
+    "4. Implementar y probar los auxiliares defensivos de lectura": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116218588
+      }
+    ],
+    "5. Implementar y probar la resolución de la Campaña_Objetivo": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790116739622
+      }
+    ],
+    "6. Implementar y probar la recolección de los Creativos_Publicados": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790117651584
+      }
+    ],
+    "8. Implementar y probar el Campaign_Setup, el estado de publicación y el Modo_de_Campaña": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790118504446
+      }
+    ],
+    "9. Implementar y probar la composición de las Entradas_de_Creativo": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790120794807
+      }
+    ],
+    "10. Implementar y probar la composición del Resultado_de_Consulta": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790121377699
+      }
+    ],
+    "12. Implementar `execute()` y las pruebas de extremo a extremo": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790130282746
+      }
+    ],
+    "14. Validación final automatizada y auditoría de alcance": [
+      {
+        "executionId": "c7643522-df6b-4eb1-941f-9e52f70373ed",
+        "chatSessionId": "sess_4b668d96-06dd-4110-8955-abb9186ad172",
+        "timestamp": 1790131667550
+      }
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "channel_v2s",
+  "info": {
+    "singularName": "channel-v2",
+    "pluralName": "channel-v2s",
+    "displayName": "Channel-V2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "channel_group_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::channel-group.channel-group"
+    },
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "attributes": {
+      "type": "json"
+    },
+    "channel_group_ref2": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::channel-group.channel-group",
+      "inversedBy": "channels"
+    },
+    "audiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-audience.audience-audience",
+      "mappedBy": "channel_ref"
+    },
+    "audience_templates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-audience-template.audience-audience-template",
+      "mappedBy": "channel_ref"
+    },
+    "saved_audiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-saved-audience.audience-saved-audience",
+      "mappedBy": "channel_ref"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "user_prompt_audiences_desc": {
+      "type": "text"
+    },
+    "system_prompt_audiences_desc": {
+      "type": "text"
+    },
+    "user_prompt_audiences_form": {
+      "type": "text"
+    },
+    "system_prompt_audiences_form": {
+      "type": "text"
+    },
+    "user_prompt_audiences_files": {
+      "type": "text"
+    },
+    "system_prompt_audiences_files": {
+      "type": "text"
+    },
+    "user_prompt_audiences_topics": {
+      "type": "text"
+    },
+    "system_prompt_audiences_topics": {
+      "type": "text"
+    },
+    "campaign_channel_publishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campaign-channel-publish.campaign-channel-publish",
+      "mappedBy": "channel_id"
+    }
+  }
+}

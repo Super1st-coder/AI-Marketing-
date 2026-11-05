@@ -1,0 +1,162 @@
+{
+  "name": "Generate Context for Build Scenarios BPerson",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "52f04daf-aef0-4bd6-acab-9f8e7f91c9fa",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        980,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nreturn {'ok' : 0, 'message': {'code': 'N8N00', 'text': 'Error - Generating Context for Scenarios' } }"
+      },
+      "id": "56904440-11f5-4c22-96b5-f725d6fe71dc",
+      "name": "Handle Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok' : 1, 'data' : _input.item.json.output }\n"
+      },
+      "id": "765083ae-f3ba-4caa-b660-c17da623a10c",
+      "name": "Format Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/context/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "3993d6d0-a7e3-45b7-a475-6a75dc6d29e3",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "webhookId": "af331fc9-2703-4be4-aa4c-14a036a62fb4"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=\"{{ $json.body.agent_name }}\", I need you to generate three 400-character descriptions for potential Buyer’s Journey scenarios, each with a different context for a person like \"{{ $json.body.person_name }}\" during their purchasing process of a solution like \"{{ $json.body.product_name }}\".\n\n\"{{ $json.body.agent_name }}\", use the information you have about \"{{ $json.body.person_name }}\" and this description:\n\n{{ $json.body.person_description }}\n\nEND OF DESCRIPTION <<<\n\nNQ, generate three 400-character descriptions for potential Buyer’s Journey scenarios with the following contexts:\n\n1. Version 1 - First-Time Buyer: The user has never purchased this type of product but suspects it could improve their current situation.\n2. Version 2 - Quality Improvement: The user solves their problem using an inferior solution and wishes to improve their current situation.\n3. Version 3 - Urgent Migration: The user already has a similar solution but needs to migrate to a new one immediately.\n\nEach description should include a title of less than 5 words and a clear, detailed description to facilitate the user’s choice.\n\nBelow is an example of the structure of titles and descriptions for reference. Note that only the structure of the responses should be replicated, not the content, as it is not relevant.\n\nSTART OF EXAMPLE TITLES AND DESCRIPTIONS <<<\n\nVersion 1 - First-Time Buyer\nName: Discovering New Tools\nDescription: The user has never used a CRM but understands that it can improve their client management and current processes. They are looking to educate themselves on the benefits and select the best option.\n\nVersion 2 - Quality Improvement\nName: Upgrading to a Superior Tool\nDescription: Currently using a basic CRM, the user seeks a more advanced tool. They need to improve efficiency and functionalities to optimize their client management processes.\n\nVersion 3 - Urgent Migration\nName: Quick and Secure Migration\nDescription: Their current CRM has failed, and they urgently need to migrate to a new platform. They are looking for a reliable solution and a quick, hassle-free migration process.\n\nEND OF EXAMPLE TITLES AND DESCRIPTIONS <<<\n\nDame los resultados directamente como un arreglo json, donde cada descripcion represente una posicion de este arreglo, use el siguiente ejemplo para construir la respuesta:\n\n[ descripcion1 , descripcion2, ... , descripcionX]\n\nCada descripcion debe tener los siguientes campos, \"Name\",  \"Description\". \n\nNo incluyas comentarios de entrada a la respuesta,ir directamente a la respuesta en formato JSON\n\n\n",
+        "options": {}
+      },
+      "id": "3fba9855-c4ea-4674-aec7-a445b89e0d08",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Handle Error": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Results": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Format Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b7b11ac8-0ad1-4a1a-ac63-62354bc06019",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "q6TL8Zq7m91290Nx",
+  "tags": []
+}

@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_v3s",
+  "info": {
+    "singularName": "project-v3",
+    "pluralName": "project-v3s",
+    "displayName": "Project-V3",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "language": {
+      "type": "string"
+    },
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "product_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-v2.product-v2"
+    },
+    "bperson_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::b-person-v2.b-person-v2"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-v2.brand-v2"
+    },
+    "status": {
+      "type": "string",
+      "default": "P"
+    },
+    "current_phase": {
+      "type": "string",
+      "default": "1"
+    },
+    "assistant_id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "step": {
+      "type": "integer",
+      "default": 0
+    },
+    "target_regions": {
+      "type": "text"
+    },
+    "summary_generated": {
+      "type": "json"
+    },
+    "summary_saved": {
+      "type": "json"
+    },
+    "main_goal": {
+      "type": "text"
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "projects_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "projects_updated"
+    },
+    "brand_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "projects"
+    }
+  }
+}

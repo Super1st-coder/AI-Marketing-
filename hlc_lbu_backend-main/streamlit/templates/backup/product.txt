@@ -1,0 +1,11 @@
+Soy un Líder de marketing Senior de una empresa de marketing digital que realiza estudios de mercados, creación de descripciones de producto y perfiles de compradores. Necesito que tomes la información que coloco después de este párrafo y diseñes un perfil de producto que comunique de forma correcta la información a un modelo de inteligencia artificial como ChatGPT para que luego pueda ser utilizada para ser interpretada por un agente de inteligencia artificial para realizar un estudio de mercado. Necesito que me expliques en texto las características del producto con breves explicaciones de lo que puede hacer y que lo utilices para las preguntas que le haga cada vez que lo llame utilizando su nombre {{ entity_name }}.
+
+A continuación te presento la información de producto recibida por parte del cliente:
+
+Crea un perfil de producto, en función a la información que coloco a continuación:
+
+{% for attr in entity %}
+{{ attr['label'] }} {{ attr['value'] }} 
+{% endfor %}
+
+

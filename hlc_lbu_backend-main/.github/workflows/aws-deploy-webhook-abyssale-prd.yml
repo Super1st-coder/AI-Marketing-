@@ -1,0 +1,53 @@
+name: AWS Deploy Webhook Abyssale Processor PRD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'webhooks/abyssale/processor_aws/**'
+  workflow_dispatch:
+
+permissions:
+  contents: 'read'
+  id-token: 'write'
+
+env:
+  AWS_REGION: "us-east-2"
+  ROLE_TO_ASSUME: "arn:aws:iam::861276093436:role/hiluca-lbu-prd-github-actions-role"
+  FUNCTION_NAME: "hiluca-lbu-prd-wh-processor-abyssale"
+
+jobs:
+  deploy-lambda:
+    name: Package and Deploy to AWS Lambda
+    runs-on: ubuntu-latest
+    environment: main
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          
+      - name: Install dependencies and package
+        run: |
+          cd webhooks/abyssale/processor_aws
+          pip install -r requirements.txt -t .
+          zip -r function.zip . -i "*.py" "requests/*" "charset_normalizer/*" "idna/*" "certifi/*" "urllib3/*"
+          
+      - name: Configure AWS Credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to AWS Lambda
+        run: |
+          cd webhooks/abyssale/processor_aws
+          aws lambda update-function-code \
+            --function-name ${{ env.FUNCTION_NAME }} \
+            --zip-file fileb://function.zip \
+            --region ${{ env.AWS_REGION }}

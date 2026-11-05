@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hypotheses",
+  "info": {
+    "singularName": "hypothesis",
+    "pluralName": "hypotheses",
+    "displayName": "Hypothesis",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "marketing_hypothesis": {
+      "type": "text"
+    },
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "project_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-v3.project-v3"
+    },
+    "marketing_hypothesis_analysis": {
+      "type": "json"
+    },
+    "hypothesis_element_description": {
+      "type": "text"
+    },
+    "hypothesis_element_attributes_generated": {
+      "type": "json"
+    },
+    "hypothesis_element_attributes_saved": {
+      "type": "json"
+    },
+    "hypothesis_builder_options": {
+      "type": "json"
+    },
+    "hypothesis_builder_preferred_option": {
+      "type": "json"
+    },
+    "offering": {
+      "type": "text"
+    },
+    "context": {
+      "type": "text"
+    },
+    "expected_achievement": {
+      "type": "text"
+    },
+    "goal_description": {
+      "type": "text"
+    },
+    "goal_attributes_generated": {
+      "type": "json"
+    },
+    "goal_attributes_saved": {
+      "type": "json"
+    },
+    "advantages_description": {
+      "type": "text"
+    },
+    "advantages_attributes_generated": {
+      "type": "json"
+    },
+    "advantages_attributes_saved": {
+      "type": "json"
+    },
+    "buyer_persons": {
+      "type": "json"
+    },
+    "preferred_buyer_person": {
+      "type": "json"
+    },
+    "buyer_person_image_prompts": {
+      "type": "json"
+    },
+    "selected_buyer_person_image_prompt": {
+      "type": "json"
+    },
+    "buyer_person_image_id": {
+      "type": "string"
+    },
+    "products": {
+      "type": "json"
+    },
+    "preferred_product": {
+      "type": "json"
+    },
+    "product_image_id": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "json"
+    },
+    "preferred_audience": {
+      "type": "json"
+    }
+  }
+}

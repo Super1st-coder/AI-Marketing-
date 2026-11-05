@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brand_documents",
+  "info": {
+    "singularName": "brand-document",
+    "pluralName": "brand-documents",
+    "displayName": "Brand-Document",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "bucket": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "object_url": {
+      "type": "text"
+    },
+    "object_key": {
+      "type": "text"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "documents"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

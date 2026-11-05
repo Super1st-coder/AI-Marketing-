@@ -1,0 +1,162 @@
+{
+  "name": "Generate BPerson",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "388f1e48-cbf3-44f7-8b76-4230294cacd6",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        980,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nreturn {'ok' : 0, 'message': {'code': 'N8N00', 'text': 'Error - Generating BPerson' } }"
+      },
+      "id": "0f4a8d34-5f8c-4ce0-8d28-98ce8843e1c9",
+      "name": "Handle Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok' : 1, 'data' : _input.item.json.output }\n"
+      },
+      "id": "f6930a3d-e63d-4ff5-8910-5d7d3f0f6264",
+      "name": "Format Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "4f8494e4-98cb-487b-b6c9-49b1ed92f717",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "webhookId": "d951a043-c600-4825-92fb-74656dc06225"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=\"{{ $json.body.agent_name }}\", using the provided characteristics of a person like \"{{ $json.body.entity_name }}\", create three additional buyer personas. \n\n\"{{ $json.body.agent_name }}\" ensure that the first persona is slightly less formal, the middle one needs to be authentic to the characteristics of a person like \"{{ $json.body.entity_name }}\", and the third buyer persona is significantly more formal. \n\n\"{{ $json.body.agent_name }}\" when naming the buyer personas, keep the original name of the buyer persona but add an adjective to represent the versions of the buyer personas.\n\n\"{{ $json.body.agent_name }}\" use the variables in the lists bellow to create detailed profiles information and also a 300 character description of each of the 3 buyer personas:\n\n        1.        Less Formal Buyer Persona:\n        •        Name: [LessFormalName]\n        •        Description: [300CharacterDescriptionLessFormalName] \n        •        Age: [LessFormalAge]\n        •        Occupation: [LessFormalOccupation]\n        •        Pain Points: [LessFormalPainPoints]\n        •        Current Problem Resolution: [LessFormalProblem]\n        •        Limitations Without Our Product: [LessFormalLimitations]\n        •        Desired Goal with Our Product: [LessFormalGoal]\n        •        Greatest Fear: [LessFormalFear]\n\n        2.       Buyer Persona:\n        •        Name: [BuyerPersonaName]\n        •        Description: [300CharacterDescriptionBuyerPersonaName]\n        •        Age: [BuyerPersonaAge]\n        •        Occupation: [BuyerPersonaOccupation]\n        •        Pain Points: BuyerPersonaPainPoints]\n        •        Current Problem Resolution: [BuyerPersonaProblem]\n        •        Limitations Without Our Product: [BuyerPersonaLimitations]\n        •        Desired Goal with Our Product: BuyerPersonaGoal]\n        •        Greatest Fear: [BuyerPersonaFear]\n\n        3.        More Formal Buyer Persona:\n        •        Name: [MoreFormalName]\n        •        Description: [300CharacterDescriptionMoreFormalName]\n        •        Age: [MoreFormalAge]\n        •        Occupation: [MoreFormalOccupation]\n        •        Pain Points: [MoreFormalPainPoints]\n        •        Current Problem Resolution: [MoreFormalProblem]\n        •        Limitations Without Our Product: [MoreFormalLimitations]\n        •        Desired Goal with Our Product: [MoreFormalGoal]\n        •        Greatest Fear: [MoreFormalFear]\n\nGive me results directly as json array where each buyer person generated is in an array position, please don't use introductory message where make the response, Use the folowing example to build the response :\n\n[ buyernPerson1, buyerPerson2, ... , buyernPersonX]\n\nEach Buyern Person should be the following fields, \"Name\", \"Description\", \"Age\", \"Pain Points\", \"Current Problem Resolution\", \"Limitations Without Our Product\", \"Desired Goal with Our Product\", \"Greatest Fear\" \n\n",
+        "options": {}
+      },
+      "id": "8ab0fbca-2a0d-48cb-9d19-e9ff9124210f",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Handle Error": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Results": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Format Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1aa361c7-a21c-48c0-bff4-be4b5c1bfe0d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "XiN0C3urUntRTyn0",
+  "tags": []
+}

@@ -1,0 +1,305 @@
+{
+  "pbtResults": {
+    "3.2 Escribir la prueba de propiedad `test_property_invalid_params_rejected_in_order`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791497662478
+    },
+    "3.3 Escribir la prueba de propiedad `test_property_valid_params_forwarded_unchanged`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791497958047
+    },
+    "3.6 Escribir la prueba de propiedad `test_property_non_existing_image_raises_not_found`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791498701167
+    },
+    "3.7 Escribir la prueba de propiedad `test_property_response_keys_and_types`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791498857242
+    }
+  },
+  "executionHistory": {
+    "1.1 Implementar `CampaignRepository.get_by_id_and_brand(campaign_id, brand_id)` en `sinergia/app/v2/repository/campaign.py`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496984796
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497033964
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497204661
+      }
+    ],
+    "1.2 Implementar `AdChannelRepository.get_by_id_ad_campaign_and_channel(ad_channel_id, ad_id, campaign_id, channel_id)` en `sinergia/app/v2/repository/ad_channel.py`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496985110
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497036308
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497206273
+      }
+    ],
+    "2.1 Añadir imports y helpers privados de módulo": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496985437
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497036975
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497208336
+      }
+    ],
+    "2.2 Implementar la clase `GetAdVariantImageUseCase`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496985789
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497218370
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497320763
+      }
+    ],
+    "3.1 Crear el archivo con la fixture `repos` y las pruebas de construcción y validación": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496986127
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497348752
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497537908
+      }
+    ],
+    "3.2 Escribir la prueba de propiedad `test_property_invalid_params_rejected_in_order`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496986416
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497555934
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497745490
+      }
+    ],
+    "3.3 Escribir la prueba de propiedad `test_property_valid_params_forwarded_unchanged`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496986690
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497769555
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498038110
+      }
+    ],
+    "3.4 Escribir las pruebas de ejemplo de campaña y variante": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496986948
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498080335
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498252227
+      }
+    ],
+    "3.5 Escribir las pruebas de ejemplo de imagen y de logging": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496987180
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498260747
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498491043
+      }
+    ],
+    "3.6 Escribir la prueba de propiedad `test_property_non_existing_image_raises_not_found`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496987664
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498498042
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498741732
+      }
+    ],
+    "3.7 Escribir la prueba de propiedad `test_property_response_keys_and_types`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496988030
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498773254
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498896180
+      }
+    ],
+    "4. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496988362
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498923405
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791499206196
+      }
+    ],
+    "5.1 Añadir el recurso `ServiceAdVariantImage` en `sinergia/app/v2/resources/service.py`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496988684
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497350619
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497536905
+      }
+    ],
+    "5.2 Escribir la prueba de integración opcional del endpoint en `sinergia/tests/v2/integration/`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496988924
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497557021
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497747137
+      }
+    ],
+    "6. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791496989195
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791499217781
+      },
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791499331694
+      }
+    ],
+    "1. Añadir los métodos de repositorio": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497206617
+      }
+    ],
+    "2. Implementar el caso de uso en `sinergia/app/v2/use_cases/image_library.py`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497321276
+      }
+    ],
+    "5. Conectar el endpoint de servicio": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791497747578
+      }
+    ],
+    "3. Escribir el Unit_Test_Suite en `sinergia/tests/v2/unit/use_cases/test_get_ad_variant_image.py`": [
+      {
+        "executionId": "03a51c1c-f56d-4530-b589-79080bc0d7ad",
+        "chatSessionId": "sess_8aabe03d-ec22-496d-b67a-a68d2062b0a7",
+        "timestamp": 1791498896690
+      }
+    ]
+  }
+}

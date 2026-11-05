@@ -1,0 +1,1 @@
+sudo certbot certonly --manual --preferred-challenges dns --email "ramon@hiluca.com" --agree-tos  -d app.hiluca.com -d api.hiluca.com

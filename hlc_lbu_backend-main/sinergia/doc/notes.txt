@@ -1,0 +1,45 @@
+Admin Credentials
+
+{
+  "username": "ramon.valera@gmail.com",
+  "password": "admin"
+}
+
+
+Send Grid
+
+valera.ramon@gmail.com
+AnaIsabel12245419*
+
+API Key
+SENDGRID_API_KEY_REDACTED
+
+
+https://www.cherryservers.com/blog/how-to-install-and-setup-postgresql-server-on-ubuntu-20-04
+
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-20-04
+
+
+/////// Strapi Setup ///////
+ rvalera@najoconsultores.com
+ Admin-139
+
+- Instalar node 18
+- Crear un proyecto Strapi para postgresql (Este comando instala el strapi-cli)
+npx create-strapi-app@latest
+
+- Add to .env file additional entries for:
+NODE_ENV=develop
+JWT_SECRET=<could be the same that ADMIN_JWT_SECRET>
+
+- Copiar docker-compose.yml, Dockerfile y .dockerignore en el directorio del proyecto
+
+- Entry in /admin console of Strapi and Configure admin user.
+
+- Generar API Token
+  6f4220aaf118063910dc6089f5b9276e323311555060c9cdbbf907ae04c8d722fd94034f915630d6247a05f1b3c6ad32dd5dfd081461f2e72f14f09b9d2b5625ef9498934702621ae12de383e0ae47e74776c693e236b8467de04a162e819e6cb4059669f47d3aa44735166a20462fcf76706b9ec2bcbe7fc8e59c50a71f4f1d
+
+- SWAGGER
+http://0.0.0.0:1337/documentation

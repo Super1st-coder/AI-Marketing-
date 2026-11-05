@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "buyer_variant_images",
+  "info": {
+    "singularName": "buyer-variant-image",
+    "pluralName": "buyer-variant-images",
+    "displayName": "Buyer-Variant-Image",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image_id": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "main_image_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::buyer-main-image.buyer-main-image",
+      "inversedBy": "variant_images"
+    },
+    "status": {
+      "type": "string",
+      "default": "A"
+    },
+    "prompt": {
+      "type": "richtext"
+    },
+    "parent_image": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::buyer-variant-image.buyer-variant-image",
+      "inversedBy": "variant_images"
+    },
+    "variant_images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::buyer-variant-image.buyer-variant-image",
+      "mappedBy": "parent_image"
+    }
+  }
+}

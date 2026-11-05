@@ -1,0 +1,339 @@
+{
+  "name": "Test Image with Flux",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b6243291-391a-4196-905f-bf2b91bd5659",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "Ready",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "41a806bf-a219-4e7d-b439-299f0b9951b7",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"FLUX00\", \"text\": \"ERROR - Generating Image from Prompt\" } }",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "230590a7-2472-4f36-8017-8c0118c41c3b",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1480,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.bfl.ml/v1/get_result",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "39fc402c-91f3-44a2-b526-8ba5cd3d9016",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        340
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"FLUX00\", \"text\": \"ERROR - Generating Image from Prompt\" } }",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "9d62078e-002d-43f2-ac1a-6c768486f601",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        860,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"FLUX00\", \"text\": \"ERROR - Generating Image from Prompt\" } }",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "d78f3d5f-87c0-49c2-98ae-1ee45cd3f89b",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.result.sample }}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "responseFormat": "file"
+            }
+          },
+          "timeout": 10000
+        }
+      },
+      "id": "75e63b35-c754-49c4-aed1-aa0973dadfc1",
+      "name": "HTTP Request2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1220,
+        180
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {}
+      },
+      "id": "5023cac7-c487-45e4-b0e5-1ff126e0bf3e",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1500,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "83457e23-57c9-449c-af5e-6571a0eb2f60",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        420,
+        180
+      ],
+      "webhookId": "20cd5792-6052-46c3-a0d3-8cd654cab9ee"
+    },
+    {
+      "parameters": {},
+      "id": "dd0a52bd-41ef-41f7-affa-1cbf6a9e9c63",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1200,
+        560
+      ],
+      "webhookId": "9be1e06d-ed69-41b9-a98b-1eb905f9deb0"
+    },
+    {
+      "parameters": {
+        "path": "image2",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "1745ce34-17ca-4e90-9c7f-3275d900efb2",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        340
+      ],
+      "webhookId": "bb4510dd-db35-413e-a56b-4ef1308631af"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.bfl.ml/v1/flux-pro-1.1",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"prompt\": \"{{ $json.prompt }}\",\n    \"width\": {{ $json.width }},\n    \"height\": {{ $json.height }}\n}",
+        "options": {}
+      },
+      "id": "f8dc0dfc-2ef6-47eb-8797-fe485ee707eb",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        340
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "mRnkOslrTJKVMurD",
+          "name": "Header Auth account 3"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b8b8e5f7-a392-4cd3-9edb-a945324d573f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "c97NtXl8hULRevfx",
+  "tags": []
+}

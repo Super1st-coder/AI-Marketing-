@@ -1,0 +1,249 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_v2s",
+  "info": {
+    "singularName": "project-v2",
+    "pluralName": "project-v2s",
+    "displayName": "project-V2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "brand_name": {
+      "type": "text"
+    },
+    "product_name": {
+      "type": "text"
+    },
+    "product_url": {
+      "type": "text"
+    },
+    "marketing_hypothesis": {
+      "type": "string"
+    },
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "marketing_hypothesis_analysis": {
+      "type": "json"
+    },
+    "faq_product_url": {
+      "type": "text"
+    },
+    "product_attributes_generated": {
+      "type": "json"
+    },
+    "product_attributes_saved": {
+      "type": "json"
+    },
+    "target_customer_description": {
+      "type": "text"
+    },
+    "target_customer_attributes_generated": {
+      "type": "json"
+    },
+    "target_customer_attributes_saved": {
+      "type": "json"
+    },
+    "hypothesis_element_description": {
+      "type": "text"
+    },
+    "hypothesis_element_attributes_generated": {
+      "type": "json"
+    },
+    "hypothesis_element_attributes_saved": {
+      "type": "json"
+    },
+    "goal_description": {
+      "type": "text"
+    },
+    "goal_attributes_generated": {
+      "type": "json"
+    },
+    "goal_attributes_saved": {
+      "type": "json"
+    },
+    "advantages_description": {
+      "type": "text"
+    },
+    "advantages_attributes_generated": {
+      "type": "json"
+    },
+    "advantages_attributes_saved": {
+      "type": "json"
+    },
+    "status": {
+      "type": "string"
+    },
+    "assistant_id": {
+      "type": "string"
+    },
+    "current_phase": {
+      "type": "string"
+    },
+    "buyer_persons": {
+      "type": "json"
+    },
+    "preferred_buyer_person": {
+      "type": "json"
+    },
+    "products": {
+      "type": "json"
+    },
+    "preferred_product": {
+      "type": "json"
+    },
+    "hypothesis_builder_options": {
+      "type": "json"
+    },
+    "hypothesis_builder_preferred_option": {
+      "type": "json"
+    },
+    "buyer_person_image_prompts": {
+      "type": "json"
+    },
+    "selected_buyer_person_image_prompt": {
+      "type": "json"
+    },
+    "audience": {
+      "type": "json"
+    },
+    "preferred_audience": {
+      "type": "json"
+    },
+    "creative_concept_description": {
+      "type": "json"
+    },
+    "creative_concept_attributes_generated": {
+      "type": "json"
+    },
+    "creative_concept_attributes_saved": {
+      "type": "json"
+    },
+    "campaigns": {
+      "type": "json"
+    },
+    "preferred_campaign": {
+      "type": "json"
+    },
+    "campaign_image_prompts": {
+      "type": "json"
+    },
+    "selected_campaign_image_prompt": {
+      "type": "json"
+    },
+    "buyer_person_image_id": {
+      "type": "string"
+    },
+    "product_image_id": {
+      "type": "string"
+    },
+    "campaign_image_id": {
+      "type": "string"
+    },
+    "meta_ads": {
+      "type": "json"
+    },
+    "landing_page_hero_section_generated": {
+      "type": "json"
+    },
+    "landing_page_hero_section_configured": {
+      "type": "json"
+    },
+    "landing_page_competitive_advantages_section_generated": {
+      "type": "json"
+    },
+    "landing_page_competitive_advantages_section_configured": {
+      "type": "json"
+    },
+    "landing_page_howwedo_section_generated": {
+      "type": "json"
+    },
+    "landing_page_howwedo_section_configured": {
+      "type": "json"
+    },
+    "landing_page_testimonial_section_generated": {
+      "type": "json"
+    },
+    "landing_page_testimonial_section_configured": {
+      "type": "json"
+    },
+    "landing_page_benefits_section_generated": {
+      "type": "json"
+    },
+    "landing_page_benefits_section_configured": {
+      "type": "json"
+    },
+    "email_reminder_generated": {
+      "type": "json"
+    },
+    "email_painpoints_generated": {
+      "type": "json"
+    },
+    "email_usecase_generated": {
+      "type": "json"
+    },
+    "email_urgency_generated": {
+      "type": "json"
+    },
+    "email_offer_generated": {
+      "type": "json"
+    },
+    "landing_page_hero_remarketing_section_generated": {
+      "type": "json"
+    },
+    "landing_page_hero_remarketing_section_configured": {
+      "type": "json"
+    },
+    "landing_page_comp_adv_remarketing_section_generated": {
+      "type": "json"
+    },
+    "landing_page_comp_adv_remarketing_section_configured": {
+      "type": "json"
+    },
+    "landing_page_howwedo_remarketing_section_generated": {
+      "type": "json"
+    },
+    "landing_page_howwedo_remarketing_section_configured": {
+      "type": "json"
+    },
+    "landing_page_testimonial_remarketing_section_generated": {
+      "type": "json"
+    },
+    "landing_page_testimonial_remarketing_section_configured": {
+      "type": "json"
+    },
+    "landing_page_benefits_remarketing_section_generated": {
+      "type": "json"
+    },
+    "landing_page_benefits_remarketing_section_configured": {
+      "type": "json"
+    },
+    "meta_ads_remarketing": {
+      "type": "json"
+    },
+    "whatsapp_bot_scheduling_generated": {
+      "type": "json"
+    },
+    "whatsapp_bot_scheduling_configured": {
+      "type": "json"
+    },
+    "wb_scheduling_custom_tone_message": {
+      "type": "text"
+    },
+    "creative_concepts": {
+      "type": "json"
+    },
+    "preferred_creative_concept": {
+      "type": "json"
+    }
+  }
+}

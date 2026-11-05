@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    image: hiluca-frontend-image
+    container_name: hiluca-frontend
+    # platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    # volumes:
+    #   - .:/app
+    ports:
+      - "8080:8080"
+    environment:    
+      - NODE=production  

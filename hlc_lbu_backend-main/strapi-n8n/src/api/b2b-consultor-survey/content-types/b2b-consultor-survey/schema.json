@@ -1,0 +1,56 @@
+{
+    "kind": "collectionType",
+    "collectionName": "b2b_consultor_surveys",
+    "info": {
+        "singularName": "b2b-consultor-survey",
+        "pluralName": "b2b-consultor-surveys",
+        "displayName": "b2b-consultor-survey"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "parent_ref": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::project.project"
+        },
+        "cual-es-el-nombre-del-consultor": {
+            "type": "text"
+        },
+        "cual-es-el-titulo-universitario": {
+            "type": "text"
+        },
+        "tiene-alguna-especializacion-de-ser-asi-en-que-area": {
+            "type": "text"
+        },
+        "ha-obtenido-algun-titulo-de-maestria-en-que-disciplina": {
+            "type": "text"
+        },
+        "posee-algun-grado-de-doctorado-cual-es-el-campo-de-estud": {
+            "type": "text"
+        },
+        "cual-es-su-puesto-de-trabajo-actual": {
+            "type": "text"
+        },
+        "cuantos-anos-de-experiencia-tiene-en-este-ramo": {
+            "type": "text"
+        },
+        "describe-la-primera-experiencia-laboral-relevante": {
+            "type": "text"
+        },
+        "describe-la-segunda-experiencia-laboral-relevante": {
+            "type": "text"
+        },
+        "describe-la-tercera-experiencia-laboral-relevante": {
+            "type": "text"
+        },
+        "describe-la-cuarta-experiencia-laboral-relevante": {
+            "type": "text"
+        },
+        "describe-la-quinta-experiencia-laboral-relevante": {
+            "type": "text"
+        }
+    }
+}

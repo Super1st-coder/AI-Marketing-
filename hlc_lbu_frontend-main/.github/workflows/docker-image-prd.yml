@@ -1,0 +1,120 @@
+name: Docker Develop Frontend PRD
+
+on:
+  push:
+    branches:
+      - main-old
+  workflow_dispatch:
+
+permissions:
+  contents: 'read'
+  id-token: 'write'
+
+jobs:
+  build-and-pack:
+    name: Build & Pack Image
+    runs-on: ubuntu-latest
+    environment: main
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - id: auth
+        name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          service_account: githubactions@careful-acumen-422922-k4.iam.gserviceaccount.com
+          workload_identity_provider: projects/401654669410/locations/global/workloadIdentityPools/github-pool/providers/hi-luca-repo
+
+      - name: Configure Docker for GCR
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      - name: Obtener último release
+        id: obtener_release
+        run: |
+          LATEST_TAG=$(curl -s -H "Authorization: token ${{ secrets.TOKEN_USER_GITHUB }}" \
+            "https://api.github.com/repos/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}/releases/latest" \
+            | jq -r '.tag_name')
+          echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
+
+      - name: Configurar variables de entorno para PRD
+        run: |
+          cp .env_base .env
+          sed -i "s|VITE_API_BASE_URL=.*|VITE_API_BASE_URL=${{ secrets.API_BASE_URL }}|g" .env
+          sed -i "s|GOOGLE_CLIENT_ID=.*|GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}|g" .env
+          sed -i "s|GOOGLE_CLIENT_SECRET=.*|GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}|g" .env
+          sed -i "s|VITE_GOOGLE_MAPS_API_KEY=.*|VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}|g" .env
+          sed -i "s|VITE_GOOGLE_CLIENT_ID=.*|VITE_GOOGLE_CLIENT_ID=${{ secrets.VITE_GOOGLE_CLIENT_ID }}|g" .env
+          sed -i "s|VITE_POSTHOG_KEY=.*|VITE_POSTHOG_KEY=${{ secrets.VITE_POSTHOG_KEY }}|g" .env
+          sed -i "s|VITE_ENABLE_HUBSPOT=.*|VITE_ENABLE_HUBSPOT=${{ secrets.VITE_ENABLE_HUBSPOT }}|g" .env
+          sed -i "s|VITE_HUBSPOT_PORTAL_ID=.*|VITE_HUBSPOT_PORTAL_ID=${{ secrets.VITE_HUBSPOT_PORTAL_ID }}|g" .env
+          sed -i "s|VITE_ENABLE_LUCA_GUIDE=.*|VITE_ENABLE_LUCA_GUIDE=${{ secrets.VITE_ENABLE_LUCA_GUIDE }}|g" .env
+          sed -i "s|VITE_LUCA_GUIDE_API_BASE_URL=.*|VITE_LUCA_GUIDE_API_BASE_URL=${{ secrets.VITE_LUCA_GUIDE_API_BASE_URL }}|g" .env
+          sed -i "s|VITE_ENABLE_BUDGET_STRATEGY=.*|VITE_ENABLE_BUDGET_STRATEGY=${{ secrets.VITE_ENABLE_BUDGET_STRATEGY }}|g" .env
+          echo "Archivo .env configurado para PRD:"
+          cat .env
+
+      - name: Build & push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:prd
+
+  deploy:
+    name: Download & Deploy
+    runs-on: ubuntu-latest
+    needs: build-and-pack
+    environment: main
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - id: auth-deploy
+        name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          service_account: githubactions@careful-acumen-422922-k4.iam.gserviceaccount.com
+          workload_identity_provider: projects/401654669410/locations/global/workloadIdentityPools/github-pool/providers/hi-luca-repo
+
+      - name: Configure Docker for GCR 
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      - name: Pull Docker image
+        run: |
+          docker pull us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:prd
+
+      - name: Save image to tar
+        run: |
+          docker save -o frontend.tar us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/lbr-frontend-image:prd
+
+      - name: Configurar clave SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Copiar tar al servidor
+        run: scp -P ${{ secrets.SSH_PORT }} -i ~/.ssh/id_rsa frontend.tar ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/home/ramon/prod/temp/
+
+      - name: Desplegar en servidor
+        uses: appleboy/ssh-action@master
+        with:
+          host:     ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key:      ${{ secrets.SSH_PRIVATE_KEY }}
+          port:     ${{ secrets.SSH_PORT }}
+          script: |
+            cd /home/ramon/prod/hiluca-frontend-vue
+            docker load -i /home/ramon/prod/temp/frontend.tar
+            docker compose up -d
+            rm -f /home/ramon/prod/temp/frontend.tar
+            echo "Despliegue realizado exitosamente."
+
+      - name: Finalizar
+        run: echo "Despliegue completado."
+
+

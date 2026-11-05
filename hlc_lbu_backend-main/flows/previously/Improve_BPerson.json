@@ -1,0 +1,129 @@
+{
+  "name": "Improve BPerson",
+  "nodes": [
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok': 1, 'data' : _input.item.json.output }"
+      },
+      "id": "ed54fba3-89bb-4cb3-9d6b-ddcc021c175a",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        540,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "ad83b8d5-17f7-47bb-98d7-5f71127e8f3e",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        760,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/improve",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "ab4ff86a-8883-4c79-80c5-bc8089eaddbd",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "webhookId": "a97ee63b-15d5-4f72-88ff-362f2cef2d70"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "={{ $json.body.agent_name }}, I need you to take the changes I’ve made to the description of \"{{ $json.body.entity_name }}\" and enhance the text revisions I’ve applied while ensuring consistency throughout the description.\n\n{{ $json.body.agent_name }}, it’s crucial that you compare the original text with my updated version and make the necessary improvements. Please ensure that the rest of the text remains unchanged.\n\n{{ $json.body.original_text }}\n\n{{ $json.body.updated_text }}\n\nGive me results directly as json array where each buyer person generated is in an array position, please don't use introductory message where make the response, Use the folowing example to build the response :\n\n[ buyernPerson1, buyerPerson2, ... , buyernPersonX]\n\nEach Buyern Person should be the following fields,Name, Age, Pain Points, Current Problem Resolution, Limitations Without Our Product, Desired Goal with Our Product, Greatest Fear ",
+        "options": {}
+      },
+      "id": "9239da13-569d-4b7c-87b3-f21f0d3b3cb7",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a42486f8-4525-42f3-a5b0-c84259b77525",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "iqXvP2tDbVfiFf3i",
+  "tags": []
+}

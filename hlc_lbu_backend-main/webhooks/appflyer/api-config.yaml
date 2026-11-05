@@ -1,0 +1,43 @@
+#  DEPRECATED — No usar para nuevos deploys.
+# Este archivo fue reemplazado por webhooks/gateway/api-config.yaml
+# que define el gateway unificado para todos los webhooks.
+#
+# La ruta ahora es:
+#   POST https://integrate.hiluca.com/webhook/appsflyer/v1.0.0/prd
+#
+# Ver: webhooks/router/README.md para instrucciones de deploy.
+# ────────────────────────────────────────────────────────────────────────────
+swagger: "2.0"
+info: 
+  title: AppsFlyer Webhook API
+  version: "1.0.0"
+host: integrate.hiluca.com
+schemes: [https]
+security: []
+paths:
+  /:
+    get:
+      operationId: appsflyer-get-root
+      responses: 
+        "200": 
+          description: "OK"
+      x-google-backend:
+        address: https://us-central1-careful-acumen-422922-k4.cloudfunctions.net/appflyer-webhook
+        jwt_audience: https://us-central1-careful-acumen-422922-k4.cloudfunctions.net/appflyer-webhook
+    post:
+      operationId: appsflyer-post-root
+      parameters:
+        - in: body
+          name: body
+          schema: 
+            type: object
+            additionalProperties: true
+      consumes: 
+        - application/json
+        - application/x-www-form-urlencoded
+      responses: 
+        "200": 
+          description: "OK"
+      x-google-backend:
+        address: https://us-central1-careful-acumen-422922-k4.cloudfunctions.net/appflyer-webhook
+        jwt_audience: https://us-central1-careful-acumen-422922-k4.cloudfunctions.net/appflyer-webhook

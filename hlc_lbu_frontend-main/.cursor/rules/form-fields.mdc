@@ -1,0 +1,74 @@
+---
+description: How to reuse form field components (Field vs FieldBase, FieldBaseControl layout)
+globs: src/components/forms/**/*.{vue,ts},src/**/*Form*.vue,src/**/*Field*.vue
+alwaysApply: false
+---
+
+# Form Fields
+
+Primitives live under `src/components/forms/base/`. Domain-specific fields live under `src/components/forms/` (and feature folders). Reuse both before inventing new inputs or label/error layout.
+
+## Field vs FieldBase
+
+| | `Field*` (e.g. `FieldText`) | `FieldBase*` (e.g. `FieldBaseText`) |
+| --- | --- | --- |
+| Use when | Inside a vee-validate `useForm` / `useFormWithErrorScrolling` | Local `v-model` (modals, pickers, non-form state) |
+| Binding | `name` (required). Wires `useField` + error | `v-model` + optional `error` |
+| Do not | Pass `v-model` or `error` | Call `useField` inside the base |
+
+`Field*` is a thin wrapper: `useField(name)` → `FieldBase*` with `v-model` and `:error="errorMessage"`.
+
+Prefer `Field*` in real forms. Prefer `FieldBase*` only when there is no form context.
+
+Some controls are vee-validate-only (`FieldImage`, `FieldFiles`, `FieldTextareaWithAttachments`): they take `name` and have no `FieldBase*` pair.
+
+## Composed fields (outside `base/`)
+
+Specialized fields compose a primitive instead of duplicating UI. Prefer these when they match the need:
+
+- `FieldLanguage` — `FieldSelect` of `appLocalesArray`. Use for locale, not a hand-rolled select.
+- `FieldEditableText` / `FieldBaseEditableText` — inline edit; same `Field*` vs `FieldBase*` split as the primitives.
+
+Same rules: `FieldLanguage` / `FieldEditableText` need a form + `name`; `FieldBaseEditableText` uses `v-model`.
+
+If you add another specialized field, put it next to these (`src/components/forms/FieldX.vue`) and wrap an existing `Field*` / `FieldBase*`. Do not copy `FieldBaseControl` markup.
+
+## Layout: `FieldBaseControl`
+
+Do not copy label / error / hint markup. `FieldBase*` already wraps content in `FieldBaseControl`:
+
+Label (text, `description`, `#labelHelp`) → default slot (input) → `FieldError` → `#hint` → `#after`
+
+- `orientation`: `"vertical"` (default) or `"horizontal"` (label left, field right from `lg:`)
+- `labelClass`: replaces the default horizontal label width (`lg:w-[300px] lg:shrink-0`) so inputs share one column
+- `hideLayout`: skip label/orientation chrome; still show error/hint. Use when nesting inside another `FieldBaseControl`
+- Slots: `#label`, `#labelHelp`, `#hint`, `#after`. Input extras stay on the field (`#left`, `#right`, `#buttons`)
+
+`FieldsContainer` only stacks fields (`flex-col gap-6`). It is not a field layout.
+
+`FieldBaseCheckbox` / `FieldBaseRadio` stay inline (control + label). Do not wrap them in `FieldBaseControl`.
+
+## Custom / composite fields
+
+For a row that is not a single input, wrap content in `FieldBaseControl` and pass `hideLayout` to nested `Field*` so they keep their own errors without a second label column.
+
+```vue
+<FieldBaseControl
+  :name="`${field.key}.kpi`"
+  :label="$t(field.titleKey)"
+  :required="field.required"
+  orientation="horizontal"
+  labelClass="tw:lg:w-[160px] tw:lg:shrink-0"
+>
+  <FieldAutocomplete :name="`${field.key}.kpi`" hideLayout />
+  <FieldNumber :name="`${field.key}.targetValue`" hideLayout />
+</FieldBaseControl>
+```
+
+Non-input content (chips, buttons) also goes in the default slot — see `TargetCustomerFormImageModalGenerate.vue`.
+
+## New field types
+
+- **New input primitive** (text-like, select-like): add `FieldBaseX.vue` in `base/` (wrap with `FieldBaseControl`, extend `FieldInputBasicProps`), then `FieldX.vue` with `name` + `useField` (same pattern as `FieldText.vue`).
+- **Specialized wrapper** (fixed options or extra behavior on an existing input): add `src/components/forms/FieldX.vue` that renders a `Field*` / `FieldBase*` (same pattern as `FieldLanguage.vue`).
+- Do not duplicate `FieldLabel` / `FieldError` / `FieldHint` / `FieldBaseControl` markup.

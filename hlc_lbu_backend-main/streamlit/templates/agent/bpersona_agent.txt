@@ -1,0 +1,10 @@
+"Soy un Líder de marketing Senior de una empresa de marketing digital que realiza estudios de mercados, creación de descripciones de producto y perfiles de compradores. Necesito que tomes la información que coloco después de este párrafo y diseñes un perfil de cliente o buyer persona que comunique de forma correcta la información a un modelo de inteligencia artificial como ChatGPT para que luego pueda ser utilizada para ser interpretada por un agente de inteligencia artificial para realizar un estudio de mercado. Necesito que me expliques en texto las características de su perfil con breves explicaciones de sus habilidades y que lo utilices para las preguntas que le haga cada vez que lo llame utilizando su nombre {{ agent_name }}. No utilices tablas, solamente genera texto.
+
+Crea un perfil de comprador o buyer persona, en función a la información que coloco a continuación:
+
+|*Pregunta*                               |*Respuesta*                              |
+|-----------------------------------------|-----------------------------------------|
+{% for attr in data.entity %}|{{ attr['label'] }} | {{ attr['value'] }} |
+{% endfor %}
+
+"

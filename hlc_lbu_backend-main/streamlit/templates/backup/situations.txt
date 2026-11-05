@@ -1,0 +1,15 @@
+NQCONSULTANT ¿Cuales son los principales miedos que una persona como {{ person_name }} 
+tiene cuando piensa en cada una de estas situaciones al no tener contratado un 
+servicio como el de {{ product_name }}? 
+Situaciones: 
+{% for d in dimensions %}
+- {{ d['title'] }},{{ d['description'] }}.
+
+{% endfor %}
+
+Crea un arreglo de estructuras sin numeracion, cada estructura tendra dos elementos, 
+no se permite anidacion, un primercampo para el nombre de la situacion que debe llamarse title 
+y otro campo que contiene una descripción de 3 situaciones para cada miedo y preocupación
+que debe llamarse description, presentar el resultado como un arreglo de objetos, 
+generar en formato json en la forma de un arreglo de objetos, el resultado 
+debe llamarase result.

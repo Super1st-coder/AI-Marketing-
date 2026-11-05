@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ad_channels",
+  "info": {
+    "singularName": "ad-channel",
+    "pluralName": "ad-channels",
+    "displayName": "Ad-Channel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ad_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ad.ad"
+    },
+    "channel_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::channel-v2.channel-v2"
+    },
+    "media_template_id": {
+      "type": "text"
+    },
+    "media_elements": {
+      "type": "json"
+    },
+    "media_images_banner": {
+      "type": "json"
+    },
+    "media_formats": {
+      "type": "json"
+    },
+    "media_generated": {
+      "type": "boolean",
+      "default": false
+    },
+    "media_template_name": {
+      "type": "text"
+    },
+    "media_generation_request_id": {
+      "type": "text"
+    },
+    "media_generation_request_pending": {
+      "type": "boolean",
+      "default": false
+    },
+    "channel_attributes": {
+      "type": "json"
+    },
+    "funnel_flow_channel_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::funnel-flow-channel.funnel-flow-channel"
+    },
+    "ad_ref2": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ad.ad",
+      "inversedBy": "ad_channels"
+    },
+    "media_platform_project_id": {
+      "type": "text"
+    },
+    "redirect_url": {
+      "type": "text"
+    },
+    "media_generation_request_datetime": {
+      "type": "datetime"
+    },
+    "channel_creative": {
+      "type": "json"
+    },
+    "selected": {
+      "type": "boolean",
+      "default": false
+    },
+    "abyssale_visuals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::abyssale-visual-ad-channel.abyssale-visual-ad-channel",
+      "mappedBy": "ad_channel"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "name": "Generate Activities for Scenario",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "3789e0d3-5d63-4545-a9a9-5b4913958911",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        980,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nreturn {'ok' : 0, 'message': {'code': 'N8N00', 'text': 'Error - Generating Activities for Scenarios' } }"
+      },
+      "id": "6ac0deeb-4db8-4926-9e72-f25f4685fee0",
+      "name": "Handle Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok' : 1, 'data' : _input.item.json.output }\n"
+      },
+      "id": "7feb54d9-97f2-4d7a-9717-9ed00b644ddb",
+      "name": "Format Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/scenario/activity/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "18f18a8b-fcd6-4dca-8341-cc0f2aa58978",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "webhookId": "38608691-aaf8-4d52-9317-53151cf19a81"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=\"{{ $json.body.agent_name }}\", the goal of this prompt is to generate 7 activities and 3 feelings that \"{{ $json.body.person_name }}\" might experience during a step in the buying process of a product.\n\nInstructions:\n\n1. Identify a specific step in the buying process.\n2. Generate 7 activities a person might engage in during this step.\n3. Generate 3 feelings a person might experience during this step.\n4. The activities and feelings must be divergent and not too similar to each other.\n5. The response must come in the form of a title of 7 words or less and the description in the form of 200 characters or less.\n6. The activities and feelings can't be repeated from previous or next steps in the buying process. You should check lists to ensure this.\n7. It is important to check the internet to add current news related to the situation of the \"{{ $json.body.person_name }}\".\n\nHere is the information to run the exercise:\n\nTitle of the step in Buying Process: {{ $json.body.scenario_title }}\nDescription of the step in Buying Process: {{ $json.body.scenario_description }}\n\nDame los resultados directamente como un arreglo json, donde cada actividad o sentimiento represente una posicion de este arreglo, use el siguiente ejemplo para construir la respuesta:\n\n[ elemento1 , elemento2, ... , elementoX]\n\nCada elemento debe tener los siguientes campos, \"Name\",  \"Description\". \n\nNo incluyas comentarios de entrada a la respuesta,ir directamente a la respuesta en formato JSON\n\n",
+        "options": {}
+      },
+      "id": "453c2570-9e44-498b-b9a7-160e975ea410",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Handle Error": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Results": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Format Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8276c861-9a34-4939-a1ec-2dd7d4c1faa3",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "Fcf1rA3Lrfr9uA8e",
+  "tags": []
+}

@@ -1,0 +1,162 @@
+{
+  "kind": "collectionType",
+  "collectionName": "campaigns",
+  "info": {
+    "singularName": "campaign",
+    "pluralName": "campaigns",
+    "displayName": "Campaign",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "campaigns": {
+      "type": "json"
+    },
+    "preferred_campaign": {
+      "type": "json"
+    },
+    "image_prompts": {
+      "type": "json"
+    },
+    "preferred_image_prompt": {
+      "type": "json"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "image_attributes_generated": {
+      "type": "json"
+    },
+    "image_attributes_saved": {
+      "type": "json"
+    },
+    "summary_generated": {
+      "type": "json"
+    },
+    "summary_saved": {
+      "type": "json"
+    },
+    "funnel_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::funnel.funnel"
+    },
+    "name": {
+      "type": "text"
+    },
+    "purpose": {
+      "type": "text"
+    },
+    "language": {
+      "type": "string"
+    },
+    "action": {
+      "type": "text"
+    },
+    "timing": {
+      "type": "text"
+    },
+    "offer": {
+      "type": "text"
+    },
+    "product_details": {
+      "type": "json"
+    },
+    "bperson_details": {
+      "type": "json"
+    },
+    "description": {
+      "type": "text"
+    },
+    "step": {
+      "type": "integer",
+      "default": 0
+    },
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "image_url": {
+      "type": "text"
+    },
+    "target_regions": {
+      "type": "text"
+    },
+    "project_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-v3.project-v3"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-v2.brand-v2"
+    },
+    "big_idea": {
+      "type": "text"
+    },
+    "message_location": {
+      "type": "text"
+    },
+    "audience_experience": {
+      "type": "text"
+    },
+    "tools": {
+      "type": "text"
+    },
+    "image_style_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image-style.image-style"
+    },
+    "bucket": {
+      "type": "string"
+    },
+    "asset_platform_project_id": {
+      "type": "text"
+    },
+    "thumbnail_url": {
+      "type": "text"
+    },
+    "ucampaign_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::umbrella-campaign.umbrella-campaign"
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "campaigns_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "campaigns_updated"
+    },
+    "thumbnail_id": {
+      "type": "string"
+    },
+    "brand_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "campaigns"
+    },
+    "campaign_channel_publishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campaign-channel-publish.campaign-channel-publish",
+      "mappedBy": "campaign_id"
+    }
+  }
+}

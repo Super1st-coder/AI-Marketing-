@@ -1,0 +1,1 @@
+export const PRODUCT_IMAGE_SLOT_COUNT = 5;

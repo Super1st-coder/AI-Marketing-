@@ -1,0 +1,157 @@
+version: "3"
+services:
+
+  strapi:
+    container_name: hiluca-strapi-dev
+    build: ./strapi-n8n
+    # image: us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/strapi:latest
+    image: strapi:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: strapiDB
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME_STRAPI}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      APP_KEYS: ${APP_KEYS}
+      NODE_ENV: ${NODE_ENV}
+    volumes:
+      - ./strapi-n8n/config:/opt/app/config
+      - ./strapi-n8n/src:/opt/app/src
+      - ./strapi-n8n/package.json:/opt/package.json
+      - ./strapi-n8n/yarn.lock:/opt/yarn.lock
+      - .env:/opt/app/.env
+      - ./strapi-n8n/public/uploads:/opt/app/public/uploads
+    ports:
+      - "0.0.0.0:21337:1337"
+    depends_on:
+      - strapiDB
+    # network_mode: host      
+    networks:
+      - hiluca-network
+
+  strapiDB:
+    container_name: hiluca-strapidb-dev
+    # platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    env_file: .env
+    image: postgres:12.0-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME_DEFAULT}
+    volumes:
+      # - strapi-data:/var/lib/postgresql/data/ #using a volume
+      - ./data-dev:/var/lib/postgresql/data/ # if you want to use a bind folder
+    ports:
+      - "0.0.0.0:35432:5432"
+    # network_mode: host      
+    networks:
+      - hiluca-network
+
+  n8n:
+    container_name: hiluca-n8n-dev
+    # platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    image: docker.n8n.io/n8nio/n8n
+    volumes:
+      - hiluca-n8n-data-dev:/home/node/.n8n
+      # - n8n_data:/home/ramon/Desarrollos/marketing/n8n/data
+    ports:
+      - "0.0.0.0:25678:5678"
+    environment:    
+      - N8N_SECURE_COOKIE=false
+      # - N8N_EDITOR_BASE_URL=http://35.209.130.147:5678
+    # network_mode: host      
+    networks:
+      - hiluca-network    
+  
+  redis:
+    container_name: hiluca-cache-dev
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '26379:6379'
+    # command: redis-server --save 60 1 --loglevel warning --requirepass <PASSWORD>
+    command: redis-server --save 60 1 --loglevel warning 
+    volumes: 
+      - hiluca-cache-dev:/data
+    # network_mode: host
+    networks:
+      - hiluca-network    
+
+  mongodb:
+    container_name: hiluca-mongodb-dev
+    image: mongodb/mongodb-community-server:latest
+    restart: always
+    ports:
+      - '37018:27017'
+    volumes:
+      - hiluca-mongodb-data-dev:/data/db
+    # network_mode: host
+    networks:
+      - hiluca-network
+
+
+  sinergia:
+    container_name: hiluca-sinergia-dev
+    build: ./sinergia
+    #image: us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/sinergia-image:latest
+    image: sinergia-image:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      CONFIG_TYPE: ${CONFIG_TYPE}
+      DATABASE_HOST: strapiDB
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME_SINERGIA}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      MONGODB_HOST: ${MONGODB_HOST}
+      MONGODB_PORT: ${MONGODB_PORT}
+      N8N_HOST: ${N8N_HOST}
+      N8N_PORT: ${N8N_PORT}
+      FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID}
+      FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET}
+      FACEBOOK_REDIRECT_URI: ${FACEBOOK_REDIRECT_URI}
+      FACEBOOK_GRAPH_API_BASE: ${FACEBOOK_GRAPH_API_BASE}
+      GCS_BUCKET_NAME: ${GCS_BUCKET_NAME}
+      GCS_SIGNED_URL_EXPIRATION: ${GCS_SIGNED_URL_EXPIRATION:-900}
+      GCS_SA_KEY_JSON: ${GCS_SA_KEY_JSON:-}
+    volumes:
+      - .env:/app/sinergia/.env
+    ports:
+      - "60002:60000"
+    depends_on:
+      - strapiDB
+      - redis
+      - mongodb
+    # network_mode: host      
+    networks:
+      - hiluca-network
+
+
+volumes:
+  hiluca-cache-dev:
+  hiluca-strapi-data-dev:
+  hiluca-n8n-data-dev:
+  hiluca-mongodb-data-dev:  
+
+networks:
+  hiluca-network:
+    driver: bridge
+    # driver_opts:
+    #   com.docker.network.driver.mtu: 1460
+
+# networks:
+#   hiluca-network:
+#     ipam:
+#       driver: default
+      # config:
+      #   - subnet: 172.24.0.0/16

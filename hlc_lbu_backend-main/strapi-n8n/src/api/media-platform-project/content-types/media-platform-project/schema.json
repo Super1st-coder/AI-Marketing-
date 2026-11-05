@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_platform_projects",
+  "info": {
+    "singularName": "media-platform-project",
+    "pluralName": "media-platform-projects",
+    "displayName": "Media-Platform-Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "project_name": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "brand_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "media_platform_projects"
+    },
+    "ad_sets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ad-set.ad-set",
+      "mappedBy": "media_platform_project_id"
+    }
+  }
+}

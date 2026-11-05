@@ -1,0 +1,50 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# terraform.tfvars.example – Billing Cap
+# Copia este archivo a terraform.tfvars y rellena tus valores reales.
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Proyecto donde vive la Cloud Function y el Pub/Sub topic
+host_project_id = "mi-proyecto-gcp"
+
+# Billing Account a monitorear (GCP Console → Billing → Manage)
+billing_account_id = "ABCDEF-123456-GHIJKL"
+
+# Región para la Cloud Function y el bucket de código fuente
+region = "us-central1"
+
+# Techo de gasto mensual en USD
+budget_amount_usd = 1500
+
+# ──────────────────────────────────────────────────────────────────────────────
+# MODO 1 – Proteger solo proyectos específicos:
+# (deja excluded_project_ids vacío o no lo pongas)
+# ──────────────────────────────────────────────────────────────────────────────
+# protected_project_ids = ["mi-proyecto-dev", "mi-proyecto-staging"]
+# excluded_project_ids  = []
+
+# ──────────────────────────────────────────────────────────────────────────────
+# MODO 2 – Proteger TODOS los proyectos EXCEPTO los exentos:
+# (deja protected_project_ids vacío)
+# ──────────────────────────────────────────────────────────────────────────────
+protected_project_ids = []
+excluded_project_ids  = [
+  # Proyectos críticos que NUNCA deben pausarse (ej: producción principal)
+  # "mi-proyecto-prod",
+  # "mi-proyecto-ci-cd",
+]
+
+# Canales de notificación de Cloud Monitoring (opcional)
+# Obtén los IDs en: GCP Console → Monitoring → Alerting → Notification channels
+notification_channel_ids = [
+  # "projects/mi-proyecto/notificationChannels/1234567890",
+]
+
+log_level = "INFO"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Guardia de periodo: la función ignorará alertas de meses anteriores a esta
+# fecha. Útil cuando ya excediste el presupuesto en el mes actual y quieres
+# que el sistema empiece a medir a partir del siguiente mes.
+# Formato: YYYY-MM-DD  |  Dejar en "" para actuar siempre.
+# ──────────────────────────────────────────────────────────────────────────────
+active_from = "2026-04-01"

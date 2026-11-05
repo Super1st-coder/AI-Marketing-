@@ -1,0 +1,163 @@
+{
+  "name": "Improve Scenario BPerson",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "8db3e7a8-fdbd-4084-945b-1815ee027e03",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        80
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nreturn {'ok' : 0, 'message': {'code': 'N8N00', 'text': 'Error - Generating Scenario' } }"
+      },
+      "id": "2c3a4e52-7fcc-4004-ba19-57293883868a",
+      "name": "Handle Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok' : 1, 'data' : _input.item.json.output }\n"
+      },
+      "id": "2500537f-fae7-48a3-b84b-f673222b07f9",
+      "name": "Format Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/scenario/improve",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "07beff3d-356a-41aa-b702-34853fde21bc",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "webhookId": "00807982-e961-477f-87e2-9f2dba1b5e7c"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=\"{{ $json.body.agent_name }}\" Using the provided characteristics of a person like \"{{ $json.body.person_name }}\", update the buyer’s journey stage described below.\n\n1. To update the buyer’s journey stages, take the question and response as a baseline.\n2. Avoid repeating the information previously generated and ensure that the variations in titles and descriptions are significant.\n3. Generate titles and descriptions considering the question, the title, and the response provided below.\n4. The title should be 5 words or fewer.\n5. The description should be 150 characters or fewer.\n6. Use temperature 1.0.\n\n>>> Context Start <<<\n\nQuestion :\n{{ $json.body.scenario_attributes['Question Text'] }}\n\nResponse:\n{{ $json.body.scenario_attributes['Answer Text'] }}\n\n>>> Context End <<<\n\n>>> Title and Description to Change <<<\n\nTitle to be reformulated to avoid repetition:\n{{ $json.body.scenario_attributes.Name }}\n\nDescription to be reformulated to avoid repetition:\n{{ $json.body.scenario_attributes.Description }}\n\n>>> End of Title and Description to Change <<<\n\nDame los resultados directamente como un arreglo json, donde  este  paso del proceso represente una posicion de este arreglo, use el siguiente ejemplo para construir la respuesta:\n\n[ pasoProceso1 ]\n\npasoProceso1 debe tener los siguientes campos, \"Name\",  \"Description\", \"Question Number\" = {{ $json.body.scenario_attributes['Question Number'] }}, \"Question Text\" = {{ $json.body.scenario_attributes['Question Text'] }}, \"Answer Text\" = {{ $json.body.scenario_attributes['Answer Text'] }}\n\nNo incluyas comentarios de entrada a la respuesta,ir directamente a la respuesta en formato JSON",
+        "options": {}
+      },
+      "id": "f0e98a65-9e11-4edb-841f-4d4e2fbaa4a7",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Handle Error": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Results": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Format Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "140a9bda-dcf4-453e-aa5a-8526364cab14",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "ByEygMCWtvBnKtXK",
+  "tags": []
+}

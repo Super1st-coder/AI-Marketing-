@@ -1,0 +1,1384 @@
+{
+  "pbtResults": {
+    "3.2 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_task.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791368983568
+    },
+    "2.3 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_schemas_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791369041719
+    },
+    "2.4 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_schemas_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791369496391
+    },
+    "5.4 Escribir prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791369518007
+    },
+    "6.3 Escribir prueba de propiedad en `tests/test_nano_banana_edit_variations.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791369847478
+    },
+    "9.2 Escribir prueba de propiedad en `tests/test_ad_variant_image_prompter_validator_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791369867199
+    },
+    "9.3 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791369936749
+    },
+    "5.5 Escribir prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791370039507
+    },
+    "4.3 Escribir prueba de propiedad en `tests/test_edit_instruction_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791370050756
+    },
+    "10.3 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791370107526
+    },
+    "11.2 Escribir prueba de propiedad y pruebas del decorador en `tests/test_ad_variant_image_edit_task.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791370474082
+    },
+    "10.4 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791370524969
+    },
+    "10.5 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791370736443
+    },
+    "13.4 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_endpoints.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791370955429
+    },
+    "10.6 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791371084674
+    },
+    "13.5 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_endpoints.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791371184560
+    },
+    "10.7 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791373010605
+    },
+    "13.6 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_endpoints.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791373149240
+    },
+    "10.8 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791373202115
+    },
+    "15.4 Actualizar la prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791482247482
+    },
+    "15.5 Actualizar la prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791482651145
+    },
+    "15.6 Escribir prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791483263146
+    },
+    "15.15 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791483559563
+    },
+    "15.20 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_resolve_urls_properties.py` (módulo nuevo)": {
+      "status": "passed",
+      "lastRunTimestamp": 1791483760437
+    },
+    "15.23 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_helpers_properties.py` (módulo nuevo)": {
+      "status": "passed",
+      "lastRunTimestamp": 1791484375707
+    },
+    "15.16 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791484430837
+    },
+    "15.17 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791484771658
+    },
+    "15.18 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791485298059
+    },
+    "15.19 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": {
+      "status": "passed",
+      "lastRunTimestamp": 1791485748951
+    }
+  },
+  "executionHistory": {
+    "1.1 Crear `fury/app/requirements-dev.txt`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368052525
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368073742
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368507739
+      }
+    ],
+    "1.2 Crear el módulo de helpers compartidos `fury/app/tests/_edit_pipeline_fakes.py` (no es `test_*`)": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368052858
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368076957
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368508069
+      }
+    ],
+    "2.1 Añadir los modelos a `schemas/pipeline_schemas.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368053130
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368077704
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368508374
+      }
+    ],
+    "2.2 Escribir pruebas unitarias en `tests/test_ad_variant_image_edit_schemas.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368053452
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368775096
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369058832
+      }
+    ],
+    "2.3 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_schemas_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368053724
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368776549
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369059987
+      }
+    ],
+    "2.4 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_schemas_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368054071
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369427853
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369715251
+      }
+    ],
+    "3.1 Añadir las subclases de `FuryException` a `core/exceptions.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368054473
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368078105
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368509656
+      }
+    ],
+    "3.2 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_task.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368054799
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368778298
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369061550
+      }
+    ],
+    "3.3 Escribir pruebas unitarias de la tabla de excepciones en `tests/test_ad_variant_image_edit_task.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368055078
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369429341
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369716897
+      }
+    ],
+    "4.1 Crear `services/edit_instruction.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368055370
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368779776
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369062766
+      }
+    ],
+    "4.2 Escribir pruebas unitarias en `tests/test_edit_instruction.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368055613
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369430757
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369718379
+      }
+    ],
+    "4.3 Escribir prueba de propiedad en `tests/test_edit_instruction_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368055837
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369964945
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370303910
+      }
+    ],
+    "5.1 Añadir a `agents/tools/campaign_tools.py` `_ad_variant_base_path`, `get_ad_variant_image` y `upload_ad_variant_image_from_edit`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368056117
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368079937
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368511448
+      }
+    ],
+    "5.2 Añadir a `agents/tools/mock_sinergia.py` las funciones homónimas con firma idéntica": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368056397
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368516702
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368763890
+      }
+    ],
+    "5.3 Escribir pruebas unitarias en `tests/test_ad_variant_sinergia_tools.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368056604
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368781178
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369064401
+      }
+    ],
+    "5.4 Escribir prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368056909
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369432542
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369719827
+      }
+    ],
+    "5.5 Escribir prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368057361
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369969316
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370305311
+      }
+    ],
+    "6.1 Añadir `edit_image_variations` a `agents/nano_banana_agent.py` sin tocar `generate_images_from_prompts` ni `make_nano_banana_agent`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368057741
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368518268
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368767382
+      }
+    ],
+    "6.2 Escribir pruebas unitarias en `tests/test_nano_banana_edit_variations.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368057943
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369070792
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369417751
+      }
+    ],
+    "6.3 Escribir prueba de propiedad en `tests/test_nano_banana_edit_variations.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368058123
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369732843
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369954264
+      }
+    ],
+    "7.1 Crear `agents/ad_variant_image_prompter_agent.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368058379
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368519913
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368768346
+      }
+    ],
+    "7.2 Añadir `validate_ad_variant_image_prompter_response` a `services/ads_validators.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368058610
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368521355
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368768845
+      }
+    ],
+    "7.3 Escribir pruebas unitarias en `tests/test_ad_variant_image_prompter_validator.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368058944
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369074421
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369418184
+      }
+    ],
+    "8. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368059230
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373233949
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373376738
+      }
+    ],
+    "9.1 Añadir constantes y helpers privados": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368059539
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369075205
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369419420
+      }
+    ],
+    "9.2 Escribir prueba de propiedad en `tests/test_ad_variant_image_prompter_validator_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368059916
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369734349
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369955841
+      }
+    ],
+    "9.3 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368060177
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369735956
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369957528
+      }
+    ],
+    "10.1 Implementar la corrutina en `services/job_runner_service.py` con `@observe(name=\"fury.ad_variant_image_edit_pipeline\")`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368060457
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369425787
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369721575
+      }
+    ],
+    "10.2 Escribir pruebas de escenario en `tests/test_ad_variant_image_edit_pipeline.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368060773
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369970570
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370306547
+      }
+    ],
+    "10.3 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368061085
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369971309
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370308083
+      }
+    ],
+    "10.4 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368061337
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370320062
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370606008
+      }
+    ],
+    "10.5 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368061661
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370616060
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370844525
+      }
+    ],
+    "10.6 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368061917
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370851711
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791371104464
+      }
+    ],
+    "10.7 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368062225
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791371114790
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373030679
+      }
+    ],
+    "10.8 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368062504
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373031919
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373226317
+      }
+    ],
+    "11.1 Implementar la tarea en `services/job_runner_service.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368062704
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369972666
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370309434
+      }
+    ],
+    "11.2 Escribir prueba de propiedad y pruebas del decorador en `tests/test_ad_variant_image_edit_task.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368062995
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370322275
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370607477
+      }
+    ],
+    "12. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368063321
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373377850
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373525231
+      }
+    ],
+    "13.1 Añadir los endpoints a `api/v2/endpoints/variants.py` (router existente con `prefix=\"/variants\"`, sin tocar `router.py`)": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368063595
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370323245
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370608950
+      }
+    ],
+    "13.2 Aplicar el cambio mínimo en `api/v2/endpoints/jobs.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368063950
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369076206
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369420159
+      }
+    ],
+    "13.3 Escribir pruebas unitarias en `tests/test_ad_variant_image_edit_endpoints.py` con `TestClient(app)`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368064174
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370617453
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370846138
+      }
+    ],
+    "13.4 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_endpoints.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368064488
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370853269
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791371105827
+      }
+    ],
+    "13.5 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_endpoints.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368064995
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791371115852
+      },
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791371935763
+      }
+    ],
+    "13.6 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_endpoints.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368065368
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373033025
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373227334
+      }
+    ],
+    "14. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791368065722
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373526232
+      },
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373871730
+      }
+    ],
+    "7. Variant_Prompter y su validador": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369418719
+      }
+    ],
+    "2. Schemas del request y del resultado": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369715825
+      }
+    ],
+    "3. Excepciones del pipeline": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369717311
+      }
+    ],
+    "6. Image_Editor con NanoBanana2": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369954661
+      }
+    ],
+    "9. Helpers del pipeline en `services/job_runner_service.py`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791369957949
+      }
+    ],
+    "4. Expansion_Translator determinista": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370304422
+      }
+    ],
+    "5. Cliente de Sinergia y Mock_Sinergia": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370305685
+      }
+    ],
+    "11. Tarea Celery `run_edit_ad_variant_image_pipeline`": [
+      {
+        "executionId": "525b2aa3-8880-415c-83b0-d2482de03070",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791370607963
+      }
+    ],
+    "10. Corrutina `_run_edit_ad_variant_image_pipeline`": [
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373226780
+      }
+    ],
+    "13. Endpoints y consulta del job": [
+      {
+        "executionId": "ed8225bc-f0f5-4487-8a78-5fab83c36c3f",
+        "chatSessionId": "sess_46d2b86e-bdb3-4125-9cc8-a333a2d3d3c2",
+        "timestamp": 1791373227695
+      }
+    ],
+    "15.1 Eliminar `upload_ad_variant_image_from_edit` y hacer únicos los ids del mock de `upload_image_to_library`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480098096
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480182751
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481060367
+      }
+    ],
+    "15.2 Sanear el log de depuración de `upload_image_to_library` en `agents/tools/campaign_tools.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480098617
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481090862
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481419162
+      }
+    ],
+    "15.3 Actualizar las pruebas unitarias de `tests/test_ad_variant_sinergia_tools.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480098966
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481446407
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482106697
+      }
+    ],
+    "15.4 Actualizar la prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480099507
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482118715
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482546598
+      }
+    ],
+    "15.5 Actualizar la prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480100110
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482552192
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483061458
+      }
+    ],
+    "15.6 Escribir prueba de propiedad en `tests/test_ad_variant_sinergia_tools.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480100497
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483080327
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483921934
+      }
+    ],
+    "15.7 Añadir `VariationUrlResolutionError` a `core/exceptions.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480101011
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480187528
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481064719
+      }
+    ],
+    "15.8 Actualizar las pruebas de excepciones en `tests/test_ad_variant_image_edit_task.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480101387
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481092858
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481422923
+      }
+    ],
+    "15.9 Adaptar `tests/_edit_pipeline_fakes.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480101865
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480191416
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481066169
+      }
+    ],
+    "15.10 Añadir constantes y Edit_Sleep en `services/job_runner_service.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480102349
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480199366
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481067148
+      }
+    ],
+    "15.11 Actualizar `_EDIT_STEPS` y `_EDIT_PROGRESS_STEPS` en `services/job_runner_service.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480102784
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481094816
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481434485
+      }
+    ],
+    "15.12 Implementar la subida con retorno `str` y el checkpoint `upload` sin `url` en `_run_edit_ad_variant_image_pipeline`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480103222
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791481448036
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482109004
+      }
+    ],
+    "15.13 Implementar el paso `resolve_urls` y el `done` en `_run_edit_ad_variant_image_pipeline`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480103767
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482120111
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482539501
+      }
+    ],
+    "15.14 Actualizar las pruebas de escenario en `tests/test_ad_variant_image_edit_pipeline.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480104287
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482554040
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483063352
+      }
+    ],
+    "15.15 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480104696
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483081692
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483927097
+      }
+    ],
+    "15.16 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480105046
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483959464
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791484493778
+      }
+    ],
+    "15.17 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480105477
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791484530709
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791484816474
+      }
+    ],
+    "15.18 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480105872
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791484828506
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791485362585
+      }
+    ],
+    "15.19 Actualizar la prueba de propiedad en `tests/test_ad_variant_image_edit_pipeline_properties.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480106391
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791485370201
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791485800475
+      }
+    ],
+    "15.20 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_resolve_urls_properties.py` (módulo nuevo)": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480106804
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483083755
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483942655
+      }
+    ],
+    "15.21 Implementar el nuevo `_variation_image_name` y `_IMAGE_NAME_EXTENSIONS` en `services/job_runner_service.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480107274
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791482555624
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483065480
+      }
+    ],
+    "15.22 Escribir pruebas unitarias en `tests/test_ad_variant_image_edit_helpers.py` (módulo nuevo, sin Hypothesis)": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480107616
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483085155
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483946933
+      }
+    ],
+    "15.23 Escribir prueba de propiedad en `tests/test_ad_variant_image_edit_helpers_properties.py` (módulo nuevo)": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480107949
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483960928
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791484496352
+      }
+    ],
+    "15.24 Actualizar las pruebas que asumen `banner_N.png` en `tests/test_ad_variant_image_edit_pipeline.py`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480108488
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483087435
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791483951106
+      }
+    ],
+    "16. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791480108917
+      },
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791485813805
+      }
+    ],
+    "15. Cambio: subida vía `upload_image_to_library` + paso `resolve_urls`": [
+      {
+        "executionId": "dd641c6a-9ba6-4035-b691-34969e2033d9",
+        "chatSessionId": "sess_211d8760-66b1-4c72-bc94-a3a6b24d41e6",
+        "timestamp": 1791485801163
+      }
+    ]
+  }
+}

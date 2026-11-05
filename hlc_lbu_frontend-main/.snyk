@@ -1,0 +1,15 @@
+version: v1.25.0
+ignore:
+  'npm:lodash:20180130':
+    - '*':
+        reason: 'No fix available yet'
+        expires: 2024-12-31T00:00:00.000Z
+  'npm:some-vulnerability:version':
+    - '*':
+        reason: 'False positive or acceptable risk'
+        expires: 2024-12-31T00:00:00.000Z
+
+patch:
+  'npm:some-vulnerability:version':
+    - path: 'path/to/file.js':
+      patched: '2024-01-01T00:00:00.000Z' 

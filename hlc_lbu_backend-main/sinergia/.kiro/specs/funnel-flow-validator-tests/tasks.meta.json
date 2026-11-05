@@ -1,0 +1,599 @@
+{
+  "pbtResults": {
+    "9.1 Escribir el test PBT de la Property 1: El despacho conserva contexto y resultado": {
+      "status": "passed",
+      "lastRunTimestamp": 1788801247056
+    },
+    "9.2 Escribir el test PBT de la Property 2: La respuesta normaliza estados en orden canónico": {
+      "status": "passed",
+      "lastRunTimestamp": 1788801508502
+    },
+    "9.3 Escribir el test PBT de la Property 3: El margen de longitud está acotado": {
+      "status": "passed",
+      "lastRunTimestamp": 1788801770081
+    },
+    "9.4 Escribir el test PBT de la Property 4: Las consultas indexadas cubren cada identificador una sola vez": {
+      "status": "passed",
+      "lastRunTimestamp": 1788802456774
+    },
+    "9.5 Escribir el test PBT de la Property 5: La consolidación particiona relaciones y preserva proyecciones": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806619208
+    },
+    "9.6 Escribir el test PBT de la Property 6: Una lista de canales no vacía siempre es válida": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806628945
+    },
+    "9.7 Escribir el test PBT de la Property 7: Los errores de estructura corresponden a ad sets inválidos": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806642416
+    },
+    "9.8 Escribir el test PBT de la Property 8: La audiencia preferida determina la validez por ad set": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806650936
+    },
+    "9.9 Escribir el test PBT de la Property 9: Un experimento verdadero determina la validez por ad set": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806658893
+    },
+    "9.10 Escribir el test PBT de la Property 10: Los límites de atributos se aplican salvo para CTA": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806675634
+    },
+    "9.11 Escribir el test PBT de la Property 11: Los errores de medios corresponden al subconjunto inválido": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806686142
+    },
+    "9.12 Escribir el test PBT de la Property 12: El exceso de payload usa el límite derivado": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806708859
+    },
+    "9.13 Escribir el test PBT de la Property 13: Todo contexto de anuncio válido completa sin errores": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806723118
+    },
+    "9.14 Escribir el test PBT de la Property 14: Las infracciones independientes se acumulan de forma estable": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806734426
+    },
+    "9.15 Escribir el test PBT de la Property 15: Los agregados reflejan exactamente las dependencias fallidas": {
+      "status": "passed",
+      "lastRunTimestamp": 1788806758469
+    }
+  },
+  "executionHistory": {
+    "1.1 Crear la dependencia de test fijada para las propiedades": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796141550
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796167226
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796317503
+      }
+    ],
+    "1.2 Crear el módulo de pruebas y sus builders locales frescos": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796141872
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796331949
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796586779
+      }
+    ],
+    "1.3 Implementar fixtures locales de aislamiento y pruebas del arnés": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796142253
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796601192
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796832341
+      }
+    ],
+    "2.1 Probar la inicialización y el orden canónico": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796142497
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796861069
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797063974
+      }
+    ],
+    "2.2 Probar `_fetch_bulk` y `_run_validator`": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796142761
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797093430
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797307474
+      }
+    ],
+    "2.3 Probar `_build_response` y los límites de longitud por ejemplos": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796143039
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797329875
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797555141
+      }
+    ],
+    "3. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796143259
+      }
+    ],
+    "4.1 Implementar el escenario exitoso mínimo y las aserciones de consultas": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796143484
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797592554
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797781689
+      }
+    ],
+    "4.2 Implementar escenarios vacíos, referencias desconocidas y relaciones defectuosas": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796143716
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797808003
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788798122186
+      }
+    ],
+    "4.3 Implementar la matriz de excepciones de Strapi": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796144006
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788798158421
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788798513727
+      }
+    ],
+    "5.1 Implementar las matrices de `ChannelValidator` y `AdsStructureValidator`": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796144206
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788798571584
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788798865129
+      }
+    ],
+    "5.2 Implementar la matriz de `AudiencesValidator`": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796144427
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788798933016
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799203514
+      }
+    ],
+    "5.3 Implementar la matriz de `ExperimentsValidator`": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796144759
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799240526
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799457075
+      }
+    ],
+    "6.1 Probar precondiciones, proyecto, ads, URL y selección de variante": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796145050
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799479994
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799701456
+      }
+    ],
+    "6.2 Probar atributos de canal y payloads": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796145297
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799729648
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799958925
+      }
+    ],
+    "6.3 Probar presencia de medios y datos visuales de formatos": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796145573
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799982933
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800139492
+      }
+    ],
+    "6.4 Probar límites, intención y excepciones de elementos": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796145856
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800171200
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800351529
+      }
+    ],
+    "6.5 Probar contexto válido y acumulación estable de errores": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796146219
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800404071
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800611672
+      }
+    ],
+    "7.1 Implementar la matriz aislada de dependencias agregadas": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796146592
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800646114
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800791489
+      }
+    ],
+    "7.2 Probar la respuesta final de `execute` con datos": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796146871
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800834607
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801024371
+      }
+    ],
+    "8. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796147165
+      }
+    ],
+    "9.1 Escribir el test PBT de la Property 1: El despacho conserva contexto y resultado": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796147547
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801055863
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801292035
+      }
+    ],
+    "9.2 Escribir el test PBT de la Property 2: La respuesta normaliza estados en orden canónico": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796148042
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801336439
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801596189
+      }
+    ],
+    "9.3 Escribir el test PBT de la Property 3: El margen de longitud está acotado": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796148276
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801642356
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801829637
+      }
+    ],
+    "9.4 Escribir el test PBT de la Property 4: Las consultas indexadas cubren cada identificador una sola vez": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796148522
+      },
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801870393
+      }
+    ],
+    "9.5 Escribir el test PBT de la Property 5: La consolidación particiona relaciones y preserva proyecciones": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796148756
+      }
+    ],
+    "9.6 Escribir el test PBT de la Property 6: Una lista de canales no vacía siempre es válida": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796148970
+      }
+    ],
+    "9.7 Escribir el test PBT de la Property 7: Los errores de estructura corresponden a ad sets inválidos": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796149185
+      }
+    ],
+    "9.8 Escribir el test PBT de la Property 8: La audiencia preferida determina la validez por ad set": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796149440
+      }
+    ],
+    "9.9 Escribir el test PBT de la Property 9: Un experimento verdadero determina la validez por ad set": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796149655
+      }
+    ],
+    "9.10 Escribir el test PBT de la Property 10: Los límites de atributos se aplican salvo para CTA": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796149877
+      }
+    ],
+    "9.11 Escribir el test PBT de la Property 11: Los errores de medios corresponden al subconjunto inválido": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796150176
+      }
+    ],
+    "9.12 Escribir el test PBT de la Property 12: El exceso de payload usa el límite derivado": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796150571
+      }
+    ],
+    "9.13 Escribir el test PBT de la Property 13: Todo contexto de anuncio válido completa sin errores": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796150792
+      }
+    ],
+    "9.14 Escribir el test PBT de la Property 14: Las infracciones independientes se acumulan de forma estable": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796151038
+      }
+    ],
+    "9.15 Escribir el test PBT de la Property 15: Los agregados reflejan exactamente las dependencias fallidas": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796151388
+      }
+    ],
+    "10.1 Ejecutar la validación pytest completa y corregir únicamente el código de pruebas": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796151682
+      }
+    ],
+    "11. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796151986
+      }
+    ],
+    "1. Preparar las dependencias y el arnés local de la suite": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788796832596
+      }
+    ],
+    "2. Caracterizar el estado inicial y los helpers del caso de uso": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788797555526
+      }
+    ],
+    "4. Probar la orquestación, consolidación y fallos de obtención": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788798513951
+      }
+    ],
+    "5. Probar los validadores básicos": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788799457417
+      }
+    ],
+    "6. Caracterizar todas las ramas de `AdsContentValidator`": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788800611852
+      }
+    ],
+    "7. Probar los validadores agregados y el contrato final": [
+      {
+        "executionId": "647db6ab-f992-49ef-9b39-fc55987f29c9",
+        "chatSessionId": "sess_c09f7ed9-04da-4b46-8b35-ff59ab81800a",
+        "timestamp": 1788801024626
+      }
+    ]
+  }
+}

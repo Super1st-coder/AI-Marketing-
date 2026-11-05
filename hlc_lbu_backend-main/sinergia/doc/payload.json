@@ -1,0 +1,64 @@
+{
+    "project_id": 14,
+    "target_customer_attributes_generated": {
+        "Goals": [
+          "Simplified banking",
+          "Use tech for finances",
+          "Find clear benefits",
+          "Reliable alternatives",
+          "Stay current with trends"
+        ],
+        "Pain Points": [
+          "Complex bank processes",
+          "Long wait times",
+          "Hidden fees",
+          "Poor customer service",
+          "Lack of innovation"
+        ],
+        "Problem to Solve": [
+          "Simplify financial tasks",
+          "Avoid unnecessary fees",
+          "Streamline banking",
+          "Clear benefit offerings",
+          "Tech-integrated services"
+        ],
+        "Preferences": [
+          "User-friendly apps",
+          "Transparent policies",
+          "Fast and efficient",
+          "Innovative solutions",
+          "City-based services"
+        ],
+        "Buyer Profile": [
+          "Tech-savvy",
+          "Frustrated with banks",
+          "Lives in cities",
+          "Seeks alternatives",
+          "Loves simplicity"
+        ]
+    },
+    "target_customer_attributes_saved": {
+        "Goals": [
+          "Simplified banking",
+          "Stay current with trends"
+        ],
+        "Pain Points": [
+          "Complex bank processes",
+          "Poor customer service"
+        ],
+        "Problem to Solve": [
+          "Simplify financial tasks",
+          "Streamline banking"
+        ],
+        "Preferences": [
+          "User-friendly apps",
+          "Transparent policies",
+          "Fast and efficient"
+        ],
+        "Buyer Profile": [
+          "Lives in cities",
+          "Seeks alternatives",
+          "Loves simplicity"
+        ]
+    }
+  }

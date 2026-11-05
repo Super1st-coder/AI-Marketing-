@@ -1,0 +1,32 @@
+---
+description: Core conventions for the Vue frontend project
+alwaysApply: true
+---
+
+# Project Conventions
+
+- Prefer Vue 3 Composition API with `<script setup lang="ts">` in components.
+- Prefer camelCase for component props (e.g. `hasContext`, `maxWidth`) in definitions and template bindings.
+- Reuse existing base components before adding new UI patterns.
+- Prefer Tailwind utility classes for styling; follow existing utility patterns before adding custom CSS.
+- Follow existing naming and folder conventions for components and composables.
+- In `catch` blocks, always log the error with `console.error` before handling or re-throwing. Use a short, descriptive message when helpful (e.g. `console.error("Failed to load ads table:", error)`).
+- Prefer Chrome DevTools MCP over the built-in Cursor browser for UI verification.
+
+## Loading data with `Suspense` and top-level `await`
+
+Components load the data they need to render with a top-level `await` in `<script setup>`, instead of fetching in `onMounted` and tracking an `isLoading` ref:
+
+```ts
+const brandId = useBrandId();
+
+const { data: channelGroupList } = await UtilsApi.getChannelGroupList();
+```
+
+A top-level `await` makes the component async, so it only renders inside a `<Suspense>` ancestor. That ancestor shows the loading state until every async child resolves.
+
+- **Boundaries already exist.** `App.vue`, the layouts' `RouterView`s, `FormStep`, and screen switchers like `FunnelPaidSocialFormAdsAssembly` wrap their content in `<Suspense>` with a `CircleLoaderDefault` fallback. Pages, form steps and screens can `await` without adding anything.
+- **Add one to get a loader for content that mounts later.** A boundary only shows its fallback while its own content is loading. An async component that mounts after the nearest boundary has already resolved (inside a modal, a tab, or behind a `v-if` that turns on later) still renders once its `await` finishes, but shows nothing until then. To show a loader, give it its own boundary: `<TabPanel useSuspense>` for tabs, or a `<Suspense>` with a fallback mounted with it (e.g. `<Suspense v-if="isOpen">`). Every component here has `App.vue`'s `Suspense` somewhere above it, so it always renders eventually. With no `Suspense` anywhere above, it would never render.
+- **Nested boundaries** use `suspensible` and `:timeout="0"`, following the existing ones, so the fallback shows immediately when the content switches.
+- **Errors go to the error boundary.** Don't wrap a top-level `await` in `try/catch` just to swallow the error. Let it throw: the nearest `ErrorBoundary` shows an `ErrorScreen` (`FormStepErrorBoundary` adds a "Try again" button, `TabPanel useSuspense` includes one). Only catch when the component can render something useful without the data.
+- **Only for initial data.** Use top-level `await` for data the component can't render without. User-triggered work (submits, button actions, generation, polling) runs in functions, with its own loading state and `try/catch`.

@@ -1,0 +1,120 @@
+** Información general de tu producto
+¿Cuál es el nombre de tu producto?:
+¿Tienes una imagen o avatar representativo para tu producto?:
+Describe brevemente tu producto:
+¿En qué industria opera tu producto?:
+Cuál es el mercado principal para tu producto?
+Existe un submercado o nicho específico donde se enfoca tu producto?
+** Ventajas de tu producto
+¿Cuál consideras que es la principal ventaja competitiva de tu producto?:
+¿Cuál es la oferta comercial más agresiva de tu producto?:
+1- Menciona una característica clave de tu producto:
+1- ¿Cómo esta ventaja beneficia al cliente?:
+2- Menciona una característica clave de tu producto:
+2- ¿Cómo esta ventaja beneficia al cliente?:
+3- Menciona una característica clave de tu producto:
+3- ¿Cómo esta ventaja beneficia al cliente?:
+4- Menciona una característica clave de tu producto:
+4- ¿Cómo esta ventaja beneficia al cliente?:
+5- Menciona una característica clave de tu producto:
+5- ¿Cómo esta ventaja beneficia al cliente?:
+6- Menciona una característica clave de tu producto:
+6- ¿Cómo esta ventaja beneficia al cliente?:
+¿Tu producto cuenta con garantía? Breve descripción.
+¿Cuáles son las políticas de garantía de tu producto?
+¿Tienes políticas de retorno o reembolso? Descríbelas brevemente.
+¿Ofreces alguna prueba gratuita o demostración de tu producto?
+** Special Offers or Promotions
+1- ¿Tienes alguna promoción activa actualmente? Descríbela:
+1- ¿Cuánto tiempo estará disponible esta promoción?:
+1- Detalla los términos o condiciones específicos de la promoción.
+2- ¿Tienes una segunda promoción activa actualmente? Descríbela:
+2- ¿Cuánto tiempo estará disponible esta segunda promoción?:
+2- Detalla los términos o condiciones específicos de la segunda promoción.
+3- ¿Tienes alguna promoción activa actualmente? Descríbela:
+3- ¿Cuánto tiempo estará disponible esta promoción?:
+3- Detalla los términos o condiciones específicos de la segunda promoción.
+** Product relationships with the competitors
+Identifica la principal debilidad de tu producto frente a la competencia:
+Identifica la segunda principal debilidad de tu producto frente a la competencia:
+Menciona otras debilidades que creas importantes:
+Describe una oportunidad principal que tu producto tiene para destacarse de la competencia:
+¿Cuál es una oportunidad secundaria que tu producto puede aprovechar?:
+Lista otras oportunidades que veas para tu producto en el mercado:
+** Product relationships with the market
+¿Cuál es el mercado geográfico principal de tu producto?:
+¿Existen mercados geográficos secundarios donde tu producto también esté presente?:
+Menciona otros mercados geográficos de interés para tu producto:
+¿Cómo consideras que está posicionado tu producto en el mercado actualmente?:
+¿En qué categoría del mercado se ubica tu producto y cómo se posiciona dentro de esta?:
+** Precio
+¿En qué posición se encuentra tu producto en términos de precio? (Ej: premium, medio, económico):
+¿Cuál es el precio mínimo de tu producto?:
+¿Cuál es el precio máximo de tu producto?:
+¿Cuál es el ticket promedio de venta de tu producto?:
+Describe los planes de precios disponibles para tu producto.:
+** Proceso de Venta
+Menciona el primer paso en el proceso de ventas.:
+Menciona el segundo paso en el proceso de ventas.:
+Menciona el tercer paso en el proceso de ventas.:
+Menciona el cuarto paso en el proceso de ventas.:
+Menciona el quinto paso en el proceso de ventas.:
+Menciona el sexto paso en el proceso de ventas.:
+Menciona el séptimo paso en el proceso de ventas.:
+Menciona el octavo paso en el proceso de ventas.:
+Menciona el noveno paso en el proceso de ventas.:
+Menciona el décimo paso en el proceso de ventas.:
+¿Cuánto tiempo suele durar el ciclo completo de ventas para tu producto?:
+** Confianza
+Menciona un testimonio de cliente:
+Proporciona un enlace al video testimonial de un cliente:
+Menciona el segundo testimonio de cliente:
+Proporciona un enlace al segundo video testimonial de un cliente:
+Menciona el tercer testimonio de cliente:
+Proporciona un enlace al tercer video testimonial de un cliente:
+Describe un caso de estudio relevante:
+Proporciona un enlace al video del caso de estudio 1:
+Describe el segundo caso de estudio relevante:
+Proporciona un enlace al video del caso de estudio 2:
+Describe el tercer caso de estudio relevante:
+Proporciona un enlace al video del caso de estudio 3:
+Comparte las calificaciones de satisfacción del cliente en Google My Business:
+Comparte las calificaciones de satisfacción del cliente en otras plataformas:
+Enumera alianzas estratégicas o asociaciones:
+Nombra un cliente grande o significativo:
+Nombra un segundo cliente grande o significativo:
+Nombra un tercer cliente grande o significativo:
+Nombra un cuarto cliente grande o significativo:
+Nombra un quinto cliente grande o significativo:
+Detalla esfuerzos en sostenibilidad ambiental:
+Describe cobertura en relaciones públicas y medios de comunicación:
+** Casos de uso del producto
+Detalla un caso de uso del producto:
+Proporciona un enlace al video del caso de uso 1:
+Detalla el segundo caso de uso del producto:
+Proporciona un enlace al video del caso de uso 2:
+Detalla el tercer caso de uso del producto:
+Proporciona un enlace al video del caso de uso 3:
+** Soporte al Cliente
+Describe el proceso de incorporación para nuevos usuarios:
+Canales de soporte al cliente - Teléfono:
+Canales de soporte al cliente - Correo electrónico:
+Canales de soporte al cliente - Chat en vivo:
+Otros canales de soporte al cliente:
+** Preguntas Frecuentes
+FAQ 1: Pregunta y respuesta corta:
+FAQ 2: Pregunta y respuesta corta:
+FAQ 3: Pregunta y respuesta corta:
+FAQ 4: Pregunta y respuesta corta:
+FAQ 5: Pregunta y respuesta corta:
+FAQ 6: Pregunta y respuesta corta:
+FAQ 7: Pregunta y respuesta corta:
+FAQ 8: Pregunta y respuesta corta:
+FAQ 9: Pregunta y respuesta corta:
+FAQ 10: Pregunta y respuesta corta:
+** Palabras Clave
+Menciona una palabra clave relevante para tu producto:
+Menciona una segunda palabra clave relevante:
+Menciona una tercera palabra clave relevante:
+Menciona una cuarta palabra clave relevante:
+Menciona una quinta palabra clave relevante:

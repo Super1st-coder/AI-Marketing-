@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audience_audiences",
+  "info": {
+    "singularName": "audience-audience",
+    "pluralName": "audience-audiences",
+    "displayName": "Audience-Audience",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "age_min": {
+      "type": "integer",
+      "default": 0
+    },
+    "age_max": {
+      "type": "integer",
+      "default": 0
+    },
+    "interests": {
+      "type": "json"
+    },
+    "locations": {
+      "type": "json"
+    },
+    "topics": {
+      "type": "json"
+    },
+    "proposal_audiences": {
+      "type": "json"
+    },
+    "comments": {
+      "type": "text"
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "ad_set_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ad-set.ad-set",
+      "inversedBy": "audiences"
+    },
+    "channel_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::channel-v2.channel-v2",
+      "inversedBy": "audiences"
+    },
+    "audience_template_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::audience-audience-template.audience-audience-template",
+      "inversedBy": "audiences"
+    },
+    "income_level": {
+      "type": "text"
+    },
+    "preferred_audience": {
+      "type": "json"
+    },
+    "generation_method": {
+      "type": "string"
+    }
+  }
+}

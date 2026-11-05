@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abyssale_visual_ad_channels",
+  "info": {
+    "singularName": "abyssale-visual-ad-channel",
+    "pluralName": "abyssale-visual-ad-channels",
+    "displayName": "Abyssale-Visual-Ad-Channel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sharing_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "ad_channel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ad-channel.ad-channel",
+      "inversedBy": "abyssale_visuals"
+    }
+  }
+}

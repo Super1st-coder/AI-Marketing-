@@ -1,0 +1,44 @@
+---
+description: How to add custom Iconify icons in src/icons.ts (body paths, currentColor, fill none on strokes)
+globs: src/icons.ts
+alwaysApply: false
+---
+
+# Custom Icons
+
+Prefer an existing Iconify set (usually `tabler:*`) before adding a custom icon. If none matches, register one in `src/icons.ts` inside `registerCustomIconifyIcons()` with `addIcon` from `@iconify/vue`. That function is called once from `src/main.ts`.
+
+## Naming
+
+- App icons: `custom:kebab-name` (e.g. `custom:pin-filled`)
+- Brand logos with a fixed palette: `brand-*` (e.g. `brand-wati`)
+
+Use the name as `icon` / `leftIcon` on `Button`, or `<Icon icon="custom:pin-filled" />`.
+
+## Registering
+
+`addIcon` injects `body` into Iconify’s own `<svg>`. Pass **inner markup only** (paths, groups, defs). Do not wrap `body` in `<svg>`. Set `width` and `height` to the source viewBox size (usually 20).
+
+- Use `currentColor` for fill and stroke so the icon follows `Button` / `Icon` color classes.
+- Hardcoded fills are only for brand logos that must keep a specific palette.
+- Stroke-only paths **must** set `fill="none"`. SVG default fill is black; without this the shape renders as a black silhouette. Do not rely on an outer `<svg fill="none">` to inherit that.
+- Filled paths keep `fill="currentColor"` (or the brand color).
+
+```ts
+// ✅ GOOD
+addIcon("custom:pin-filled", {
+  body: `<path ... fill="currentColor"/>
+<path ... fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`,
+  width: 20,
+  height: 20,
+});
+
+// ❌ BAD — wrapping svg; stroke paths inherit black fill
+addIcon("custom:pin-filled", {
+  body: `<svg fill="none">...</svg>`,
+  width: 20,
+  height: 20,
+});
+```
+
+Some older entries in `src/icons.ts` still wrap a full `<svg>`. Do not copy that for new icons.

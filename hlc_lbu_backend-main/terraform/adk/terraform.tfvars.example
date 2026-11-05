@@ -1,0 +1,47 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# terraform.tfvars.example – ADK Multi-Agent Service
+#
+# Copia este archivo como terraform.tfvars y completa los valores.
+# terraform.tfvars ya está en .gitignore y NO debe commitearse.
+#
+#   cp terraform.tfvars.example terraform.tfvars
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── Proyecto GCP ──────────────────────────────────────────────────────────────
+project_id  = "careful-acumen-422922-k4"
+region      = "us-central1"
+environment = "dev"   # "dev" | "prd"
+
+# ── Imagen Docker ─────────────────────────────────────────────────────────────
+# Tag que se desplegará. Convención del proyecto: "dev" o "prd".
+# Para usar un SHA de Git: image_tag = "sha-abc1234"
+artifact_registry_repo = "hiluca-docker-repository"
+image_tag              = "dev"
+
+# ── Red (ajusta si el VPC o CIDRs difieren) ───────────────────────────────────
+vpc_network               = "default"
+vpc_connector_subnet_cidr = "10.8.1.0/28"   # /28 libre en el VPC (no en uso)
+vpn_pool_cidr             = "10.8.0.0/24"   # Pool de clientes OpenVPN
+
+# ── Nombres de secretos en Secret Manager ─────────────────────────────────────
+# Puedes cambiar estos nombres si ya tienes secretos con otro naming.
+# Por defecto usan el prefijo "adk-" para distinguirlos de otros servicios.
+secret_google_api_key               = "adk-google-api-key"
+secret_google_genai_use_vertexai    = "adk-google-genai-use-vertexai"
+secret_serpapi_key                  = "adk-serpapi-key"
+secret_newsapi_key                  = "adk-newsapi-key"
+secret_google_ads_customer_id       = "adk-google-ads-customer-id"
+secret_google_ads_login_customer_id = "adk-google-ads-login-customer-id"
+secret_google_ads_developer_token   = "adk-google-ads-developer-token"
+secret_google_ads_client_id         = "adk-google-ads-client-id"
+secret_google_ads_client_secret     = "adk-google-ads-client-secret"
+secret_google_ads_refresh_token     = "adk-google-ads-refresh-token"
+
+# ── Cloud Run ─────────────────────────────────────────────────────────────────
+cloud_run_min_instances = 0     # 0 en dev (cold starts), 1 en prd
+cloud_run_max_instances = 3
+cloud_run_memory = "1Gi"
+cloud_run_cpu    = "1"
+
+# ── Monitoring ────────────────────────────────────────────────────────────────
+alert_email = ""   # "victor@hiluca.com" para habilitar alertas por email

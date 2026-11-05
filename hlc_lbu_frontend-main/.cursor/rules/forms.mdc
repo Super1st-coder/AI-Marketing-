@@ -1,0 +1,180 @@
+---
+description: Patterns for vee-validate forms — useFormWithErrorScrolling, yup schemas, handleSubmit, isSubmitting loading/disabled state, type="button" on non-submit buttons, and forms inside modals (ModalGeneric confirmFn, locking vs closing on submit). Use when creating or editing any component with a form, fields, or a submit action.
+alwaysApply: false
+---
+
+# Forms
+
+How forms are wired in this project. For which field component to use (`Field*` vs `FieldBase*`, layout), see `form-fields.mdc`.
+
+These are the common patterns, not strict rules. Existing code doesn't follow all of them everywhere: older and legacy forms often differ, and some forms deviate on purpose. Follow these by default in new code and when editing a form. When a form differs, check whether it's intentional before changing it, and don't refactor unrelated forms just to match.
+
+## Setup
+
+- Use `useFormWithErrorScrolling` (auto-imported), not vee-validate's `useForm` directly. It has the same API, plus it scrolls to the first error when a submit fails validation.
+- Define the schema with yup and `toTypedSchema`. Wrap it in `computed` so the `t(...)` error messages follow locale changes.
+- Always pass `initialValues`, so every field starts registered with a known value.
+- Pass `keepValuesOnUnmount: true` when fields can unmount while the form is alive (tabs, accordions, `v-if` sections), or their values are lost.
+
+```ts
+import { toTypedSchema } from "@vee-validate/yup";
+import { object, string } from "yup";
+
+const { t } = useI18n();
+
+const schema = computed(() =>
+  toTypedSchema(
+    object({
+      direction: string().trim().required(t("forms.required-field")),
+    }),
+  ),
+);
+
+const { handleSubmit, isSubmitting } = useFormWithErrorScrolling({
+  validationSchema: schema,
+  initialValues: {
+    direction: "",
+  },
+});
+```
+
+## Submitting
+
+- Wrap the submit logic with `handleSubmit`. The callback only runs when validation passes. When it fails, the call resolves to `undefined`.
+- Catch request errors inside the callback. Log them with `console.error`, then show a translated message in an `Alert` near the form. Clear the message at the start of each submit.
+
+```ts
+const generalErrorMessage = ref<string>();
+
+const onSubmit = handleSubmit(async (values) => {
+  generalErrorMessage.value = undefined;
+
+  try {
+    await SomeApi.save(values);
+  } catch (error) {
+    console.error("Failed to save:", error);
+    generalErrorMessage.value = t("some.namespace.errors.save-failed");
+  }
+});
+```
+
+```vue
+<Alert v-if="generalErrorMessage" type="error" autoScroll>
+  {{ generalErrorMessage }}
+</Alert>
+```
+
+## Loading state
+
+- Use the form's `isSubmitting` for the loading state. Don't add a separate `isLoading` ref for the same submit. `isSubmitting` stays `true` for as long as the `handleSubmit` callback's promise is pending, so `await` the request inside it.
+- Show it on the submit button with `:isLoading="isSubmitting"`. `Button` disables itself while loading.
+- Disable the fields and the other actions (cancel, back, secondary buttons) with `:disabled="isSubmitting"`, so nothing changes while the request is in flight.
+
+```vue
+<FieldTextarea name="direction" :disabled="isSubmitting" />
+
+<Button color="secondary" variant="outlined" type="button" :disabled="isSubmitting" @click="close">
+  {{ $t("global.cancel") }}
+</Button>
+
+<Button type="submit" :isLoading="isSubmitting">
+  {{ $t("global.save") }}
+</Button>
+```
+
+## Button types
+
+A `<button>` inside a `<form>` with no `type` defaults to `submit`. `Button` only renders `type` when you pass it, so it follows the same rule.
+
+- Give the button that submits `type="submit"`, and bind the form's `@submit.prevent`. Don't also add `@click` on it, or the submit runs twice.
+- Give every other button inside the form `type="button"`: cancel, back, close, icon buttons, add/remove row, open a picker, and so on. Otherwise clicking it submits the form.
+- This includes buttons rendered by shared components used inside forms (`ModalCloseButton` and `SpeechRecognitionButton` already set it).
+
+## Forms in modals
+
+Mount form modals with `v-if` on the same ref as `v-model`, so each open starts with a fresh form (values, errors, error message):
+
+```vue
+<SomeFormModal v-if="isModalOpen" v-model="isModalOpen" />
+```
+
+### Keeping the modal open while submitting
+
+Use this when the request runs inside the modal and the modal closes (or shows an error) when it finishes. Lock the modal while it's pending: the user can't close it, and the fields and cancel are disabled.
+
+With `ModalGeneric`, use `as="form"` with `confirmFn`. It shows the Continue button's spinner, hides the close button, and ignores clicks outside while `confirmFn` is pending. It closes when `confirmFn` resolves, unless it returns `false`. Return `false` when validation or the request fails, so the errors stay visible:
+
+```ts
+const onSubmit = handleSubmit(async (values) => {
+  try {
+    await SomeApi.validate(values);
+    return true;
+  } catch (error) {
+    console.error("Failed to validate:", error);
+    generalErrorMessage.value = t("some.namespace.errors.validation-failed");
+    return false;
+  }
+});
+
+// `handleSubmit` resolves to undefined when validation fails
+async function handleConfirm() {
+  return (await onSubmit()) === true;
+}
+```
+
+```vue
+<ModalGeneric v-model="isOpen" as="form" :confirmFn="handleConfirm">
+  <FieldTextarea name="direction" :disabled="isSubmitting" />
+  ...
+</ModalGeneric>
+```
+
+With the base `Modal`, render it as a form and bind the lock to `isSubmitting` yourself:
+
+```vue
+<Modal
+  v-model="isOpen"
+  as="form"
+  :closeButton="!isSubmitting"
+  :closeOnClickOutside="!isSubmitting"
+  v-slot="{ close }"
+  @submit.prevent="onSubmit"
+>
+  ...
+  <Button color="secondary" variant="outlined" type="button" :disabled="isSubmitting" @click="close">
+    {{ $t("global.cancel") }}
+  </Button>
+
+  <Button type="submit" :isLoading="isSubmitting">...</Button>
+</Modal>
+```
+
+Close the modal yourself at the end of a successful submit (`isOpen.value = false`).
+
+### Closing the modal on submit
+
+Don't lock the modal when the work continues outside it. For example, a confirmation modal that closes right away while the page shows its own loading state (such as the button that opened it). Close the modal on confirm, emit the values to the parent, and let the parent own the loading state and the error message.
+
+```ts
+// Modal: ModalGeneric closes itself after emitting `confirm`
+function handleConfirm() {
+  emit("confirm", selectedIds.value);
+}
+```
+
+```ts
+// Parent
+async function handleConfirmGenerate(variantIds: string[]) {
+  isGenerating.value = true;
+  try {
+    await SomeApi.generate(variantIds);
+  } catch (error) {
+    console.error("Failed to generate:", error);
+    generalErrorMessage.value = t("some.namespace.errors.generation-failed");
+  } finally {
+    isGenerating.value = false;
+  }
+}
+```
+
+Pick one per modal. If the user must see the result or error inside the modal, keep it open and lock it. If the next thing they see is elsewhere on the page, close it and load there.

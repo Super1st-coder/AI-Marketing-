@@ -1,0 +1,69 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# terraform.tfvars.example – HiLuca LBU Infrastructure
+#
+# Copia este archivo y ajusta los valores:
+#   cp terraform.tfvars.example terraform.tfvars
+#
+# O usa directamente los archivos de ambiente en env/:
+#   terraform apply -var-file=env/dev.tfvars
+#   terraform apply -var-file=env/qas.tfvars
+#   terraform apply -var-file=env/prd.tfvars
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── Ambiente ──────────────────────────────────────────────────────────────────
+# Opciones: dev | qas | prd
+environment = "dev"
+
+# ── Proyecto GCP ──────────────────────────────────────────────────────────────
+project_id = "TU_PROJECT_ID"
+region     = "us-central1"
+zone       = "us-central1-a"
+
+# ── Compute Engine ────────────────────────────────────────────────────────────
+# dev=e2-micro | qas=e2-standard-2 | prd=e2-standard-2
+vm_machine_type = "e2-micro"
+vm_disk_size_gb = 20
+
+# Genera el par de llaves con:
+#   ssh-keygen -t ed25519 -C "github-actions@hiluca" -f ~/.ssh/gh_actions_hiluca
+# Guarda la PRIVADA en GitHub Secrets como VM_SSH_KEY_DEV / _QAS / _PRD
+# Pega aquí el contenido del archivo .pub (llave PÚBLICA):
+gh_actions_ssh_public_key = "ssh-ed25519 AAAA...TU_LLAVE_PUBLICA debian@github-actions"
+
+# ── Cloud SQL ─────────────────────────────────────────────────────────────────
+# dev=db-f1-micro (~$7/mes) | qas/prd=db-g1-small (~$25/mes)
+db_tier              = "db-f1-micro"
+db_disk_size_gb      = 10
+db_name_strapi       = "strapi"
+db_name_sinergia     = "sinergia"
+db_name_fury         = "fury-langfuse"
+db_user              = "hiluca"
+db_password          = "TU_CONTRASENA_SEGURA"
+db_user_postgres     = "postgres"
+db_password_postgres = "TU_CONTRASENA_SEGURA"
+
+# Contraseñas para usuarios de solo lectura (strapi_reader, sinergia_reader)
+db_reader_password   = "TU_CONTRASENA_READER_SEGURA"
+# Contraseñas para usuarios de lectura/escritura (strapi_writer, sinergia_writer)
+db_writer_password   = "TU_CONTRASENA_WRITER_SEGURA"
+
+# false en dev para ahorrar costos; true en qas y prd
+db_enable_backups    = false
+
+# Solo true en prd – evita borrado accidental con terraform destroy
+db_deletion_protection = false
+
+# ── Load Balancer ─────────────────────────────────────────────────────────────
+# dev=dev.hiluca.com | qas=qas.hiluca.com | prd=sec.hiluca.com
+domain            = "dev.hiluca.com"
+health_check_path = "/health"
+
+# ── Artifact Registry ─────────────────────────────────────────────────────────
+artifact_registry_repo = "hiluca-docker-repository"
+
+# ── Secret Manager ────────────────────────────────────────────────────────────
+# El secret debe existir antes del terraform apply.
+# Crea el secret vacío: terraform apply (lo crea)
+# Luego sube el contenido: gcloud secrets versions add hiluca-lbu-dev-env --data-file=".env.dev"
+# dev=hiluca-lbu-dev-env | qas=hiluca-lbu-qas-env | prd=hiluca-lbu-prd-env
+env_secret_name = "hiluca-lbu-dev-env"

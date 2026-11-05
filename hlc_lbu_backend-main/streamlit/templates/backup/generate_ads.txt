@@ -1,0 +1,40 @@
+MRSEM, use your creative writing skills and apply the principles of AIDA communication to 
+craft Google Search Ads to promote the services of {{product_name}}. The target audience 
+viewing this ads are people like {{person_name}}. Use a {{writing_style}} writing style 
+and a {{buyer_person_style}} language. 
+
+
+When creating these ads, consider the following concern that {{person_name}} has 
+before purchasing the product {{product_name}} so you can craft eye catching ads: 
+
+{% for d in dimensions %}
+- {{ d['title'] }},{{ d['description'] }}.
+{% endfor %}    
+
+Remember that {{product_name}} offers: 
+
+{% for attr in product_features %}
+{{ attr['label'] }} -> 
+{{ attr['value'] }} 
+
+{% endfor %}
+
+
+Generate 45 headlines that are NEVER longer than 30 characters or shorter than 
+25 characters. Create the response by forming sequences of 3 headlines.
+These 3 headlines should be separated by the symbol | and maintain the context of 
+the sequence. Use the format as an example: Lead inbound at your fingertips | Accelerate 
+your sales | Growth Marketing is the key!
+
+Generate 8 descriptions for the Google Ads that are NEVER longer than 90 characters or 
+shorter than 70 characters.
+
+Generate 6 display URLs that are NEVER longer than 15 characters in this format 
+/grow-sales. Do not use the product name {{product_name}} in the ads. 
+
+Use the list of keywords below in the headlines, descriptions, and display URLs of 
+the Google Search Ads whenever possible without losing the message:
+
+{{keyword_list}}
+
+Please generate the response in {{language}} with a temperature of 0.8.

@@ -1,0 +1,6 @@
+NQCONSULTANT ¿Cuales pueden ser son los 10 principales puntos de dolor que una persona 
+como {{ person_name }} puede tener al no tener un servicio como {{ product_name }}? 
+Crea un arreglo de estructuras sin numeracion, cada estructura tendra dos elementos, no se permite anidacion, el campo para el nombre del interes debe llamarse title 
+y el campo para la descripción del interes debe llamarse description, presentar el 
+resultado como un arreglo de objetos, generar en formato json en la forma de un arreglo de objetos, el resultado debe llamarase result.
+Genera 10 opciones.

@@ -1,0 +1,646 @@
+{
+  "name": "Project Definition (Generate Urgency Email)",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"Account NOT Found!\" } }",
+        "options": {}
+      },
+      "id": "ac455644-0409-4121-b789-caeb88e4e78d",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3240,
+        -1400
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5105289-fda5-4b87-a49a-3522f2937edc",
+              "name": "account_ref",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "b28781f1-0d25-4b9f-83b0-41522b1db672",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "a245e395-1c63-456b-a9cb-d9d352a72008",
+              "name": "account",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2dbb0871-cac3-4025-9a82-3c50a6d955f2",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -3220,
+        -980
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "1a3cd2e6-ca9b-4b11-944a-f314b694aef1",
+              "leftValue": "={{ $input.item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8d18ff2a-1ae5-4001-8158-07000528522e",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -3440,
+        -1160
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "getAll",
+        "contentType": "accounts",
+        "options": {
+          "where": "= { \"email\" : \"{{ $json.headers.email }}\" }"
+        }
+      },
+      "id": "0777e554-2a39-4a05-bab0-a1aee598c165",
+      "name": "Strapi1",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3680,
+        -1160
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Saving Project\" } }",
+        "options": {}
+      },
+      "id": "d2138db2-94d1-4280-afa5-76579640cc99",
+      "name": "Respond to Webhook4",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1560,
+        -1340
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Querying Account!\" } }",
+        "options": {}
+      },
+      "id": "0e1ea783-6764-424c-8900-f96169c9a38b",
+      "name": "Respond to Webhook3",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -3540,
+        -880
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "contentType": "project-v2s",
+        "entryId": "={{ $json.project_id }}"
+      },
+      "id": "e59dce84-75e1-477c-be71-31762444c346",
+      "name": "Strapi2",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -3020,
+        -980
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a78f7f3-c71a-43d7-972d-e6e91a66b9ae",
+              "name": "assistant_id",
+              "value": "={{ $('Edit Fields2').item.json.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c034c2-b975-4efd-9d0a-449ee4bb81df",
+              "name": "project_id",
+              "value": "={{ $('Webhook').item.json.body.project_id }}",
+              "type": "number"
+            },
+            {
+              "id": "b36de926-f97e-4997-985f-1653da2a240d",
+              "name": "current_phase",
+              "value": "=4",
+              "type": "string"
+            },
+            {
+              "id": "4dca6cfd-0710-448d-8bb2-e3dd9b70e32b",
+              "name": "email_urgency_generated",
+              "value": "={{ $json.json_output }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b12fc9c8-2d13-4fe6-901c-602706e8007b",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1900,
+        -1480
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "token",
+        "operation": "update",
+        "contentType": "project-v2s",
+        "updateKey": "=project_id",
+        "columns": "=email_urgency_generated,current_phase"
+      },
+      "id": "dde3f1bd-333c-4f39-a0d5-a55a75b936e6",
+      "name": "Strapi",
+      "type": "n8n-nodes-base.strapi",
+      "typeVersion": 1,
+      "position": [
+        -1720,
+        -1480
+      ],
+      "credentials": {
+        "strapiTokenApi": {
+          "id": "D835pTJ1TNermEI6",
+          "name": "Strapi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ok\": 1, \n  \"data\" : { \n       \"project_id\" : {{ $('Edit Fields').item.json.project_id }},\n       \"email_urgency_generated\" : {{ $json.attributes.email_urgency_generated.toJsonString() }}\n   } \n}",
+        "options": {}
+      },
+      "id": "2f348b2f-16bd-4be0-b655-98df2ce63c9f",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -1560,
+        -1620
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ac355ca2-7aaf-472a-aa9d-72635c0d3a8f",
+              "name": "product_name",
+              "value": "={{ $json.attributes.preferred_product.Product.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "eb4b63f9-34cf-4330-a5e9-91fa54860347",
+              "name": "assistant_id",
+              "value": "={{ $json.attributes.assistant_id }}",
+              "type": "string"
+            },
+            {
+              "id": "9b028b62-e9fe-44b8-b722-42122e1fcb08",
+              "name": "project_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "ab1d4aef-6842-4aa9-b7c7-abe49d595198",
+              "name": "product_details",
+              "value": "={{ $json.attributes.preferred_product.Product.Name }}, {{ $json.attributes.preferred_product.Product.Details.Description }}\n\nCore_Characteristic: {{ $json.attributes.preferred_product.Product.Details.Core_Characteristic }}\n\nFeatures: {{ $json.attributes.preferred_product.Product.Details.Product_Details.Features }}\n",
+              "type": "string"
+            },
+            {
+              "id": "706bf5c7-ef2c-418b-918a-ec7dd204b963",
+              "name": "buyer_person_details",
+              "value": "=BUYER PERSON DETAILS\n\nName: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}\nAge: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Age }}\nTitle: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Title }}\nDescription: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Description }}\n\nGoals: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Goals }}\n\nNeeds: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Needs }}\n\nValues: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Values }}\n\nPain Points: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}\n",
+              "type": "string"
+            },
+            {
+              "id": "59a80430-4467-40b6-b491-3fae12f0d96a",
+              "name": "buyer_person_name",
+              "value": "={{ $json.attributes.preferred_buyer_person.Buyer_Persona.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "1b3320a2-5341-4bf2-980d-43e752e0ba9e",
+              "name": "product_core_characteristic",
+              "value": "={{ $json.attributes.preferred_product.Product.Details.Core_Characteristic }}",
+              "type": "string"
+            },
+            {
+              "id": "f0d8e484-6b1e-4e5b-804d-607d8e630b91",
+              "name": "buyer_person_goals",
+              "value": "=Goals: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Goals }}",
+              "type": "string"
+            },
+            {
+              "id": "b6e61c63-d9f1-4593-91d9-b0c28d6ae8bd",
+              "name": "buyer_person_problems",
+              "value": "=Problems: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}",
+              "type": "string"
+            },
+            {
+              "id": "ae562c17-4f63-47c6-850a-7e826315e13e",
+              "name": "product_benefits",
+              "value": "=Competitive Advantages: {{ $json.attributes.preferred_product.Product.Details.Competitive_Advantage }}\nBenefits: {{ $json.attributes.preferred_product.Product.Details.Benefit_Related_to_Hypothesis }}",
+              "type": "string"
+            },
+            {
+              "id": "0a9f11e1-93b9-4694-9d6a-668376f7f006",
+              "name": "buyer_person_pain_points",
+              "value": "=Pain Points: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Pain_Points }}",
+              "type": "string"
+            },
+            {
+              "id": "8df3d79e-0993-455f-b08d-42896fde0d57",
+              "name": "buyer_person_needs",
+              "value": "=Needs: {{ $json.attributes.preferred_buyer_person.Buyer_Persona.Details.Needs }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e5e60671-e024-457b-86f6-cec3971cb62a",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2620,
+        -1480
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\" : 0, \"message\" : { \"code\": \"STRAPI00\", \"text\": \"ERROR - Project NOT Found\" } }",
+        "options": {}
+      },
+      "id": "ff4c12ec-5434-4a3a-bbbc-d714a554c065",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -2820,
+        -760
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a4b22126-46c5-4d2e-976d-40db6adfb400",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7df2fb58-b672-4f9d-bd2e-ecdc9d0bd184",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2820,
+        -1220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import json\n\noutput = _input.item.json.output\njson_output = json.loads(output)\n\nreturn {'json_output': json_output}"
+      },
+      "id": "ded30d47-cebd-4141-99bc-f9c33b6c3018",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2080,
+        -1480
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.project_id }}"
+      },
+      "id": "e786b193-e14f-4f7b-a389-1dfaf0609307",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.2,
+      "position": [
+        -2420,
+        -1260
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/project/email/urgency/generate",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "dbaca388-89f8-46e9-8efe-c7576bbf0ada",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -3940,
+        -1160
+      ],
+      "webhookId": "d23c2bcf-5144-4273-a40a-ab37ca8b4140"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.assistant_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=You are “MREMAIL” an AI specialized in creating marketing emails using Sabri Suby’s Magic Lantern Technique from “Sell Like Crazy”. Your goal is to generate a series of emails that educate and nurture prospects, positioning the company as an expert and guiding them toward a purchase decision.\n\nInstructions:\n\nFollow these steps concisely:\n1. Identify the Main Problem: Understand the primary challenge faced by the target audience.\n2. Break Down into Subproblems: Divide the main problem into smaller, manageable issues.\n3. Create Valuable Content: Develop practical solutions and insights for each subproblem.\n4. Structure the Email Series: Organize content into a logical sequence that educates and builds trust.\n5. Deliver Engaging Content: Use various resources (videos, blogs, testimonials) to maintain interest.\n6. Position as an Expert: Include success stories and evidence to build credibility.\n7. Include Clear CTAs: Guide prospects toward the next action (e.g., scheduling a call).\n8. Address Objections: Anticipate doubts and provide reassuring information.\n9. Facilitate Conversion: Make it easy for prospects to take the desired action.\n\nEmail Format:\nSubject Line: Catchy and relevant to the content.\nGreeting: Personalize with the recipient’s name if available.\nIntroduction: Connect with the prospect’s problem.\nBody: Provide valuable content addressing a specific subproblem.\nExpert Positioning: Share testimonials or results.\nCall to Action (CTA): Clear and compelling.\nClosing: Friendly sign-off with contact information.\n\nGuidelines:\nUse a professional and empathetic tone.\nEnsure each email adds value and encourages action.\nPersonalize content based on provided information.\n\nWhen Invoked:\nGenerate the email series according to these instructions, using the specific details about the audience, their main problem, subproblems, and available resources.\n\n--------------------------------------------------------------------------------\n\nYou are MREMAIL, an AI specialized in creating marketing emails using Sabri Suby’s Magic Lantern Technique from “Sell Like Crazy.” Your goal is to generate an Urgency / Scarcity Email that introduces time-sensitive urgency and scarcity to motivate \"{{ $json.buyer_person_name }}\" to take immediate action and book a call with the sales success team before losing a first client benefit available for 48 hours only.\nInstructions:\n\n1.\tSubject Line with Emojis:\nCreate a subject line that builds urgency or scarcity and encourages immediate action. Keep it between 5 to 8 words and include 1 to 2 relevant emojis to capture attention and emphasize urgency.\n\n2.\tPreheader:\nWrite a short preheader (under 60 characters) that complements the subject line and emphasizes the scarcity or time-limited nature of the offer. Use an emoji to make it more compelling.\n\n3.\tIntroduction:\nAddress \"{{ $json.buyer_person_name }}\" and acknowledge their \n\n{{ $json.buyer_person_goals }}\n\nIntroduce the sense of urgency by reminding them of the challenges they’re currently facing with \n\n{{ $json.buyer_person_pain_points }} \n\n\nand that time is running out to solve these issues.\n\n4.\tBody:\nDescribe how {{ $json.buyer_person_name }}’s pain points— \n\n{{ $json.buyer_person_pain_points }} \n\n—can be quickly addressed with \"{{ $json.product_name }}\"\n\n. Emphasize the \n\n{{ $json.product_benefits }}\n\nCreate a sense of FOMO by highlighting what they stand to lose if they don’t act now—such as missing out on a limited-time opportunity or not gaining access to exclusive benefits. Add emojis where appropriate to underscore the urgency and drive the message home.\n\n5.\tVideo CTA:\nPresent the 45-second video as an urgent opportunity for \"{{ $json.buyer_person_name }}\" to see exactly how to address their current problems. Stress that this is their chance to access the solution quickly, and that watching the video now is a must. Use 1 emoji to emphasize the urgency and value of watching the video immediately.\n\n6.\tObjections and Reassurance:\nReassure \"{{ $json.buyer_person_name }}\" by addressing any objections they might have about taking immediate action. \n\nUse Product Benefits as \n\n{{ $json.product_benefits }}\n\nto build trust and reassure them that the process is risk-free. \n\n7.\tClosing and Final CTA:\nClose with a bold, time-sensitive call to action, urging \"{{ $json.buyer_person_name }}\" to watch the 45-second video now—before it’s too late. Use 1 emoji to heighten the urgency and push for action.\nGuidelines:\n\t•\tUse a professional, urgent, and assertive tone in line with Sabri Suby’s style.\n\t•\tCreate urgency and scarcity through time-limited offers and FOMO.\n\t•\tPersonalize each section based on the provided variables.\n\t•\tUse 2 to 4 emojis to boost engagement and emphasize the time-sensitive nature of the offer.\n\n8. Output \na- Create a JSON Structure, for the key add the title of the email section text subsection and in the value put the text generated for each section, in this form:\n\n{\n  \"Subject Line\" : \"<text generated>\",\n  \"Preheader\" : \"<text generated>\",\n  \"Introduction\" : \"<text generated>\",\n  \"Body\" : \"<text generated>\",\n  \"Video CTA\" : \"<text generated>\",\n  \"Objections and Reassurance\" : \"<text generated>\",\n  \"Closing and Final CTA\" : \"<text generated>\"\n}\n\nb- Generate the response using temperature 0.8\n\nc- Please, omit any introductory comment previously to the answer, go directly to the output, and remove from response the tag \"```json\" .\n\n",
+        "options": {}
+      },
+      "id": "b1c8a435-f43f-4437-9358-f660955bd75b",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -2420,
+        -1480
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "E26NDTHWg1CIjwux",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Strapi2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Strapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Strapi": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Strapi1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b1a12916-1b96-4b2f-83f9-a33e9ff15939",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc1db51c84cc58261583c929e407a0d03483b84e6f28e40c2bb8e0577adce815"
+  },
+  "id": "sblioakHLXp35MlQ",
+  "tags": [
+    {
+      "createdAt": "2024-10-14T12:22:17.380Z",
+      "updatedAt": "2024-10-14T12:22:17.380Z",
+      "id": "lVOywqOvk0U2FLOg",
+      "name": "Fase 4"
+    },
+    {
+      "createdAt": "2024-10-06T13:17:50.176Z",
+      "updatedAt": "2024-10-06T13:17:50.176Z",
+      "id": "rqc1VZ2MNe04eto2",
+      "name": "IA"
+    }
+  ]
+}

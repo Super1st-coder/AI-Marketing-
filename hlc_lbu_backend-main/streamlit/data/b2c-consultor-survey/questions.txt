@@ -1,0 +1,14 @@
+** Títulos 
+¿Cuál es el Nombre del consultor?
+¿Cuál es el título universitario?
+¿Tiene alguna especialización? De ser así, ¿en qué área?
+¿Ha obtenido algún título de maestría? ¿En qué disciplina?
+¿Posee algún grado de doctorado? ¿Cuál es el campo de estudio?
+** Ocupación
+¿Cuál es su puesto de trabajo actual?
+¿Cuántos años de experiencia tiene en este ramo?
+Describe la primera experiencia laboral relevante.
+Describe la segunda experiencia laboral relevante.
+Describe la tercera experiencia laboral relevante.
+Describe la cuarta experiencia laboral relevante.
+Describe la quinta experiencia laboral relevante.

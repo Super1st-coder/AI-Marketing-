@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "buyer_main_images",
+  "info": {
+    "singularName": "buyer-main-image",
+    "pluralName": "buyer-main-images",
+    "displayName": "Buyer-Main-Image",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image_id": {
+      "type": "string"
+    },
+    "selected": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "prompt": {
+      "type": "richtext"
+    },
+    "bperson_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::b-person-v2.b-person-v2",
+      "inversedBy": "main_images"
+    },
+    "variant_images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::buyer-variant-image.buyer-variant-image",
+      "mappedBy": "main_image_id"
+    },
+    "status": {
+      "type": "string",
+      "default": "A",
+      "required": false
+    }
+  }
+}

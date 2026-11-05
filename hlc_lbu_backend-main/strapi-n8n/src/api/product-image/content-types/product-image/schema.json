@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_images",
+  "info": {
+    "singularName": "product-image",
+    "pluralName": "product-images",
+    "displayName": "Product-Image",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image_id": {
+      "type": "string"
+    },
+    "thumbnail_id": {
+      "type": "string"
+    },
+    "product_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-v2.product-v2",
+      "inversedBy": "images"
+    }
+  }
+}

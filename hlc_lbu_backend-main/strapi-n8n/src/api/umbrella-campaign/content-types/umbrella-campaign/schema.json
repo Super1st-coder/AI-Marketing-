@@ -1,0 +1,186 @@
+{
+  "kind": "collectionType",
+  "collectionName": "umbrella_campaigns",
+  "info": {
+    "singularName": "umbrella-campaign",
+    "pluralName": "umbrella-campaigns",
+    "displayName": "Umbrella-Campaign",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-v2.brand-v2"
+    },
+    "project_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-v3.project-v3"
+    },
+    "name": {
+      "type": "text"
+    },
+    "context": {
+      "type": "text"
+    },
+    "target_regions": {
+      "type": "text"
+    },
+    "language": {
+      "type": "string"
+    },
+    "step": {
+      "type": "integer",
+      "default": 0
+    },
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "central_idea": {
+      "type": "text"
+    },
+    "bperson_resources": {
+      "type": "json"
+    },
+    "bperson_resource_base": {
+      "type": "json"
+    },
+    "resource_exchange": {
+      "type": "json"
+    },
+    "benefit_reasoning": {
+      "type": "text"
+    },
+    "benefits": {
+      "type": "json"
+    },
+    "preferred_benefit": {
+      "type": "json"
+    },
+    "bperson_motives": {
+      "type": "json"
+    },
+    "bperson_barriers": {
+      "type": "json"
+    },
+    "bperson_motive_selected": {
+      "type": "json"
+    },
+    "bperson_barrier_selected": {
+      "type": "json"
+    },
+    "emotional_tension": {
+      "type": "json"
+    },
+    "drama_reasoning": {
+      "type": "text"
+    },
+    "dramas": {
+      "type": "json"
+    },
+    "preferred_drama": {
+      "type": "json"
+    },
+    "story_stages": {
+      "type": "json"
+    },
+    "stages_selected": {
+      "type": "json"
+    },
+    "story_plot": {
+      "type": "text"
+    },
+    "scene_reasoning": {
+      "type": "text"
+    },
+    "scenes": {
+      "type": "json"
+    },
+    "preferred_scene": {
+      "type": "json"
+    },
+    "umbrella_campaigns": {
+      "type": "json"
+    },
+    "preferred_umbrella_campaign": {
+      "type": "json"
+    },
+    "summary_generated": {
+      "type": "json"
+    },
+    "summary_saved": {
+      "type": "json"
+    },
+    "image_style_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image-style.image-style"
+    },
+    "image_attributes_generated": {
+      "type": "json"
+    },
+    "image_attributes_saved": {
+      "type": "json"
+    },
+    "image_prompts": {
+      "type": "json"
+    },
+    "preferred_image_prompt": {
+      "type": "json"
+    },
+    "image_url": {
+      "type": "text"
+    },
+    "thumbnail_url": {
+      "type": "text"
+    },
+    "bucket": {
+      "type": "string"
+    },
+    "bperson_resource_exchangeable": {
+      "type": "json"
+    },
+    "categories_stages": {
+      "type": "json"
+    },
+    "created_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "u_campaigns_created"
+    },
+    "updated_by_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "u_campaigns_updated"
+    },
+    "thumbnail_id": {
+      "type": "string"
+    },
+    "image_id": {
+      "type": "string"
+    },
+    "brand_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "umbrella_campaigns"
+    }
+  }
+}

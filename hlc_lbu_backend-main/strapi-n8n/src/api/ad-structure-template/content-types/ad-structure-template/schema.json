@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ad_structure_templates",
+  "info": {
+    "singularName": "ad-structure-template",
+    "pluralName": "ad-structure-templates",
+    "displayName": "Ad-Structure-Template",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "ad_set_number": {
+      "type": "integer",
+      "default": 0
+    },
+    "ad_number": {
+      "type": "integer",
+      "default": 0
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-v2.brand-v2"
+    },
+    "brand_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "ad_structure_templates"
+    }
+  }
+}

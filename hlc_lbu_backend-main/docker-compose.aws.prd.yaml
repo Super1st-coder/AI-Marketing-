@@ -1,0 +1,435 @@
+# docker-compose.aws.prd.yaml
+# ══════════════════════════════════════════════════════════════════════════════
+# Stack de producción para HiLuca LBU – AWS
+#
+# Diferencias respecto a docker-compose.prod.yaml (GCP):
+#   1. ELIMINADO: cloud-sql-proxy  → conexión directa a RDS (endpoint TCP)
+#   2. DATABASE_HOST: cloud-sql-proxy → DATABASE_HOST: ${DATABASE_HOST} (RDS host)
+#   3. Las imágenes usan ECR en vez de Artifact Registry
+#
+# Variables de entorno requeridas en el .env (desde AWS Secrets Manager):
+#   DATABASE_HOST      = <rds-endpoint>.rds.amazonaws.com
+#   DATABASE_PORT      = 5432
+#   DATABASE_USERNAME, DATABASE_PASSWORD
+#   DATABASE_NAME_STRAPI, DATABASE_NAME_SINERGIA
+#   JWT_SECRET, ADMIN_JWT_SECRET, APP_KEYS
+#   REDIS_HOST=redis, REDIS_PORT=6379
+#   MONGODB_HOST=mongodb, MONGODB_PORT=27017
+#   N8N_HOST=n8n, N8N_PORT=5678
+#   ECR_REGISTRY       = <account>.dkr.ecr.<region>.amazonaws.com
+#   (resto de variables del .env original)
+# ══════════════════════════════════════════════════════════════════════════════
+
+version: "3.8"
+
+services:
+
+  # ── Nginx – Reverse Proxy / Entry Point ──────────────────────────────────
+  # Igual que en GCP – sin cambios
+  nginx:
+    container_name: hiluca-nginx
+    image: nginx:1.25-alpine
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - strapi
+      - n8n
+      - sinergia
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '2G'
+
+  # ── Strapi – CMS / API ───────────────────────────────────────────────────
+  # Cambio: imagen de ECR en vez de Artifact Registry
+  # Cambio: DATABASE_HOST apunta a RDS endpoint (no cloud-sql-proxy)
+  strapi:
+    container_name: hiluca-strapi
+    image: ${ECR_REGISTRY}/strapi:${STRAPI_TAG:-latest}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: ${DATABASE_HOST}     # ← RDS endpoint (sin Cloud SQL Proxy)
+      DATABASE_PORT: "${DATABASE_PORT:-5432}"
+      DATABASE_NAME: ${DATABASE_NAME_STRAPI}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      APP_KEYS: ${APP_KEYS}
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:1337/admin || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 300s
+    volumes:
+      - strapi-uploads:/opt/app/public/uploads
+    ports:
+      - "0.0.0.0:1337:1337"
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '3G'
+
+  # ── N8N – Automatización ─────────────────────────────────────────────────
+  # Sin cambios respecto a GCP
+  n8n:
+    container_name: hiluca-n8n
+    image: docker.n8n.io/n8nio/n8n:1.123.22
+    restart: unless-stopped
+    environment:
+      - N8N_SECURE_COOKIE=false
+      - N8N_HOST=${N8N_HOST}
+      - WEBHOOK_URL=${N8N_WEBHOOK_URL}
+      - DB_SQLITE_POOL_SIZE=10
+      - N8N_RUNNERS_ENABLED=true
+      - DB_SQLITE_VACUUM_ON_STARTUP=true
+      - NODE_FUNCTION_ALLOW_BUILTIN=url
+      # - DB_TYPE=postgresdb
+      # - DB_POSTGRESDB_DATABASE=hiluca_n8n
+      # - DB_POSTGRESDB_HOST=${DATABASE_HOST}
+      # - DB_POSTGRESDB_PORT=${DATABASE_PORT:-5432}
+      # - DB_POSTGRESDB_USER=${DATABASE_USERNAME}
+      # - DB_POSTGRESDB_PASSWORD=${DATABASE_PASSWORD}
+      # - EXECUTIONS_DATA_SAVE_ON_SUCCESS=none
+      - EXECUTIONS_DATA_SAVE_ON_ERROR=all
+      - EXECUTIONS_DATA_PRUNE=true
+      - EXECUTIONS_DATA_MAX_AGE=168
+      - N8N_PROXY_HOPS=${N8N_PROXY_HOPS:-2}
+    volumes:
+      - hiluca-n8n-data:/home/node/.n8n
+    networks:
+      - hiluca-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:5678/healthz || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: '4G'
+
+
+  # ── Redis – Cache ─────────────────────────────────────────────────────────
+  # Sin cambios respecto a GCP
+  redis:
+    container_name: hiluca-cache
+    image: redis:6.2-alpine
+    restart: always
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - hiluca-cache:/data
+    networks:
+      - hiluca-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+
+  # ── MongoDB ───────────────────────────────────────────────────────────────
+  # Sin cambios respecto a GCP
+  mongodb:
+    container_name: hiluca-mongodb
+    image: mongodb/mongodb-community-server:latest
+    restart: always
+    volumes:
+      - hiluca-mongodb-data:/data/db
+    networks:
+      - hiluca-network
+
+  # ── Sinergia – Backend Flask ────────────────────────────────────────────
+  # Cambio: imagen de ECR en vez de Artifact Registry
+  # Cambio: DATABASE_HOST apunta a RDS endpoint (no cloud-sql-proxy)
+  sinergia:
+    container_name: hiluca-sinergia
+    image: ${ECR_REGISTRY}/lbr-backend-image:${SINERGIA_TAG:-latest}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      CONFIG_TYPE: ${CONFIG_TYPE}
+      DATABASE_HOST: ${DATABASE_HOST}     # ← RDS endpoint (sin Cloud SQL Proxy)
+      DATABASE_PORT: "${DATABASE_PORT:-5432}"
+      DATABASE_NAME: ${DATABASE_NAME_SINERGIA}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      MONGODB_HOST: mongodb
+      MONGODB_PORT: "27017"
+      N8N_HOST: n8n
+      N8N_PORT: "5678"
+      FACEBOOK_CLIENT_ID: ${FACEBOOK_CLIENT_ID}
+      FACEBOOK_CLIENT_SECRET: ${FACEBOOK_CLIENT_SECRET}
+      FACEBOOK_REDIRECT_URI: ${FACEBOOK_REDIRECT_URI}
+      FACEBOOK_GRAPH_API_BASE: ${FACEBOOK_GRAPH_API_BASE}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f -s http://localhost:60000/health > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - .env:/app/sinergia/.env:ro
+    depends_on:
+      redis:
+        condition: service_healthy
+      strapi:
+        condition: service_healthy
+      n8n:
+        condition: service_healthy
+      mongodb:
+        condition: service_started
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '4G'
+
+  # ── Qdrant – Vector DB ────────────────────────────────────────────────────
+  qdrant:
+    container_name: hiluca-qdrant
+    image: qdrant/qdrant:latest
+    restart: always
+    volumes:
+      - qdrant-data:/qdrant/storage
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '2G'
+
+  # ── Fury – AI Backend ─────────────────────────────────────────────────────
+  fury:
+    container_name: hiluca-fury
+    image: ${ECR_REGISTRY}/fury-backend-image:${FURY_TAG:-latest}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      QDRANT_URL: "http://qdrant:6333"
+      DATABASE_NAME_DEFAULT: ${DATABASE_NAME_SINERGIA}
+      REDIS_HOST: redis
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f -s http://localhost:8000/api/v2/health > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 180s
+    volumes:
+      - .env:/app/.env:ro
+    depends_on:
+      redis:
+        condition: service_healthy
+      strapi:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '4G'
+    memswap_limit: '6G'
+
+  # ── LangFuse Worker ────────────────────────────────────────────
+  langfuse-worker:
+    container_name: hiluca-langfuse-worker
+    image: docker.io/langfuse/langfuse-worker:3
+    restart: always
+    depends_on:
+      minio:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    ports:
+      - 127.0.0.1:3030:3030
+    environment: &langfuse-worker-env
+      NODE_ENV: development
+      NODE_OPTIONS: --max-old-space-size=4096
+      NEXTAUTH_URL: ${NEXTAUTH_URL:-http://localhost:3000}
+
+      # ---------- USE YOUR EXISTING POSTGRES ----------
+      DATABASE_URL: postgresql://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME_LANGFUSE}
+
+      SALT: ${SALT:-mysalt}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-0000000000000000000000000000000000000000000000000000000000000000}
+      TELEMETRY_ENABLED: true
+      LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES: true
+
+      CLICKHOUSE_MIGRATION_URL: clickhouse://clickhouse:9000
+      CLICKHOUSE_URL: http://clickhouse:8123
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER:-clickhouse}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-clickhouse}
+      CLICKHOUSE_CLUSTER_ENABLED: false
+
+      # S3 via Minio
+      LANGFUSE_S3_EVENT_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_EVENT_UPLOAD_REGION: auto
+      LANGFUSE_S3_EVENT_UPLOAD_ACCESS_KEY_ID: minio
+      LANGFUSE_S3_EVENT_UPLOAD_SECRET_ACCESS_KEY: miniosecret
+      LANGFUSE_S3_EVENT_UPLOAD_ENDPOINT: http://minio:9000
+      LANGFUSE_S3_EVENT_UPLOAD_FORCE_PATH_STYLE: true
+
+      LANGFUSE_S3_MEDIA_UPLOAD_BUCKET: langfuse
+      LANGFUSE_S3_MEDIA_UPLOAD_REGION: auto
+      LANGFUSE_S3_MEDIA_UPLOAD_ACCESS_KEY_ID: minio
+      LANGFUSE_S3_MEDIA_UPLOAD_SECRET_ACCESS_KEY: miniosecret
+      LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://minio:9000
+      LANGFUSE_S3_MEDIA_UPLOAD_FORCE_PATH_STYLE: true
+
+      LANGFUSE_INGESTION_CLICKHOUSE_WRITE_BATCH_SIZE: 2000
+      LANGFUSE_INGESTION_CLICKHOUSE_WRITE_INTERVAL_MS: 7000
+      LANGFUSE_INGESTION_QUEUE_PROCESSING_CONCURRENCY: 1
+      LANGFUSE_TOKEN_COUNT_WORKER_POOL_SIZE: 1
+      LANGFUSE_DISABLE_EXPENSIVE_POSTGRES_QUERIES: true
+      # LANGFUSE_AUTO_START_MIGRATIONS: false
+
+      # LANGFUSE_LOG_LEVEL: debug
+      # LANGFUSE_DEBUG: true
+      # DEBUG: prisma:query,prisma:engine
+
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      #REDIS_AUTH: ""
+      REDIS_TLS_ENABLED: false
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '2G'
+
+  # ── LangFuse Web ────────────────────────────────────────────
+  langfuse-web:
+    container_name: hiluca-langfuse-web
+    image: docker.io/langfuse/langfuse:3
+    restart: always
+    depends_on:
+      minio:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    ports:
+      - 3001:3000
+    environment:
+      <<: *langfuse-worker-env
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET:-changeme}
+
+      # Create org / user on first boot
+      LANGFUSE_INIT_ORG_ID: ${LANGFUSE_INIT_ORG_ID:-}
+      LANGFUSE_INIT_ORG_NAME: ${LANGFUSE_INIT_ORG_NAME:-}
+      LANGFUSE_INIT_PROJECT_ID: ${LANGFUSE_INIT_PROJECT_ID:-}
+      LANGFUSE_INIT_PROJECT_NAME: ${LANGFUSE_INIT_PROJECT_NAME:-}
+      LANGFUSE_INIT_PROJECT_PUBLIC_KEY: ${LANGFUSE_INIT_PROJECT_PUBLIC_KEY:-}
+      LANGFUSE_INIT_PROJECT_SECRET_KEY: ${LANGFUSE_INIT_PROJECT_SECRET_KEY:-}
+      LANGFUSE_INIT_USER_EMAIL: ${LANGFUSE_INIT_USER_EMAIL:-}
+      LANGFUSE_INIT_USER_NAME: ${LANGFUSE_INIT_USER_NAME:-}
+      LANGFUSE_INIT_USER_PASSWORD: ${LANGFUSE_INIT_USER_PASSWORD:-}
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '2G'
+
+  # ── Clickhouse ────────────────────────────────────────────
+  clickhouse:
+    container_name: hiluca-clickhouse
+    image: docker.io/clickhouse/clickhouse-server
+    restart: always
+    user: "101:101"
+    environment:
+      CLICKHOUSE_DB: default
+      CLICKHOUSE_USER: clickhouse
+      CLICKHOUSE_PASSWORD: clickhouse
+      # CLICKHOUSE_CLUSTER_ENABLED: false
+      CLICKHOUSE_TIMEOUT: 5000
+    volumes:
+      - langfuse_clickhouse_data:/var/lib/clickhouse
+      - langfuse_clickhouse_logs:/var/log/clickhouse-server
+    ports:
+      - 127.0.0.1:8123:8123
+      - 127.0.0.1:9000:9000
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8123/ping || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 1s
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '4G'
+
+  # ── Minio ────────────────────────────────────────────
+  minio:
+    container_name: hiluca-minio
+    image: alpine/minio:RELEASE.2025-10-15T17-29-55Z
+    user: "0:0"
+    restart: always
+    command: ["server", "/data", "--address", ":9000", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: miniosecret
+    ports:
+      - "9090:9000"
+      - 127.0.0.1:9091:9001
+    volumes:
+      - langfuse_minio_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 9000 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hiluca-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '2G'
+  
+volumes:
+  strapi-uploads:
+  hiluca-n8n-data:
+  hiluca-cache:
+  hiluca-mongodb-data:
+  qdrant-data:
+  langfuse_clickhouse_data:
+  langfuse_clickhouse_logs:
+  langfuse_minio_data:
+
+networks:
+  hiluca-network:
+    driver: bridge

@@ -1,0 +1,256 @@
+@import "tailwindcss/theme" layer(tailwind-theme) prefix(tw);
+@import "tailwindcss/preflight" layer(tailwind-reset);
+@import "tailwindcss/utilities" layer(tailwind-utilities) prefix(tw);
+
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #eeedec;
+  --color-gray-300: #dad6d2;
+  --color-gray-400: #aea59d;
+  --color-gray-500: #7f766c;
+  --color-gray-600: #60574e;
+  --color-gray-700: #4d443b;
+  --color-gray-800: #342b22;
+  --color-gray-900: #241c14;
+  --color-gray: #7f766c;
+
+  --color-primary-100: #ffe7cf;
+  --color-primary-200: #ffcfa0;
+  --color-primary-300: #ffb870;
+  --color-primary-400: #ffa041;
+  --color-primary-500: #ff8811;
+  --color-primary-600: #e67b0f;
+  --color-primary-700: #d9740e;
+  --color-primary-800: #cc6d0e;
+  --color-primary-900: #bf660d;
+  --color-primary: #ff8811;
+
+  --color-error-100: #fee4e2;
+  --color-error-200: #fecdca;
+  --color-error-300: #fda29b;
+  --color-error-400: #f97066;
+  --color-error-500: #f04438;
+  --color-error-600: #d92d20;
+  --color-error-700: #b42318;
+  --color-error-800: #912018;
+  --color-error-900: #7a271a;
+  --color-error: #f04438;
+
+  --color-warning-100: #fef0c7;
+  --color-warning-200: #fedf89;
+  --color-warning-300: #fec84b;
+  --color-warning-400: #fdb022;
+  --color-warning-500: #f79009;
+  --color-warning-600: #dc6803;
+  --color-warning-700: #b54708;
+  --color-warning-800: #93370d;
+  --color-warning-900: #7a2e0e;
+  --color-warning: #f79009;
+
+  --color-success-100: #d1fadf;
+  --color-success-200: #a6f4c5;
+  --color-success-300: #6ce9a6;
+  --color-success-400: #32d583;
+  --color-success-500: #12b76a;
+  --color-success-600: #039855;
+  --color-success-700: #027a48;
+  --color-success-800: #05603a;
+  --color-success-900: #054f31;
+  --color-success: #12b76a;
+
+  --color-blue-100: #ccf1f6;
+  --color-blue-200: #99e3ed;
+  --color-blue-300: #66d6e3;
+  --color-blue-400: #33c8da;
+  --color-blue-500: #00bad1;
+  --color-blue-600: #00a7bc;
+  --color-blue-700: #009eb2;
+  --color-blue-800: #0095a7;
+  --color-blue-900: #008c9d;
+  --color-blue: #00bad1;
+
+  --color-secondary: #808390;
+
+  --color-primary-text: #241c14;
+  --color-secondary-text: #7f766c;
+  --color-error-light: #ff4d5029;
+  --color-input-border: #d4d0ce;
+  --color-success-light: #28c76f29;
+  --color-warning-light: #ff9f4329;
+  --color-info: #00bad1;
+  --color-info-light: #00bad129;
+  --color-snackbar: #3d2922;
+  --color-divider: #dad6d2;
+  --color-outline-border: #d1ccca;
+
+  --font-public-sans: Public Sans, sans-serif;
+  --font-roboto: Roboto, sans-serif;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--tw-color-gray-200);
+  }
+}
+
+@utility flex-center {
+  @apply tw:flex tw:items-center tw:justify-center;
+}
+
+@layer base {
+  html {
+    @apply tw:overflow-y-scroll;
+  }
+
+  * {
+    scroll-margin-top: 50px;
+    scroll-padding-top: 50px;
+
+    scroll-margin-bottom: 100px;
+    scroll-padding-bottom: 100px;
+  }
+
+  /* Vuetify sets border-style to "none" on these elements  */
+  button,
+  input,
+  select,
+  textarea {
+    border-style: solid;
+  }
+
+  /* Remove blue highlight on autocomplete */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+/*
+  Vuetify reset (vuetify-core.reset layer) sets cursor:pointer on
+  [type=button]/submit/reset AFTER [disabled]{cursor:default}, with equal
+  specificity. Layered overrides lose to that later layer, so this must stay
+  unlayered. Spec (0,1,1) also beats [type=button] (0,1,0).
+*/
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+  cursor: default;
+}
+
+@layer utilities {
+  /* Fix overflow-wrap in elements where it's not needed */
+  .v-field {
+    @apply tw:wrap-normal;
+  }
+}
+
+body,
+.v-application {
+  @apply tw:font-public-sans tw:wrap-anywhere tw:text-primary-text;
+}
+
+table {
+  @apply tw:wrap-normal;
+}
+
+.custom-input {
+  .v-field {
+    /* Opacity */
+    --v-disabled-opacity: 1;
+
+    /* Padding */
+    --v-field-input-padding-top: 10px;
+    --v-field-input-padding-bottom: 10px;
+
+    /* Avoid overflow of field loader  */
+    overflow: hidden;
+
+    /* Border radius */
+    @apply tw:rounded-xl!;
+
+    /* Shadow */
+    @apply tw:shadow-[0_1px_2px] tw:shadow-gray-900/5;
+
+    /* Placeholder font */
+    @apply tw:font-medium tw:text-gray-400;
+  }
+
+  .v-field--dirty {
+    /* Dirt field font */
+    @apply tw:text-gray-700;
+  }
+
+  .v-field__field {
+    /* Inherit border radius */
+    border-radius: inherit;
+  }
+
+  .v-field {
+    opacity: 1 !important;
+    mask-image: none !important;
+
+    /* Inherit border radius */
+    border-radius: inherit;
+
+    /* Background */
+    @apply tw:bg-white;
+  }
+
+  /* Border of inputs */
+  .v-field__outline {
+    --v-field-border-opacity: 1;
+    @apply tw:text-gray-300;
+  }
+
+  /* Error border color */
+  .v-field--error .v-field__outline {
+    @apply tw:text-error;
+  }
+
+  /* Focused with no error */
+  .v-field--focused:not(.v-field--error) .v-field__outline {
+    @apply tw:text-primary;
+  }
+
+  /* Disabled inputs */
+  .v-field--disabled {
+    @apply tw:bg-gray-100 tw:text-gray-400;
+  }
+
+  &.v-autocomplete input {
+    cursor: text;
+  }
+}
+
+/* VSlider */
+.v-slider-track__fill {
+  @apply tw:bg-primary;
+}
+
+.v-slider-track__background {
+  @apply tw:bg-primary-200;
+}
+
+.v-slider-thumb__surface {
+  @apply tw:bg-white tw:shadow-[0_1px_3px] tw:shadow-black/30;
+}

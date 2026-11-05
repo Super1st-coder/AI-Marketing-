@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ads",
+  "info": {
+    "singularName": "ad",
+    "pluralName": "ads",
+    "displayName": "Ad",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ad_set_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ad-set.ad-set"
+    },
+    "name": {
+      "type": "text"
+    },
+    "ad_set_ref2": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ad-set.ad-set",
+      "inversedBy": "ads"
+    },
+    "ad_channels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ad-channel.ad-channel",
+      "mappedBy": "ad_ref2"
+    },
+    "description": {
+      "type": "text"
+    },
+    "redirect_url": {
+      "type": "text"
+    }
+  }
+}

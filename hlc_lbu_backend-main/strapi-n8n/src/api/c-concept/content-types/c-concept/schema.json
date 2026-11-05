@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "c_concepts",
+  "info": {
+    "singularName": "c-concept",
+    "pluralName": "c-concepts",
+    "displayName": "CConcept",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account"
+    },
+    "project_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-v3.project-v3"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-v2.brand-v2"
+    },
+    "central_idea": {
+      "type": "text"
+    },
+    "matter_to_audience": {
+      "type": "text"
+    },
+    "style": {
+      "type": "text"
+    },
+    "platforms_and_channels": {
+      "type": "text"
+    },
+    "creative_concepts": {
+      "type": "json"
+    },
+    "preferred_creative_concept": {
+      "type": "json"
+    },
+    "image_attributes_generated": {
+      "type": "json"
+    },
+    "image_attributes_saved": {
+      "type": "json"
+    },
+    "image_prompts": {
+      "type": "json"
+    },
+    "preferred_image_prompt": {
+      "type": "json"
+    },
+    "image_id": {
+      "type": "text"
+    },
+    "step": {
+      "type": "integer",
+      "default": 0
+    },
+    "complete": {
+      "type": "boolean",
+      "default": false
+    },
+    "locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "summary_generated": {
+      "type": "json"
+    },
+    "summary_saved": {
+      "type": "json"
+    },
+    "language": {
+      "type": "string"
+    },
+    "name": {
+      "type": "text"
+    },
+    "context": {
+      "type": "text"
+    },
+    "target_regions": {
+      "type": "text"
+    },
+    "bperson_resources": {
+      "type": "json"
+    }
+  }
+}

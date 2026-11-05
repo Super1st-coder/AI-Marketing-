@@ -1,0 +1,162 @@
+{
+  "name": "Autofill Process Sales using selected Context",
+  "nodes": [
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "d58d0667-3e10-42cb-901c-913df9316935",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        980,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nreturn {'ok' : 0, 'message': {'code': 'N8N00', 'text': 'Error - Generating Content' } }"
+      },
+      "id": "f382a555-9ace-46a0-8bbf-ed1a4f3eb009",
+      "name": "Handle Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok' : 1, 'data' : _input.item.json.output }\n"
+      },
+      "id": "e361be14-b264-4bbf-bf60-d382cbca7cd2",
+      "name": "Format Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/process-sales/autofill",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "a85ef313-71ba-44ac-a217-22476e1466ed",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        100
+      ],
+      "webhookId": "9b1c58f8-48cb-4c8c-a203-6adc33ea4657"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "=\"{{ $json.body.agent_name }}\", necesito que generes 10 respuestas de aproximadamente 250 caracteres para responder 10 preguntas.\n\"{{ $json.body.agent_name }}\" el objetivo será utilizar estas respuestas para poder crear los 10 pasos del buyers journey en un siguiente paso.\n\"{{ $json.body.agent_name }}\", toma en cuenta el contexto de \"{{ $json.body.person_name }}\" durante su proceso de compra de una solución como \"{{ $json.body.product_name }}\". \n\"{{ $json.body.agent_name }}\" necesito que tomes la información que tienes de \"{{ $json.body.person_name }}\" y esta descripción: \n\n{{ $json.body.context_description }}.\n\n>>> FINAL DE LA DESCRIPCIÓN <<<\n\n\"{{ $json.body.agent_name }}\" a continuación te comparto las preguntas que utilizarás para generar las 10 respuestas de aproximadamente 250 caracteres tomando en cuenta el contexto de \"{{ $json.body.person_name }}\" durante su proceso de compra de una solución como \"{{ $json.body.product_name }}\". \n\n>>> INICIO DE LAS PREGUNTAS <<<\n\n1. Id Pregunta: que-cambio-ocurre-en-la-vida-de-la-buyer-persona-que-tip\nPregunta: ¿Qué cambio ocurre en la vida de {{ $json.body.person_name }} que típicamente inicia la búsqueda de tu producto?\n\n2. Id Pregunta: que-soluciones-actuales-ya-no-se-ajustan-a-las-nuevas-ne\nPregunta: ¿Qué soluciones actuales ya no se ajustan a las nuevas necesidades o deseos de {{ $json.body.person_name }} tras su cambio de vida?\n\n3. Id Pregunta: puedes-mencionar-que-es-importante-para-la-buyer-persona\nPregunta: ¿Puedes mencionar qué es importante para {{ $json.body.person_name }} cuando investiga, considerando que aún no busca específicamente tu solución?\n\n4. Id Pregunta: cuales-son-las-frustraciones-comunes-que-la-buyer-person\nPregunta: ¿Cuáles son las frustraciones comunes que {{ $json.body.person_name }} encuentra durante su proceso de investigación?\n\n5. Id Pregunta: cuando-la-buyer-persona-se-da-cuenta-de-que-la-mejor-opc\nPregunta: Cuando {{ $json.body.person_name }} se da cuenta de que la mejor opción es contratar una solución como la tuya para lograr sus objetivos, ¿qué dudas comunes suele tener?\n\n6. Id Pregunta: cuando-el-buyer-persona-se-encuentra-con-el-producto-de-\nPregunta: Cuando {{ $json.body.person_name }} se encuentra con {{ $json.body.product_name }}, ¿de qué necesita estar seguro antes de tomar una decisión?\n\n7. Id Pregunta: cuales-son-los-principales-obstaculos-que-podrian-impedi\nPregunta: ¿Cuáles son los principales obstáculos que podrían impedir que {{ $json.body.person_name }} complete la compra?\n\n8. Id Pregunta: que-dificultades-tipicas-debe-enfrentar-la-buyer-persona\nPregunta: ¿Qué dificultades típicas debe enfrentar {{ $json.body.person_name }} durante el proceso de finalizar la compra?\n\n9. Id Pregunta: que-aspectos-de-tu-servicio-resultan-mas-satisfactorios-\nPregunta: ¿Qué aspectos de tu servicio resultan más satisfactorios para {{ $json.body.person_name }} luego de adquirir tu producto?\n\n10. Id Pregunta: como-describirias-el-impacto-final-de-tu-producto-o-serv \nPregunta : ¿Cómo describirías el impacto final de tu producto o servicio en la vida de {{ $json.body.person_name }} ?\n\n>>> FINAL DE LAS PREGUNTAS <<<\n\nDame los resultados directamente como un arreglo json, donde cada Pregunta-Respuesta representa una posicion de este arreglo, use el siguiente ejemplo para construir la pregunta-respuesta:\n\n[ pregunta-respuesta-1 , pregunta-respuesta-2, ... , pregunta-respuesta-X]\n\nCada pregunta-respuesta debe tener los siguientes campos, \"Id Pregunta\",  \"Pregunta\",  \"Respuesta\". \n\nNo incluyas comentarios de entrada a la respuesta,ir directamente a la respuesta en formato JSON\n\n",
+        "options": {}
+      },
+      "id": "7ac74104-17b8-441a-b051-51e6cb93941b",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        200,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Handle Error": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Results": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Format Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fa0e6d8c-93fd-4822-90a4-55fbec21100c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "UeI5KR4FDVjHfA3A",
+  "tags": []
+}

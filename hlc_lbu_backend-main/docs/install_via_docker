@@ -1,0 +1,86 @@
+Setear gcloud client to access service 
+
+gcloud auth application-default login 
+
+
+Habilitar Artifact Repository 
+Crear un Repository para el proyecto en una zona determinada (us-central1)
+
+
+Ejecutar el siguiente conjunto de comando para instalar docker-credential-gcr
+VERSION=2.1.22
+OS=linux  # or "darwin" for OSX, "windows" for Windows.
+ARCH=amd64  # or "386" for 32-bit OSs
+
+curl -fsSL "https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v${VERSION}/docker-credential-gcr_${OS}_${ARCH}-${VERSION}.tar.gz" \
+| tar xz docker-credential-gcr \
+&& chmod +x docker-credential-gcr && sudo mv docker-credential-gcr /usr/bin/
+
+
+docker-credential-gcr configure-docker --registries=us-central1-docker.pkg.dev
+
+echo "https://us-central1-docker.pkg.dev" | docker-credential-gcr get
+
+
+gcloud auth configure-docker us-central1-docker.pkg.dev
+
+us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/strapi:latest
+
+docker tag strapi us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/strapi:latest
+docker push us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/strapi:latest
+
+docker tag sinergia-image us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/sinergia-image:latest
+docker push us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/sinergia-image:latest
+
+docker tag hiluca-streamlit us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/hiluca-streamlit:latest
+docker push us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/hiluca-streamlit:latest
+
+
+Luego en la VM Creada 
+
+gcloud auth configure-docker us-central1-docker.pkg.dev
+gcloud auth login
+
+Crear un nuevo disco (google-disk-hiluca-server)
+Atacharlo a la maquina VM
+
+Formatear el Disco 
+sudo mkfs.ext4 -m 0 -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/disk/by-id/google-disk-hiluca-server
+
+sudo mkdir -p /mnt/disks/hiluca-data
+
+sudo mount -o discard,defaults /dev/disk/by-id/google-disk-hiluca-server /mnt/disks/hiluca-data
+
+sudo chmod a+w /mnt/disks/hiluca-data
+
+sudo cp /etc/fstab /etc/fstab.backup
+
+sudo blkid /dev/disk/by-id/google-disk-hiluca-server
+
+
+/dev/disk/by-id/google-disk-hiluca-server: UUID="d35b8295-04dd-4f3b-b707-438f4752d420" BLOCK_SIZE="4096" TYPE="ext4"
+
+sudo nano /etc/fstab
+
+UUID=d35b8295-04dd-4f3b-b707-438f4752d420 /mnt/disks/hiluca-data ext4 discard,defaults,nofail 0 2
+
+Setting docker to point at the path 
+
+nano /etc/docker/daemon.json
+{
+  "data-root": "/new/path/to/docker-data"
+}
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+Checking new configuration
+
+docker info|grep "Docker Root Dir"
+
+-----------------------------------------------------------------
+
+Open Ports of the service in GCP Firewall 
+
+
+gcloud auth login

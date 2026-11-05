@@ -1,0 +1,8 @@
+NQCONSULTANT ¿Cuales son las principales motivaciones y expectativas que una persona 
+como {{ person_name }} tiene para contratar un producto como {{ product_name }} si ya 
+tiene contratado en este momento una solución similar?  
+
+Crea un arreglo de estructuras sin numeracion, cada estructura tendra dos elementos, no se permite anidacion, el campo para el nombre del interes debe llamarse title 
+y el campo para la descripción del interes debe llamarse description, presentar el 
+resultado como un arreglo de objetos, generar en formato json en la forma de un arreglo de objetos, el resultado debe llamarase result.
+Genera 10 opciones.

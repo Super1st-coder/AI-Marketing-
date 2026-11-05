@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "channel_groups",
+  "info": {
+    "singularName": "channel-group",
+    "pluralName": "channel-groups",
+    "displayName": "Channel-Group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "attributes": {
+      "type": "json"
+    },
+    "type": {
+      "type": "text"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "channels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::channel-v2.channel-v2",
+      "mappedBy": "channel_group_ref2"
+    }
+  }
+}

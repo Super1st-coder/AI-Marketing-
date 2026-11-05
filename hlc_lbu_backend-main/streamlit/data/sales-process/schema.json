@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales_processes",
+  "info": {
+    "singularName": "sales-process",
+    "pluralName": "sales-processes",
+    "displayName": "sales-process"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bperson_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bperson.bperson"
+    }
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b2c_bpersona_surveys",
+  "info": {
+      "singularName": "b2c-bpersona-survey",
+      "pluralName": "b2c-bpersona-surveys",
+      "displayName": "b2c-bpersona-survey"
+  },
+  "options": {
+      "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+      "parent_ref": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::project.project"
+      },
+      "informacion-general-de-la-buyer-persona": {
+          "type": "text"
+      },
+      "como-se-llama-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-tipo-de-buyer-persona-es-b2c-b2b": {
+          "type": "text"
+      },
+      "que-rango-de-edad-tiene": {
+          "type": "text"
+      },
+      "cual-es-su-genero": {
+          "type": "text"
+      },
+      "cual-es-su-nivel-de-ingresos": {
+          "type": "text"
+      },
+      "donde-vive-o-trabaja": {
+          "type": "text"
+      },
+      "cual-es-su-titulo-o-profesion": {
+          "type": "text"
+      },
+      "que-posicion-ocupa-en-su-trabajo": {
+          "type": "text"
+      },
+      "cuales-son-sus-prioridades-de-equilibrio-entre-trabajo-y": {
+          "type": "text"
+      },
+      "problemas-con-la-solucion-actual": {
+          "type": "text"
+      },
+      "como-esta-resolviendo-esta-persona-su-problema-actualmen": {
+          "type": "text"
+      },
+      "cual-es-el-primer-problema-con-su-solucion-actual": {
+          "type": "text"
+      },
+      "cual-es-el-segundo-problema-con-su-solucion-actual": {
+          "type": "text"
+      },
+      "cual-es-el-tercer-problema-con-su-solucion-actual": {
+          "type": "text"
+      },
+      "problemas-actuales-del-buyer-persona": {
+          "type": "text"
+      },
+      "cual-es-el-desafio-mas-significativo-de-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-no-puede-hacer-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-dificultad-enfrenta-sin-esta-solucion": {
+          "type": "text"
+      },
+      "que-le-frustra-al-no-tener-nuestro-producto": {
+          "type": "text"
+      },
+      "que-necesita-y-no-tiene-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-problema-cotidiano-le-complica-la-vida-sin-esto": {
+          "type": "text"
+      },
+      "que-le-impide-alcanzar-sus-metas-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-le-tomaria-mas-tiempo-o-esfuerzo-sin-nuestra-solucio": {
+          "type": "text"
+      },
+      "que-le-costaria-mas-dinero-sin-usar-nuestro-producto": {
+          "type": "text"
+      },
+      "que-oportunidades-pierde-sin-nuestro-producto": {
+          "type": "text"
+      },
+      "que-mejoras-significativas-no-puede-lograr-sin-esto": {
+          "type": "text"
+      },
+      "objetivo-con-el-producto": {
+          "type": "text"
+      },
+      "que-logro-principal-busca-tu-cliente-con-nuestro-product": {
+          "type": "text"
+      },
+      "que-metas-secundarias-tiene-tu-cliente": {
+          "type": "text"
+      },
+      "hay-otros-objetivos-que-tu-cliente-espera-alcanzar": {
+          "type": "text"
+      },
+      "miedos-y-preocupaciones": {
+          "type": "text"
+      },
+      "cual-es-el-mayor-temor-de-tu-cliente-respecto-a-usar-nue": {
+          "type": "text"
+      },
+      "que-preocupaciones-tiene-tu-cliente-al-pensar-en-adquiri": {
+          "type": "text"
+      },
+      "existen-inquietudes-especificas-sobre-su-funcionamiento": {
+          "type": "text"
+      },
+      "que-dudas-tiene-sobre-el-costo-o-la-inversion": {
+          "type": "text"
+      },
+      "hay-preocupaciones-sobre-la-compatibilidad-o-integracion": {
+          "type": "text"
+      },
+      "que-temores-tiene-tu-cliente-sobre-la-asistencia-y-el-so": {
+          "type": "text"
+      },
+      "existen-preocupaciones-sobre-la-durabilidad-o-las-garant": {
+          "type": "text"
+      },
+      "que-dudas-tiene-tu-cliente-sobre-la-eficacia-o-los-resul": {
+          "type": "text"
+      },
+      "hay-inquietudes-sobre-la-facilidad-de-uso": {
+          "type": "text"
+      },
+      "cuales-son-las-preocupaciones-de-tu-cliente-sobre-las-ac": {
+          "type": "text"
+      },
+      "hay-otros-temores-o-preocupaciones-que-tu-cliente-haya-e": {
+          "type": "text"
+      },
+      "relaciones-personales-relevantes-persona-1": {
+          "type": "text"
+      },
+      "que-relacion-tiene-la-persona-1-con-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-edad-tiene": {
+          "type": "text"
+      },
+      "con-que-genero-se-identifica": {
+          "type": "text"
+      },
+      "cual-es-su-estado-de-relacion": {
+          "type": "text"
+      },
+      "existe-alguna-relacion-financiera-con-tu-buyer-persona": {
+          "type": "text"
+      },
+      "cual-es-su-ocupacion-principal": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-positivos-de-su-relacion-con-tu-": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-negativos-de-su-relacion-con-tu-": {
+          "type": "text"
+      },
+      "que-piensa-sobre-tu-buyer-persona-comprando-nuestro-prod": {
+          "type": "text"
+      },
+      "recuerda-algun-momento-impactante": {
+          "type": "text"
+      },
+      "relaciones-personales-relevantes-persona-2": {
+          "type": "text"
+      },
+      "que-relacion-tiene-la-persona-2-con-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-edad-tiene_1": {
+          "type": "text"
+      },
+      "con-que-genero-se-identifica_1": {
+          "type": "text"
+      },
+      "cual-es-su-estado-de-relacion_1": {
+          "type": "text"
+      },
+      "existe-alguna-relacion-financiera-con-tu-buyer-persona_1": {
+          "type": "text"
+      },
+      "cual-es-su-ocupacion-principal_1": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-positivos-de-su-relacion-con-tu-_1": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-negativos-de-su-relacion-con-tu-_1": {
+          "type": "text"
+      },
+      "que-piensa-sobre-tu-buyer-persona-comprando-nuestro-prod_1": {
+          "type": "text"
+      },
+      "recuerda-algun-momento-impactante_1": {
+          "type": "text"
+      },
+      "relaciones-personales-relevantes-persona-3": {
+          "type": "text"
+      },
+      "que-relacion-tiene-la-persona-3-con-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-edad-tiene_2": {
+          "type": "text"
+      },
+      "con-que-genero-se-identifica_2": {
+          "type": "text"
+      },
+      "cual-es-su-estado-de-relacion_2": {
+          "type": "text"
+      },
+      "existe-alguna-relacion-financiera-con-tu-buyer-persona_2": {
+          "type": "text"
+      },
+      "cual-es-su-ocupacion-principal_2": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-positivos-de-su-relacion-con-tu-_2": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-negativos-de-su-relacion-con-tu-_2": {
+          "type": "text"
+      },
+      "que-piensa-sobre-tu-buyer-persona-comprando-nuestro-prod_2": {
+          "type": "text"
+      },
+      "recuerda-algun-momento-impactante_2": {
+          "type": "text"
+      },
+      "relaciones-personales-relevantes-persona-4": {
+          "type": "text"
+      },
+      "que-relacion-tiene-la-persona-4-con-tu-buyer-persona": {
+          "type": "text"
+      },
+      "que-edad-tiene_3": {
+          "type": "text"
+      },
+      "con-que-genero-se-identifica_3": {
+          "type": "text"
+      },
+      "cual-es-su-estado-de-relacion_3": {
+          "type": "text"
+      },
+      "existe-alguna-relacion-financiera-con-tu-buyer-persona_3": {
+          "type": "text"
+      },
+      "cual-es-su-ocupacion-principal_3": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-positivos-de-su-relacion-con-tu-_3": {
+          "type": "text"
+      },
+      "cuales-son-los-aspectos-negativos-de-su-relacion-con-tu-_3": {
+          "type": "text"
+      },
+      "que-piensa-sobre-tu-buyer-persona-comprando-nuestro-prod_3": {
+          "type": "text"
+      },
+      "recuerda-algun-momento-impactante_3": {
+          "type": "text"
+      }
+  }
+}

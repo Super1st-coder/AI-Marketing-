@@ -1,0 +1,36 @@
+name: Docker Image CI
+
+on:
+ workflow_dispatch:
+
+jobs:
+
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - name: Check repository
+      uses: actions/checkout@v4
+
+    - id: auth
+      uses: google-github-actions/auth@v2
+      with:
+        service_account: githubactions@careful-acumen-422922-k4.iam.gserviceaccount.com
+        workload_identity_provider: projects/401654669410/locations/global/workloadIdentityPools/github-pool/providers/hi-luca-repo
+
+    - name: 'Configure Docker'
+      run: |
+        gcloud auth configure-docker us-central1-docker.pkg.dev
+    
+    - name: Build and push the Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: ./sinergia
+        push: true
+        tags: us-central1-docker.pkg.dev/careful-acumen-422922-k4/hiluca-docker-repository/sinergia-image-qa:latest
+     

@@ -1,0 +1,172 @@
+swagger: "2.0"
+info:
+  title: HiLuca Webhook Gateway
+  description: >
+    Gateway unificado para recibir webhooks de cualquier proveedor.
+    Rutas: /webhook/{servicio}/{version}/{entorno}
+           /webhook/{servicio}/{version}          (entorno default: prd)
+  version: "1.0.0"
+# host: integrate.hiluca.com
+schemes: [https]
+security: []
+
+# ──────────────────────────────────────────────────────────────────────────────
+# IMPORTANT: Reemplaza <ROUTER_CF_URL> con la URL de la CF webhook-router
+# después de hacer deploy:
+#   gcloud functions describe webhook-router --gen2 --region=us-central1 \
+#     --format='value(serviceConfig.uri)'
+# ──────────────────────────────────────────────────────────────────────────────
+
+paths:
+
+  # ── Ruta CON entorno explícito ─────────────────────────────────────────────
+  /webhook/{servicio}/{version}/{entorno}:
+    post:
+      operationId: webhook-receive-with-env
+      summary: Recibe un webhook (POST) con entorno explícito
+      parameters:
+        - name: servicio
+          in: path
+          required: true
+          type: string
+          description: "Slug del proveedor (ej: appsflyer, meta, stripe)"
+        - name: version
+          in: path
+          required: true
+          type: string
+          description: "Versión del contrato del webhook (ej: v1.0.0)"
+        - name: entorno
+          in: path
+          required: true
+          type: string
+          description: "Entorno destino: dev | qas | prd"
+          enum: [dev, qas, prd]
+        - in: body
+          name: body
+          schema:
+            type: object
+            additionalProperties: true
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: "Webhook recibido correctamente"
+        "401":
+          description: "Firma inválida"
+        "400":
+          description: "Servicio o versión desconocidos"
+        "500":
+          description: "Error interno"
+      x-google-backend:
+        address: <ROUTER_CF_URL>
+        jwt_audience: <ROUTER_CF_URL>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        
+
+    get:
+      operationId: webhook-receive-get-with-env
+      summary: Recibe un webhook (GET con query params) con entorno explícito
+      parameters:
+        - name: servicio
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: path
+          required: true
+          type: string
+        - name: entorno
+          in: path
+          required: true
+          type: string
+          enum: [dev, qas, prd]
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: "Webhook recibido correctamente"
+        "401":
+          description: "Firma inválida"
+      x-google-backend:
+        address: <ROUTER_CF_URL>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        
+
+  # ── Ruta SIN entorno (default: prd) ───────────────────────────────────────
+  /webhook/{servicio}/{version}:
+    post:
+      operationId: webhook-receive-default-env
+      summary: Recibe un webhook (POST) — entorno default prd
+      parameters:
+        - name: servicio
+          in: path
+          required: true
+          type: string
+          description: "Slug del proveedor (ej: appsflyer, meta, stripe)"
+        - name: version
+          in: path
+          required: true
+          type: string
+          description: "Versión del contrato del webhook (ej: v1.0.0)"
+        - in: body
+          name: body
+          schema:
+            type: object
+            additionalProperties: true
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: "Webhook recibido correctamente"
+        "401":
+          description: "Firma inválida"
+        "400":
+          description: "Servicio o versión desconocidos"
+      x-google-backend:
+        address: <ROUTER_CF_URL>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        
+
+    get:
+      operationId: webhook-receive-get-default-env
+      summary: Recibe un webhook (GET con query params) — entorno default prd
+      parameters:
+        - name: servicio
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: "Webhook recibido correctamente"
+        "401":
+          description: "Firma inválida"
+      x-google-backend:
+        address: <ROUTER_CF_URL>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        
+
+  # ── Health check ──────────────────────────────────────────────────────────
+  /webhook/health:
+    get:
+      operationId: webhook-health
+      summary: Health check del gateway
+      security: []
+      responses:
+        "200":
+          description: "OK"
+      x-google-backend:
+        address: <ROUTER_CF_URL>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        

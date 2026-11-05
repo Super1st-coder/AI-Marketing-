@@ -1,0 +1,107 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brands",
+  "info": {
+    "singularName": "brand",
+    "pluralName": "brands",
+    "displayName": "brand",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "parent_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    },
+    "brand_name": {
+      "type": "text"
+    },
+    "customer_problem_solution": {
+      "type": "text"
+    },
+    "brand_differentiator": {
+      "type": "text"
+    },
+    "brand_as_person_description": {
+      "type": "text"
+    },
+    "brand_core_value": {
+      "type": "text"
+    },
+    "brand_communication_style": {
+      "type": "text"
+    },
+    "ideal_customer_description": {
+      "type": "text"
+    },
+    "communication_goal": {
+      "type": "text"
+    },
+    "ad_text": {
+      "type": "text"
+    },
+    "email_text": {
+      "type": "text"
+    },
+    "whatsapp_conversation_text": {
+      "type": "text"
+    },
+    "scenario_context": {
+      "type": "enumeration",
+      "enum": [
+        "Lanzamiento de producto",
+        "Respuesta a una consulta",
+        "Manejo de una queja",
+        "Promoción de una oferta especial",
+        "Celebración de un hito o evento",
+        "Recordatorio de un evento o promoción"
+      ]
+    },
+    "scenario_purpose": {
+      "type": "enumeration",
+      "enum": [
+        "Informar",
+        "Persuadir",
+        "Recordar",
+        "Agradecer",
+        "Felicitar",
+        "Invitar"
+      ]
+    },
+    "scenario_audience": {
+      "type": "enumeration",
+      "enum": [
+        "Clientes actuales",
+        "Potenciales clientes",
+        "Proveedores",
+        "Empleados",
+        "Socios comerciales",
+        "Público en general"
+      ]
+    },
+    "scenario_action": {
+      "type": "enumeration",
+      "enum": [
+        "Comprar",
+        "Registrarse",
+        "Asistir a un evento",
+        "Responder",
+        "Compartir",
+        "Visitar una página web"
+      ]
+    },
+    "scenario_channel": {
+      "type": "enumeration",
+      "enum": [
+        "Publicación en redes sociales",
+        "Anuncio publicitario para redes sociales",
+        "Email",
+        "Conversación de WhatsApp"
+      ]
+    }
+  }
+}

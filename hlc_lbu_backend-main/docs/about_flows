@@ -1,0 +1,10 @@
+To get in a n8n Flow the Bearer Token to make validation in nexts Nodes
+
+# Loop over input items and add a new field called 'myNewField' to the JSON of each one
+headers = _input.all()[0].json['headers']
+body = _input.all()[0].json['body']
+
+jwt_token = headers.authorization.replace('Bearer ','')
+
+return {'jwt_token' : jwt_token, 'project_id' : body.project_id, 'email' : headers.email } 
+

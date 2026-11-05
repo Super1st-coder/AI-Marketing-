@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b2b_consultor_surveys",
+  "info": {
+    "singularName": "b2b-consultor-survey",
+    "pluralName": "b2b-consultor-surveys",
+    "displayName": "b2b-consultor-survey"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "project_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    }
+  }
+}

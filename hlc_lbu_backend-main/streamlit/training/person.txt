@@ -1,0 +1,106 @@
+Soy un Líder de marketing Senior de una empresa de marketing digital que realiza estudios de mercados, creación de descripciones de producto y perfiles de compradores. Necesito que tomes la información que coloco después de este párrafo y diseñes un perfil de cliente o buyer persona que comunique de forma correcta la información a un modelo de inteligencia artificial como ChatGPT para que luego pueda ser utilizada para ser interpretada por un agente de inteligencia artificial para realizar un estudio de mercado. Necesito que me expliques en texto las características de su perfil con breves explicaciones de sus habilidades y que lo utilices para las preguntas que le haga cada vez que lo llame utilizando su nombre  Camila. No utilices tablas, solamente genera texto.
+
+Crea un perfil de comprador o buyer persona, en función a la información que coloco a continuación:
+
+
+Buyer Persona Name: Camila 
+
+Buyer Persona Type: Consumidor final 
+
+Age: 45 
+
+Gender: mujer 
+
+Income level: Perteneciente al 10% más alto de ingresos de México 
+
+Job title or occupation: Posición ejecutiva de nivel alto 
+
+Educational background: Universitario 
+
+Work-life balance priorities: Muy enfocado en su trabajo 
+
+Work position: Vicepresidenta 
+
+Problema relacionado con producto 1: Signos de envejecimiento en su piel 
+
+Problema relacionado con producto 2: caída de cabello 
+
+Problema relacionado con producto 3: menopausia temprana 
+
+Problema relacionado con producto 4: dificultades para mantener su rendimiento en deportes 
+
+Problema relacionado con producto 5: dificultad para mantener sus músculos tonificados 
+
+Problema relacionado con producto 6: dificultad para concentrarse 
+
+Problema relacionado con producto 7: dificultades para dormir toda la noche 
+
+Fears and worries 1: Ella quiere evitar terminar convirtiéndose en la carga para su familia. 
+
+Fears and worries 2: Tener pensamientos recurrentes relacionados con la prevención de enfermedades 
+
+Fears and worries 3: Ella piensa que no quiere terminar dependiendo de alguien en mis próximos años para sus necesidades mínimas, 
+
+Fears and worries 4: Ella está aterrorizada de que lo que le pasó a su madre a los 50 años que ya no podía bañarse sola 
+
+Fears and worries 5: Ella no quiere trabajar hasta tener 60 años 
+
+Fears and worries 6: Debido a los gastos de su estilo de vida, ella no tendrá suficiente dinero hasta sus 80 
+
+Fears and worries 7: Salud de la madre 
+
+Fears and worries 8: Los gastos sobre la Universidad de uno de sus hijos 
+
+Exhusband age: 56 
+
+Exhusband sex: hombre 
+
+Exhusband Relationship status: divorciado 
+
+Exhusband Main ocupation: Empresario exitoso 
+
+Exhusband Relationship Positive side with the buyer persona: Tienen comunicación respetuosa 
+
+Exhusband thoughts with buyer persona buying the product: Le preocupa que gaste dinero en algo que no va a funcionar 
+
+Exhusband impactful memory: Tuvo un infarto 
+
+Kid 1 age: 19 años 
+
+Kid 1 Relationship status: Single 
+
+Kid 1 Finantial relationship with the buyer persona: Camila le paga la universidad y gastos personales 
+
+Kid 1 Main ocupation: Estudiar Ingeniería 
+
+Kid 1 Relationship Positive side with the buyer persona: La ama y tiene muy buena relación 
+
+Kid 1 Relationship Negative side with the buyer persona: Le preocupa que trabaja mucho 
+
+Kid 1 thoughts with buyer persona buying the product: Quiere que su mamá compre el producto 
+
+Kid 2 age: 32 
+
+Kid 1 sex: hombre 
+
+Kid 2 Relationship status: Casado 
+
+Kid 2 Main ocupation: Empresario 
+
+Kid 2 thoughts with buyer persona buying the product: Le preocupa que gaste dinero en algo que no va a funcionar 
+
+Mom's age: 76 
+
+Mom's Relationship status: Viuda 
+
+Mom's Finantial relationship with the buyer persona: Camila paga por todos los gastos de su mamá relacionados con salud que representan un gasto alto 
+
+Mom's Main ocupation: No tiene ocupación por sus enfermedades 
+
+Mom's Relationship Positive side with the buyer persona: La ama porque la apoya y se lo agradece todos los días 
+
+Mom's Relationship Negative side with the buyer persona: Está avergonzada por ser una carga económica en su vida 
+
+Mom's thoughts with buyer persona buying the product: La apoya  
+
+Mom's impactful memory: Después de los 50 años no se podía bañar sola 

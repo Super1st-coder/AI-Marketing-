@@ -1,0 +1,83 @@
+import type { ThemeDefinition } from "vuetify";
+
+export const themes: Record<string, ThemeDefinition> = {
+  light: {
+    dark: false,
+    colors: {
+      // Updated recently with Favour figma
+      primary: "#FF8811",
+      error: "#F04438",
+
+      // Legacy
+      "on-primary": "#fff",
+      "primary-darken-1": "#675DD8",
+      secondary: "#808390",
+      "on-secondary": "#fff",
+      "secondary-darken-1": "#737682",
+      success: "#28C76F",
+      "on-success": "#fff",
+      "success-darken-1": "#24B364",
+      info: "#00BAD1",
+      "on-info": "#fff",
+      "info-darken-1": "#00A7BC",
+      warning: "#FF9F43",
+      "on-warning": "#fff",
+      "warning-darken-1": "#E68F3C",
+      "on-error": "#fff",
+      "error-darken-1": "#E64449",
+      background: "#FFFF",
+      "on-background": "#3D2922E6",
+      surface: "#fff",
+      "on-surface": "#2F2B3D",
+      "grey-50": "#FAFAFA",
+      "grey-100": "#F5F5F5",
+      "grey-200": "#EEEEEE",
+      "grey-300": "#E0E0E0",
+      "grey-400": "#BDBDBD",
+      "grey-500": "#9E9E9E",
+      "grey-600": "#757575",
+      "grey-700": "#616161",
+      "grey-800": "#424242",
+      "grey-900": "#212121",
+      "grey-light": "#FAFAFA",
+      "perfect-scrollbar-thumb": "#DBDADE",
+      "skin-bordered-background": "#fff",
+      "skin-bordered-surface": "#fff",
+      "expansion-panel-text-custom-bg": "#fafafa",
+    },
+
+    variables: {
+      "code-color": "#d400ff",
+      "overlay-scrim-background": "#2F2B3D",
+      "tooltip-background": "#2F2B3D",
+      "overlay-scrim-opacity": 0.5,
+      "hover-opacity": 0.06,
+      "focus-opacity": 0.1,
+      "selected-opacity": 0.08,
+      "activated-opacity": 0.16,
+      "pressed-opacity": 0.14,
+      "dragged-opacity": 0.1,
+      "disabled-opacity": 0.4,
+      "border-color": "#2F2B3D",
+      "border-opacity": 0.12,
+      "table-header-color": "#EAEAEC",
+      "high-emphasis-opacity": 0.9,
+      "medium-emphasis-opacity": 0.7,
+      "switch-opacity": 0.2,
+      "switch-disabled-track-opacity": 0.3,
+      "switch-disabled-thumb-opacity": 0.4,
+      "switch-checked-disabled-opacity": 0.3,
+      "track-bg": "#F1F0F2",
+
+      // Shadows
+      "shadow-key-umbra-color": "#2F2B3D",
+      "shadow-xs-opacity": 0.1,
+      "shadow-sm-opacity": 0.12,
+      "shadow-md-opacity": 0.14,
+      "shadow-lg-opacity": 0.16,
+      "shadow-xl-opacity": 0.18,
+    },
+  },
+};
+
+export default themes;

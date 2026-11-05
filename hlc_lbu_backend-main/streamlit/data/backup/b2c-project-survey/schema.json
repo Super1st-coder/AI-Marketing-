@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "b2c_project_surveys",
+  "info": {
+    "singularName": "b2c-project-survey",
+    "pluralName": "b2c-project-surveys",
+    "displayName": "b2c-project-survey",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "project_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiment_categories",
+  "info": {
+    "singularName": "experiment-category",
+    "pluralName": "experiment-categories",
+    "displayName": "Experiment-Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "custom": {
+      "type": "boolean",
+      "default": true
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "experiment_categories"
+    },
+    "subcategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::experiment-subcategory.experiment-subcategory",
+      "mappedBy": "category_ref"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

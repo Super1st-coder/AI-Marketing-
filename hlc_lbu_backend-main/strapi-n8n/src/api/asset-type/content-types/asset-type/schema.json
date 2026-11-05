@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asset_types",
+  "info": {
+    "singularName": "asset-type",
+    "pluralName": "asset-types",
+    "displayName": "Asset-Type",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "content_comm_style": {
+      "type": "text"
+    },
+    "generation_prompt": {
+      "type": "text"
+    },
+    "content_template": {
+      "type": "text"
+    },
+    "image_prompt": {
+      "type": "text"
+    },
+    "image_genaration_type": {
+      "type": "text"
+    },
+    "channels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::channel-v2.channel-v2"
+    }
+  }
+}

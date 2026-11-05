@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "funnel_flow_channels",
+  "info": {
+    "singularName": "funnel-flow-channel",
+    "pluralName": "funnel-flow-channels",
+    "displayName": "Funnel-Flow-Channel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "funnel_flow_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::funnel-flow.funnel-flow"
+    },
+    "channel_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::channel-v2.channel-v2"
+    }
+  }
+}

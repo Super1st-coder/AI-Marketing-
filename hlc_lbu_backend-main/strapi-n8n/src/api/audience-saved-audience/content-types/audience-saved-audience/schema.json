@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audience_saved_audiences",
+  "info": {
+    "singularName": "audience-saved-audience",
+    "pluralName": "audience-saved-audiences",
+    "displayName": "Audience-Saved_Audience",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "attributes": {
+      "type": "json"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "saved_audiences"
+    },
+    "channel_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::channel-v2.channel-v2",
+      "inversedBy": "saved_audiences"
+    },
+    "generated_id": {
+      "type": "string"
+    },
+    "ad_set_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ad-set.ad-set",
+      "inversedBy": "saved_audiences"
+    }
+  }
+}

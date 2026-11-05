@@ -1,0 +1,130 @@
+{
+  "name": "Generate Variations BPerson",
+  "nodes": [
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nreturn {'ok': 1, 'data' : _input.item.json.output }\n"
+      },
+      "id": "b1863439-ee43-46c0-a1bd-72052f654914",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "a1701e46-5b5f-4416-8128-27f26cd6c09e",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        420,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "project-agent/bperson/generate-variation",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "2fda3f41-45bb-437c-b615-d5d7d9f0f6dd",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        0
+      ],
+      "webhookId": "31fadaae-4f87-4e42-9f65-8764827c024f"
+    },
+    {
+      "parameters": {
+        "resource": "assistant",
+        "assistantId": {
+          "__rl": true,
+          "value": "={{ $json.body.agent_id }}",
+          "mode": "id"
+        },
+        "prompt": "define",
+        "text": "={{ $json.body.agent_name }}, using the provided characteristics of a person like \"{{ $json.body.variation_name }}\", create two additional buyer personas. \n\nTake into account that this are her characteristics:\n\n{{ $json.body.variation_text }}\n\n{{ $json.body.agent_name }}, ensure that one persona is slightly less formal and the other is slightly more formal. \n\nUse the variables in the lists bellow to create detailed profiles information and also a 300 character description of each of the 2 buyer personas:\n\n        1.        Less Formal Buyer Persona:\n        •        Name: [LessFormalName]\n        •        Age: [LessFormalAge]\n        •        Occupation: [LessFormalOccupation]\n        •        Pain Points: [LessFormalPainPoints]\n        •        Current Problem Resolution: [LessFormalProblem]\n        •        Limitations Without Our Product: [LessFormalLimitations]\n        •        Desired Goal with Our Product: [LessFormalGoal]\n        •        Greatest Fear: [LessFormalFear]\n       \n\n        2.        More Formal Buyer Persona:\n        •        Name: [MoreFormalName]\n        •        Age: [MoreFormalAge]\n        •        Occupation: [MoreFormalOccupation]\n        •        Pain Points: [MoreFormalPainPoints]\n        •        Current Problem Resolution: [MoreFormalProblem]\n        •        Limitations Without Our Product: [MoreFormalLimitations]\n        •        Desired Goal with Our Product: [MoreFormalGoal]\n        •        Greatest Fear: [MoreFormalFear]\n\nGive me results directly as json array where each buyer person generated is in an array position, please don't use introductory message where make the response, Use the folowing example to build the response :\n\n[ buyernPerson1, buyerPerson2, ... , buyernPersonX]\n\nEach Buyern Person should be the following fields, \"Name\", \"Age\", \"Pain Points\", \"Current Problem Resolution\", \"Limitations Without Our Product\", \"Desired Goal with Our Product\", \"Greatest Fear\"  ",
+        "options": {}
+      },
+      "id": "be76df95-b2af-46c8-8dc4-6dfc3c508d32",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -100,
+        0
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "openAiApi": {
+          "id": "OBrbIeFXls1eI0Lr",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1fabe24f-f9a1-4e24-ac2c-8934f18626d2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "32c08c31b2271ff75d06a90332d8d32ccc5d0868424b026005c78e65c437ec86"
+  },
+  "id": "1Ztv5cVRovAa1qfx",
+  "tags": []
+}

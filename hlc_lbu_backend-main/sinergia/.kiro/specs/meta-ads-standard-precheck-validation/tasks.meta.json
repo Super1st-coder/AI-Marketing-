@@ -1,0 +1,900 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Añadir el campo `ad_channel_id: Optional[int] = None` a la dataclass `ObjectStorySpec` en `sinergia/app/v2/use_cases/facebook_validator_service.py`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086153904
+      },
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086187145
+      },
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086876784
+      }
+    ],
+    "1.2 Modificar la rama `elif self.creative_type == CreativeType.STANDARD.value:` de `MetaAdsPayloadBuilder.build_creative` (`sinergia/app/v2/use_cases/facebook_validator_service.py`) para asignar `ad_channel_id=asset_feed_spec.ad_channel_id if asset_feed_spec else None` al `ObjectStorySpec` construido, sin modificar la rama `DYNAMIC` ni `build_asset_feed_spec`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086154367
+      },
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086887301
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123297691
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123319346
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123750996
+      }
+    ],
+    "2.1 Añadir la constante de clase `_STANDARD_SUPPORTED_COMBINATIONS` (las 4 tuplas `(objective, optimization_goal)`) y el método `_is_standard_combination_supported` a `FacebookGeneratePreCheckCreativeUseCase` en `sinergia/app/v2/use_cases/meta_ads.py`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086154737
+      },
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086888663
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123297950
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123320615
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123748837
+      }
+    ],
+    "3.1 En `FacebookGeneratePreCheckCreativeUseCase.execute()` (`sinergia/app/v2/use_cases/meta_ads.py`), insertar la verificación `if self.creative_type == CreativeType.STANDARD.value and not self._is_standard_combination_supported(): raise MetaException(\"META011\", ...)` dentro del mismo bloque donde ya se lanzan `META001`-`META010` (antes de `results = []` / `for ad_set in ad_sets:`), incluyendo en el mensaje la combinación `self.objective`/`self.optimization_goal` evaluada": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086155166
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123298187
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123759874
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124072061
+      }
+    ],
+    "4.1 Implementar `_standard_candidate_values` (staticmethod puro) en `FacebookGeneratePreCheckCreativeUseCase` (`sinergia/app/v2/use_cases/meta_ads.py`), implementando literalmente la definición de Valor_Candidato del Glossary": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086155481
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123298436
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124081424
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124207296
+      }
+    ],
+    "4.2 Implementar `_validate_standard_text_field(link_data, raw_value, field_name, annotation_key, error_slug, current_ad_errors)`, parametrizable para título/cuerpo/descripción, reutilizando `MetaAdsValidator.is_valid_length`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086155818
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123298638
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124214631
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124347947
+      }
+    ],
+    "4.3 Implementar `_validate_standard_image(link_data, current_ad_errors)`, reutilizando `MetaAdsValidator.validate_images_precheck` sobre una lista sintética de un elemento": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086156020
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123298894
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124354933
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124551912
+      }
+    ],
+    "4.4 Implementar `_validate_standard_url(link_data, current_ad_errors)`, usando `MetaAdsValidator.is_valid_link_url` y evitando invocarlo con un valor falsy": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086156298
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123299123
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124575411
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124823972
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124904782
+      }
+    ],
+    "4.5 Implementar `_validate_standard_daily_budget(ad_set, object_story_spec, min_budget, current_ad_errors)`, reutilizando `min_budget` ya calculado por `_get_minimum_budget` y acotando la captura a `except TypeError`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086156530
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123299364
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124915029
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125043114
+      }
+    ],
+    "4.6 Implementar `_validate_standard_cta(link_data, current_ad_errors)`, usando `MetaAdsValidator.validate_cta_for_goal` y anotando `valid` sobre el propio diccionario `call_to_action`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086156872
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123299632
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125050762
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125289421
+      }
+    ],
+    "4.7 Implementar `_validate_standard_creative(ad_set, object_story_spec, min_budget, current_ad_errors)` como orquestador que invoca 4.2-4.6 en el orden título → cuerpo → descripción → imagen → URL → presupuesto → CTA, tratando `link_data` ausente como diccionario vacío reasignado a `object_story_spec['link_data']`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086157104
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123299897
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125302006
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125386724
+      }
+    ],
+    "5.1 Reemplazar el cuerpo de `elif self.creative_type == \"STANDARD\" and story_spec:` en `FacebookGeneratePreCheckCreativeUseCase.execute()` (`sinergia/app/v2/use_cases/meta_ads.py`) por una única llamada a `self._validate_standard_creative(ad_set, story_spec, min_budget, current_ad_errors)`, preservando el guard externo `and story_spec:` sin cambios": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086157337
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123300113
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125395699
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125617866
+      }
+    ],
+    "6. Checkpoint - núcleo de validación STANDARD": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086157663
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123300383
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125701729
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125712286
+      }
+    ],
+    "7.1 Extraer `_build_dynamic_creative_entry(self, idx, ad_set_to_publish, ad_creative)` en `sinergia/app/v2/use_cases/meta_ads.py` como copia literal del diccionario `creative_to_publish` ya existente dentro de `execute()`, sin ningún cambio de comportamiento observable": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086158002
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123300646
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125724292
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125860559
+      }
+    ],
+    "7.2 Implementar `_build_standard_creative_entry(self, idx, ad_set_to_publish, ad_creative)` en `sinergia/app/v2/use_cases/meta_ads.py`, extrayendo desde `object_story_spec`/`link_data` conforme a la tabla de mapeo de `design.md` (Requirement 12), con los valores por defecto documentados para toda clave ausente": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086158248
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123300866
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125875316
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125983933
+      }
+    ],
+    "7.3 Insertar el despacho `if self.creative_type == CreativeType.STANDARD.value: ... else: ...` en el bucle de construcción de `creatives[]` dentro de `execute()`, invocando 7.1/7.2 según corresponda": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086158494
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123301137
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125999773
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126068341
+      }
+    ],
+    "8.1 Modificar `_save_creative_to_publish` (`sinergia/app/v2/use_cases/meta_ads.py`) de forma aditiva, agregando una rama `if self.creative_type == CreativeType.STANDARD.value:` que lee `ad_channel_id` desde `object_story_spec.get('ad_channel_id', 0)`, preservando byte a byte la rama `else` existente para cualquier otro `creative_type`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086158827
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123301425
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126094815
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126204278
+      }
+    ],
+    "9. Checkpoint - núcleo productivo de la Rama_STANDARD completo": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086159138
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123301667
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126233824
+      }
+    ],
+    "10.1 Añadir a `sinergia/tests/v2/unit/use_cases/test_facebook_generate_pre_check_creative.py` los builders/parametrizaciones nuevos: la lista `STANDARD_SUPPORTED_COMBINATIONS` (con ids legibles), `make_standard_link_data_full`, y las estrategias Hypothesis `unsupported_objective_optimization_pairs`, `standard_candidate_values_with_wrong_count` y `arbitrary_text`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086159369
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123301950
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126297801
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126933426
+      }
+    ],
+    "10.2 Reescribir el helper `_run_single_standard_ad` para aceptar `objective`/`optimization_goal` con un valor por defecto perteneciente a `_STANDARD_SUPPORTED_COMBINATIONS`, y eliminar las 9 pruebas existentes de `TestExecuteStandardBranch` (reemplazadas en su totalidad, no ampliadas, conforme a la decisión de diseño documentada en `design.md`)": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086159651
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123302174
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126970125
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789127296031
+      }
+    ],
+    "11.1 Implementar `TestStandardCombinationSupport` en el archivo principal: **Property 1 (Excepción única y previa al bucle ante combinación no soportada)** vía Hypothesis invocando `execute()` completo dentro de `pytest.raises(MetaException)` verificando `code == \"META011\"` y `assert_not_called` sobre los 4 colaboradores de `MetaAdsValidator` y sobre `_save_campaign_channel_publish`/`_save_creative_to_publish`, más 4 ejemplos explícitos (uno por combinación soportada) y 1 ejemplo con `objective`/`optimization_goal` ambos `None`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086159838
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123302470
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789127314113
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789129866380
+      }
+    ],
+    "12.1 Implementar `TestStandardTextFieldValidation` en el archivo principal, parametrizada por campo (título/cuerpo/descripción): **Property 2 (conteo de candidatos ≠1)** y **Property 3 (equivalencia de longitud con `is_valid_length`)** vía Hypothesis, más los ejemplos explícitos de longitud excedida y de cantidad 0/≥2 exigidos por Requirement 15": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086160100
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123302802
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789129888798
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130484442
+      }
+    ],
+    "13.1 Implementar `TestStandardImageValidation` en el archivo principal: **Property 2 (rama imagen)** y **Property 4 (espejo del resultado de `validate_images_precheck`)**, más el ejemplo dedicado de imagen marcada inválida (distinguible del error de cantidad)": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086160396
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123303061
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130503615
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130690506
+      }
+    ],
+    "14.1 Implementar `TestStandardUrlValidation` en el archivo principal: **Property 4 (rama URL, espejo de `is_valid_link_url`)**, más el ejemplo dedicado de URL inválida y el ejemplo de URL ausente": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086160634
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123303300
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130724931
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130961882
+      }
+    ],
+    "15.1 Implementar `TestStandardDailyBudgetValidation` en el archivo principal: **Property 6 (comparación numérica válida vs. tipo no comparable)**, más el ejemplo dedicado con `daily_budget=None`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086160834
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123303544
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130986726
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789131249785
+      }
+    ],
+    "16.1 Implementar `TestStandardCtaValidation` en el archivo principal: **Property 4 (rama CTA)**, más los 3 escenarios exigidos por Requirement 15.11 (CTA válido, inválido, ausente) y 1 ejemplo de CTA truthy no-dict": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086161081
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123303787
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789131274489
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789131486002
+      }
+    ],
+    "17.1 Implementar `TestStandardAnnotationContract` en el archivo principal: **Property 5 (contrato de tres estados observables)**, invocando `_validate_standard_creative` directamente con `MetaAdsValidator` mockeado por completo bajo una combinación objetivo/optimización siempre soportada, generando combinaciones aleatorias de resultado por colaborador": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086161304
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123304024
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789131505632
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789132005659
+      }
+    ],
+    "18.1 Implementar `TestStandardCreativesEntry` en el archivo principal: **Property 8 (construcción total sin excepciones de `CreativeToPublish` para STANDARD)** vía Hypothesis sobre `object_story_spec` parcial/total/ausente, más el ejemplo dedicado de Requirement 15.7": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086161546
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123304305
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789132026240
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789133298468
+      }
+    ],
+    "19.1 Implementar `TestStandardCombinationSuccessScenarios` en el archivo principal: los 4 escenarios de éxito completos (uno por combinación soportada) usando `make_standard_link_data_full`, verificando `ok=1` y las 7 anotaciones de éxito presentes y en `True` simultáneamente": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086161781
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123304591
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789133320984
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789133989008
+      }
+    ],
+    "20.1 Implementar `TestExecuteStandardAdChannelIdReading` en el archivo principal (junto a `TestExecutePersistenceSideEffects`/`TestExecuteCombinedScenarios`): **Property 7 (rama de lectura)**, cubriendo el caso límite `ad_channel_id=None` presente explícitamente frente a clave ausente, tanto en `_save_creative_to_publish` como en `_build_standard_creative_entry`": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086161999
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123304839
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789134009151
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789134612489
+      }
+    ],
+    "21. Checkpoint - archivo principal de pruebas completo": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086162395
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123305078
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789134649737
+      }
+    ],
+    "22.1 Crear `sinergia/tests/v2/unit/use_cases/test_meta_ads_payload_builder_standard_ad_channel_id.py` con `TestBuildCreativeStandardAdChannelIdPropagation`: **Property 7 (rama builder)**, cubriendo valores de `ad_channel_id` (`None`, `0`, enteros positivos) y el caso `build_asset_feed_spec` retornando `None`, aislando `StrapiClient` sin acceso real a Strapi": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086162614
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123305339
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123761396
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124072621
+      }
+    ],
+    "23.1 Ejecutar la suite completa de `sinergia/tests/v2/unit/use_cases/test_facebook_generate_pre_check_creative.py` y confirmar que las clases `TestExecuteDynamicBranch`, `TestExecuteAggregationAndStatus`, `TestExecutePersistenceSideEffects`, `TestExecuteCombinedScenarios`, `TestExecuteCreationBlock`, `TestExecuteMissingCreative`, `TestConstructorAndInheritedState`, `TestGetDecodedAccessToken`, `TestBuildMetaPayload`, `TestGetAccountDetails` y `TestGetMinimumBudget` continúan pasando sin modificar sus aserciones, salvo el ajuste puntual permitido por Requirement 12.1 si alguna depende de la forma literal del bucle de `creatives[]` antes de la extracción de 7.1": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086162867
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123305570
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789134652868
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789137698989
+      }
+    ],
+    "24.1 Ejecutar, desde `sinergia/`, `./venv/bin/python -m pytest --collect-only -q tests/v2/unit/use_cases/test_facebook_generate_pre_check_creative.py tests/v2/unit/use_cases/test_meta_ads_payload_builder_standard_ad_channel_id.py` y `./venv/bin/python -m pytest -q -ra tests/v2/unit/use_cases/test_facebook_generate_pre_check_creative.py tests/v2/unit/use_cases/test_meta_ads_payload_builder_standard_ad_channel_id.py`, confirmando cero pruebas `failed`, cero `skipped` y cero errores de recopilación o ejecución": [
+      {
+        "executionId": "5b5359ac-2a7d-4263-9124-e4a537b5e67c",
+        "chatSessionId": "sess_34984294-4c69-48a8-a3c7-e21140cb72d6",
+        "timestamp": 1789086163075
+      },
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123305826
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789137720628
+      },
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789137804930
+      }
+    ],
+    "2. Definir las combinaciones objetivo/optimización soportadas para STANDARD": [
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123749095
+      }
+    ],
+    "1. Propagar `ad_channel_id` en `MetaAdsPayloadBuilder`": [
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789123751209
+      }
+    ],
+    "3. Insertar la guardia previa al bucle que lanza `MetaException(\"META011\", ...)`": [
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124072331
+      }
+    ],
+    "22. Probar la propagación de `ad_channel_id` en `MetaAdsPayloadBuilder`": [
+      {
+        "executionId": "63f7cbf1-60b4-4ca0-966a-21f5e9358111",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789124072940
+      }
+    ],
+    "4. Implementar los métodos privados de validación STANDARD por campo": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125387032
+      }
+    ],
+    "5. Conectar la Rama_STANDARD dentro de `execute()`": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789125618115
+      }
+    ],
+    "7. Construir `creatives[]` con despacho DYNAMIC/STANDARD": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126068634
+      }
+    ],
+    "8. Leer `ad_channel_id` en `_save_creative_to_publish`": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789126204579
+      }
+    ],
+    "10. Preparar la infraestructura de pruebas del archivo principal": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789127296289
+      }
+    ],
+    "11. Probar la guardia de combinación soportada": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789129866784
+      }
+    ],
+    "12. Probar la validación de campos de texto STANDARD": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130484788
+      }
+    ],
+    "13. Probar la validación de imagen STANDARD": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130690775
+      }
+    ],
+    "14. Probar la validación de URL STANDARD": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789130962135
+      }
+    ],
+    "15. Probar la validación de presupuesto diario STANDARD": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789131250088
+      }
+    ],
+    "16. Probar la validación de CTA STANDARD": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789131486209
+      }
+    ],
+    "17. Probar el contrato de anotación sobre `object_story_spec`": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789132006103
+      }
+    ],
+    "18. Probar la construcción de `creatives[]` para STANDARD": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789133298830
+      }
+    ],
+    "19. Probar los escenarios de éxito por combinación soportada": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789133989456
+      }
+    ],
+    "20. Probar la lectura de `ad_channel_id` dentro de `execute()`": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789134612818
+      }
+    ],
+    "23. Verificar la no regresión de la Rama_DYNAMIC y del resto de `execute()`": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789137699268
+      }
+    ],
+    "24. Ejecución final de la suite completa": [
+      {
+        "executionId": "843f42d9-2f20-41ae-a42d-d2133a8385a3",
+        "chatSessionId": "sess_009ab1e7-3502-48d7-a64d-6a5b4207f678",
+        "timestamp": 1789137805195
+      }
+    ]
+  }
+}

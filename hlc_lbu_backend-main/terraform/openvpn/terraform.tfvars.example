@@ -1,0 +1,36 @@
+# -----------------------------------------------------------------------------
+# terraform.tfvars.example
+#
+# Copy to terraform.tfvars and fill in your real values.
+# NEVER commit terraform.tfvars to version control.
+# -----------------------------------------------------------------------------
+
+# GCP project & location
+project_id = "your-gcp-project-id"
+region     = "us-central1"
+zone       = "us-central1-a"
+
+# Networking
+network_name = "vpn-network"
+subnet_name  = "vpn-subnet"
+subnet_cidr  = "10.10.0.0/24"
+
+# VM
+vpn_machine_type = "e2-micro"   # free-tier eligible in some regions
+
+# Paste your public SSH key here (cat ~/.ssh/id_ed25519.pub)
+admin_ssh_pubkey = "ssh-ed25519 AAAAC3Nza... user@laptop"
+
+# Security - restrict to your team's static egress IPs
+# SSH should ALWAYS be restricted. VPN port can be 0.0.0.0/0 if needed.
+allowed_admin_cidrs = [
+  "203.0.113.10/32",   # Office static IP
+  "198.51.100.50/32",  # Remote developer home IP
+]
+
+# Tags
+vpn_tag       = "vpn-server"
+target_vm_tag = "private-vm"
+
+# OpenVPN
+openvpn_port = 1194

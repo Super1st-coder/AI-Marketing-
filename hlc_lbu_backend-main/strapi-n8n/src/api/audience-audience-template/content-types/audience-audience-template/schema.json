@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audience_audience_templates",
+  "info": {
+    "singularName": "audience-audience-template",
+    "pluralName": "audience-audience-templates",
+    "displayName": "Audience-Audience_Template",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "age_min": {
+      "type": "integer",
+      "default": 0
+    },
+    "age_max": {
+      "type": "integer",
+      "default": 0
+    },
+    "hiluca_template": {
+      "type": "boolean",
+      "default": false
+    },
+    "interests": {
+      "type": "json"
+    },
+    "location": {
+      "type": "json"
+    },
+    "comments": {
+      "type": "text"
+    },
+    "audiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::audience-audience.audience-audience",
+      "mappedBy": "audience_template_ref"
+    },
+    "channel_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::channel-v2.channel-v2",
+      "inversedBy": "audience_templates"
+    },
+    "brand_ref": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand-v2.brand-v2",
+      "inversedBy": "audience_templates"
+    }
+  }
+}

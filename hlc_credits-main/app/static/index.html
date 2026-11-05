@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Luca Credits</title>
+<style>
+  /* Palette lifted from the reference prototype's Tailwind CSS (exp.hiluca.com/luca-credits). */
+  :root{
+    --cream:#fff8f2; --card:#ffffff; --ink:#1f1a17; --muted:#7a6e66; --line:#efe3d9;
+    --primary:#ff8811; --primary-dark:#e5760a; --accent-soft:#ffd9b3;
+    --ok:#1e9e62; --warn:#d97706; --bad:#c62828;
+    --shadow:0 1px 2px rgba(120,80,30,.06), 0 10px 30px rgba(120,80,30,.05);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:15px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  a{color:inherit}
+  nav.top{display:flex;align-items:center;gap:26px;padding:12px 24px;background:var(--card);
+          border-bottom:1px solid var(--line);flex-wrap:wrap;position:sticky;top:0;z-index:5}
+  .brand{line-height:1.05} .brand b{font-size:18px;font-weight:800;letter-spacing:-.02em}
+  .brand b span{color:var(--primary)} .brand small{display:block;font-size:10px;letter-spacing:.14em;color:var(--muted)}
+  .tabs{display:flex;gap:20px;flex-wrap:wrap} .tabs a{font-size:14px;color:var(--muted);text-decoration:none;cursor:pointer;padding:4px 0;border-bottom:2px solid transparent}
+  .tabs a.active{color:var(--ink);font-weight:600;border-bottom-color:var(--primary)}
+  .navright{margin-left:auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .chip{font-weight:800;font-size:15px} .chip .lucas{font-size:11px;font-weight:600;color:var(--muted);display:block;text-align:right;letter-spacing:.08em}
+  .date{font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .lang button{border:0;background:var(--card);padding:5px 9px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer}
+  .lang button.on{background:var(--primary);color:#fff}
+  select,input{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink)}
+  select:focus,input:focus{outline:2px solid var(--accent-soft);border-color:var(--primary)}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 24px 70px}
+  .head{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .kicker{font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+  .head h1{margin:2px 0 0;font-size:30px;letter-spacing:-.02em}
+  .head .actions{margin-left:auto;display:flex;gap:10px}
+  button.act{font:inherit;font-weight:600;padding:9px 16px;border:1px solid transparent;border-radius:10px;cursor:pointer}
+  button.primary{background:var(--primary);color:#fff} button.primary:hover{background:var(--primary-dark)}
+  button.ghost{background:var(--card);border-color:var(--line);color:var(--ink)}
+  .cards{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+  @media(max-width:900px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+  .card h3{margin:0 0 12px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .big{font-size:44px;font-weight:800;color:var(--primary);letter-spacing:-.03em;line-height:1}
+  .sub{color:var(--muted);font-size:13px;margin-top:6px}
+  .stats{display:flex;gap:22px;margin-top:16px;flex-wrap:wrap}
+  .stats .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .stats .v{font-size:20px;font-weight:700;margin-top:2px} .stats .n{font-size:11px;color:var(--muted)}
+  .bar{position:relative;height:14px;border-radius:999px;background:var(--accent-soft);overflow:hidden;margin-top:10px}
+  .bar>span{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--primary);transition:width .4s}
+  .ticks{position:relative;height:14px;margin-top:2px;font-size:10px;color:var(--muted)} .ticks i{position:absolute;transform:translateX(-50%);font-style:normal}
+  .two{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;margin-top:16px}
+  @media(max-width:900px){.two{grid-template-columns:1fr}}
+  table{width:100%;border-collapse:collapse;font-size:13px} th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace} .muted{color:var(--muted)}
+  .field{margin-bottom:12px} .field label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px}
+  .field select,.field input{width:100%}
+  .joblog{font-size:13px} .joblog .line{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+  .gatebox{margin-top:12px;padding:14px;border-radius:12px;background:#fdeeee;border:1px solid #f5c9c9;color:#991b1b;display:none}
+  .gatebox b{display:block;margin-bottom:3px}
+  .foot{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:24px;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<nav class="top">
+  <div class="brand"><b>Luca<span>Credit</span></b><small data-i18n="tag">REAL SERVICE</small></div>
+  <div class="tabs">
+    <a class="active" data-i18n="t_summary" onclick="show('resumen')">Summary</a>
+    <a data-i18n="t_try" onclick="show('demo')">Try a run</a>
+    <a data-i18n="t_registry" onclick="show('registro')">Price registry</a>
+  </div>
+  <div class="navright">
+    <div class="chip">🪙 <span id="chip">—</span><span class="lucas">LUCAS</span></div>
+    <div class="date" id="today"></div>
+    <select id="org" onchange="refresh()" title="Organization">
+      <option value="demo-org">demo-org</option>
+      <option value="alert-org">alert-org</option>
+    </select>
+    <input id="key" value="dev-key" style="width:90px" title="X-Internal-Key"/>
+    <div class="lang"><button id="lang-en" onclick="setLang('en')">EN</button><button id="lang-es" onclick="setLang('es')">ES</button></div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="head">
+    <div><div class="kicker" id="grp">ORGANIZATION</div><h1 data-i18n="h_summary">Lucas summary</h1></div>
+    <div class="actions">
+      <button class="act primary" id="buy" data-i18n="b_buy" onclick="topUp()">＋ Buy Lucas</button>
+      <button class="act ghost" data-i18n="b_try" onclick="show('demo')">Try a run</button>
+    </div>
+  </div>
+
+  <section id="resumen">
+    <div class="cards">
+      <div class="card">
+        <h3 data-i18n="c_avail">Lucas available</h3>
+        <div class="big"><span id="avail">—</span></div>
+        <div class="sub" id="dollars"></div>
+        <div class="stats">
+          <div><div class="k" data-i18n="s_lic">From license</div><div class="v" id="lic">—</div><div class="n" data-i18n="n_lic">expire at cycle close</div></div>
+          <div><div class="k" data-i18n="s_pur">Purchased</div><div class="v" id="pur">—</div><div class="n" data-i18n="n_pur">never expire</div></div>
+          <div><div class="k" data-i18n="s_res">Reserved</div><div class="v" id="res">—</div><div class="n" data-i18n="n_res">jobs in progress</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c_cycle">Cycle usage</h3>
+        <div style="font-size:22px;font-weight:700"><span id="used">—</span> <span class="muted" style="font-size:14px;font-weight:500"><span data-i18n="of">of</span> <span id="granted">—</span> (<span id="pct">0</span>%)</span></div>
+        <div class="bar"><span id="usefill" style="width:0%"></span></div>
+        <div class="ticks"><i style="left:50%">50</i><i style="left:75%">75</i><i style="left:90%">90</i></div>
+        <div class="sub" data-i18n="sub_alerts">Email alerts at 50 · 75 · 90% of the total</div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c_cap">Video cap · $100/org</h3>
+        <div style="font-size:22px;font-weight:700"><span id="vspend">—</span> <span class="muted" style="font-size:14px;font-weight:500">/ <span id="vcap">—</span></span></div>
+        <div class="bar"><span id="capfill" style="width:0%;background:var(--warn)"></span></div>
+        <div class="sub" data-i18n="sub_cap">Hard gate on “Generate videos” (LIMIT_REACHED)</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3 data-i18n="c_reg">Price registry · source of truth</h3>
+      <div class="two">
+        <div><table id="sellable"><thead><tr><th data-i18n="th_model">Model</th><th data-i18n="th_unit">$/unit</th><th data-i18n="th_mult">×mult</th><th>v</th></tr></thead><tbody></tbody></table></div>
+        <div><table id="gated"><thead><tr><th data-i18n="th_gated">Gated</th><th data-i18n="th_reason">Reason</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" style="display:none">
+    <div class="two" style="grid-template-columns:1fr 1fr">
+      <div class="card">
+        <h3 data-i18n="c_estimate">Estimate and confirm a run</h3>
+        <p class="sub" data-i18n="p_estimate" style="margin-top:0">Seeing the cost is free and holds nothing. The reservation is born on confirm and dies on finish, failure or cancel.</p>
+        <div class="field"><label data-i18n="l_model">Model</label><select id="model"></select></div>
+        <div class="field"><label data-i18n="l_qty">Quantity (sec / img / 1k)</label><input id="qty" type="number" value="8" min="1"/></div>
+        <div class="field"><label data-i18n="l_action">Action</label>
+          <select id="action">
+            <option value="video_segment">video_segment (capped)</option>
+            <option value="video_storyboard">video_storyboard</option>
+            <option value="image_single">image_single</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:10px"><button class="act ghost" data-i18n="b_est" onclick="doEstimate()">Estimate</button><button class="act primary" data-i18n="b_gen" onclick="doRun()">Generate</button></div>
+        <div class="gatebox" id="gate"></div>
+        <div class="sub" id="estout" style="margin-top:12px"></div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="c_joblog">Job log</h3>
+        <div class="joblog" id="joblog"><div class="muted" data-i18n="joblog_empty">No runs in this session yet.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="registro" style="display:none">
+    <div class="card">
+      <h3 data-i18n="c_reg2">Price registry · source of truth</h3>
+      <div class="two">
+        <div><table id="sellable2"><thead><tr><th data-i18n="th_model2">Model</th><th data-i18n="th_unit2">$/unit</th><th data-i18n="th_mult2">×mult</th><th>v</th></tr></thead><tbody></tbody></table></div>
+        <div><table id="gated2"><thead><tr><th data-i18n="th_gated2">Gated</th><th data-i18n="th_reason2">Reason</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot"><span data-i18n="foot">REAL ledger implementation · live data from the API</span><span id="build"></span></div>
+</div>
+
+<script>
+const T = {
+  en:{tag:"REAL SERVICE",t_summary:"Summary",t_try:"Try a run",t_registry:"Price registry",h_summary:"Lucas summary",
+    b_buy:"＋ Buy Lucas",b_try:"Try a run",c_avail:"Lucas available",s_lic:"From license",n_lic:"expire at cycle close",
+    s_pur:"Purchased",n_pur:"never expire",s_res:"Reserved",n_res:"jobs in progress",c_cycle:"Cycle usage",of:"of",
+    sub_alerts:"Email alerts at 50 · 75 · 90% of the total",c_cap:"Video cap · $100/org",
+    sub_cap:"Hard gate on “Generate videos” (LIMIT_REACHED)",c_reg:"Price registry · source of truth",
+    c_reg2:"Price registry · source of truth",th_model:"Model",th_unit:"$/unit",th_mult:"×mult",th_gated:"Gated",th_reason:"Reason",
+    th_model2:"Model",th_unit2:"$/unit",th_mult2:"×mult",th_gated2:"Gated",th_reason2:"Reason",
+    c_estimate:"Estimate and confirm a run",p_estimate:"Seeing the cost is free and holds nothing. The reservation is born on confirm and dies on finish, failure or cancel.",
+    l_model:"Model",l_qty:"Quantity (sec / img / 1k)",l_action:"Action",b_est:"Estimate",b_gen:"Generate",
+    c_joblog:"Job log",joblog_empty:"No runs in this session yet.",foot:"REAL ledger implementation · live data from the API",
+    grp:"ORGANIZATION",of_value:"of generation value",free_est:"Estimate (FREE, holds nothing)",
+    reserved:"Reserved",frozen:"frozen model v",charged:"Commit · charged",release:"Release · reservation",
+    limit:"Video limit reached",insuf:"Not enough Lucas",topup:"Top Up Credits"},
+  es:{tag:"SERVICIO REAL",t_summary:"Resumen",t_try:"Probar una corrida",t_registry:"Registro de precios",h_summary:"Resumen de Lucas",
+    b_buy:"＋ Comprar Lucas",b_try:"Probar una corrida",c_avail:"Lucas disponibles",s_lic:"De licencia",n_lic:"expiran al cierre",
+    s_pur:"Comprados",n_pur:"no expiran",s_res:"Reservados",n_res:"jobs en curso",c_cycle:"Consumo del ciclo",of:"de",
+    sub_alerts:"Alertas por correo al 50 · 75 · 90% del total",c_cap:"Cap de video · $100/org",
+    sub_cap:"Gate duro en “Generar videos” (LIMIT_REACHED)",c_reg:"Registro de precios · fuente de verdad",
+    c_reg2:"Registro de precios · fuente de verdad",th_model:"Modelo",th_unit:"$/unidad",th_mult:"×mult",th_gated:"Gated",th_reason:"Razón",
+    th_model2:"Modelo",th_unit2:"$/unidad",th_mult2:"×mult",th_gated2:"Gated",th_reason2:"Razón",
+    c_estimate:"Estimar y confirmar una corrida",p_estimate:"Ver el costo es gratis y no reserva nada. La reserva nace al confirmar y muere al terminar, fallar o cancelarse.",
+    l_model:"Modelo",l_qty:"Cantidad (seg / img / 1k)",l_action:"Acción",b_est:"Estimar",b_gen:"Generar",
+    c_joblog:"Bitácora del job",joblog_empty:"Aún no hay corridas en esta sesión.",foot:"Implementación REAL del ledger · datos en vivo desde la API",
+    grp:"ORGANIZACIÓN",of_value:"de valor de generación",free_est:"Estimación (GRATIS, no reserva)",
+    reserved:"Reservados",frozen:"modelo congelado v",charged:"Commit · cobrados",release:"Release · reserva",
+    limit:"Límite de video alcanzado",insuf:"Lucas insuficientes",topup:"Top Up Credits"}
+};
+let LANG = (function(){try{return localStorage.getItem("lucalang")||"en"}catch(e){return "en"}})();
+function t(k){return (T[LANG]||T.en)[k] ?? k;}
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(T[LANG][k]!=null) el.textContent=T[LANG][k];});
+  $("lang-en").classList.toggle("on",LANG==="en"); $("lang-es").classList.toggle("on",LANG==="es");
+}
+function setLang(l){ LANG=l; try{localStorage.setItem("lucalang",l)}catch(e){} applyLang(); refresh(); }
+
+const $ = id => document.getElementById(id);
+const fmt = n => (n ?? 0).toLocaleString();
+const org = () => $("org").value.trim();
+const headers = () => ({ "Content-Type":"application/json", "X-Internal-Key": $("key").value.trim() });
+async function api(path, method="GET", body){
+  const r = await fetch(path,{method,headers:headers(),body:body?JSON.stringify(body):undefined});
+  const d = await r.json().catch(()=>({}));
+  if(!r.ok){ const e=d.detail; throw {status:r.status, code:(e&&e.code)||"ERROR", message:(e&&e.message)||e||r.statusText}; }
+  return d;
+}
+function show(id){
+  ["resumen","demo","registro"].forEach(s=>$(s).style.display=s===id?"block":"none");
+  document.querySelectorAll(".tabs a").forEach((a,i)=>a.classList.toggle("active",["resumen","demo","registro"][i]===id));
+}
+async function refresh(){
+  $("grp").textContent = t("grp")+" · "+org().toUpperCase();
+  $("today").textContent = "HOY " + new Date().toLocaleDateString(LANG,{day:"2-digit",month:"short",year:"numeric"}).toUpperCase();
+  try{
+    const b = await api(`/api/v1/billing/balance/${encodeURIComponent(org())}`);
+    $("avail").textContent=fmt(b.available); $("chip").textContent=fmt(b.available);
+    $("dollars").textContent = `= $${(b.available/100).toLocaleString(undefined,{minimumFractionDigits:2})} ${t("of_value")} · 100 Lucas = $1`;
+    $("lic").textContent=fmt(b.license); $("pur").textContent=fmt(b.purchased); $("res").textContent=fmt(b.reserved);
+    $("used").textContent=fmt(b.used); $("granted").textContent=fmt(b.granted);
+    const pct=Math.round((b.usage_pct||0)*100); $("pct").textContent=pct;
+    const uf=$("usefill"); uf.style.width=Math.min(100,pct)+"%";
+    uf.style.background = pct>=90?"var(--bad)":pct>=75?"#ea580c":pct>=50?"var(--warn)":"var(--primary)";
+    $("vspend").textContent=fmt(b.video_spend); $("vcap").textContent=fmt(b.video_cap);
+    const cp=Math.round((b.video_spend/b.video_cap)*100); $("capfill").style.width=Math.min(100,cp)+"%";
+    $("capfill").style.background = cp>=100?"var(--bad)":"var(--warn)";
+    $("buy").dataset.url=b.topup_url||"";
+  }catch(e){ $("avail").textContent="—"; $("dollars").textContent=`${e.code}: ${e.message}`; }
+}
+function topUp(){ const u=$("buy").dataset.url; u?window.open(u,"_blank"):alert("No LUCA_CREDITS_TOPUP_URL configured."); }
+async function loadRegistry(){
+  try{
+    const reg=await api("/api/v1/registry");
+    const sell=reg.sellable.map(m=>`<tr><td class="mono">${m.model_id}</td><td>$${m.provider_cost_usd}</td><td>×${m.multiplier}</td><td>${m.version}</td></tr>`).join("");
+    const gate=Object.entries(reg.gated).map(([id,w])=>`<tr><td class="mono">${id}</td><td class="muted">${w}</td></tr>`).join("");
+    $("sellable").querySelector("tbody").innerHTML=sell; $("sellable2").querySelector("tbody").innerHTML=sell;
+    $("gated").querySelector("tbody").innerHTML=gate; $("gated2").querySelector("tbody").innerHTML=gate;
+    const s=$("model"); s.innerHTML=reg.sellable.map(m=>`<option>${m.model_id}</option>`).join("");
+    if(reg.sellable.some(m=>m.model_id==="minimax-h3-max")) s.value="minimax-h3-max";
+  }catch(e){}
+}
+function showGate(e){
+  const g=$("gate");
+  if(e.code==="LIMIT_REACHED"||e.code==="INSUFFICIENT_CREDITS"){
+    g.innerHTML=`<b>${e.code==="LIMIT_REACHED"?t("limit"):t("insuf")}</b>${e.message} — <a href="#" onclick="topUp();return false">${t("topup")} →</a>`;
+    g.style.display="block";
+  } else g.style.display="none";
+}
+async function doEstimate(){
+  $("gate").style.display="none";
+  try{ const r=await api("/api/v1/billing/estimate","POST",{model_id:$("model").value,qty:+$("qty").value});
+    $("estout").textContent=`${t("free_est")}: ${fmt(r.lucas)} Lucas · ${r.qty} × ${r.model_id}`;
+  }catch(e){ $("estout").textContent=`${e.code}: ${e.message}`; showGate(e); }
+}
+async function doRun(){
+  $("gate").style.display="none";
+  const job="ui-"+Date.now(), base={org_id:org(),model_id:$("model").value};
+  const lines=[], render=()=>$("joblog").innerHTML=lines.map(l=>`<div class="line"><span>${l}</span></div>`).join("");
+  try{
+    const rv=await api("/api/v1/billing/reserve","POST",{...base,job_id:job,action_id:$("action").value,brand_id:"demo",qty:+$("qty").value});
+    lines.push(`${t("reserved")} <b>${fmt(rv.lucas_reserved)}</b> Lucas · ${t("frozen")}${rv.model_version}`); render();
+    const cm=await api("/api/v1/billing/commit","POST",{...base,job_id:job,step_id:"s1",qty_real:+$("qty").value});
+    lines.push(`${t("charged")} <b>${fmt(cm.lucas_committed)}</b> Lucas`); render();
+    const rl=await api("/api/v1/billing/release","POST",{org_id:org(),job_id:job,reason:"done"});
+    lines.push(`${t("release")} <b>${rl.status}</b>`); render(); refresh();
+  }catch(e){ lines.push(`✗ ${e.code}: ${e.message}`); render(); showGate(e); }
+}
+applyLang(); fetch("/health").then(r=>r.json()).then(h=>$("build").textContent=h.build).catch(()=>{});
+loadRegistry(); refresh();
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scenario_contexts",
+  "info": {
+    "singularName": "scenario-context",
+    "pluralName": "scenario-contexts",
+    "displayName": "scenario-context",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "parent_ref": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bperson.bperson"
+    },
+    "definition": {
+      "type": "json"
+    },
+    "is_favorite": {
+      "type": "boolean"
+    },
+    "was_improved": {
+      "type": "boolean"
+    },
+    "from_another": {
+      "type": "boolean"
+    }
+  }
+}
